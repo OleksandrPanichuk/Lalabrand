@@ -1,23 +1,13 @@
-import { ApolloProvider } from '@/components/providers'
-import { constructRootMetadata } from '@/shared/metadata'
-import type { Metadata } from 'next'
+import { PropsWithChildren } from 'react'
 
-import '@/styles/globals.scss'
-
-//TODO: Add font
-
-export const metadata: Metadata = constructRootMetadata()
-
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
+const Layout = ({ children }: PropsWithChildren) => {
 	return (
-		<html lang='en'>
+		<html>
 			<body>
-				<ApolloProvider>{children}</ApolloProvider>
+				{children}
 			</body>
 		</html>
 	)
 }
+
+export default Layout

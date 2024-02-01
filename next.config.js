@@ -1,4 +1,10 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+const withNextIntl = createNextIntlPlugin();
+
+ 
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,4 +18,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)
