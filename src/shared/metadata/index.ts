@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types'
 
 export const baseMetadata = {
-	title: '',
+	title: 'Lalabrand',
 	description: '',
 	applicationName: '',
 	url: APP_URL,

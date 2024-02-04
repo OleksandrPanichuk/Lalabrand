@@ -1,5 +1,14 @@
 {
 	"Index": {
 		"title":"Heading"
+	},
+	"Header": {
+		"Links": {
+			"Women":"Women",
+			"Men":"Men",
+			"Sale":"Sale",
+			"Kids":"Kids",
+			"Accessories":"Accessories"
+		}
 	}
 }
