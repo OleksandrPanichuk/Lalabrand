@@ -8,7 +8,6 @@ import '@/styles/globals.scss'
 import { NextIntlClientProvider } from 'next-intl'
 import { Montserrat} from 'next/font/google'
 
-//TODO: Add font
 
 const montserrat = Montserrat({
 	weight: ['600', '400'],

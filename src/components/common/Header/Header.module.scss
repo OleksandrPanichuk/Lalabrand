@@ -1,0 +1,18 @@
+.header {
+	@apply py-[1.875rem] w-full items-center px-4 fixed top-0;
+	display: grid;
+	grid-template-columns: 2fr 6fr 1fr 1fr;
+	gap: 1rem;
+}
+
+.menu {
+	&__list {
+		@apply flex items-center gap-x-4;
+	}
+	&__item {
+		@apply font-semibold text-xl leading-5;
+		&--sale {
+			color: #950707;
+		}
+	}
+}
