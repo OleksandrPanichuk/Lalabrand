@@ -1,62 +1,46 @@
 'use client'
 
-import { LanguageSelect, Logo } from '@/components/common'
+import { Logo } from '@/components/common'
 
-import { cn } from '@/lib'
 import { Routes } from '@/shared/constants'
 import { Link } from '@/shared/navigation'
 import { Heart, ShoppingCart, User } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { headerLinks } from './Header.data'
 import styles from './Header.module.scss'
+import { LanguageSelect, MobileNavbar, Navbar, SearchBar } from './components'
 
 export const Header = () => {
-	const t = useTranslations()
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
 				<Logo />
 			</div>
-			<nav>
-				<ul className={styles.menu__list}>
-					{headerLinks.map(link => (
-						<li key={link.href}>
-							<Link
-								className={cn(
-									styles.menu__item,
-									link.href === Routes.SALE && styles['menu__item--sale']
-								)}
-								href={link.href}
-							>
-								{t(link.key)}
-							</Link>
-						</li>
-					))}
-				</ul>
-			</nav>
-			<div className='flex justify-end'>
-				{/* TODO: Search Input */}
+			<div className={styles['mobile-navbar']}>
+				<MobileNavbar />
+			</div>
+			<Navbar className={styles.navbar} />
+			<div className={styles['language-select']}>
 				<LanguageSelect />
 			</div>
-			<nav className='flex justify-end'>
-				<ul className='flex items-center gap-2'>
+			<div className={styles['right-side']}>
+				<SearchBar />
+				<ul className={styles['right-side__links']}>
 					<li>
-						<Link href={Routes.WISHLIST}>
+						<Link className={styles.link} href={Routes.WISHLIST}>
 							<Heart />
 						</Link>
 					</li>
 					<li>
-						<Link href={Routes.PROFILE}>
-							<User />
-						</Link>
-					</li>
-					<li>
-						<Link href={Routes.CART}>
+						<Link className={styles.link} href={Routes.CART}>
 							<ShoppingCart />
 						</Link>
 					</li>
+					<li>
+						<Link className={styles.link} href={Routes.PROFILE}>
+							<User />
+						</Link>
+					</li>
 				</ul>
-			</nav>
+			</div>
 		</header>
 	)
 }

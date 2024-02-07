@@ -1,6 +1,6 @@
 import { Routes } from "@/shared/constants"
 
-export const headerLinks = [
+export const navbarLinks = [
 	{
 		href: Routes.SHOP_WOMEN,
 		key: 'Header.Links.Women',

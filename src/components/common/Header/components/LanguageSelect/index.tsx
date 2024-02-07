@@ -3,7 +3,7 @@ import { usePathname, useRouter } from '@/shared/navigation'
 import { useLocale } from 'next-intl'
 
 import { cn } from '@/lib'
-import { Listbox } from '@headlessui/react'
+import { Listbox, Transition } from '@headlessui/react'
 import { ChevronDown } from 'lucide-react'
 import { Fragment } from 'react'
 import styles from './LanguageSelect.module.scss'
@@ -30,7 +30,7 @@ export const LanguageSelect = () => {
 	return (
 		<Listbox value={locale} onChange={onLanguageChange}>
 			<div className={'relative'}>
-				<Listbox.Button className={'flex  gap-1'}>
+				<Listbox.Button className={styles.trigger}>
 					{({ open, value }) => (
 						<>
 							{options.find(opt => opt.value === value)?.label}
@@ -40,24 +40,33 @@ export const LanguageSelect = () => {
 						</>
 					)}
 				</Listbox.Button>
-				<Listbox.Options
-					className={'absolute top-110% border border-solid border-border '}
+				<Transition
+					enter='transition-opacity  duration-200 ease-in-out'
+					enterFrom='opacity-0'
+					enterTo='opacity-100 '
+					leave=' duration-200 transition-opacity ease-in-out'
+					leaveFrom='opacity-100 '
+					leaveTo='opacity-0'
 				>
-					{options.map((option, index) => (
-						<Fragment key={option.value}>
-							<Listbox.Option value={option.value}>
-								{({ selected }) => (
-									<span className={cn(selected && 'text-rose-700')}>
-										{option.label}
-									</span>
+					<Listbox.Options className={styles.options}>
+						<hr className='h-[1px] bg-border' />
+						{options.map((option, index) => (
+							<Fragment key={option.value}>
+								<Listbox.Option className={styles.option} value={option.value}>
+									{({ selected }) => (
+										<span className={cn(selected && styles.selected)}>
+											{option.label}
+										</span>
+									)}
+								</Listbox.Option>
+
+								{index !== options.length - 1 && (
+									<hr className='h-[1px] bg-border' />
 								)}
-							</Listbox.Option>
-							{index !== options.length - 1 && (
-								<hr className='h-[1px] bg-border' />
-							)}
-						</Fragment>
-					))}
-				</Listbox.Options>
+							</Fragment>
+						))}
+					</Listbox.Options>
+				</Transition>
 			</div>
 		</Listbox>
 	)

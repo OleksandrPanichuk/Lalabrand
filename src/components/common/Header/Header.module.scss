@@ -1,18 +1,54 @@
+@import '@/styles/mixins.scss';
+
+$media-query: 75rem;
+
 .header {
-	@apply py-[1.875rem] w-full items-center px-4 fixed top-0;
-	display: grid;
-	grid-template-columns: 2fr 6fr 1fr 1fr;
-	gap: 1rem;
+	@apply py-[1.875rem] w-full flex gap-2 items-center px-4 fixed top-0;
 }
 
-.menu {
-	&__list {
-		@apply flex items-center gap-x-4;
+.link {
+	color: #222222;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		color: black;
 	}
-	&__item {
-		@apply font-semibold text-xl leading-5;
-		&--sale {
-			color: #950707;
-		}
+}
+
+.logo {
+	flex: 2;
+	@include screen-lg-max {
+		display: none;
 	}
+}
+
+.language-select {
+	@apply flex justify-end;
+	flex: 1;
+}
+
+.navbar {
+	flex: 6;
+	@include screen-lg-max {
+		display: none;
+	}
+}
+
+.right-side {
+	@apply flex justify-end gap-2;
+	flex: 3;
+	@media screen and (max-width: $media-query) and (min-width: $screen-lg-min) {
+		flex: 1;
+	}
+
+	&__links {
+		@apply flex items-center gap-2;
+	}
+}
+
+.mobile-navbar {
+	@include screen-lg-min {
+		display: none;
+	}
+	flex: 100;
 }

@@ -1,0 +1,33 @@
+$media-query: 75rem;
+
+.wrapper {
+	max-width: 14.25rem;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+
+	border-bottom: solid 1px #a1a1a1;
+	@media screen and (max-width: $media-query) {
+		border-bottom: none;
+		max-width: 1.5rem;
+	}
+}
+
+.input {
+	font-size: 1rem;
+	padding: 2px 0;
+	font-weight: 500;
+	&::placeholder {
+		color: #cbcbcb;
+	}
+
+	@media screen and (max-width: $media-query) {
+		display: none;
+	}
+}
+
+
+.icon {
+	cursor: pointer;
+}
