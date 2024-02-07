@@ -1,14 +1,23 @@
 {
 	"Index": {
-		"title":"Heading"
+		"title": "Heading"
 	},
 	"Header": {
 		"Links": {
-			"Women":"Women",
-			"Men":"Men",
-			"Sale":"Sale",
-			"Kids":"Kids",
-			"Accessories":"Accessories"
+			"Women": "Women",
+			"Men": "Men",
+			"Sale": "Sale",
+			"Kids": "Kids",
+			"Accessories": "Accessories"
+		}
+	},
+	"Footer": {
+		"Links": {
+			"Customer_Service": "Customer Service",
+			"Track my order": "Track my order",
+			"Legal & Privacy": "Legal & Privacy",
+			"Contact": "Contact",
+			"FAQ": "FAQ"
 		}
 	}
 }

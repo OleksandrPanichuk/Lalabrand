@@ -1,0 +1,90 @@
+.footer {
+  padding: 60px 64px 45px;
+  background-color: #d7d7d7;
+  font-weight: 500;
+  font-size: 24px;
+  color: #2d2d2d;
+}
+
+.limiter {
+  max-width: 1312px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 175px;
+  row-gap: 106px;
+
+  & h2 {
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #000;
+  }
+
+  & > ul {
+    display: flex;
+  }
+}
+
+.nav {
+  gap: 36px;
+
+  & > li {
+    width: 225px;
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
+
+.subscribe {
+  width: 390px;
+
+  & > p {
+    margin-bottom: 24px;
+  }
+  & > form {
+    position: relative;
+    width: 320px;
+    height: 52px;
+    border: 1px solid black;
+  }
+
+  & input {
+    padding: 11px 12px;
+    line-height: 1;
+    background-color: inherit;
+  }
+
+  & input::placeholder {
+    font-weight: 500;
+    color: inherit;
+  }
+
+  & button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.logo {
+  display: flex;
+  gap: 22px;
+  align-items: baseline;
+  color: #000;
+}
+
+.social {
+  margin-left: auto;
+  padding-bottom: 38px;
+  gap: 16px;
+
+  & > li:first-child svg {
+    fill: transparent;
+  }
+}

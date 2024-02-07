@@ -1,0 +1,7 @@
+.chevron {
+  transition: rotate 0.3s ease-in-out;
+
+  &--open {
+    rotate: 180deg;
+  }
+}

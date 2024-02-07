@@ -1,10 +1,11 @@
-'use client'
-
-import { useTranslations } from 'next-intl'
+import { Footer } from '@/components/common/Footer';
 
 const Page = () => {
-	const t = useTranslations('Index')
-	return <div>{t('title')}</div>
-}
+  return (
+    <div>
+      <Footer />
+    </div>
+  );
+};
 
-export default Page
+export default Page;

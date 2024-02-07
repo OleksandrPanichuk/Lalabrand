@@ -1,0 +1,7 @@
+.logo {
+  @apply font-medium text-3xl leading-[2.8125rem];
+  letter-spacing: -1.1%;
+}
+.accent {
+  @apply text-custom-red text-[2rem] leading-[3rem];
+}
