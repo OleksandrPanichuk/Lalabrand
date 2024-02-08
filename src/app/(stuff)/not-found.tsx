@@ -2,9 +2,9 @@
 //TODO: Not found page
 const NotFound = () => {
 	return (
-		<html>
-			<body>NotFound</body>
-		</html>
+		<div>
+			<p>NotFound</p>
+		</div>
 	)
 }
 
