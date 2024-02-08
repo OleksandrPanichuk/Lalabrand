@@ -13,5 +13,10 @@ export enum Routes {
   TRACK_ORDER = '/track-order',
   LEGAL_PRIVACY = '/legal_privacy',
   CONTACT = '/contact',
-  FAQ = '/faq',
+  REFUND = '/refund',
+  ACCOUNT = '/account',
+  LOCATIONS = '/location',
+  CAREER = '/career',
+  GIFT_CARDS = '/gift-cards',
+  ABOUT_US = '/about-us',
 }

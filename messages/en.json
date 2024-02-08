@@ -12,12 +12,30 @@
 		}
 	},
 	"Footer": {
+		"Titles": {
+			"Shop": "Shop",
+			"About": "About",
+			"Help": "Help",
+			"Get more deals": "Get more deals",
+			"Email": "Email"
+		},
 		"Links": {
-			"Customer_Service": "Customer Service",
+			"Customer Service": "Customer Service",
 			"Track my order": "Track my order",
 			"Legal & Privacy": "Legal & Privacy",
 			"Contact": "Contact",
-			"FAQ": "FAQ"
+			"About us": "About us",
+			"Gift cards": "Gift cards",
+			"Career": "Career",
+			"Locations": "Locations",
+			"My account": "My account",
+			"Return and replace": "Return and replace"
+		},
+		"Buttons": {
+			"Join": "Join"
+		},
+		"Text": {
+			"Subscribe": "Join now and get 10% off your next purchase!"
 		}
 	}
 }

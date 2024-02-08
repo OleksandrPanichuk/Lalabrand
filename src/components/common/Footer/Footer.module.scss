@@ -1,25 +1,21 @@
 .footer {
-  padding: 60px 64px 45px;
-  background-color: #d7d7d7;
+  padding: 60px 96px 90px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
+  line-height: calc(24 / 20);
   color: #2d2d2d;
+  border-top: 2px solid rgb(149, 7, 7);
 }
 
 .limiter {
   max-width: 1312px;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 175px;
-  row-gap: 106px;
+  row-gap: 83px;
 
-  & h2 {
+  & h3 {
     margin-bottom: 24px;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    color: #000;
+    font-weight: 700;
   }
 
   & > ul {
@@ -28,63 +24,124 @@
 }
 
 .nav {
-  gap: 36px;
+  // gap: 120px;
 
   & > li {
-    width: 225px;
+    min-width: 237px;
+
     & > ul {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 13px;
     }
+  }
+
+  & a:hover {
+    font-weight: 600;
+    color: #767676;
   }
 }
 
 .subscribe {
-  width: 390px;
+  margin-left: auto;
+  width: 386px;
 
   & > p {
-    margin-bottom: 24px;
+    margin-bottom: 37px;
+    width: 328px;
   }
   & > form {
-    position: relative;
-    width: 320px;
-    height: 52px;
-    border: 1px solid black;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  & label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 600;
   }
 
   & input {
-    padding: 11px 12px;
+    padding: 12px;
+    width: 288px;
+    height: 48px;
     line-height: 1;
     background-color: inherit;
+    border: 0.5px solid #767676;
+
+    &:hover {
+      border: 0.5px solid rgba(149, 7, 7, 0.5);
+    }
   }
 
   & input::placeholder {
-    font-weight: 500;
-    color: inherit;
+    font-weight: 400;
+    color: #767676;
   }
 
   & button {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    width: 94px;
+    height: 48px;
+    font-weight: 500;
+    border: 0.5px solid #767676;
+
+    & svg {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      fill: rgb(149, 7, 7);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      color: transparent;
+      border: 0.5px solid rgba(149, 7, 7, 0.5);
+    }
   }
 }
 
 .logo {
   display: flex;
-  gap: 22px;
-  align-items: baseline;
-  color: #000;
+  gap: 32px;
+  align-items: center;
+
+  & a {
+    padding-top: 2px;
+    height: 48px;
+  }
+
+  & > p {
+    color: #a1a1a1;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+
+  & > p > a {
+    text-decoration: underline;
+  }
 }
 
 .social {
   margin-left: auto;
-  padding-bottom: 38px;
-  gap: 16px;
+  align-items: flex-end;
+  gap: 12px;
 
-  & > li:first-child svg {
+  & svg:hover {
+    scale: 1.2;
+    fill: #767676;
+    stroke: #767676;
+  }
+  & > li:nth-child(2) svg {
     fill: transparent;
   }
 }

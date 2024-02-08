@@ -6,7 +6,7 @@ import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { Link } from '@/shared/navigation';
 import { useTranslations } from 'next-intl';
-import { footerLinks, socialLinks } from './Footer.data';
+import { footerLinks, socialLinks, column } from './Footer.data';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import css from './Footer.module.scss';
 
@@ -20,34 +20,45 @@ export const Footer = () => {
     <footer className={css.footer}>
       <div className={css.limiter}>
         <ul className={css.nav}>
-          {footerLinks.map((el) => (
-            <li key={Object.keys(el)[0]}>
-              <h2>{Object.keys(el)[0]}</h2>
+          {footerLinks.map((el, index) => (
+            <li key={index}>
+              <h3>{Object.keys(column[index])[0]}</h3>
               <ul>
-                {Object.values(el)[0].map(
-                  (item: { href: string; key: string }) => (
-                    <li key={item.key}>
-                      <Link href={item.href}>{t(item.key)}</Link>
-                    </li>
-                  ),
-                )}
+                {el.map((item: { href: string; key: string }) => (
+                  <li key={item.key}>
+                    <Link href={item.href}>{t(item.key)}</Link>
+                  </li>
+                ))}
               </ul>
             </li>
           ))}
         </ul>
         <div className={css.subscribe}>
-          <h2>Subscribe to see more</h2>
-          <p>Join now and get 10% off your next purchase!</p>
+          <h3>{t('Footer.Titles.Get more deals')}</h3>
+          <p>{t('Footer.Text.Subscribe')}</p>
           <form onSubmit={onSubmit}>
-            <input name="email" type="email" placeholder="Email" />
+            <label>
+              {t('Footer.Titles.Email')}
+              <input
+                name="email"
+                type="email"
+                placeholder="example@gmail.com"
+              />
+            </label>
+
             <button type="submit">
-              <SvgIcon name="arrow" width={43} height={16} />
+              Join
+              <SvgIcon name={'arrow'} width={48} height={16} />
             </button>
           </form>
         </div>
         <div className={css.logo}>
           <Logo />
-          <p>© 2024</p>
+          <p>
+            © 2024 All materials were taken as part of a case study project
+            from the{' '}
+            <Link href="https://www2.hm.com/en_us/index.html">H&M website</Link>
+          </p>
         </div>
         <ul className={css.social}>
           {socialLinks.map((el) => (
