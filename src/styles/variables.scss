@@ -5,6 +5,9 @@ $containerPadding: 16;
 $containerWidth: calc($maxWidthContainer + $containerPadding * 2);
 
 
+	$screen-lg-min: 64rem; //1024px
+	$screen-lg-max: calc(64rem - 0.02px);
 
-$screen-lg-min: 64rem;
-$screen-lg-max: calc(1024px - 0.02px);
+
+	$screen-xs-max: calc(30rem - 0.02px); // 480px
+	$screen-xs-min: 30rem;

@@ -1,64 +1,48 @@
 'use client'
-import { useDisclosure } from '@/hooks'
-import { Dialog, Transition } from '@headlessui/react'
+import { useDebounce } from '@/hooks'
+import { Transition } from '@headlessui/react'
 import { Search } from 'lucide-react'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
+import { useClickOutside } from './SearchBar.hooks'
 import styles from './SearchBar.module.scss'
+import { SearchResults } from '..'
 
 export const SearchBar = () => {
-	const { isOpen, open, close } = useDisclosure()
+	const [open, setOpen] = useState<boolean>(false)
+
+	const popoverRef = useRef<HTMLDivElement>(null)
+	const labelRef = useRef<HTMLLabelElement>(null)
+
+	useClickOutside(popoverRef, labelRef, () => setOpen(false))
+
 	const [searchValue, setSearchValue] = useState<string>('')
+	const debouncedSearchValue = useDebounce(searchValue)
+
+	useEffect(() => {
+		setOpen(!!debouncedSearchValue)
+	}, [debouncedSearchValue])
+
+	const onFocus = () => {
+		if (debouncedSearchValue && !open) {
+			setOpen(true)
+		}
+	}
+
 	return (
-		<>
-			<label onClick={open} className={styles.label}>
+		<div className='relative'>
+			<label ref={labelRef} className={styles.label}>
 				<input
+					onFocus={onFocus}
 					aria-label='search products'
 					value={searchValue}
-					readOnly
+					onChange={e => setSearchValue(e.target.value)}
 					className={styles.input}
 					placeholder='search products'
 				/>
 				<Search className={styles.icon} />
 			</label>
 
-			<Transition appear show={isOpen} as={Fragment}>
-				<Dialog as='div' className='relative z-50' onClose={close}>
-					<Transition.Child
-						as={Fragment}
-						enter='ease-out duration-300'
-						enterFrom='opacity-0'
-						enterTo='opacity-100'
-						leave='ease-in duration-200'
-						leaveFrom='opacity-100'
-						leaveTo='opacity-0'
-					>
-						<div className={styles.overlay} />
-					</Transition.Child>
-
-					<div className={styles.wrapper}>
-						<div className={styles.container}>
-							<Transition.Child
-								as={Fragment}
-								enter='ease-out duration-300'
-								enterFrom='opacity-0 scale-95'
-								enterTo='opacity-100 scale-100'
-								leave='ease-in duration-200'
-								leaveFrom='opacity-100 scale-100'
-								leaveTo='opacity-0 scale-95'
-							>
-								<Dialog.Panel className={styles.panel}>
-									<input
-										value={searchValue}
-										onChange={e => setSearchValue(e.target.value)}
-										placeholder='Search products'
-										className={styles['modal-input']}
-									/>
-								</Dialog.Panel>
-							</Transition.Child>
-						</div>
-					</div>
-				</Dialog>
-			</Transition>
-		</>
+			<SearchResults ref={popoverRef} isOpen={open} searchValue={debouncedSearchValue} resetSearchValue={() => setSearchValue('')}  />
+		</div>
 	)
 }

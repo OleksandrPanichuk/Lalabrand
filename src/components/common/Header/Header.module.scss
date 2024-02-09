@@ -1,6 +1,6 @@
 @import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
 
-$media-query: 75rem;
 
 .header {
 	@apply py-[1.875rem] w-full flex gap-2 items-center px-4 fixed top-0;
@@ -37,7 +37,7 @@ $media-query: 75rem;
 .right-side {
 	@apply flex justify-end gap-2;
 	flex: 3;
-	@media screen and (max-width: $media-query) and (min-width: $screen-lg-min) {
+	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-lg-min) {
 		flex: 1;
 	}
 
@@ -47,8 +47,5 @@ $media-query: 75rem;
 }
 
 .mobile-navbar {
-	@include screen-lg-min {
-		display: none;
-	}
 	flex: 100;
 }
