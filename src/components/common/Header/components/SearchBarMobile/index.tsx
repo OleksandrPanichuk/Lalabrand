@@ -19,9 +19,9 @@ export const SearchBarMobile = () => {
 	const t = useTranslations('Header.SearchBar')
 
 	const popoverRef = useRef<HTMLDivElement>(null)
-	const labelRef = useRef<HTMLLabelElement>(null)
+	const searchFieldRef = useRef<HTMLFormElement>(null)
 
-	useClickOutside([popoverRef, labelRef], () => setOpen(false))
+	useClickOutside([popoverRef, searchFieldRef], () => setOpen(false))
 
 	useEffect(() => {
 		setOpen(!!debouncedSearchValue)
@@ -35,7 +35,7 @@ export const SearchBarMobile = () => {
 
 	return (
 		<>
-			<button onClick={() => setIsVisible(true)}>
+			<button className={styles.trigger} onClick={() => setIsVisible(true)}>
 				<SearchIcon />
 			</button>
 
@@ -51,16 +51,19 @@ export const SearchBarMobile = () => {
 			>
 				<div className={styles.container}>
 					<div className={styles.wrapper}>
-						<label className={styles.label} ref={labelRef}>
+						<form onSubmit={(e) => e.preventDefault()} className={styles.label} ref={searchFieldRef}>
 							<SearchIcon />
-							<input
-								onFocus={onFocus}
-								aria-label='search products'
-								value={searchValue}
-								onChange={e => setSearchValue(e.target.value)}
-								placeholder={t('Placeholder')}
-							/>
-						</label>
+
+							<label>
+								<input
+									onFocus={onFocus}
+									aria-label='search products'
+									value={searchValue}
+									onChange={e => setSearchValue(e.target.value)}
+									placeholder={t('Placeholder')}
+								/>
+							</label>
+						</form>
 						<button onClick={() => setIsVisible(false)}>
 							<XIcon />
 						</button>

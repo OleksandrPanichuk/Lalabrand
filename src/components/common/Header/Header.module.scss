@@ -1,9 +1,12 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
-
 .header {
-	@apply py-[1.875rem] w-full flex gap-2 items-center px-4 fixed top-0;
+	@apply w-full flex gap-2 items-center  fixed top-0;
+	@include adaptive-value('padding-bottom', 40, 20);
+	@include adaptive-value('padding-top', 40, 20);
+	@include adaptive-value('padding-left', 32, 8);
+	@include adaptive-value('padding-right', 32, 8);
 }
 
 .link {
@@ -16,15 +19,10 @@
 }
 
 .logo {
-	flex: 2;
 	@include screen-lg-max {
 		display: none;
 	}
-}
-
-.language-select {
-	@apply flex justify-end;
-	flex: 1;
+	margin-right: 1rem;
 }
 
 .navbar {
@@ -36,7 +34,7 @@
 
 .right-side {
 	@apply flex justify-end gap-2;
-	flex: 3;
+	flex: 4;
 	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-lg-min) {
 		flex: 1;
 	}

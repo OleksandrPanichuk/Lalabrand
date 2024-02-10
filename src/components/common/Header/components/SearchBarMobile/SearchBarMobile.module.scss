@@ -1,3 +1,5 @@
+@import '@/styles/mixins.scss';
+
 .container {
 	position: absolute;
 	top: 0px;
@@ -9,8 +11,14 @@
 	background-color: white;
 }
 
+.trigger {
+	@include screen-xs-min {
+		display: none;
+	}
+}
+
 .wrapper {
-	padding: 0 0.5rem;
+	padding: 0 1rem;
 	width: 100%;
 	display: flex;
 	align-items: center;

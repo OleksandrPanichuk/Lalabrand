@@ -1,13 +1,18 @@
 'use client'
 
-import { Logo, Visibility } from '@/components/common'
+import { Logo, SvgIcon, Visibility } from '@/components/common'
 
 import { Routes, cssVariables } from '@/shared/constants'
 import { Link } from '@/shared/navigation'
-import { Heart, ShoppingCart, User } from 'lucide-react'
+import { Heart, User } from 'lucide-react'
 import styles from './Header.module.scss'
-import { LanguageSelect, MobileNavbar, Navbar, SearchBar,SearchBarMobile } from './components'
-
+import {
+	LanguageSelect,
+	MobileNavbar,
+	Navbar,
+	SearchBar,
+	SearchBarMobile,
+} from './components'
 
 export const Header = () => {
 	return (
@@ -17,12 +22,8 @@ export const Header = () => {
 				fallback
 				breakpoint={`(min-width: ${cssVariables.screenLg})`}
 			>
-				<>
-					<div className={styles.logo}>
-						<Logo />
-					</div>
-					<Navbar className={styles.navbar} />
-				</>
+				<Logo className={styles.logo} />
+				<Navbar className={styles.navbar} />
 			</Visibility>
 			<Visibility
 				ssr
@@ -33,10 +34,7 @@ export const Header = () => {
 					<MobileNavbar />
 				</div>
 			</Visibility>
-			<div className={styles['language-select']}>
-				<LanguageSelect />
-			</div>
-
+			<LanguageSelect />
 			<div className={styles['right-side']}>
 				<Visibility
 					ssr
@@ -59,13 +57,13 @@ export const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link className={styles.link} href={Routes.CART}>
-							<ShoppingCart />
+						<Link className={styles.link} href={Routes.PROFILE}>
+							<User />
 						</Link>
 					</li>
 					<li>
-						<Link className={styles.link} href={Routes.PROFILE}>
-							<User />
+						<Link className={styles.link} href={Routes.CART}>
+							<SvgIcon name='cart' />
 						</Link>
 					</li>
 				</ul>

@@ -19,6 +19,8 @@ const options = [
 	},
 ]
 
+
+
 export const LanguageSelect = () => {
 	const pathname = usePathname()
 	const router = useRouter()
@@ -47,6 +49,7 @@ export const LanguageSelect = () => {
 					leave=' duration-200 transition-opacity ease-in-out'
 					leaveFrom='opacity-100 '
 					leaveTo='opacity-0'
+					as={Fragment}
 				>
 					<Listbox.Options className={styles.options}>
 						<hr className='h-[1px] bg-border' />
