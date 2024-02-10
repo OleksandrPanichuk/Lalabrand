@@ -14,7 +14,7 @@ export const Header = () => {
 		<header className={styles.header}>
 			<Visibility
 				ssr
-				fallback={[true]}
+				fallback
 				breakpoint={`(min-width: ${cssVariables.screenLg})`}
 			>
 				<>
@@ -26,7 +26,7 @@ export const Header = () => {
 			</Visibility>
 			<Visibility
 				ssr
-				fallback={[true]}
+				fallback
 				breakpoint={`(max-width: ${cssVariables.screenLg})`}
 			>
 				<div className={styles['mobile-navbar']}>
@@ -40,14 +40,14 @@ export const Header = () => {
 			<div className={styles['right-side']}>
 				<Visibility
 					ssr
-					fallback={[true]}
+					fallback
 					breakpoint={`(min-width: ${cssVariables.screenXs})`}
 				>
 					<SearchBar />
 				</Visibility>
 				<Visibility
 					ssr
-					fallback={[true]}
+					fallback
 					breakpoint={`(max-width: ${cssVariables.screenXs})`}
 				>
 					<SearchBarMobile />

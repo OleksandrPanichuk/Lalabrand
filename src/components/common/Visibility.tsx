@@ -6,7 +6,7 @@ interface VisibilityProps {
   breakpoint: string
   hide?: boolean
   children: React.ReactNode
-  fallback?:boolean[]
+  fallback?:boolean[] | boolean
 }
 
 export function Visibility(props: VisibilityProps) {
