@@ -34,8 +34,8 @@ export const Header = () => {
 					<MobileNavbar />
 				</div>
 			</Visibility>
-			<LanguageSelect />
 			<div className={styles['right-side']}>
+			<LanguageSelect />
 				<Visibility
 					ssr
 					fallback

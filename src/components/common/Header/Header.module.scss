@@ -5,8 +5,8 @@
 	@apply w-full flex gap-2 items-center  fixed top-0;
 	@include adaptive-value('padding-bottom', 40, 20);
 	@include adaptive-value('padding-top', 40, 20);
-	@include adaptive-value('padding-left', 32, 8);
-	@include adaptive-value('padding-right', 32, 8);
+	@include adaptive-value('padding-left', 32, 12);
+	@include adaptive-value('padding-right', 32, 12);
 }
 
 .link {
@@ -22,7 +22,7 @@
 	@include screen-lg-max {
 		display: none;
 	}
-	margin-right: 1rem;
+	@include adaptive-value('margin-right', 60, 0, 1200, 3);
 }
 
 .navbar {
@@ -34,9 +34,13 @@
 
 .right-side {
 	@apply flex justify-end gap-2;
-	flex: 4;
+	flex: 3;
 	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-lg-min) {
 		flex: 1;
+	}
+
+	> div:first-child {
+		margin-right: auto;
 	}
 
 	&__links {
@@ -48,5 +52,5 @@
 	@include screen-lg-min {
 		display: none;
 	}
-	flex: 100;
+	flex: 4;
 }
