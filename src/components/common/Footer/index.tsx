@@ -13,8 +13,14 @@ import css from './Footer.module.scss';
 export const Footer = () => {
   const t = useTranslations();
 
-  function onSubmit() {
-    console.log('send');
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const target = e.target as HTMLFormElement;
+    const input = target[0] as HTMLInputElement;
+    console.log('send', { email: input.value });
+
+    target.reset();
   }
   return (
     <footer className={css.footer}>
@@ -46,8 +52,12 @@ export const Footer = () => {
               />
             </label>
 
-            <button type="submit">
-              Join
+            <button
+              className={css.subscribeBtn}
+              type="submit"
+              onClick={() => false}
+            >
+              {t('Footer.Buttons.Join')}
               <SvgIcon name={'arrow'} width={48} height={16} />
             </button>
           </form>
@@ -63,7 +73,11 @@ export const Footer = () => {
         <ul className={css.social}>
           {socialLinks.map((el) => (
             <li key={el}>
-              <Link href={`www.${el}`}>
+              <Link
+                href={`https://www.${el}/lalabrand`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SvgIcon name={el} width={24} height={24} />
               </Link>
             </li>

@@ -27,7 +27,7 @@
   // gap: 120px;
 
   & > li {
-    min-width: 237px;
+    width: 237px;
 
     & > ul {
       display: flex;
@@ -40,11 +40,15 @@
     font-weight: 600;
     color: #767676;
   }
+
+  & a {
+    text-wrap: wrap;
+  }
 }
 
 .subscribe {
   margin-left: auto;
-  width: 386px;
+  // width: 386px;
 
   & > p {
     margin-bottom: 37px;
@@ -67,12 +71,14 @@
     padding: 12px;
     width: 288px;
     height: 48px;
-    line-height: 1;
+    font-weight: 400;
+    color: #222;
+    line-height: calc(24 / 20);
     background-color: inherit;
     border: 0.5px solid #767676;
 
     &:hover {
-      border: 0.5px solid rgba(149, 7, 7, 0.5);
+      border: 0.5px solid #950707;
     }
   }
 
@@ -81,31 +87,91 @@
     color: #767676;
   }
 
-  & button {
-    position: relative;
-    width: 94px;
-    height: 48px;
-    font-weight: 500;
+  & svg {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    fill: #950707;
+  }
+}
+
+.subscribeBtn {
+  padding: 0 26.5px;
+  position: relative;
+  height: 48px;
+  font-weight: 500;
+  border: 0.5px solid #767676;
+  background-color: white;
+
+  transition: color var(--transition-time-quick);
+
+  &:hover svg {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: transparent;
+    animation-name: step;
+    animation-duration: 1.75s;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-timing-function: step(1, jump-end);
+  }
+
+  &:not(:hover) {
+    animation-name: backward;
+    animation-duration: 0.5s;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-timing-function: step(1, jump-end);
+  }
+
+  &:active {
+    transition: 0.3s ease-out;
+    background-color: #eacdcd;
+  }
+}
+
+@keyframes step {
+  0% {
+    border-color: transparent;
+    box-shadow: 0.5px 0.5px 1px #767676;
+    border-right-color: #950707;
+    border-bottom-color: #950707;
+  }
+  3% {
+    border-right-color: #950707;
+    border-bottom-color: #950707;
+  }
+  100% {
+    box-shadow: none;
+    border-right-color: #950707;
+    border-bottom-color: #950707;
+    border-left-color: #950707;
+    border-top-color: #950707;
+  }
+}
+@keyframes backward {
+  0% {
+    border-color: transparent;
+    box-shadow: 0.5px 0.5px 1px #767676;
+    border-right-color: #950707;
+    border-bottom-color: #950707;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  97% {
+    border-right-color: #950707;
+    border-bottom-color: #950707;
+  }
+  100% {
+    box-shadow: none;
     border: 0.5px solid #767676;
-
-    & svg {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      fill: rgb(149, 7, 7);
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    &:hover {
-      color: transparent;
-      border: 0.5px solid rgba(149, 7, 7, 0.5);
-    }
   }
 }
 
@@ -114,7 +180,7 @@
   gap: 32px;
   align-items: center;
 
-  & a {
+  & > a {
     padding-top: 2px;
     height: 48px;
   }
@@ -128,6 +194,15 @@
 
   & > p > a {
     text-decoration: underline;
+  }
+
+  & > a:hover {
+    background-color: #950707;
+    color: #fafafa;
+
+    & span {
+      color: #fafafa;
+    }
   }
 }
 
