@@ -19,15 +19,20 @@
 }
 
 .logo {
-	@include screen-lg-max {
+	@include adaptive-value('margin-right', 60, 0, 1200, 3);
+
+	@include screen-md-max {
 		display: none;
 	}
-	@include adaptive-value('margin-right', 60, 0, 1200, 3);
+
+	@media screen and (min-width: $screen-md-min) and (max-width: $screen-xl-max) {
+		margin-right: auto;
+	}
 }
 
 .navbar {
 	flex: 6;
-	@include screen-lg-max {
+	@include screen-xl-max {
 		display: none;
 	}
 }
@@ -35,12 +40,15 @@
 .right-side {
 	@apply flex justify-end gap-2;
 	flex: 4;
-	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-lg-min) {
+	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-xl-min) {
 		flex: 1;
 	}
 
 	> div:first-child {
 		margin-right: auto;
+		@media screen and (min-width: $screen-md-min) and (max-width: $screen-xl-max) {
+			margin-right: 0;
+		}
 	}
 
 	&__links {
@@ -49,8 +57,10 @@
 }
 
 .mobile-navbar {
-	@include screen-lg-min {
+	@include screen-xl-min {
 		display: none;
 	}
-	flex: 10;
+	@include screen-md-max {
+		flex: 10;
+	}
 }

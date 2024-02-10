@@ -1,4 +1,5 @@
 export const cssVariables = {
-	screenLg: '1200px',
-	screenXs: '480px',
+	screenXl: '75rem',
+	screenMd: '48rem',
+	screenXs: '30rem',
 } as const

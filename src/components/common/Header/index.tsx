@@ -19,20 +19,29 @@ export const Header = () => {
 			<Visibility
 				ssr
 				fallback
-				breakpoint={`(min-width: ${cssVariables.screenLg})`}
-			>
-				<Logo className={styles.logo} />
-				<Navbar className={styles.navbar} />
-			</Visibility>
-			<Visibility
-				ssr
-				fallback
-				breakpoint={`(max-width: ${cssVariables.screenLg})`}
+				breakpoint={`(max-width: ${cssVariables.screenXl})`}
 			>
 				<div className={styles['mobile-navbar']}>
 					<MobileNavbar />
 				</div>
 			</Visibility>
+
+			<Visibility
+				ssr
+				fallback
+				breakpoint={`(min-width: ${cssVariables.screenMd})`}
+			>
+				<Logo className={styles.logo} />
+			</Visibility>
+
+			<Visibility
+				ssr
+				fallback
+				breakpoint={`(min-width: ${cssVariables.screenXl})`}
+			>
+				<Navbar className={styles.navbar} />
+			</Visibility>
+
 			<div className={styles['right-side']}>
 				<LanguageSelect />
 				<Visibility

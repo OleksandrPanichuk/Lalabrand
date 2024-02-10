@@ -37,14 +37,14 @@
 	}
 }
 
-@mixin screen-lg-max {
-	@media screen and (max-width: $screen-lg-max) {
+@mixin screen-xl-max {
+	@media screen and (max-width: $screen-xl-max) {
 		@content;
 	}
 }
 
-@mixin screen-lg-min {
-	@media screen and (min-width: $screen-lg-min) {
+@mixin screen-xl-min {
+	@media screen and (min-width: $screen-xl-min) {
 		@content;
 	}
 }
@@ -57,6 +57,19 @@
 
 @mixin screen-xs-min {
 	@media screen and (min-width: $screen-xs-min) {
+		@content;
+	}
+}
+
+
+@mixin screen-md-max {
+	@media screen and (max-width: $screen-md-max) {
+		@content;
+	}
+}
+
+@mixin screen-md-min {
+	@media screen and (min-width: $screen-md-min) {
 		@content;
 	}
 }

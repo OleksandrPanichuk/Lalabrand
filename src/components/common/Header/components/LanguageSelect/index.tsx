@@ -7,6 +7,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import { ChevronDown } from 'lucide-react'
 import { Fragment } from 'react'
 import styles from './LanguageSelect.module.scss'
+import { useSearchParams } from 'next/navigation'
 
 const options = [
 	{
@@ -25,9 +26,10 @@ export const LanguageSelect = () => {
 	const pathname = usePathname()
 	const router = useRouter()
 	const locale = useLocale()
+	const searchParams = useSearchParams()
 
 	const onLanguageChange = (locale: string) => {
-		router.push(pathname, { locale })
+		router.push(`${pathname}?${searchParams.toString()}`, { locale })
 	}
 	return (
 		<Listbox value={locale} onChange={onLanguageChange}>
