@@ -1,19 +1,20 @@
 'use client'
 import { useDebounce } from '@/hooks'
-import { Transition } from '@headlessui/react'
 import { Search } from 'lucide-react'
-import { Fragment, useEffect, useRef, useState } from 'react'
-import { useClickOutside } from './SearchBar.hooks'
-import styles from './SearchBar.module.scss'
+import { useEffect, useRef, useState } from 'react'
 import { SearchResults } from '..'
+import styles from './SearchBar.module.scss'
+import { useClickOutside } from '@/hooks'
+import { useTranslations } from 'next-intl'
 
 export const SearchBar = () => {
 	const [open, setOpen] = useState<boolean>(false)
+	const t = useTranslations('Header.SearchBar')
 
 	const popoverRef = useRef<HTMLDivElement>(null)
 	const labelRef = useRef<HTMLLabelElement>(null)
 
-	useClickOutside(popoverRef, labelRef, () => setOpen(false))
+	useClickOutside([popoverRef, labelRef], () => setOpen(false))
 
 	const [searchValue, setSearchValue] = useState<string>('')
 	const debouncedSearchValue = useDebounce(searchValue)
@@ -37,12 +38,17 @@ export const SearchBar = () => {
 					value={searchValue}
 					onChange={e => setSearchValue(e.target.value)}
 					className={styles.input}
-					placeholder='search products'
+					placeholder={t('Placeholder')}
 				/>
 				<Search className={styles.icon} />
 			</label>
 
-			<SearchResults ref={popoverRef} isOpen={open} searchValue={debouncedSearchValue} resetSearchValue={() => setSearchValue('')}  />
+			<SearchResults
+				ref={popoverRef}
+				isOpen={open}
+				searchValue={debouncedSearchValue}
+				resetSearchValue={() => setSearchValue('')}
+			/>
 		</div>
 	)
 }
