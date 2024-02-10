@@ -35,3 +35,17 @@
 		@content;
 	}
 }
+
+
+
+@mixin screen-xs-max {
+	@media screen and (max-width: $screen-xs-max) {
+		@content;
+	}
+}
+
+@mixin screen-xs-min {
+	@media screen and (min-width: $screen-xs-min) {
+		@content;
+	}
+}

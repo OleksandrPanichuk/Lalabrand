@@ -47,5 +47,8 @@
 }
 
 .mobile-navbar {
+	@include screen-lg-min {
+		display: none;
+	}
 	flex: 100;
 }

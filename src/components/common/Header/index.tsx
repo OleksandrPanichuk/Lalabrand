@@ -7,11 +7,16 @@ import { Link } from '@/shared/navigation'
 import { Heart, ShoppingCart, User } from 'lucide-react'
 import styles from './Header.module.scss'
 import { LanguageSelect, MobileNavbar, Navbar, SearchBar } from './components'
+import { SearchBarMobile } from './components/SearchBarMobile'
 
 export const Header = () => {
 	return (
 		<header className={styles.header}>
-			<Visibility  breakpoint={`(min-width: ${cssVariables.screenLg})`}>
+			<Visibility
+				ssr
+				fallback={[true]}
+				breakpoint={`(min-width: ${cssVariables.screenLg})`}
+			>
 				<>
 					<div className={styles.logo}>
 						<Logo />
@@ -19,7 +24,11 @@ export const Header = () => {
 					<Navbar className={styles.navbar} />
 				</>
 			</Visibility>
-			<Visibility ssr fallback={[true]} breakpoint={`(max-width: ${cssVariables.screenLg})`}>
+			<Visibility
+				ssr
+				fallback={[true]}
+				breakpoint={`(max-width: ${cssVariables.screenLg})`}
+			>
 				<div className={styles['mobile-navbar']}>
 					<MobileNavbar />
 				</div>
@@ -27,9 +36,21 @@ export const Header = () => {
 			<div className={styles['language-select']}>
 				<LanguageSelect />
 			</div>
+
 			<div className={styles['right-side']}>
-				<Visibility ssr fallback={[true]} breakpoint={`(min-width: ${cssVariables.screenXs})`}>
+				<Visibility
+					ssr
+					fallback={[true]}
+					breakpoint={`(min-width: ${cssVariables.screenXs})`}
+				>
 					<SearchBar />
+				</Visibility>
+				<Visibility
+					ssr
+					fallback={[true]}
+					breakpoint={`(max-width: ${cssVariables.screenXs})`}
+				>
+					<SearchBarMobile />
 				</Visibility>
 				<ul className={styles['right-side__links']}>
 					<li>
