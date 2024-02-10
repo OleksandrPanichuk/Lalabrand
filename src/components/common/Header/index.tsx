@@ -6,8 +6,8 @@ import { Routes, cssVariables } from '@/shared/constants'
 import { Link } from '@/shared/navigation'
 import { Heart, ShoppingCart, User } from 'lucide-react'
 import styles from './Header.module.scss'
-import { LanguageSelect, MobileNavbar, Navbar, SearchBar } from './components'
-import { SearchBarMobile } from './components/SearchBarMobile'
+import { LanguageSelect, MobileNavbar, Navbar, SearchBar,SearchBarMobile } from './components'
+
 
 export const Header = () => {
 	return (
