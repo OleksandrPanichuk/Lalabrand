@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useEffect, useRef, useState } from 'react'
 import { SearchResults } from '..'
 import styles from './SearchBar.module.scss'
+import { SvgIcon } from '@/components/common'
 
 export const SearchBar = () => {
 	const [open, setOpen] = useState<boolean>(false)
@@ -45,7 +46,7 @@ export const SearchBar = () => {
 						placeholder={t('Placeholder')}
 					/>
 				</label>
-				<SearchIcon className={styles.icon} />
+				<SvgIcon name='search' className={styles.icon} />
 			</form>
 
 			<SearchResults

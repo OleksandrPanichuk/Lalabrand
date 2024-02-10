@@ -4,7 +4,6 @@ import { Logo, SvgIcon, Visibility } from '@/components/common'
 
 import { Routes, cssVariables } from '@/shared/constants'
 import { Link } from '@/shared/navigation'
-import { Heart, User } from 'lucide-react'
 import styles from './Header.module.scss'
 import {
 	LanguageSelect,
@@ -35,7 +34,7 @@ export const Header = () => {
 				</div>
 			</Visibility>
 			<div className={styles['right-side']}>
-			<LanguageSelect />
+				<LanguageSelect />
 				<Visibility
 					ssr
 					fallback
@@ -53,12 +52,12 @@ export const Header = () => {
 				<ul className={styles['right-side__links']}>
 					<li>
 						<Link className={styles.link} href={Routes.WISHLIST}>
-							<Heart />
+							<SvgIcon name='like' />
 						</Link>
 					</li>
 					<li>
 						<Link className={styles.link} href={Routes.PROFILE}>
-							<User />
+							<SvgIcon name='account' />
 						</Link>
 					</li>
 					<li>

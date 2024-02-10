@@ -8,6 +8,7 @@ import { SearchResults } from '..'
 
 import { Transition } from '@headlessui/react'
 import styles from './SearchBarMobile.module.scss'
+import { SvgIcon } from '@/components/common'
 
 export const SearchBarMobile = () => {
 	const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -36,7 +37,7 @@ export const SearchBarMobile = () => {
 	return (
 		<>
 			<button className={styles.trigger} onClick={() => setIsVisible(true)}>
-				<SearchIcon />
+				<SvgIcon name='search'  aria-label='search' />
 			</button>
 
 			<Transition

@@ -34,7 +34,7 @@
 
 .right-side {
 	@apply flex justify-end gap-2;
-	flex: 3;
+	flex: 4;
 	@media screen and (max-width: $screen-xs-max) and (min-width: $screen-lg-min) {
 		flex: 1;
 	}
@@ -52,5 +52,5 @@
 	@include screen-lg-min {
 		display: none;
 	}
-	flex: 4;
+	flex: 10;
 }

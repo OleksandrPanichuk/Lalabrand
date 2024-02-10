@@ -1,7 +1,10 @@
-interface SvgIconProps {
+import { SVGProps } from "react"
+
+interface SvgIconProps extends SVGProps<SVGSVGElement> {
   name: string;
   width?: number;
   height?: number;
+
 }
 
 export const SvgIcon = ({
