@@ -10,8 +10,35 @@
 			"Kids": "Дитячий",
 			"Accessories": "Аксесуари"
 		},
-		"SearchBar":{
-			"Placeholder":"шукати товари"
+		"SearchBar": {
+			"Placeholder": "шукати товари"
+		}
+	},
+	"Footer": {
+		"Titles": {
+			"Shop": "Магазин",
+			"About": "Інфо",
+			"Help": "Допомога",
+			"Get more deals": "Отримай більше пропозицій",
+			"Email": "Ел.пошта"
+		},
+		"Links": {
+			"Customer Service": "Підтримка клієнтів",
+			"Track my order": "Відстежити мій заказ",
+			"Legal & Privacy": "Права власності і Політика конфиденційності",
+			"Contact": "Контакт",
+			"About us": "Про нас",
+			"Gift cards": "Подарункові картки",
+			"Career": "Карьера",
+			"Locations": "Місцезнаходження",
+			"My account": "Мій аккаунт",
+			"Return and replace": "Повернення і заміна"
+		},
+		"Buttons": {
+			"Join": "Доєднатися"
+		},
+		"Text": {
+			"Subscribe": "Не зволійкай, приєднуйся, отримав 10% знижку до наступної покупки!"
 		}
 	}
 }
