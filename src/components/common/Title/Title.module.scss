@@ -1,0 +1,13 @@
+.title {
+  font-family: Montserrat;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: calc(59 / 48);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #222;
+
+  & span {
+    color: #950707;
+  }
+}
