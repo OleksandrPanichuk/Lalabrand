@@ -9,6 +9,9 @@
 			"Sale":"Sale",
 			"Kids":"Kids",
 			"Accessories":"Accessories"
+		},
+		"SearchBar":{
+			"Placeholder":"search products"
 		}
 	}
 }

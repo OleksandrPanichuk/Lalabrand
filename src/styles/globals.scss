@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @import './reset';
+@import './variables';
+@import './mixins';
+
+html,
+body {
+	height: 100%;
+}
 
 @layer base {
 	:root {

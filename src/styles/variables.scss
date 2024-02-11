@@ -1,0 +1,15 @@
+$minWidth: 320;
+$maxWidth: 1440;
+$maxWidthContainer: 1282;
+$containerPadding: 16;
+$containerWidth: calc($maxWidthContainer + $containerPadding * 2);
+
+$screen-xl-min: 75rem; //1200px
+$screen-xl-max: calc(75rem - 0.02px);
+
+$screen-xs-max: calc(30rem - 0.02px); // 480px
+$screen-xs-min: 30rem;
+
+
+$screen-md-max: calc(48rem - 0.02px); 
+$screen-md-min: 48rem; // 768px

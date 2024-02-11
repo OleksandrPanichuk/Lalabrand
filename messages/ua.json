@@ -9,6 +9,9 @@
 			"Sale": "Розпродаж",
 			"Kids": "Дитячий",
 			"Accessories": "Аксесуари"
+		},
+		"SearchBar":{
+			"Placeholder":"шукати товари"
 		}
 	}
 }

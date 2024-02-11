@@ -2,16 +2,15 @@ import getRequestConfig from '@/i18n'
 import { constructRootMetadata } from '@/shared/metadata'
 import type { Metadata } from 'next'
 
+import { Header } from '@/components/common'
 import { ApolloProvider } from '@/components/providers'
 import { cn } from '@/lib'
 import '@/styles/globals.scss'
 import { NextIntlClientProvider } from 'next-intl'
-import { Montserrat} from 'next/font/google'
-
-//TODO: Add font
+import { Montserrat } from 'next/font/google'
 
 const montserrat = Montserrat({
-	weight: ['600', '400'],
+	weight: ['600', '400', '500'],
 	subsets: ['cyrillic', 'latin'],
 	variable: '--font-montserrat',
 })
@@ -36,11 +35,12 @@ export default async function RootLayout({
 			suppressHydrationWarning
 		>
 			<body>
-				
-					<NextIntlClientProvider {...translations}>
-						<ApolloProvider>{children}</ApolloProvider>
-					</NextIntlClientProvider>
-				
+				<NextIntlClientProvider {...translations}>
+					<ApolloProvider>
+						<Header />
+						{children}
+					</ApolloProvider>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	)

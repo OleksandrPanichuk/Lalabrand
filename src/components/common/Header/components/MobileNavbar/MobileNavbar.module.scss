@@ -1,0 +1,29 @@
+.trigger {
+	@apply p-2 rounded-sm bg-neutral-50 transition w-10 hover:bg-neutral-100;
+}
+
+.navbar {
+	ul {
+		@apply gap-2 flex-col items-start;
+	}
+
+	li {
+		@apply px-3 py-2 w-full;
+		border-radius: 0.5rem;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			@apply bg-neutral-100;
+		}
+		& > a {
+			@apply w-full block;
+		}
+	}
+}
+
+.panel {
+	@apply bg-white p-4 z-50 fixed top-0 h-full w-[17.5rem];
+}
+
+.close {
+	@apply absolute top-4 right-4 rounded-sm bg-transparent hover:bg-neutral-100 transition-all p-1;
+}
