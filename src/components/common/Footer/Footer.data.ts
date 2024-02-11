@@ -76,4 +76,4 @@ export const footerLinks = [
   ],
 ];
 
-export const socialLinks = ['facebook', 'instagram', 'tik-tok'];
+export const socialLinks = ['facebook', 'instagram', 'tiktok'];
