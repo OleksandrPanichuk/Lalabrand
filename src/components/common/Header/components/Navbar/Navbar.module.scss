@@ -1,0 +1,11 @@
+.menu {
+	&__list {
+		@apply flex items-center gap-x-4;
+	}
+	&__item {
+		@apply font-semibold text-xl leading-5;
+		&--sale {
+			color: #950707;
+		}
+	}
+}

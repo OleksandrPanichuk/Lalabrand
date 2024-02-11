@@ -1,13 +1,9 @@
 'use client';
 
-import { Logo } from '../Logo';
-
-import { cn } from '@/lib';
-import { Routes } from '@/shared/constants';
+import { Logo, SvgIcon } from '@/components/common';
 import { Link } from '@/shared/navigation';
 import { useTranslations } from 'next-intl';
 import { footerLinks, socialLinks, column } from './Footer.data';
-import { SvgIcon } from '../SvgIcon/SvgIcon';
 import css from './Footer.module.scss';
 
 export const Footer = () => {
@@ -74,7 +70,7 @@ export const Footer = () => {
           {socialLinks.map((el) => (
             <li key={el}>
               <Link
-                href={`https://www.${el}/lalabrand`}
+                href={`https://www.${el}.com/lalabrand`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

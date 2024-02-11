@@ -1,0 +1,32 @@
+.chevron {
+	transition: rotate 0.3s ease-in-out;
+
+	&--open {
+		rotate: 180deg;
+	}
+}
+
+.trigger {
+	@apply flex  gap-1 items-center font-medium;
+	font-size: 1.25rem;
+}
+
+.options {
+	@apply absolute top-[100%] w-full;
+}
+
+.option {
+	transition: all 0.3s ease-in-out;
+	font-size: 1.25rem;
+	font-weight: 500;
+
+	cursor: pointer;
+
+	&:hover {
+		background-color: #f3e5e5;
+	}
+}
+
+.selected {
+	color: var(--red-color);
+}
