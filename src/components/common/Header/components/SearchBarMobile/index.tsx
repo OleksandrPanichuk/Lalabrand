@@ -43,7 +43,7 @@ export const SearchBarMobile = () => {
 			<Transition
 				show={isVisible}
 				as={Fragment}
-				enter='ease-out duration-300'
+				enter='ease-out  duration-300'
 				enterFrom='opacity-0 top-[-100px]'
 				enterTo='opacity-100 top-[0px]'
 				leave='ease-in duration-200'

@@ -1,0 +1,42 @@
+.button {
+	background-color: white;
+
+	position: relative;
+	z-index: 3;
+	padding-right: 1.5625rem;
+	height: 7.0625rem;
+	display: flex;
+
+	&::after {
+		content:'';
+		position: absolute;
+		right: -1.5625rem;
+		translate: 0 -50%;
+		top:50%;
+		z-index:-1;
+		width: 7.0625rem;
+		height: 7.0625rem;
+		border-radius: 50%;
+		border: solid 2px #222222;
+		transition: all .3s ease-in-out;
+	}
+
+	span {
+		background-color: white;
+		height: 3.75rem;
+		display: flex;
+		transition: all .3s ease-in-out;
+		align-items:center;
+	}
+
+	&:hover {
+		span {
+			color: var(--red-color);
+		}
+	}
+
+	&:hover::after {
+		scale: 1.1;
+		border-color: var(--red-color)
+	}
+}

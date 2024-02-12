@@ -93,3 +93,10 @@ main {
     @apply bg-background text-foreground;
   }
 }
+
+
+main { 
+  padding: 128px 96px 0;
+  @include adaptive-value('padding-left',96, 12); 
+  @include adaptive-value('padding-right',96, 12); 
+}

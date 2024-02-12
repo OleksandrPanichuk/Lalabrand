@@ -73,3 +73,16 @@
 		@content;
 	}
 }
+
+
+@mixin screen-lg-max {
+	@media screen and (max-width: $screen-lg-max) {
+		@content;
+	}
+}
+
+@mixin screen-lg-min {
+	@media screen and (min-width: $screen-lg-min) {
+		@content;
+	}
+}

@@ -1,0 +1,7 @@
+@import '@/styles/mixins.scss';
+
+.wrapper { 
+
+  @include adaptive-value('padding-top',128, 64);
+  @include adaptive-value('padding-bottom',340, 128);
+}
