@@ -1,5 +1,6 @@
 import { SvgIcon, Title } from '@/components/common';
 import { Card } from '@/components/screens/home/card';
+import { Link } from '@/shared/navigation';
 import css from './page.module.scss';
 
 const bestsellersFromBackend = [
@@ -47,10 +48,10 @@ const Page = () => {
               </li>
             ))}
           </ul>
-          <button type="button">
+          <Link href={'/shop'}>
             view more
             <SvgIcon name="arrow" width={42} height={16} fill={'#222'} />
-          </button>
+          </Link>
         </div>
       </section>
       {/* end of second section */}

@@ -18,7 +18,7 @@
   & > div {
     position: relative;
 
-    & > button {
+    & > a {
       display: flex;
       align-items: center;
       gap: 4px;
@@ -33,12 +33,20 @@
       color: #222;
       transition: gap 0.3s ease-in;
 
-      &:hover {
+      &:hover,
+      &:focus {
         gap: 8px;
         color: #950707;
 
         svg {
           fill: #950707;
+        }
+      }
+      &:active {
+        color: #aa3939;
+
+        svg {
+          fill: #aa3939;
         }
       }
     }

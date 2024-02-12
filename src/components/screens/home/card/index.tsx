@@ -2,6 +2,7 @@
 
 import { create } from 'zustand';
 import Image from 'next/image';
+import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './Card.module.scss';
 
@@ -34,7 +35,7 @@ export const Card = ({ item }: CardProps) => {
   const favorites: number[] = [];
   return (
     <>
-      <div className={css.thumb}>
+      <Link className={css.thumb} href={`/shop/${id}`}>
         <Image src={path} width={288} height={432} alt={name} />
         <button type="button" onClick={() => console.log('addFav(id)')}>
           <SvgIcon
@@ -45,7 +46,7 @@ export const Card = ({ item }: CardProps) => {
             stroke={favorites.includes(id) ? '#950707' : '#4c4c4c'}
           />
         </button>
-      </div>
+      </Link>
       <p className={css.bestseller_title}>{name}</p>
       <ul className={css.colors}>
         {colors.map((el) => (
