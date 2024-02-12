@@ -1,8 +1,7 @@
-
 import getRequestConfig from '@/i18n';
 import { constructRootMetadata } from '@/shared/metadata';
 import type { Metadata } from 'next';
-        
+
 import { Header, Footer } from '@/components/common';
 import { ApolloProvider } from '@/components/providers';
 import { cn } from '@/lib';
@@ -39,12 +38,11 @@ export default async function RootLayout({
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
             <Header />
-            {children}
+            <main>{children}</main>
             <Footer />
           </ApolloProvider>
         </NextIntlClientProvider>
       </body>
     </html>
   );
-
 }

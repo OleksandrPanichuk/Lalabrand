@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 128px 0 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 260px;
+
+  & h2 {
+    margin-bottom: 100px;
+  }
+}
+
+.bestsellers {
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  letter-spacing: 0px;
+  color: #222;
+
+  & > div {
+    position: relative;
+
+    & > button {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+      bottom: 23px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-weight: 500;
+      font-size: 24px;
+      line-height: calc(28 / 24);
+      color: #222;
+      transition: gap 0.3s ease-in;
+
+      &:hover {
+        gap: 8px;
+        color: #950707;
+
+        svg {
+          fill: #950707;
+        }
+      }
+    }
+  }
+
+  & > div > ul {
+    display: flex;
+    gap: 32px;
+  }
+}

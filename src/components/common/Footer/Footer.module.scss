@@ -77,7 +77,8 @@
     background-color: inherit;
     border: 0.5px solid #767676;
 
-    &:hover {
+    &:hover,
+    &:focus {
       border: 0.5px solid #950707;
     }
   }
@@ -108,32 +109,36 @@
 
   transition: color var(--transition-time-quick);
 
-  &:hover svg {
+  &:hover svg,
+  &:focus svg {
     opacity: 1;
   }
 
   &:hover {
     color: transparent;
     animation-name: step;
-    animation-duration: 1.75s;
+    animation-duration: 0.25s;
     animation-direction: normal;
     animation-fill-mode: both;
     animation-iteration-count: 1;
-    animation-timing-function: step(1, jump-end);
+    animation-timing-function: steps(1, jump-end);
   }
 
   &:not(:hover) {
     animation-name: backward;
-    animation-duration: 0.5s;
+    animation-duration: 0.15s;
     animation-direction: normal;
     animation-fill-mode: both;
     animation-iteration-count: 1;
-    animation-timing-function: step(1, jump-end);
+    animation-timing-function: steps(1, jump-end);
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    color: transparent;
     transition: 0.3s ease-out;
     background-color: #eacdcd;
+    border: 0.5px solid #950707;
   }
 }
 
