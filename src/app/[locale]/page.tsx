@@ -1,5 +1,5 @@
 import { SvgIcon, Title } from '@/components/common';
-import { Card } from '@/components/screens/home/card';
+import { Card } from '@/components/screens/home/Card';
 import { Link } from '@/shared/navigation';
 import css from './page.module.scss';
 
