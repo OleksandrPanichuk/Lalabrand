@@ -4,6 +4,7 @@ interface SvgIconProps {
   height?: number;
   fill?: string;
   stroke?: string;
+  className?:string
 }
 
 export const SvgIcon = ({
