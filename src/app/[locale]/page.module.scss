@@ -1,7 +1,124 @@
 @import '@/styles/mixins.scss';
 
-.wrapper { 
-
+.wrapper {
   @include adaptive-value('padding-top',128, 64);
   @include adaptive-value('padding-bottom',340, 128);
+  display: flex;
+  flex-direction: column;
+  gap: 260px;
+
+  & h2 {
+    margin-bottom: 100px;
+  }
+}
+
+.column {
+  max-width: 288px;
+}
+// --------------   second section  ------------------
+
+.bestsellers {
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  letter-spacing: 0px;
+  color: #222;
+
+  & > div {
+    position: relative;
+    display: flex;
+    gap: 32px;
+
+    & > a,
+    & > button {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+
+      font-weight: 500;
+      font-size: 24px;
+      line-height: calc(28 / 24);
+      color: #222;
+      transition: gap 0.3s ease-in;
+
+      &:hover,
+      &:focus {
+        gap: 8px;
+        color: #950707;
+
+        svg {
+          fill: #950707;
+        }
+      }
+      &:active {
+        color: #aa3939;
+
+        svg {
+          fill: #aa3939;
+        }
+      }
+    }
+
+    & > a {
+      bottom: 23px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    & > button {
+      top: 6.5px;
+      right: 14px;
+
+      &:hover,
+      &:focus {
+        gap: 4px;
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  & > div > ul {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+// --------------   third section  ------------------
+
+.flexEnd {
+  align-items: flex-end;
+}
+
+.lookList {
+  align-items: flex-start;
+}
+
+.lookImg {
+  object-fit: cover;
+}
+
+.refreshBtn svg {
+  transition: transform 0.3s ease-in;
+}
+
+.refreshBtn:active svg {
+  transition: transform 0.3s ease-in;
+  transform-origin: center;
+  animation: rotate 0.1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: linear;
+  }
+  10% {
+    transform: rotate(-900deg);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: rotate(-1800deg);
+  }
 }
