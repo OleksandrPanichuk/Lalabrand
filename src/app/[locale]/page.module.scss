@@ -9,6 +9,11 @@
   }
 }
 
+.column {
+  max-width: 288px;
+}
+// --------------   second section  ------------------
+
 .bestsellers {
   font-size: 20px;
   line-height: calc(24 / 20);
@@ -17,15 +22,15 @@
 
   & > div {
     position: relative;
+    display: flex;
+    gap: 32px;
 
-    & > a {
+    & > a,
+    & > button {
       display: flex;
       align-items: center;
       gap: 4px;
       position: absolute;
-      bottom: 23px;
-      left: 50%;
-      transform: translateX(-50%);
 
       font-weight: 500;
       font-size: 24px;
@@ -50,10 +55,67 @@
         }
       }
     }
+
+    & > a {
+      bottom: 23px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    & > button {
+      top: 6.5px;
+      right: 14px;
+
+      &:hover,
+      &:focus {
+        gap: 4px;
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
   }
 
   & > div > ul {
     display: flex;
     gap: 32px;
+  }
+}
+
+// --------------   third section  ------------------
+
+.flexEnd {
+  align-items: flex-end;
+}
+
+.lookList {
+  align-items: flex-start;
+}
+
+.lookImg {
+  object-fit: cover;
+}
+
+.refreshBtn svg {
+  transition: transform 0.3s ease-in;
+}
+
+.refreshBtn:active svg {
+  transition: transform 0.3s ease-in;
+  transform-origin: center;
+  animation: rotate 0.1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: linear;
+  }
+  10% {
+    transform: rotate(-900deg);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: rotate(-1800deg);
   }
 }

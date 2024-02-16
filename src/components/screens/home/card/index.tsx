@@ -1,10 +1,10 @@
 'use client';
 
-import { create } from 'zustand';
 import Image from 'next/image';
 import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './Card.module.scss';
+import { useFavoriteStore } from '@/store/useFavoriteStore';
 
 interface CardProps {
   item: Card;
@@ -18,26 +18,32 @@ type Card = {
   price: number;
 };
 
-// const useFavStore = create((set) => ({
-//   isFav: false,
-//   setFav: () => set((state) => ({ isFav: (state.isFav = !state.isFav) })),
-//   fav: [],
-//   addFav: (id: number) =>
-//     set((state) => ({ fav: (state.fav = state.fav.push(id)) })),
-// }));
-
 export const Card = ({ item }: CardProps) => {
   const { id, name, path, colors, price } = item;
-  // const isFav = useFavStore((state) => state.isFav);
-  // const setFav = useFavStore((state) => state.setFav);
-  // const fav = useFavStore((state) => state.fav);
-  // const addFav = useFavStore((state) => state.addFav);
-  const favorites: number[] = [];
+
+  const { favorites, addFavorite, delFavorite } = useFavoriteStore();
+
+  function changeFavoriteStatus(e: MouseEvent) {
+    e.preventDefault();
+    if (favorites.includes(id)) {
+      delFavorite(id);
+      return;
+    }
+    addFavorite(id);
+  }
+
   return (
     <>
       <Link className={css.thumb} href={`/shop/${id}`}>
-        <Image src={path} width={288} height={432} alt={name} />
-        <button type="button" onClick={() => console.log('addFav(id)')}>
+        <Image
+          src={path}
+          height={0}
+          width={0}
+          unoptimized
+          style={{ width: '288px', height: 'auto' }}
+          alt={name}
+        />
+        <button type="button" onClick={(e) => changeFavoriteStatus(e)}>
           <SvgIcon
             name="like"
             width={26}
