@@ -6,20 +6,21 @@
     position: absolute;
     top: 16px;
     right: 16px;
+    z-index: 5;
 
-    & > svg {
-      stroke: #4c4c4c;
-      fill: transparent;
+    &:hover svg {
+      // fill: #d59c9c;
+      scale: 1.1;
     }
 
-    &:hover svg,
     &:focus svg {
-      fill: #d59c9c;
+      scale: 1.1;
     }
 
     &:active svg {
       stroke: #950707;
       fill: #950707;
+      scale: 0.9;
     }
   }
 }

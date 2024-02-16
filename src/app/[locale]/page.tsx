@@ -1,40 +1,16 @@
+'use client';
+
+import Image from 'next/image';
 import { SvgIcon, Title } from '@/components/common';
 import { Card } from '@/components/screens/home';
 import { Link } from '@/shared/navigation';
+import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
+import { useRefreshLookStore } from '@/store/useRefreshLookStore';
 import css from './page.module.scss';
 
-const bestsellersFromBackend = [
-  {
-    id: 1,
-    name: 'Patterned Bandeau Dress',
-    path: '/imgDelete/bestseller-1.jpg',
-    colors: ['black', 'blue', 'white'],
-    price: 74.99,
-  },
-  {
-    id: 2,
-    name: 'Twill Trench Coat',
-    path: '/imgDelete/bestseller-2.jpg',
-    colors: ['brown', 'white'],
-    price: 59.99,
-  },
-  {
-    id: 3,
-    name: 'Chunky Sneakers',
-    path: '/imgDelete/bestseller-3.jpg',
-    colors: ['grey', 'white'],
-    price: 67.99,
-  },
-  {
-    id: 4,
-    name: 'Regular Fit Shirt',
-    path: '/imgDelete/bestseller-4.jpg',
-    colors: ['beige', 'white'],
-    price: 23.99,
-  },
-];
-
 const Page = () => {
+  const { looks, changeLook } = useRefreshLookStore();
+
   return (
     <div className={css.wrapper}>
       {/* second section */}
@@ -43,7 +19,7 @@ const Page = () => {
         <div>
           <ul>
             {bestsellersFromBackend.map((el) => (
-              <li key={el.id}>
+              <li key={el.id} className={css.column}>
                 <Card item={el} />
               </li>
             ))}
@@ -55,6 +31,35 @@ const Page = () => {
         </div>
       </section>
       {/* end of second section */}
+      {/* third section */}
+      <section className={css.bestsellers}>
+        <Title name="looks" />
+        <div className={css.flexEnd}>
+          <Image
+            src={looks[0].lookImg}
+            width={288}
+            height={533}
+            alt={looks[0].lookName}
+            className={css.lookImg}
+          />
+          <ul className={css.lookList}>
+            {looks[0].items.map((el) => (
+              <li key={el.id} className={css.column}>
+                <Card item={el} />
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={() => changeLook()}
+            className={css.refreshBtn}
+          >
+            refresh look
+            <SvgIcon name="refresh" width={32} height={32} fill={'#222'} />
+          </button>
+        </div>
+      </section>
+      {/* end of third section */}
     </div>
   );
 };

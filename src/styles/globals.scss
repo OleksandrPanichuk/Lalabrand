@@ -13,7 +13,9 @@ body {
 
 main {
   padding: 128px 96px 0;
+  max-width: 1440px;
   min-height: 50%;
+  margin: 0 auto;
 }
 
 @layer base {

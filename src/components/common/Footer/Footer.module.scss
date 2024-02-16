@@ -208,6 +208,10 @@
   align-items: flex-end;
   gap: 12px;
 
+  & svg {
+    fill: #222;
+  }
+
   & svg:hover {
     scale: 1.2;
     fill: #767676;
