@@ -1,5 +1,6 @@
 'use client';
 
+import { MouseEvent } from 'react';
 import Image from 'next/image';
 import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';

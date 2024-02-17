@@ -4,18 +4,20 @@ import Image from 'next/image';
 import { SvgIcon, Title } from '@/components/common';
 import { Card } from '@/components/screens/home';
 import { Link } from '@/shared/navigation';
+import { useTranslations } from 'next-intl';
 import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
 import { useRefreshLookStore } from '@/store/useRefreshLookStore';
 import css from './page.module.scss';
 
 const Page = () => {
   const { looks, changeLook } = useRefreshLookStore();
+  const t = useTranslations();
 
   return (
     <div className={css.wrapper}>
       {/* second section */}
       <section className={css.bestsellers}>
-        <Title name="bestsellers" />
+        <Title name={t('Home.Titles.Bestsellers')} />
         <div>
           <ul>
             {bestsellersFromBackend.map((el) => (
@@ -25,7 +27,7 @@ const Page = () => {
             ))}
           </ul>
           <Link href={'/shop'}>
-            view more
+            {t('Home.Buttons.view more')}
             <SvgIcon name="arrow" width={42} height={16} fill={'#222'} />
           </Link>
         </div>
@@ -33,7 +35,7 @@ const Page = () => {
       {/* end of second section */}
       {/* third section */}
       <section className={css.bestsellers}>
-        <Title name="looks" />
+        <Title name={t('Home.Titles.Looks')} />
         <div className={css.flexEnd}>
           <Image
             src={looks[0].lookImg}
@@ -54,7 +56,7 @@ const Page = () => {
             onClick={() => changeLook()}
             className={css.refreshBtn}
           >
-            refresh look
+            {t('Home.Buttons.refresh look')}
             <SvgIcon name="refresh" width={32} height={32} fill={'#222'} />
           </button>
         </div>
