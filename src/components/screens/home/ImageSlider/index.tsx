@@ -1,12 +1,14 @@
 'use client';
 
 import { SvgIcon } from '@/components/common';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { images } from './ImageSlider.data';
 import styles from './ImageSlider.module.scss';
 
-const AUTOPLAY_SPEED = 3000;
+
+const AUTOPLAY_SPEED = 6000;
 
 export const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,11 +30,11 @@ export const ImageSlider = () => {
   };
 
   const handleMouseLeave = () => {
-    if (intervalRef.current) {
+   
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       }, AUTOPLAY_SPEED);
-    }
+    
   };
 
   const handlePrev = () => {
@@ -51,25 +53,50 @@ export const ImageSlider = () => {
       onMouseOver={handleMouseEnter}
       onMouseOut={handleMouseLeave}
     >
-      <div className={styles['slide__current']}>
-        <Image  objectFit='cover' src={images[currentIndex]} alt={`slide-${currentIndex}`} fill />
-      </div>
+      <motion.div
+        animate={{
+          filter: 'blur(0px)',
+        }}
+        initial={{
+          filter: 'blur(5px)',
+        }}
+        transition={{duration: 0.5}}
+        className={styles['slide__current']}
+        key={images[currentIndex]}
+      >
+        <Image
+          objectFit="cover"
+          src={images[currentIndex]}
+          alt={`slide-${currentIndex}`}
+          fill
+        />
+      </motion.div>
 
       <div className={styles.right}>
-        <div className={styles['slide__next']}>
+        <motion.div
+          animate={{
+            filter: 'blur(0px)',
+          }}
+          initial={{
+            filter: 'blur(5px)',
+          }}
+          transition={{delay: .3}}
+          key={images[(currentIndex + 1) % images.length]}
+          className={styles['slide__next']}
+        >
           <Image
             src={images[(currentIndex + 1) % images.length]}
             alt={`slide-${(currentIndex + 1) % images.length}`}
             fill
-            objectFit='cover'
+            objectFit="cover"
           />
-        </div>
+        </motion.div>
         <div className={styles.buttons}>
           <button onClick={handlePrev}>
             <SvgIcon width={82} name="arrow-left" className="fill-black" />
           </button>
           <button onClick={handleNext}>
-            <SvgIcon width={82} name="arrow-right"  className="fill-black" />
+            <SvgIcon width={82} name="arrow-right" className="fill-black" />
           </button>
         </div>
       </div>

@@ -61,7 +61,7 @@ export const Header = () => {
 				<ul className={styles['right-side__links']}>
 					<li>
 						<Link className={styles.link} href={Routes.WISHLIST}>
-							<SvgIcon name='like' />
+							<SvgIcon name='like' stroke='#222222' />
 						</Link>
 					</li>
 					<li>

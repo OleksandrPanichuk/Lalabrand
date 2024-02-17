@@ -8,7 +8,6 @@ import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData'
 import { useRefreshLookStore } from '@/store';
 import css from './page.module.scss';
 
-
 const Page = () => {
   const { looks, changeLook } = useRefreshLookStore();
 
@@ -52,6 +51,8 @@ const Page = () => {
             ))}
           </ul>
           <button
+           
+            
             type="button"
             onClick={changeLook}
             className={css.refreshBtn}
