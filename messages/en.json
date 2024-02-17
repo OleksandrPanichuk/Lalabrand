@@ -40,5 +40,26 @@
 		"Text": {
 			"Subscribe": "Join now and get 10% off your next purchase!"
 		}
+	},
+	"Home": {
+		"Hero": {
+			"Title": {
+				"1": "New",
+				"2": "spring 2024",
+				"3": "collection"
+			},
+			"Text": "transform your style/transform your confidence",
+			"Button": "shop now"
+		},
+		"Buttons": {
+			"view more": "view more",
+			"refresh look": "refresh look"
+		},
+		"Titles": {
+			"Ours": "Ours",
+			"Bestsellers": "Bestsellers",
+			"Looks": "Looks",
+			"Categories": "Categories"
+		}
 	}
 }
