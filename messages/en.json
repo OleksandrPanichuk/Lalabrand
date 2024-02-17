@@ -49,7 +49,17 @@
         "3": "collection"
       },
       "Text": "transform your style/transform your confidence",
-			"Button":"shop now"
+      "Button": "shop now"
+    },
+    "Buttons": {
+      "view more": "view more",
+      "refresh look": "refresh look"
+    },
+    "Titles": {
+      "Ours": "Ours",
+      "Bestsellers": "Bestsellers",
+      "Looks": "Looks",
+      "Categories": "Categories"
     }
   }
 }

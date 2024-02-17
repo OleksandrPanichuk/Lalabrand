@@ -1,11 +1,12 @@
 'use client';
 
+import { MouseEvent } from 'react';
 import Image from 'next/image';
 import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './Card.module.scss';
 import { useFavoriteStore } from '@/store';
-import { MouseEvent } from 'react'
+
 
 interface CardProps {
   item: Card;
