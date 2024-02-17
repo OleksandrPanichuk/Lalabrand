@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './Card.module.scss';
-import { useFavoriteStore } from '@/store/useFavoriteStore';
+import { useFavoriteStore } from '@/store';
 
 interface CardProps {
   item: Card;

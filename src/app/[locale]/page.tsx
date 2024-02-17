@@ -6,7 +6,7 @@ import { Card } from '@/components/screens/home';
 import { Link } from '@/shared/navigation';
 import { useTranslations } from 'next-intl';
 import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
-import { useRefreshLookStore } from '@/store/useRefreshLookStore';
+import { useRefreshLookStore } from '@/store';
 import css from './page.module.scss';
 
 const Page = () => {
