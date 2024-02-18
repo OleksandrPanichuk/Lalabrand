@@ -1,5 +1,5 @@
 'use client';
-import { Hero } from '@/components/screens/home';
+import { CategoryPreview, Hero } from '@/components/screens/home';
 import Image from 'next/image';
 import { SvgIcon, Title } from '@/components/common';
 import { Card } from '@/components/screens/home';
@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
 import { useRefreshLookStore } from '@/store';
 import css from './page.module.scss';
+import { cn } from '@/lib'
 
 const Page = () => {
   const { looks, changeLook } = useRefreshLookStore();
@@ -17,7 +18,7 @@ const Page = () => {
     <div className={css.wrapper}>
       <Hero />
       {/* second section */}
-      <section className={css.bestsellers}>
+      <section className={cn(css.bestsellers,'page__container')}>
         <Title name={t('Home.Titles.Bestsellers')} />
         <div>
           <ul>
@@ -35,7 +36,7 @@ const Page = () => {
       </section>
       {/* end of second section */}
       {/* third section */}
-      <section className={css.bestsellers}>
+      <section className={cn(css.bestsellers, 'page__container')}>
         <Title name={t('Home.Titles.Looks')} />
         <div className={css.flexEnd}>
           <Image
@@ -65,6 +66,8 @@ const Page = () => {
         </div>
       </section>
       {/* end of third section */}
+
+      {/* <CategoryPreview /> */}
     </div>
   );
 };
