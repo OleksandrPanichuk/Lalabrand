@@ -1,31 +1,32 @@
 @import '@/styles/mixins.scss';
 
 .label {
-	max-width: 14.25rem;
-	width: 100%;
+  max-width: 14.25rem;
+  width: 100%;
 
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	border-bottom: solid 1px #a1a1a1;
-	@include screen-xs-max {
-		display: none;
-	}
+  border-bottom: solid 1px #a1a1a1;
+  @include screen-xs-max {
+    display: none;
+  }
 }
 
 .input {
-	font-size: 1rem;
-	padding: 2px 0;
-	font-weight: 500;
-	&::placeholder {
-		color: #cbcbcb;
-	}
+  font-size: 1rem;
+  padding: 2px 0;
+  font-weight: 500;
+  background-color: var(--background);
+  &::placeholder {
+    color: #cbcbcb;
+  }
 
-	@media screen and (max-width: $screen-xs-max) {
-		display: none;
-	}
+  @media screen and (max-width: $screen-xs-max) {
+    display: none;
+  }
 }
 
 .icon {
-	cursor: pointer;
+  cursor: pointer;
 }

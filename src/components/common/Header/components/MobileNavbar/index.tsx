@@ -16,7 +16,7 @@ export const MobileNavbar = () => {
 				<MenuIcon />
 			</button>
 			<Transition appear as={Fragment} show={isOpen}>
-				<Dialog className={'absolute w-full h-full'} onClose={close}>
+				<Dialog className={'absolute w-full h-full z-[100]'} onClose={close}>
 					<Transition.Child
 						as={Fragment}
 						enter='ease-out duration-300'

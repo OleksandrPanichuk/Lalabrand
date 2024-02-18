@@ -9,6 +9,7 @@
 html,
 body {
   height: 100%;
+  background-color: var(--background);
 }
 
 main {
@@ -21,7 +22,7 @@ main {
   :root {
     --red-color: #950707;
 
-    --background: 0 0% 100%;
+    --background: rgb(250, 250, 250);
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -96,7 +97,7 @@ main {
 }
 
 .page__container {
-  padding: 128px 96px 0;
+ @include adaptive-value('padding-top',128, 80);
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
 }

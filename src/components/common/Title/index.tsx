@@ -13,7 +13,7 @@ export const Title = ({ name, className }: TitleProps) => {
   return (
     <h2 className={cn(css.title, className)}>
       {' '}
-      {t('Home.Titles.Ours')} <span>{name}</span>
+      {t('Home.Titles.Our')} <span>{name}</span>
     </h2>
   );
 };
