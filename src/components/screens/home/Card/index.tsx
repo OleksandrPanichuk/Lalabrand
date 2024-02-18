@@ -7,6 +7,7 @@ import { SvgIcon } from '@/components/common';
 import css from './Card.module.scss';
 import { useFavoriteStore } from '@/store';
 
+
 interface CardProps {
   item: Card;
 }
@@ -24,7 +25,7 @@ export const Card = ({ item }: CardProps) => {
 
   const { favorites, addFavorite, delFavorite } = useFavoriteStore();
 
-  function changeFavoriteStatus(e: MouseEvent) {
+  function changeFavoriteStatus(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     if (favorites.includes(id)) {
       delFavorite(id);
@@ -44,7 +45,7 @@ export const Card = ({ item }: CardProps) => {
           style={{ width: '288px', height: 'auto' }}
           alt={name}
         />
-        <button type="button" onClick={(e) => changeFavoriteStatus(e)}>
+        <button type="button" onClick={changeFavoriteStatus}>
           <SvgIcon
             name="like"
             width={26}

@@ -12,8 +12,7 @@ body {
 }
 
 main {
-  padding: 128px 96px 0;
-  max-width: 1440px;
+  max-width: #{$maxWidth + px};
   min-height: 50%;
   margin: 0 auto;
 }
@@ -94,4 +93,10 @@ main {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.page__container {
+  padding: 128px 96px 0;
+  @include adaptive-value('padding-left', 96, 12);
+  @include adaptive-value('padding-right', 96, 12);
 }

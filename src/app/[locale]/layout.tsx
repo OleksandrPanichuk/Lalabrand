@@ -1,3 +1,4 @@
+
 import getRequestConfig from '@/i18n';
 import { constructRootMetadata } from '@/shared/metadata';
 import type { Metadata } from 'next';
@@ -8,6 +9,7 @@ import { cn } from '@/lib';
 import '@/styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { Montserrat } from 'next/font/google';
+
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
