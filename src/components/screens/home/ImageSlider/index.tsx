@@ -1,16 +1,17 @@
 'use client';
 
 import { SvgIcon } from '@/components/common';
+import { cn } from '@/lib';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { images } from './ImageSlider.data';
 import styles from './ImageSlider.module.scss';
 
-const AUTOPLAY_SPEED = 61111000;
+const AUTOPLAY_SPEED = 6000;
 
 export const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'right' | 'left'>('left');
 
   const intervalRef = useRef<NodeJS.Timeout>();
 
@@ -21,6 +22,7 @@ export const ImageSlider = () => {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => newIndex(prevIndex));
+      setDirection('left');
     }, AUTOPLAY_SPEED);
 
     return () => {
@@ -35,15 +37,18 @@ export const ImageSlider = () => {
   const handleMouseLeave = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => newIndex(prevIndex));
+      setDirection('left');
     }, AUTOPLAY_SPEED);
   };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => newIndex(prevIndex, -1 + images.length));
+    setDirection('right');
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => newIndex(prevIndex));
+    setDirection('left');
   };
 
   return (
@@ -52,51 +57,61 @@ export const ImageSlider = () => {
       onMouseOver={handleMouseEnter}
       onMouseOut={handleMouseLeave}
     >
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        exit={{
-          opacity: 0,
-        }}
-        transition={{ duration: 0.5 }}
-        className={styles['slide__current']}
-        key={images[currentIndex]}
-      >
-        <Image
-          objectFit="contain"
-          src={images[currentIndex]}
-          alt={`slide-${currentIndex}`}
-          fill
-        />
-      </motion.div>
-
-      <div className={styles.right}>
-        <motion.div
+      <div className={styles['slide-current']}>
+        <motion.img
+          className={cn(styles['slide-current__image'], 'z-20')}
+          transition={{ duration: 1 }}
           initial={{
             opacity: 0,
           }}
           animate={{
             opacity: 1,
           }}
-          exit={{
-            opacity: 0,
-          }}
-          transition={{  duration: .5 }}
-          key={images[newIndex(currentIndex)]}
-          className={styles['slide__next']}
-        >
-          <Image
+          key={images[currentIndex]}
+          src={images[currentIndex]}
+        />
+        <motion.img
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className={cn(styles['slide-current__image'], 'z-10')}
+          src={direction === 'right'
+          ? images[newIndex(currentIndex)]
+          : images[newIndex(currentIndex, -1 + images.length)]}
+        />
+      </div>
+
+      <div className={styles.right}>
+        <div className={styles['slide-next']}>
+          <motion.img
+            className={cn(styles['slide-next__img'], 'z-20')}
+            transition={{ duration: 1 }}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            key={currentIndex + Math.random()}
             src={images[newIndex(currentIndex)]}
-            alt={`slide-${newIndex(currentIndex)}`}
-            fill
-            objectFit="contain"
           />
-          
-        </motion.div>
+          <motion.img
+            className={cn(styles['slide-next__img'], 'z-10')}
+            transition={{ duration: 1 }}
+            initial={{
+              opacity: 1,
+            }}
+            animate={{
+              opacity: 0,
+            }}
+            key={currentIndex + Math.random()}
+            src={
+              direction === 'right'
+                ? images[newIndex(currentIndex + 1)]
+                : images[newIndex(currentIndex - 1)]
+            }
+          />
+        </div>
         <div className={styles.buttons}>
           <button onClick={handlePrev}>
             <SvgIcon width={82} name="arrow-left" className="fill-black" />
