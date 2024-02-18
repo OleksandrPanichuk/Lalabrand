@@ -4,12 +4,13 @@ import { ImageSlider } from '@/components/screens/home';
 import { Routes } from '@/shared/constants';
 import { useTranslations } from 'next-intl';
 import styles from './Hero.module.scss';
+import { cn } from '@/lib'
 
 export const Hero = () => {
   const t = useTranslations('Home.Hero');
 
   return (
-    <section className={styles.hero}>
+    <section className={cn(styles.hero, 'page__container')}>
       <div className={styles['left-side']}>
         <h1 className={styles.title}>
           <span>

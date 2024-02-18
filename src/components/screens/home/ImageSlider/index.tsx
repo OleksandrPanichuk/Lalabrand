@@ -7,17 +7,20 @@ import { useEffect, useRef, useState } from 'react';
 import { images } from './ImageSlider.data';
 import styles from './ImageSlider.module.scss';
 
-
-const AUTOPLAY_SPEED = 6000;
+const AUTOPLAY_SPEED = 61111000;
 
 export const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const intervalRef = useRef<NodeJS.Timeout>();
 
+  const newIndex = (prev: number, payload: number = 1) => {
+    return (prev + payload) % images.length;
+  };
+
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => newIndex(prevIndex));
     }, AUTOPLAY_SPEED);
 
     return () => {
@@ -30,21 +33,17 @@ export const ImageSlider = () => {
   };
 
   const handleMouseLeave = () => {
-   
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, AUTOPLAY_SPEED);
-    
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => newIndex(prevIndex));
+    }, AUTOPLAY_SPEED);
   };
 
   const handlePrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
-    );
+    setCurrentIndex((prevIndex) => newIndex(prevIndex, -1 + images.length));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => newIndex(prevIndex));
   };
 
   return (
@@ -54,18 +53,21 @@ export const ImageSlider = () => {
       onMouseOut={handleMouseLeave}
     >
       <motion.div
-        animate={{
-          filter: 'blur(0px)',
-        }}
         initial={{
-          filter: 'blur(5px)',
+          opacity: 0,
         }}
-        transition={{duration: 0.5}}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+        transition={{ duration: 0.5 }}
         className={styles['slide__current']}
         key={images[currentIndex]}
       >
         <Image
-          objectFit="cover"
+          objectFit="contain"
           src={images[currentIndex]}
           alt={`slide-${currentIndex}`}
           fill
@@ -74,22 +76,26 @@ export const ImageSlider = () => {
 
       <div className={styles.right}>
         <motion.div
-          animate={{
-            filter: 'blur(0px)',
-          }}
           initial={{
-            filter: 'blur(5px)',
+            opacity: 0,
           }}
-          transition={{delay: .3}}
-          key={images[(currentIndex + 1) % images.length]}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{  duration: .5 }}
+          key={images[newIndex(currentIndex)]}
           className={styles['slide__next']}
         >
           <Image
-            src={images[(currentIndex + 1) % images.length]}
-            alt={`slide-${(currentIndex + 1) % images.length}`}
+            src={images[newIndex(currentIndex)]}
+            alt={`slide-${newIndex(currentIndex)}`}
             fill
-            objectFit="cover"
+            objectFit="contain"
           />
+          
         </motion.div>
         <div className={styles.buttons}>
           <button onClick={handlePrev}>
