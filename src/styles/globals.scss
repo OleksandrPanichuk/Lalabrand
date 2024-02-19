@@ -16,6 +16,7 @@ main {
   max-width: #{$maxWidth + px};
   min-height: 50%;
   margin: 0 auto;
+  @include adaptive-value('padding-top', 128, 80);
 }
 
 @layer base {
@@ -97,7 +98,6 @@ main {
 }
 
 .page__container {
- @include adaptive-value('padding-top',128, 80);
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
 }
