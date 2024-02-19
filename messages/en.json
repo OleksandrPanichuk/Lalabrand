@@ -51,12 +51,22 @@
       "Text": "transform your style/transform your confidence",
       "Button": "shop now"
     },
+    "Categories": {
+      "Title": "Categories",
+      "Links": {
+        "Women": "Women",
+        "Men": "Men",
+        "Sale": "Sale",
+        "Kids": "Kids",
+        "Accessories": "Accessories"
+      }
+    },
     "Buttons": {
       "view more": "view more",
       "refresh look": "refresh look"
     },
     "Titles": {
-      "Ours": "Ours",
+      "Our": "Our",
       "Bestsellers": "Bestsellers",
       "Looks": "Looks",
       "Categories": "Categories"

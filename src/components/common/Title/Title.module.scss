@@ -1,6 +1,8 @@
+@import '@/styles/mixins.scss';
+
 .title {
   font-family: Montserrat, sans-serif;
-  font-size: 48px;
+  @include adaptive-value('font-size', 48, 24);
   font-weight: 600;
   line-height: calc(59 / 48);
   letter-spacing: 2px;

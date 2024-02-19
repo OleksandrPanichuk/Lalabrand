@@ -54,8 +54,6 @@ const Page = () => {
             ))}
           </ul>
           <button
-           
-            
             type="button"
             onClick={changeLook}
             className={css.refreshBtn}
@@ -67,7 +65,7 @@ const Page = () => {
       </section>
       {/* end of third section */}
 
-      {/* <CategoryPreview /> */}
+      <CategoryPreview />
     </div>
   );
 };

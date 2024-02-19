@@ -2,7 +2,7 @@
 	transition: rotate 0.3s ease-in-out;
 
 	&--open {
-		rotate: 180deg;
+		rotate: -180deg;
 	}
 }
 
@@ -12,7 +12,7 @@
 }
 
 .options {
-	@apply absolute top-[100%] w-full bg-white;
+	@apply absolute top-[100%] w-full bg-background;
 }
 
 .option {

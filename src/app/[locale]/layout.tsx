@@ -1,4 +1,3 @@
-
 import getRequestConfig from '@/i18n';
 import { constructRootMetadata } from '@/shared/metadata';
 import type { Metadata } from 'next';
@@ -8,13 +7,18 @@ import { ApolloProvider } from '@/components/providers';
 import { cn } from '@/lib';
 import '@/styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
-import { Montserrat } from 'next/font/google';
-
+import { Inter, Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
   subsets: ['cyrillic', 'latin'],
   variable: '--font-montserrat',
+});
+
+const inter = Inter({
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  subsets: ['cyrillic', 'latin'],
 });
 
 export const metadata: Metadata = constructRootMetadata();
@@ -33,7 +37,7 @@ export default async function RootLayout({
   return (
     <html
       lang={params.locale}
-      className={cn(montserrat.className, montserrat.variable)}
+      className={cn(montserrat.className, montserrat.variable, inter.variable)}
       suppressHydrationWarning
     >
       <body>
