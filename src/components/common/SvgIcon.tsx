@@ -4,7 +4,7 @@ interface SvgIconProps {
   height?: number;
   fill?: string;
   stroke?: string;
-  className?:string
+  className?: string;
 }
 
 export const SvgIcon = ({
@@ -17,7 +17,7 @@ export const SvgIcon = ({
 }: SvgIconProps) => {
   return (
     <svg width={width} height={height} {...props} fill={fill} stroke={stroke}>
-      <use xlinkHref={`icons.svg#${name}`} />
+      <use xlinkHref={`/icons.svg#${name}`} />
     </svg>
   );
 };
