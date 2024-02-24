@@ -1,0 +1,72 @@
+@import '@/styles/mixins.scss';
+
+.wrapper {
+  @include adaptive-value('gap', 32, 16);
+  display: flex;
+  flex-direction: column;
+  > div:nth-child(2) {
+    display: flex;
+    @include adaptive-value('gap', 32, 16);
+    @include screen-md-max {
+      flex-direction: column;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  
+  @include screen-xs-min {
+    margin-right: 26%;
+    
+  }
+  &__inner {
+    color: var(--text-color);
+    gap: 0.25rem;
+    font-family: Montserrat, sans-serif;
+    @include adaptive-value('font-size', 24, 16);
+    font-weight: 500;
+    line-height: 116.666667%; /* 28/24 */
+    letter-spacing: 0px;
+
+    > svg {
+      fill: var(--text-color);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  &:hover {
+    svg {
+      scale: 1.1;
+      fill: rgb(149, 7, 7);
+    }
+  }
+}
+
+.right {
+  @apply flex flex-col items-end ;
+  
+  @include screen-md-min {
+    flex: 501;
+  }
+  @include adaptive-value('gap', 217, 32);
+
+}
+
+.top, .left {
+  display: flex;
+  @include adaptive-value('gap',32, 16);
+}
+.top {
+  @include screen-md-max {
+    flex-direction: column;
+  }
+}
+
+.left {
+  flex-direction:column;
+  @include screen-md-min {
+    
+    flex:395;
+  }
+}

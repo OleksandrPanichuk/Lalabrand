@@ -16,11 +16,14 @@ main {
   max-width: #{$maxWidth + px};
   min-height: 50%;
   margin: 0 auto;
+  @include adaptive-value('padding-top', 128, 80);
 }
 
 @layer base {
   :root {
     --red-color: #950707;
+    --text-color: #222222 ;
+    --white-color: rgb(250, 250, 250);
 
     --background: rgb(250, 250, 250);
     --foreground: 240 10% 3.9%;
@@ -97,7 +100,6 @@ main {
 }
 
 .page__container {
- @include adaptive-value('padding-top',128, 80);
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
 }

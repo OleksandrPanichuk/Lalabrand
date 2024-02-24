@@ -1,0 +1,38 @@
+@import '@/styles/mixins.scss';
+
+.container {
+  @include adaptive-value('padding-top', 120, 60);
+  @include adaptive-value('padding-bottom', 340, 128);
+}
+
+.content {
+  @apply flex gap-4 justify-between;
+  @include adaptive-value('margin-top', 80, 40);
+
+  @include screen-xs-max {
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  > :not([hidden]) ~ :not([hidden]) {
+    @include adaptive-value('margin-top', 68, 32);
+  }
+  > div:first-child {
+    h4 {
+      color: var(--text-color);
+      font-family: var(--font-montserrat), sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 120%;
+    }
+    p {
+      font-family: var(--font-inter), sans-serif;
+      margin-top: 0.75rem;
+      color: var(--text-color);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 125%; /* 20/16 */
+    }
+  }
+}

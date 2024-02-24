@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Heading"
-  },
   "Header": {
     "Links": {
       "Women": "Women",
@@ -70,6 +67,39 @@
       "Bestsellers": "Bestsellers",
       "Looks": "Looks",
       "Categories": "Categories"
+    }
+  },
+  "Categories": {
+"Offers_Deals":"Offers & Deals",
+"Big Sale":"Big Sale",
+
+    "Women": "Women",
+    "Men": "Men",
+    "Kids": "Kids",
+    "Sale": "Sale",
+    "Accessories": "Accessories",
+    "view more": "view more",
+    "View all": "View all",
+    "Links": {
+      "Accessories": "Accessories",
+      "Blazers_Vests": "Blazers & Vests",
+      "Cardigans_Sweaters": "Cardigans & Sweaters",
+      "Dresses": "Dresses",
+      "Jeans": "Jeans",
+      "Jackets_Coats": "Jackets & Coats",
+      "Pants": "Pants",
+      "Shirts_Blouses": "Shirts & Blouses",
+      "Shoes": "Shoes",
+      "Skirts": "Skirts",
+      "Shorts": "Shorts",
+      "Tops": "Tops",
+      "Bags": "Bags",
+      "Belts": "Belts",
+      "Hair Accessories": "Hair Accessories",
+      "Hats": "Hats",
+      "Jewelry": "Jewelry",
+      "Scarves": "Scarves",
+      "Sunglasses": "Sunglasses"
     }
   }
 }

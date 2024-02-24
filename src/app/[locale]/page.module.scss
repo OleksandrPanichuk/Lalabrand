@@ -1,19 +1,19 @@
 @import '@/styles/mixins.scss';
 
 .wrapper {
-  @include adaptive-value('padding-top',128, 64);
+  @include adaptive-value('padding-top',120, 60);
   @include adaptive-value('padding-bottom',340, 128);
   display: flex;
   flex-direction: column;
-  gap: 260px;
+  gap: 16.25rem;
 
   & h2 {
-    margin-bottom: 100px;
+    margin-bottom: 6.25rem;
   }
 }
 
 .column {
-  max-width: 288px;
+  max-width: 18rem;
 }
 // --------------   second section  ------------------
 

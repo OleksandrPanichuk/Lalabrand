@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.625rem;
+
+  width: 12.5rem;
+}
+
+.item {
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  width: 100%;
+
+  color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 120%; /* 24/20 */
+}
+
+.arrow {
+  @apply transition-all;
+  &--rotated {
+    rotate: 90deg;
+  }
+}
+
+.list {
+  margin-top: 0.75rem;
+  > li > a {
+    color: var(--text-color);
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 125%; /* 20/16 */
+    transition: font-weight 0.150s ease-in-out;
+
+    &.link--red {
+      color: var(--red-color);
+    }
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
