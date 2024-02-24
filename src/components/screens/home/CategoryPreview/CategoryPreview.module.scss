@@ -42,7 +42,8 @@
   }
 }
 
-.image-right, .image-left {
+.image-right,
+.image-left {
   @include screen-md-max {
     display: none;
   }
@@ -56,9 +57,9 @@
 
   > li {
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgb(34, 34, 34);
+    border-bottom: 1px solid var(--text-color);
     > a {
-      color: rgb(34, 34, 34);
+      color: var(--text-color);
       font-family: var(--font-inter), sans-serif;
       @include adaptive-value('font-size', 32, 24);
       font-weight: 400;
@@ -70,7 +71,7 @@
       justify-content: space-between;
 
       &.active {
-        color: rgb(34, 34, 34);
+        color: var(--text-color);
         font-weight: 600;
       }
       &.sale {

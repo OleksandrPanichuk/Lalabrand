@@ -3,7 +3,7 @@
 import { RefObject, useCallback, useEffect } from "react"
 
 
-export const useClickOutside = (refs:RefObject<HTMLElement>[], callback:() => void) => {
+export const useClickOutside = (refs:RefObject<HTMLElement>[], callback:(e:MouseEvent) => void) => {
 
 
 	const handleClick = useCallback((e:MouseEvent) => {
@@ -17,7 +17,7 @@ export const useClickOutside = (refs:RefObject<HTMLElement>[], callback:() => vo
 		}
 
 		if(!isClickInside) {
-			callback()
+			callback(e)
 		}
 	},[callback, refs])
 	

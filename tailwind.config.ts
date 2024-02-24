@@ -19,7 +19,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        montserrat: 'var(--font-montserrat)'
+        montserrat: 'var(--font-montserrat)',
+        inter: 'var(--font-inter)'
       },
       colors: {
         'custom-red': 'var(--red-color)',

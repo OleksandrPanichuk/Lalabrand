@@ -56,7 +56,7 @@ export const CategoryPreview = () => {
               >
                 {t(value.key)}
                 <SvgIcon
-                  name="arrow-top-left"
+                  name="arrow-top-right"
                   width={21}
                   height={23}
                   fill="black"

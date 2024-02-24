@@ -1,42 +1,42 @@
 .button {
-	background-color: var(--background);
+  background-color: var(--background);
 
-	position: relative;
-	z-index: 3;
-	padding-right: 1.5625rem;
-	height: 7.0625rem;
-	display: flex;
+  position: relative;
+  z-index: 3;
+  padding-right: 1.5625rem;
+  height: 7.0625rem;
+  display: flex;
 
-	&::after {
-		content:'';
-		position: absolute;
-		right: -0.5rem;
-		translate: 0 -50%;
-		top:50%;
-		z-index:-1;
-		width: 7.0625rem;
-		height: 7.0625rem;
-		border-radius: 50%;
-		border: solid 2px #222222;
-		transition: all .3s ease-in-out;
-	}
+  &::after {
+    content: '';
+    position: absolute;
+    right: -0.5rem;
+    translate: 0 -50%;
+    top: 50%;
+    z-index: -1;
+    width: 7.0625rem;
+    height: 7.0625rem;
+    border-radius: 50%;
+    border: solid 2px var(--text-color);
+    transition: all 0.3s ease-in-out;
+  }
 
-	span {
-		background-color: var(--background);
-		height: 3.75rem;
-		display: flex;
-		transition: all .3s ease-in-out;
-		align-items:center;
-	}
+  span {
+    background-color: var(--background);
+    height: 3.75rem;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+  }
 
-	&:hover {
-		span {
-			color: var(--red-color);
-		}
-	}
+  &:hover {
+    span {
+      color: var(--red-color);
+    }
+  }
 
-	&:hover::after {
-		scale: 1.1;
-		border-color: var(--red-color)
-	}
+  &:hover::after {
+    scale: 1.1;
+    border-color: var(--red-color);
+  }
 }
