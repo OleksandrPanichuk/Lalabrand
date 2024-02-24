@@ -22,7 +22,7 @@ main {
 @layer base {
   :root {
     --red-color: #950707;
-    --text-color: #222222 ;
+    --text-color: #222222;
     --white-color: rgb(250, 250, 250);
 
     --background: rgb(250, 250, 250);
@@ -96,6 +96,31 @@ main {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer  components {
+  .heading-1 {
+    font-weight: 700;
+    @include adaptive-value('font-size', 32, 28);
+    line-height: 112.5%; /* 36/32 */
+  }
+
+  .heading-2 {
+    @include adaptive-value('font-size', 28, 24);
+    line-height: 114.285714%; /* 32/28 */
+    font-weight: 600;
+  }
+  .heading-3 {
+    @include adaptive-value('font-size', 24, 20);
+    line-height: 116.666667%; /* 28/24 */
+    font-weight: 500;
+  }
+
+  .heading-4 {
+    @include adaptive-value('font-size', 20, 18);
+    line-height: 120%; /* 24/20 */
+    font-weight: 600;
   }
 }
 
