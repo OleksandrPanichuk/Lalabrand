@@ -2,7 +2,7 @@
 import { Breadcrumbs } from '@/components/common';
 import {
   CategoriesDisclosure,
-  MasonryLayout,
+  CategoriesPicker,
 } from '@/components/screens/categories';
 import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
@@ -23,7 +23,7 @@ const Page = () => {
           </div>
           <CategoriesDisclosure />
         </aside>
-        <MasonryLayout />
+        <CategoriesPicker />
       </div>
     </div>
   );

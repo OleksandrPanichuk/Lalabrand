@@ -2,7 +2,7 @@
 @import '@/styles/variables.scss';
 
 .header {
-  @apply w-full flex gap-2 items-center  fixed top-0 bg-background z-50;
+  @apply w-full flex gap-2 items-center  fixed top-0 bg-background z-[100];
   @include adaptive-value('padding-bottom', 40, 20);
   @include adaptive-value('padding-top', 40, 20);
   @include adaptive-value('padding-left', 32, 12);

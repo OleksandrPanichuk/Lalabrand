@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Heading"
-  },
   "Header": {
     "Links": {
       "Women": "Women",
@@ -76,7 +73,9 @@
     "Women": "Women",
     "Men": "Men",
     "Kids": "Kids",
+    "Sale": "Sale",
     "Accessories": "Accessories",
+    "view more": "view more",
     "View all": "View all",
     "Links": {
       "Accessories": "Accessories",
@@ -96,8 +95,8 @@
       "Hair Accessories": "Hair Accessories",
       "Hats": "Hats",
       "Jewelry": "Jewelry",
-      "Scarves":"Scarves",
-      "Sunglasses":"Sunglasses"
+      "Scarves": "Scarves",
+      "Sunglasses": "Sunglasses"
     }
   }
 }

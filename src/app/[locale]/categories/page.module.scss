@@ -2,17 +2,21 @@
 
 .container {
   @include adaptive-value('padding-top', 120, 60);
-  @include adaptive-value('padding-bottom',340, 128);
+  @include adaptive-value('padding-bottom', 340, 128);
 }
 
 .content {
-  @apply flex gap-4;
+  @apply flex gap-4 justify-between;
   @include adaptive-value('margin-top', 80, 40);
+
+  @include screen-xs-max {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
   > :not([hidden]) ~ :not([hidden]) {
-    @include adaptive-value('margin-top',68, 32);
+    @include adaptive-value('margin-top', 68, 32);
   }
   > div:first-child {
     h4 {
