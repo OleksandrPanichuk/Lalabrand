@@ -44,12 +44,17 @@
 }
 
 .right {
-  @apply flex flex-col items-end ;
+  @apply flex flex-col  ;
   
   @include screen-md-min {
     flex: 501;
+    align-items:flex-end;
   }
   @include adaptive-value('gap', 217, 32);
+
+  @include screen-md-max {
+    align-items: center;
+  }
 
 }
 
