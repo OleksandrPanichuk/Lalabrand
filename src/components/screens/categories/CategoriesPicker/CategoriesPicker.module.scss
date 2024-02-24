@@ -52,7 +52,7 @@
   }
   @include adaptive-value('gap', 217, 32);
 
-  @include-screen-md-max {
+  @include screen-md-max {
     align-items: center;
   }
 
