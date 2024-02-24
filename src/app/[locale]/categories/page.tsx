@@ -7,8 +7,10 @@ import {
 import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import styles from './page.module.scss';
+import { useTranslations } from 'next-intl'
 
 const Page = () => {
+  const t = useTranslations('Categories')
   return (
     <div className={cn('page__container', styles.container)}>
       <Breadcrumbs>
@@ -18,8 +20,8 @@ const Page = () => {
       <div className={styles.content}>
         <aside className={styles.sidebar}>
           <div>
-            <h4>Offers & Deals</h4>
-            <p>Big sale</p>
+            <h4>{t("Offers_Deals")}</h4>
+            <p>{t("Big Sale")}</p>
           </div>
           <CategoriesDisclosure />
         </aside>
