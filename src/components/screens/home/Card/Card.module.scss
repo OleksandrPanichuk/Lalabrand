@@ -1,5 +1,5 @@
 .thumb {
-  margin-bottom: 12px;
+  // margin-bottom: 12px;
   position: relative;
 
   & > button {
@@ -26,6 +26,7 @@
 }
 
 .bestseller_title {
+  margin-top: 7px;
   margin-bottom: 8px;
   font-family: Inter, sans-serif;
   font-weight: 500;
@@ -34,9 +35,11 @@
 .colors {
   margin-bottom: 12px;
   display: flex;
+  align-items: center;
   gap: 6px;
 
-  & > li {
+  & > li,
+  & > span:nth-child(2) {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -46,4 +49,72 @@
 .price {
   font-family: Inter, sans-serif;
   font-weight: 600;
+}
+
+.popup {
+  padding: 10px;
+  position: absolute;
+  top: 40px;
+  left: 30%;
+  width: 70%;
+  background-color: rgba(200, 230, 200, 0.3);
+  text-align: center;
+  z-index: 7;
+
+  & > button {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgba(240, 240, 240, 0.5);
+  }
+
+  & > button:last-child {
+    margin-left: 20px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.btns {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+
+  & > button {
+    height: 72px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: calc(24 / 20);
+    font-family: Inter, sans-serif;
+  }
+  & > button:first-child {
+    padding: 24px;
+    width: 136px;
+    background-color: #e4e4e4;
+  }
+  & > button:last-child {
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 234px;
+    background-color: #aa3939;
+    color: #f3f2f2;
+    &:hover {
+      background-color: #950707;
+    }
+    &:active svg {
+      scale: 1.2;
+    }
+    &:disabled {
+      background-color: #d59c9c;
+    }
+  }
 }

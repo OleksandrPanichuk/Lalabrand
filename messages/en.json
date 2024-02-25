@@ -70,9 +70,8 @@
     }
   },
   "Categories": {
-"Offers_Deals":"Offers & Deals",
-"Big Sale":"Big Sale",
-
+    "Offers_Deals": "Offers & Deals",
+    "Big Sale": "Big Sale",
     "Women": "Women",
     "Men": "Men",
     "Kids": "Kids",
@@ -100,6 +99,21 @@
       "Jewelry": "Jewelry",
       "Scarves": "Scarves",
       "Sunglasses": "Sunglasses"
+    }
+  },
+  "Wishlist": {
+    "Title": {
+      "My": "My",
+      "Favorites": "Favorites"
+    },
+    "Counter": "items",
+    "Color": "Color",
+    "Size": "Size",
+    "Add to bag": "Add to bag",
+    "Popup": {
+      "Message": "Are you sure you want to remove this item from favorites?",
+      "Yes": "Yes",
+      "No": "No"
     }
   }
 }
