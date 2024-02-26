@@ -9,8 +9,8 @@
     z-index: 5;
 
     &:hover svg {
-      // fill: #d59c9c;
-      scale: 1.1;
+      fill: #d59c9c;
+      // scale: 1.1;
     }
 
     &:focus svg {
@@ -87,28 +87,40 @@
   display: flex;
   justify-content: space-between;
 
-  & > button {
+  & button {
     height: 72px;
+    justify-content: space-between;
     font-weight: 600;
     font-size: 20px;
     line-height: calc(24 / 20);
     font-family: Inter, sans-serif;
   }
-  & > button:first-child {
+  & > div > button:first-child {
     padding: 24px;
     width: 136px;
     background-color: #e4e4e4;
+
+    & svg {
+      position: absolute;
+      // right: 31px;
+      right: 24px;
+    }
   }
   & > button:last-child {
     padding: 24px 40px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    // gap: 24px;
     width: 234px;
     background-color: #aa3939;
     color: #f3f2f2;
+    transition: background-color 0.3s ease-in;
     &:hover {
       background-color: #950707;
+    }
+    & svg {
+      min-width: 24px;
+      min-height: 24px;
     }
     &:active svg {
       scale: 1.2;
@@ -116,5 +128,26 @@
     &:disabled {
       background-color: #d59c9c;
     }
+  }
+
+  & ul {
+    height: 252px;
+    overflow-y: scroll;
+    top: 102%;
+    z-index: 5;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  & li {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: calc(24 / 20);
+    background-color: #e4e4e4;
+    border-bottom: 0.5px solid #c8c8c8;
   }
 }

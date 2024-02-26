@@ -1,9 +1,13 @@
 'use client';
-import { MouseEvent, useState, useEffect } from 'react';
+import { MouseEvent, useState } from 'react';
 import Image from 'next/image';
 import { Link } from '@/shared/navigation';
 import { SvgIcon } from '@/components/common';
+import { Listbox, Transition } from '@headlessui/react';
+import { cn } from '@/lib';
+import { Fragment } from 'react';
 import css from './Card.module.scss';
+import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss';
 import { useFavoriteStore } from '@/store';
 import { useTranslations } from 'next-intl';
 
@@ -21,6 +25,35 @@ type Card = {
   price: number;
 };
 
+// --- that should come from backend -----
+const sizeOptions = [
+  {
+    label: 'XS',
+    value: 'xs',
+  },
+  {
+    label: 'S',
+    value: 's',
+  },
+  {
+    label: 'M',
+    value: 'm',
+  },
+  {
+    label: 'L',
+    value: 'l',
+  },
+  {
+    label: 'XL',
+    value: 'xl',
+  },
+  {
+    label: 'XXL',
+    value: 'xxl',
+  },
+];
+// -----------
+
 export const Card = ({ item, width, inFav }: CardProps) => {
   const { id, name, path, colors, price } = item;
 
@@ -29,7 +62,7 @@ export const Card = ({ item, width, inFav }: CardProps) => {
   const [toDelete, setToDelete] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const [size, setSize] = useState(false);
+  const [size, setSize] = useState(t('Wishlist.Size'));
 
   const { favorites, addFavorite, delFavorite } = useFavoriteStore();
 
@@ -51,22 +84,17 @@ export const Card = ({ item, width, inFav }: CardProps) => {
     setToDelete(true);
   }
 
-  function popupToggle(e: MouseEvent<HTMLButtonElement>) {
+  function popupToggle(e: any) {
     e.preventDefault();
     setShowPopup((prev) => !prev);
   }
 
-  function chooseSize() {
-    setSize(true);
+  function chooseSize(e: string) {
+    setSize(e);
   }
 
   function addToCart() {
     console.log('add to cart');
-  }
-
-  function stopPropagation(e) {
-    e.preventDefault();
-    e.stopPropagation();
   }
 
   return (
@@ -99,7 +127,7 @@ export const Card = ({ item, width, inFav }: CardProps) => {
         </button>
         {inFav && showPopup && !toDelete && (
           <>
-            <div className={css.popup} onclick={stopPropagation}>
+            <div className={css.popup} onClick={(e) => e.preventDefault()}>
               <p>{t('Wishlist.Popup.Message')}</p>
               <button type="button" onClick={remove}>
                 {t('Wishlist.Popup.Yes')}
@@ -142,10 +170,64 @@ export const Card = ({ item, width, inFav }: CardProps) => {
       <p className={css.price}>${price}</p>
       {inFav && (
         <div className={css.btns}>
-          <button type="button" onClick={chooseSize}>
-            {t('Wishlist.Size')}
-          </button>
-          <button type="button" onClick={addToCart} disabled={!size}>
+          <Listbox value={size} onChange={chooseSize}>
+            <div className={'relative'}>
+              <Listbox.Button className={styles.trigger}>
+                {({ open, value }) => (
+                  <>
+                    {sizeOptions.find((opt) => opt.value === value)?.label ||
+                      size}
+                    <SvgIcon
+                      name="chevron"
+                      width={14}
+                      height={14}
+                      className={cn(
+                        styles.chevron,
+                        open && styles['chevron--open'],
+                      )}
+                    />
+                  </>
+                )}
+              </Listbox.Button>
+              <Transition
+                enter="transition-opacity  duration-200 ease-in-out"
+                enterFrom="opacity-0"
+                enterTo="opacity-100 "
+                leave=" duration-200 transition-opacity ease-in-out"
+                leaveFrom="opacity-100 "
+                leaveTo="opacity-0"
+                as={Fragment}
+              >
+                <Listbox.Options className={styles.options}>
+                  <hr className="h-[1px] bg-border" />
+                  {sizeOptions.map((option, index) => (
+                    <Fragment key={option.value}>
+                      <Listbox.Option
+                        className={styles.option}
+                        value={option.value}
+                      >
+                        {({ selected }) => (
+                          <span className={cn(selected && styles.selected)}>
+                            {option.label}
+                          </span>
+                        )}
+                      </Listbox.Option>
+
+                      {index !== sizeOptions.length - 1 && (
+                        <hr className="h-[1px] bg-border" />
+                      )}
+                    </Fragment>
+                  ))}
+                </Listbox.Options>
+              </Transition>
+            </div>
+          </Listbox>
+
+          <button
+            type="button"
+            onClick={addToCart}
+            disabled={size === t('Wishlist.Size')}
+          >
             <SvgIcon name="cart" width={24} height={24} fill={'#F3F2F2'} />
             {t('Wishlist.Add to bag')}
           </button>

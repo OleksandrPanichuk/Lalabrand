@@ -49,6 +49,10 @@
 	<path  d="M0 15.2891L12.2886 3L2.74268 3L2.74268 0L17.4097 0L17.4097 14.667L14.4102 14.667L14.4102 5.12109L2.12109 17.4102L0 15.2891Z"  />
 </symbol>
 
+<symbol id="chevron" viewBox="0 0 12 7">
+	<path d="M1 1L6 6L11 1" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>+6
+</symbol>
+
 </defs>
 </svg>
 

@@ -1,6 +1,5 @@
 'use client';
-import { Breadcrumbs, PageTitle } from '@/components/common';
-import { Card } from '@/components/screens/home';
+import { Breadcrumbs, PageTitle, Card } from '@/components/common';
 import { cn } from '@/lib';
 import css from './page.module.scss';
 import { Routes } from '@/shared/constants';
