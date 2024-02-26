@@ -13,7 +13,7 @@ const Page = () => {
     <div className={cn('page__container', css.container)}>
       <Breadcrumbs>
         <Breadcrumbs.Item href={Routes.ROOT}>lalabrand</Breadcrumbs.Item>
-        <Breadcrumbs.Item href={Routes.SHOP}>categories</Breadcrumbs.Item>
+        <Breadcrumbs.Item href={Routes.WISHLIST}>favorites</Breadcrumbs.Item>
       </Breadcrumbs>
       <section className={css.content}>
         <PageTitle
