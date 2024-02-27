@@ -72,6 +72,7 @@ export const SearchBarMobile = () => {
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     placeholder={t('Placeholder')}
+                    className={styles.input}
                   />
                 </label>
               </form>

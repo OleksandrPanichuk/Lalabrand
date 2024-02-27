@@ -1,13 +1,13 @@
-import getRequestConfig from '@/i18n';
-import { constructRootMetadata } from '@/shared/metadata';
-import type { Metadata } from 'next';
+import getRequestConfig from '@/i18n'
+import { constructRootMetadata } from '@/shared/metadata'
+import type { Metadata } from 'next'
 
-import { Header, Footer } from '@/components/common';
-import { ApolloProvider } from '@/components/providers';
-import { cn } from '@/lib';
-import '@/styles/globals.scss';
-import { NextIntlClientProvider } from 'next-intl';
-import { Inter, Montserrat } from 'next/font/google';
+import { Footer, Header } from '@/components/common'
+import { ApolloProvider, AuthProvider } from '@/components/providers'
+import { cn } from '@/lib'
+import '@/styles/globals.scss'
+import { NextIntlClientProvider } from 'next-intl'
+import { Inter, Montserrat } from 'next/font/google'
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
@@ -34,6 +34,9 @@ export default async function RootLayout({
 }) {
   const translations = await getRequestConfig(params);
 
+  //TODO: fetch current user data
+  const currentUser = null
+
   return (
     <html
       lang={params.locale}
@@ -43,9 +46,11 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
+            <AuthProvider initialUser={currentUser}>
             <Header />
             <main>{children}</main>
             <Footer />
+            </AuthProvider>
           </ApolloProvider>
         </NextIntlClientProvider>
       </body>

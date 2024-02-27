@@ -4,6 +4,8 @@ $maxWidthContainer: 1282;
 $containerPadding: 16;
 $containerWidth: calc($maxWidthContainer + $containerPadding * 2);
 
+$screen-2xl: 90rem; //1440
+
 $screen-xl-min: 75rem; //1200px
 $screen-xl-max: calc(75rem - 0.02px);
 

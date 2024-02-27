@@ -19,7 +19,7 @@ export const Header = () => {
       <Visibility
         ssr
         fallback
-        breakpoint={`(max-width: ${cssVariables.screenXl})`}
+        breakpoint={`(max-width: ${cssVariables.screen2Xl})`}
       >
         <div className={styles['mobile-navbar']}>
           <MobileNavbar />
@@ -37,7 +37,7 @@ export const Header = () => {
       <Visibility
         ssr
         fallback
-        breakpoint={`(min-width: ${cssVariables.screenXl})`}
+        breakpoint={`(min-width: ${cssVariables.screen2Xl})`}
       >
         <Navbar className={styles.navbar} />
       </Visibility>

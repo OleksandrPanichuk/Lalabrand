@@ -15,7 +15,7 @@ const Page = () => {
     <div className={cn('page__container', styles.container)}>
       <Breadcrumbs>
         <Breadcrumbs.Item href={Routes.ROOT}>lalabrand</Breadcrumbs.Item>
-        <Breadcrumbs.Item href={Routes.SHOP}>categories</Breadcrumbs.Item>
+        <Breadcrumbs.Item href={Routes.CATEGORIES}>categories</Breadcrumbs.Item>
       </Breadcrumbs>
       <div className={styles.content}>
         <aside className={styles.sidebar}>

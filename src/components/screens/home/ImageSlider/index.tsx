@@ -1,11 +1,11 @@
 'use client';
 
-import { SvgIcon } from '@/components/common';
-import { cn } from '@/lib';
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { images } from './ImageSlider.data';
-import styles from './ImageSlider.module.scss';
+import { SvgIcon } from '@/components/common'
+import { cn } from '@/lib'
+import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { images } from './ImageSlider.data'
+import styles from './ImageSlider.module.scss'
 
 const AUTOPLAY_SPEED = 6000;
 
@@ -69,10 +69,13 @@ export const ImageSlider = () => {
           }}
           key={images[currentIndex]}
           src={images[currentIndex]}
+          alt={`slide-${currentIndex}`}
         />
+      
         <motion.img
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
+          alt={`behind-slide`}
           transition={{ duration: 1 }}
           className={cn(styles['slide-current__image'], 'z-10')}
           src={direction === 'right'
@@ -94,6 +97,7 @@ export const ImageSlider = () => {
             }}
             key={currentIndex + Math.random()}
             src={images[newIndex(currentIndex)]}
+            alt={`slide-${newIndex(currentIndex)}`}
           />
           <motion.img
             className={cn(styles['slide-next__img'], 'z-10')}
@@ -110,6 +114,7 @@ export const ImageSlider = () => {
                 ? images[newIndex(currentIndex + 1)]
                 : images[newIndex(currentIndex - 1)]
             }
+            alt={`behind-slide`}
           />
         </div>
         <div className={styles.buttons}>

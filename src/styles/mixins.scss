@@ -86,3 +86,16 @@
 		@content;
 	}
 }
+
+
+@mixin screen-2xl-min {
+	@media screen and (width >= $screen-2xl) {
+		@content;
+	}
+}
+
+@mixin screen-2xl-max {
+	@media screen and (width < $screen-2xl) {
+		@content;
+	}
+}
