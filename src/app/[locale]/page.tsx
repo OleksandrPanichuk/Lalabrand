@@ -18,7 +18,7 @@ const Page = () => {
       <Hero />
       {/* second section */}
       <section className={cn(css.bestsellers, 'page__container')}>
-        <Title name={t('Home.Titles.Bestsellers')} />
+        <Title pronoun={t('Titles.Our')} name={t('Titles.Bestsellers')} />
         <div>
           <ul>
             {bestsellersFromBackend.map((el) => (
@@ -36,7 +36,7 @@ const Page = () => {
       {/* end of second section */}
       {/* third section */}
       <section className={cn(css.bestsellers, 'page__container')}>
-        <Title name={t('Home.Titles.Looks')} />
+        <Title pronoun={t('Titles.Our')} name={t('Titles.Looks')} />
         <div className={css.flexEnd}>
           <Image
             src={looks[0].lookImg}

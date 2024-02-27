@@ -1,5 +1,5 @@
 'use client';
-import { Breadcrumbs, PageTitle, Card } from '@/components/common';
+import { Breadcrumbs, Title, Card } from '@/components/common';
 import { cn } from '@/lib';
 import css from './page.module.scss';
 import { Routes } from '@/shared/constants';
@@ -16,10 +16,7 @@ const Page = () => {
         <Breadcrumbs.Item href={Routes.WISHLIST}>favorites</Breadcrumbs.Item>
       </Breadcrumbs>
       <section className={css.content}>
-        <PageTitle
-          pronoun={t('Wishlist.Title.My')}
-          name={t('Wishlist.Title.Favorites')}
-        />
+        <Title pronoun={t('Titles.My')} name={t('Titles.Favorites')} />
         <ul>
           {favoritesFromBackend.map((el) => (
             <li key={el.id} className={css.column}>

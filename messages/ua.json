@@ -49,7 +49,6 @@
       "Button": "купуйте зараз"
     },
     "Categories": {
-      "Title": "Категорії",
       "Links": {
         "Women": "Жіночий",
         "Men": "Чоловічий",
@@ -61,12 +60,6 @@
     "Buttons": {
       "view more": "подивитись більше",
       "refresh look": "оновити образ"
-    },
-    "Titles": {
-      "Our": "Наші",
-      "Bestsellers": "Бестселери",
-      "Looks": "Образи",
-      "Categories": "Категорії"
     }
   },
   "Categories": {
@@ -102,10 +95,6 @@
     }
   },
   "Wishlist": {
-    "Title": {
-      "My": "Моє",
-      "Favorites": "Обране"
-    },
     "Counter": "товар.",
     "Color": "Колір",
     "Size": "Розмір",
@@ -115,5 +104,13 @@
       "Yes": "Так",
       "No": "Ні"
     }
+  },
+  "Titles": {
+    "My": "Моє",
+    "Our": "Наші",
+    "Bestsellers": "Бестселери",
+    "Looks": "Образи",
+    "Categories": "Категорії",
+    "Favorites": "Обране"
   }
 }

@@ -15,7 +15,11 @@ export const CategoryPreview = () => {
 
   return (
     <section>
-      <Title className="page__container" name={t('Home.Categories.Title')} />
+      <Title
+        className="page__container"
+        pronoun={t('Titles.Our')}
+        name={t('Titles.Categories')}
+      />
       <div className={styles.content}>
         <Visibility
           fallback

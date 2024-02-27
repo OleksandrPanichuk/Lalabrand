@@ -1,19 +1,16 @@
-import { cn } from '@/lib'
+import { cn } from '@/lib';
 import css from './Title.module.scss';
-import { useTranslations } from 'next-intl';
 
 interface TitleProps {
+  pronoun: string;
   name: string;
-  className?:string
+  className?: string;
 }
 
-export const Title = ({ name, className }: TitleProps) => {
-  const t = useTranslations();
-
+export const Title = ({ pronoun, name, className }: TitleProps) => {
   return (
     <h2 className={cn(css.title, className)}>
-      {' '}
-      {t('Home.Titles.Our')} <span>{name}</span>
+      {pronoun} <span>{name}</span>
     </h2>
   );
 };
