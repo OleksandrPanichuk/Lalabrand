@@ -1,0 +1,55 @@
+@import '@/styles/mixins.scss';
+
+.container {
+  @include adaptive-value('padding-top', 120, 60);
+  @include adaptive-value('padding-bottom', 340, 128);
+}
+
+.content {
+  position: relative;
+  @include adaptive-value('margin-top', 80, 40);
+
+  & > h2 {
+    margin-bottom: 60px;
+  }
+
+  & > ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 33px;
+    row-gap: 66px;
+
+    @include screen-xs-max {
+      flex-direction: column;
+    }
+  }
+}
+
+.counter {
+  position: absolute;
+  top: -95px;
+  right: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  line-height: calc(15 / 12);
+  letter-spacing: 1.6px;
+  color: #4c4c4c;
+}
+
+.column {
+  max-width: 394px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+
+  & p:first-of-type {
+    margin-top: 22px;
+    font-weight: 600;
+  }
+  & p:last-child {
+    font-weight: 700;
+  }
+  & a {
+    // margin-bottom: 22px;
+  }
+}

@@ -4,5 +4,6 @@ export * from './Visibility';
 export * from './SvgIcon';
 export * from './Footer';
 export * from './Title';
-export * from './LinkWithCircle'
-export * from './Breadcrumbs'
+export * from './LinkWithCircle';
+export * from './Breadcrumbs';
+export * from './Card';

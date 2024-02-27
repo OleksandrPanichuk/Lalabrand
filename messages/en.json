@@ -49,7 +49,6 @@
       "Button": "shop now"
     },
     "Categories": {
-      "Title": "Categories",
       "Links": {
         "Women": "Women",
         "Men": "Men",
@@ -61,18 +60,11 @@
     "Buttons": {
       "view more": "view more",
       "refresh look": "refresh look"
-    },
-    "Titles": {
-      "Our": "Our",
-      "Bestsellers": "Bestsellers",
-      "Looks": "Looks",
-      "Categories": "Categories"
     }
   },
   "Categories": {
-"Offers_Deals":"Offers & Deals",
-"Big Sale":"Big Sale",
-
+    "Offers_Deals": "Offers & Deals",
+    "Big Sale": "Big Sale",
     "Women": "Women",
     "Men": "Men",
     "Kids": "Kids",
@@ -101,5 +93,24 @@
       "Scarves": "Scarves",
       "Sunglasses": "Sunglasses"
     }
+  },
+  "Wishlist": {
+    "Counter": "items",
+    "Color": "Color",
+    "Size": "Size",
+    "Add to bag": "Add to bag",
+    "Popup": {
+      "Message": "Are you sure you want to remove this item from favorites?",
+      "Yes": "Yes",
+      "No": "No"
+    }
+  },
+  "Titles": {
+    "My": "My",
+    "Our": "Our",
+    "Bestsellers": "Bestsellers",
+    "Looks": "Looks",
+    "Categories": "Categories",
+    "Favorites": "Favorites"
   }
 }

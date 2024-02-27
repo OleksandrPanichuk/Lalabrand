@@ -71,7 +71,7 @@ export const Header = () => {
           </li>
           <li>
             <Link className={styles.link} href={Routes.CART}>
-              <SvgIcon name="cart" />
+              <SvgIcon name="cart" fill="#222" />
             </Link>
           </li>
         </ul>
