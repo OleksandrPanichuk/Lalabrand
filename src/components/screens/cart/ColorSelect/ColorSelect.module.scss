@@ -1,0 +1,46 @@
+.trigger {
+  @apply font-inter text-md font-semibold flex items-center;
+  gap: 5px;
+  color: var(--text-color);
+  > span:nth-child(2) {
+    width: 0.625rem;
+    height: 0.625rem;
+    display: block;
+    border-radius: 50%;
+  }
+}
+
+.options {
+  @apply shadow-md rounded-md bg-white p-3;
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.option {
+  @apply flex items-center gap-1 px-2 py-1 font-inter text-md font-semibold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+
+  > span:first-child {
+    width: 0.625rem;
+    height: 0.625rem;
+    display: block;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    @apply bg-zinc-100;
+  }
+}
+
+
+.chevron {
+  transition: all .3s ease-in-out;
+  &--open {
+    rotate: -180deg;
+  }
+}

@@ -1,15 +1,14 @@
 'use client';
-import { MouseEvent, useState } from 'react';
-import Image from 'next/image';
-import { Link } from '@/shared/navigation';
-import { SvgIcon } from '@/components/common';
-import { Listbox, Transition } from '@headlessui/react';
-import { cn } from '@/lib';
-import { Fragment } from 'react';
-import css from './Card.module.scss';
-import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss';
-import { useFavoriteStore } from '@/store';
-import { useTranslations } from 'next-intl';
+import { SvgIcon } from '@/components/common'
+import { cn } from '@/lib'
+import { Link } from '@/shared/navigation'
+import { useCartStore, useFavoriteStore } from '@/store'
+import { Listbox, Transition } from '@headlessui/react'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { Fragment, MouseEvent, useState } from 'react'
+import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss'
+import css from './Card.module.scss'
 
 interface CardProps {
   item: Card;
@@ -65,6 +64,7 @@ export const Card = ({ item, width, inFav }: CardProps) => {
   const [size, setSize] = useState(t('Wishlist.Size'));
 
   const { favorites, addFavorite, delFavorite } = useFavoriteStore();
+  const { add: addToBag, items: cartItems, incrementCount } = useCartStore();
 
   function changeFavoriteStatus(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -94,7 +94,26 @@ export const Card = ({ item, width, inFav }: CardProps) => {
   }
 
   function addToCart() {
-    console.log('add to cart');
+    const alreadyHas = cartItems.some(
+      (item) =>
+        item.itemId === id && item.size === size && item.color === colors[0],
+    );
+    if (alreadyHas) {
+      return incrementCount({ id, size, color: colors[0] });
+    }
+
+    return addToBag({
+      count: 1,
+      imageUrl: item.path,
+      name,
+      price,
+      size,
+      itemId: id,
+      id:Math.random(),
+      colors: colors,
+      color: colors[0],
+      sizes: sizeOptions.map(opt => opt.value)
+    });
   }
 
   return (

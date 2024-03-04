@@ -1,0 +1,133 @@
+.wrapper {
+  max-width: 51.3125rem;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  background-color: white;
+}
+
+.image {
+  position: relative;
+  aspect-ratio: 264 / 350;
+  flex: 264;
+
+  > img {
+    object-fit: contain;
+  }
+}
+
+.info {
+  flex: 477;
+}
+
+.details {
+  margin-bottom: 3.75rem;
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  > h4,
+  > p {
+    @apply font-inter text-lg;
+    color: var(--text-color);
+  }
+  > h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2.25rem;
+  }
+  > p {
+    font-weight: 700;
+    margin-bottom: 1.625rem;
+  }
+}
+
+.amount {
+  > p {
+    @apply font-inter text-md font-semibold;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    min-width: 6.8125rem;
+    width: min-content;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    > button {
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--neutral-500);
+      color: var(--neutral-500);
+      line-height: 100%;
+    }
+
+    > span {
+      @apply font-inter font-medium text-md;
+      color: var(--text-color);
+    }
+  }
+}
+
+.total {
+  @apply text-md font-inter font-semibold flex flex-col gap-3;
+  color: var(--text-color);
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+
+  > button:first-child {
+    border: 1px solid var(--secondary-500);
+    padding: 1.25rem 1.4688rem;
+    &:not(.in-favorite) {
+      svg {
+        stroke: #4c4c4c;
+        fill: transparent;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        svg {
+          fill: var(--primary-200);
+        }
+      }
+    }
+    &.in-favorite {
+      svg {
+        transition: all 0.3s ease-in-out;
+        fill: var(--red-color);
+      }
+    }
+  }
+
+  > button:last-child {
+    @apply w-full flex items-center gap-4 justify-center p-5 font-inter text-lg font-medium;
+    border: 1px solid var(--red-color);
+    max-width: 11.3125rem;
+
+    color: var(--text-color);
+
+    svg {
+      transition: all .3s ease-in-out;
+      fill: var(--secondary-500);
+    }
+
+    &:hover {
+      svg {
+        scale: 1.1;
+      }
+    }
+  }
+}

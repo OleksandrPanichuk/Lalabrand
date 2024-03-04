@@ -1,0 +1,33 @@
+.button {
+  @apply font-inter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.primary {
+  border: 1px solid var(--text-color);
+  background: var(--text-color);
+  color: var(--white-color);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: rgba(34, 34, 34, 0.9);
+  }
+}
+
+.outline {
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: inset 0px 0px 7px -3px var(--text-color);
+  }
+}
+
+.gray {
+  border: 0.5px solid var(--neutral-300);
+  background: var(--neutral-100);
+}

@@ -2,7 +2,7 @@ import getRequestConfig from '@/i18n'
 import { constructRootMetadata } from '@/shared/metadata'
 import type { Metadata } from 'next'
 
-import { Footer, Header } from '@/components/common'
+import { ConfirmModal, Footer, Header } from '@/components/common'
 import { ApolloProvider, AuthProvider } from '@/components/providers'
 import { cn } from '@/lib'
 import '@/styles/globals.scss'
@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 const inter = Inter({
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
   subsets: ['cyrillic', 'latin'],
 });
@@ -47,9 +47,10 @@ export default async function RootLayout({
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
             <AuthProvider initialUser={currentUser}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+              <ConfirmModal />
+              <Header />
+              <main>{children}</main>
+              <Footer />
             </AuthProvider>
           </ApolloProvider>
         </NextIntlClientProvider>
