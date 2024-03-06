@@ -28,12 +28,14 @@ export const CartInfo = () => {
     return acc;
   }, 0);
 
-  //TODO: calculate discount and shipping fee
-
+  
   const getShippingFee = () => {
+    if(orderValue >= 40) return 0
     const base = Math.ceil((orderValue * 15) / 100);
+    
     return base > 1 ? base - 0.01 : base;
   };
+  //TODO: calculate discount
   const discount = 0;
 
   const total = discount + getShippingFee() + orderValue;

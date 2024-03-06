@@ -2,15 +2,17 @@
 @import '@/styles/variables.scss';
 
 .header {
-  @apply w-full flex gap-2 items-center  fixed top-0 bg-background z-[100];
+  @apply w-full fixed top-0 bg-background z-[100];
+}
+
+.container {
+  @apply flex gap-2 items-center;
   @include adaptive-value('padding-bottom', 40, 20);
   @include adaptive-value('padding-top', 40, 20);
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
-
   max-width: #{$maxWidth + px};
-  left: 50%;
-  translate: -50% 0;
+  margin: 0 auto;
 }
 
 .link {
@@ -23,7 +25,7 @@
 }
 
 .logo {
-  @include adaptive-value('margin-right', 60, 0, 1200, 3);
+  margin-right: 3.75rem;
 
   @include screen-md-max {
     display: none;

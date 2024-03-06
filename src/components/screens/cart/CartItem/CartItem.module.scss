@@ -1,3 +1,5 @@
+@import '@/styles/mixins.scss';
+
 .wrapper {
   max-width: 51.3125rem;
   width: 100%;
@@ -6,20 +8,33 @@
   align-items: flex-start;
   gap: 2rem;
   background-color: white;
+  @include screen-md-max {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .image {
   position: relative;
   aspect-ratio: 264 / 350;
-  flex: 264;
 
   > img {
     object-fit: contain;
   }
+
+  @include screen-md-min {
+    flex: 264;
+  }
+
+  @include screen-md-max {
+    width: 100%;
+  }
 }
 
 .info {
-  flex: 477;
+  @include screen-md-min {
+    flex: 477;
+  }
 }
 
 .details {
@@ -71,6 +86,20 @@
       border: 1px solid var(--neutral-500);
       color: var(--neutral-500);
       line-height: 100%;
+      transition: all 0.3s ease-in-out;
+
+      svg {
+        transition: stroke 0.3s ease-in-out;
+        stroke: var(--neutral-500);
+      }
+
+      &:hover {
+        color: black;
+        border-color: black;
+        svg {
+          stroke: black;
+        }
+      }
     }
 
     > span {
@@ -87,11 +116,11 @@
 
 .actions {
   display: flex;
-  gap: 2rem;
+  @include adaptive-value('gap', 32, 8);
 
   > button:first-child {
     border: 1px solid var(--secondary-500);
-    padding: 1.25rem 1.4688rem;
+    padding: 14px 23.5008px;
     &:not(.in-favorite) {
       svg {
         stroke: #4c4c4c;
@@ -113,14 +142,14 @@
   }
 
   > button:last-child {
-    @apply w-full flex items-center gap-4 justify-center p-5 font-inter text-lg font-medium;
+    @apply w-full flex items-center gap-4 justify-center px-5 py-[15px] font-inter text-lg font-medium;
     border: 1px solid var(--red-color);
     max-width: 11.3125rem;
 
     color: var(--text-color);
 
     svg {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       fill: var(--secondary-500);
     }
 

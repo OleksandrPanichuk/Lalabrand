@@ -43,7 +43,6 @@ export const CartItem = ({ data }: ICartItemProps) => {
                 <button onClick={() => decrement(data.id)}>
                   <SvgIcon
                     name="minus"
-                    stroke="var(--neutral-500)"
                     width={12}
                   />
                 </button>
@@ -51,7 +50,7 @@ export const CartItem = ({ data }: ICartItemProps) => {
                 <button onClick={() => increment(data.id)}>
                   <SvgIcon
                     name="plus"
-                    stroke="var(--neutral-500)"
+                    
                     width={12}
                     height={12}
                   />
@@ -66,8 +65,8 @@ export const CartItem = ({ data }: ICartItemProps) => {
         </div>
         <div className={styles.actions}>
           <button
-            className={cn(favorites.includes(data.id) && styles['in-favorite'])}
-            onClick={() => toggleFavorite(data.id)}
+            className={cn(favorites.includes(data.itemId) && styles['in-favorite'])}
+            onClick={() => toggleFavorite(data.itemId)}
           >
             <SvgIcon name="like" width={26} height={26} />
           </button>

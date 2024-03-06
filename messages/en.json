@@ -106,9 +106,12 @@
     }
   },
   "Cart": {
-    "Shipping free": {
-      "Title": "Shipping free",
-      "Text": "Add $7.01 more to shopping bag for FREE STANDARD SHIPPING on LALAbrand products!"
+    "Shipping fee": {
+      "Title": "Shipping fee",
+      "Text": {
+        "1":"Add",
+        "2":"more to shopping bag for FREE STANDARD SHIPPING on LALAbrand products!"
+      }
     },
     "Item": {
       "Color": "Color",
@@ -116,6 +119,10 @@
       "Delete": "Delete",
       "Total": "Total",
       "Size": "Size"
+    },
+    "Empty": {
+      "Title":"Your shopping bag is empty!",
+      "Button":"Continue shopping"
     }
   },
   "Titles": {

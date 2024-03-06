@@ -1,11 +1,12 @@
 'use client';
-import { Breadcrumbs, CartInfo, SvgIcon, Title } from '@/components/common';
-import { CartItem } from '@/components/screens/cart';
+import { Breadcrumbs, CartInfo, Title } from '@/components/common';
+import { CartItem, ShippingFee } from '@/components/screens/cart';
 import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import styles from './page.module.scss';
+import { Button } from '@/components/ui';
 
 const Page = () => {
   const t = useTranslations();
@@ -28,21 +29,25 @@ const Page = () => {
           pronoun={t('Titles.Shopping')}
           className={styles.title}
         />
-        <div className={styles.grid}>
-          <div className={styles.shipping}>
-            <SvgIcon name="truck" width={32} height={22} fill="#222222" />
-            <div>
-              <h4>{t('Cart.Shipping free.Title')}</h4>
-              <p>{t('Cart.Shipping free.Text')}</p>
+        {items.length > 0 ? (
+          <div className={styles.grid}>
+            <ShippingFee />
+            <div className={styles.items}>
+              {items.map((item) => (
+                <CartItem data={item} key={item.id} />
+              ))}
             </div>
+            <CartInfo />
           </div>
-          <div className={styles.items}>
-            {items.map((item) => (
-              <CartItem data={item} key={item.id} />
-            ))}
-          </div>
-          <CartInfo />
-        </div>
+        ) : (
+          <>
+            <ShippingFee />
+            <div className={styles.empty}>
+              <h2>{t('Cart.Empty.Title')}</h2>
+              <Button variant={'outline'} size={'lg'}>{t("Cart.Empty.Button")}</Button>
+            </div>
+          </>
+        )}
       </section>
     </div>
   );
