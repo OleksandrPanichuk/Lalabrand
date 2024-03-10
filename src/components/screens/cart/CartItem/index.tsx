@@ -6,6 +6,8 @@ import { useCartStore, useConfirmModal, useFavoriteStore } from '@/store';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
+import { Link } from '@/shared/navigation'
+import { Routes } from '@/shared/constants'
 
 interface ICartItemProps {
   data: TypeCartItem;
@@ -19,7 +21,7 @@ export const CartItem = ({ data }: ICartItemProps) => {
   const { toggleFavorite, favorites } = useFavoriteStore();
   const onOpen = useConfirmModal((state) => state.onOpen);
 
-  const t = useTranslations('Cart.Item')
+  const t = useTranslations('Cart.Item');
 
   return (
     <div className={styles.wrapper}>
@@ -27,8 +29,11 @@ export const CartItem = ({ data }: ICartItemProps) => {
         <Image alt={`product-${data.name}`} src={data.imageUrl} fill />
       </div>
       <div className={styles.info}>
+        <span className={styles.art}>art#{data.itemId}</span>
         <div className={styles.details}>
-          <h4>{data.name}</h4>
+          <h4>
+            <Link href={`${Routes.SHOP}/${data.itemId}`}>{data.name}</Link>
+          </h4>
           <p>{formatCurrency(data.price, locale)}</p>
           <div>
             <ColorSelect
@@ -41,19 +46,11 @@ export const CartItem = ({ data }: ICartItemProps) => {
               <p>{t('Amount')}:</p>
               <div>
                 <button onClick={() => decrement(data.id)}>
-                  <SvgIcon
-                    name="minus"
-                    width={12}
-                  />
+                  <SvgIcon name="minus" width={12} />
                 </button>
                 <span>{data.count}</span>
                 <button onClick={() => increment(data.id)}>
-                  <SvgIcon
-                    name="plus"
-                    
-                    width={12}
-                    height={12}
-                  />
+                  <SvgIcon name="plus" width={12} height={12} />
                 </button>
               </div>
             </div>
@@ -65,7 +62,9 @@ export const CartItem = ({ data }: ICartItemProps) => {
         </div>
         <div className={styles.actions}>
           <button
-            className={cn(favorites.includes(data.itemId) && styles['in-favorite'])}
+            className={cn(
+              favorites.includes(data.itemId) && styles['in-favorite'],
+            )}
             onClick={() => toggleFavorite(data.itemId)}
           >
             <SvgIcon name="like" width={26} height={26} />

@@ -32,6 +32,7 @@
 }
 
 .info {
+  position: relative;
   @include screen-md-min {
     flex: 477;
   }
@@ -42,10 +43,10 @@
   > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    @include adaptive-value('gap', 16, 8);
   }
 
-  > h4,
+  > h4 a,
   > p {
     @apply font-inter text-lg;
     color: var(--text-color);
@@ -159,4 +160,9 @@
       }
     }
   }
+}
+
+.art {
+  @apply absolute top-0 right-0 font-inter font-normal text-sm;
+  color: var(--neutral-500);
 }

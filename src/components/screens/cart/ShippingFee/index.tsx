@@ -1,10 +1,9 @@
 'use client';
 import { SvgIcon } from '@/components/common';
+import { formatCurrency } from '@/lib';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
-import React from 'react';
 import styles from './ShippingFee.module.scss';
-import { formatCurrency } from '@/lib'
 
 export const ShippingFee = () => {
   const t = useTranslations('Cart.Shipping fee');
@@ -19,10 +18,19 @@ export const ShippingFee = () => {
       <SvgIcon name="truck" width={32} height={22} fill="#222222" />
       <div>
         <h4>{t('Title')}</h4>
-        <p>
-          {t('Text.1')} <span>{formatCurrency(+(orderValue >= 40 ? 0 : 40 - orderValue).toFixed(2))}</span>{' '}
-          {t('Text.2')}
-        </p>
+        {orderValue >= 40 ? (
+          <p>{t('Free shipping')}</p>
+        ) : (
+          <p>
+            {t('Text.1')}{' '}
+            <span>
+              {formatCurrency(
+                +(orderValue >= 40 ? 0 : 40 - orderValue).toFixed(2),
+              )}
+            </span>{' '}
+            {t('Text.2')}
+          </p>
+        )}
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import styles from './page.module.scss';
 import { Button } from '@/components/ui';
+import { Link } from '@/shared/navigation'
 
 const Page = () => {
   const t = useTranslations();
@@ -44,7 +45,9 @@ const Page = () => {
             <ShippingFee />
             <div className={styles.empty}>
               <h2>{t('Cart.Empty.Title')}</h2>
-              <Button variant={'outline'} size={'lg'}>{t("Cart.Empty.Button")}</Button>
+              <Button variant={'outline'} size={'lg'} asChild>
+                <Link href={Routes.SHOP}>{t("Cart.Empty.Button")}</Link>
+              </Button>
             </div>
           </>
         )}
