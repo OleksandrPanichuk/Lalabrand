@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { SvgIcon } from '@/components/common';
-import css from './CredentialsForm.module.scss';
+import css from './AuthForm.module.scss';
 import { useTranslations } from 'next-intl';
 
 type Data = {
@@ -11,7 +11,7 @@ type Data = {
   subscribe?: boolean;
 };
 
-export const CredentialsForm = () => {
+export const AuthForm = () => {
   const pathname = usePathname();
   const t = useTranslations();
   const [showpass, setShowpass] = useState(false);
@@ -75,7 +75,7 @@ export const CredentialsForm = () => {
             type={showpass ? 'text' : 'password'}
             pattern={
               pathname.includes('signup')
-                ? '(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-zd@$!%*?&].{8,}'
+                ? '(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}'
                 : undefined
             }
             required
@@ -103,7 +103,7 @@ export const CredentialsForm = () => {
               <input
                 name="confirmPassword"
                 type={showConfirmPass ? 'text' : 'password'}
-                pattern="(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-zd@$!%*?&].{8,}"
+                pattern="(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}"
                 required
               />
             </label>
@@ -141,7 +141,7 @@ export const CredentialsForm = () => {
       {pathname.includes('signup') && (
         <>
           <div className={css.checkbox}>
-            <input name="agreeTerms" type="checkbox" defaultChecked required />
+            <input name="agreeTerms" type="checkbox" required />
             <p>
               {t('Signup.Labels.Agree1')}
               <button
@@ -175,7 +175,7 @@ export const CredentialsForm = () => {
       <button
         type="submit"
         onClick={() => false}
-        title={pathname.includes('signup') ? 'sign in' : 'sign up'}
+        title={pathname.includes('signin') ? 'sign in' : 'sign up'}
         className={css.dark_btn}
       >
         {t(

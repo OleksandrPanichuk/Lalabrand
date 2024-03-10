@@ -16,8 +16,7 @@
       "Shop": "Shop",
       "About": "About",
       "Help": "Help",
-      "Get more deals": "Get more deals",
-      "Email": "Email"
+      "Get more deals": "Get more deals"
     },
     "Links": {
       "Customer Service": "Customer Service",
@@ -31,11 +30,10 @@
       "My account": "My account",
       "Return and replace": "Return and replace"
     },
-    "Buttons": {
-      "Join": "Join"
-    },
     "Text": {
-      "Subscribe": "Join now and get 10% off your next purchase!"
+      "Subscribe": "Join now and get 10% off your next purchase!",
+      "Rights1": " All materials were taken as part of a case study project from the ",
+      "Rights2": " website"
     }
   },
   "Home": {
@@ -109,7 +107,7 @@
     "Title": "Sign In",
     "Text": {
       "undertitle": "Sign In to be the first to see new LALAbrand products",
-      "create account": "Don’t have an account?",
+      "create account": "Don’t have an account? ",
       "or": "OR"
     },
     "Labels": {
@@ -131,8 +129,8 @@
     "Title": "Sign Up",
     "Text": {
       "undertitle": "Sign up for free to access to earn LALAbrand points",
-      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols",
-      "have account": "Do have an account?"
+      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
+      "have account": "Do have an account? "
     },
     "Labels": {
       "Confirm password": "Confirm Password",

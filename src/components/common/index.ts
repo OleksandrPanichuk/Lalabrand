@@ -7,5 +7,3 @@ export * from './Title';
 export * from './LinkWithCircle';
 export * from './Breadcrumbs';
 export * from './Card';
-export * from './SignAside';
-export * from './CredentialsForm';

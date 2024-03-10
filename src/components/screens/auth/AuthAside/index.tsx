@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import css from './SignAside.module.scss';
+import css from './AuthAside.module.scss';
 
 const images = {
   signin: {
@@ -21,7 +21,7 @@ const images = {
   },
 };
 
-export const SignAside = () => {
+export const AuthAside = () => {
   const pathname = usePathname();
 
   function getImagePath() {
