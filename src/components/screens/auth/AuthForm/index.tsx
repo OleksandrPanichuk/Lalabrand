@@ -55,7 +55,7 @@ export const AuthForm = () => {
   }
 
   return (
-    <form onSubmit={submitHandler} className={css.form}>
+    <form onSubmit={submitHandler} className={css.form} id="authForm">
       <label>
         {t('Signin.Labels.Email')}
 
