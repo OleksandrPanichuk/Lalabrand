@@ -1,0 +1,13 @@
+.aside {
+  width: 608px;
+  display: grid;
+  align-items: center;
+  gap: 32px;
+  grid-template-columns: repeat(2, 288px);
+  grid-template-rows: 345px 433px;
+}
+
+.jc_center {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}

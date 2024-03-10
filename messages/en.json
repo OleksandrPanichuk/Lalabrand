@@ -105,6 +105,49 @@
       "No": "No"
     }
   },
+  "Signin": {
+    "Title": "Sign In",
+    "Text": {
+      "undertitle": "Sign In to be the first to see new LALAbrand products",
+      "create account": "Don’t have an account?",
+      "or": "OR"
+    },
+    "Labels": {
+      "Email": "Email address",
+      "Password": "Password"
+    },
+    "Buttons": {
+      "Forgot password": "Forgot password",
+      "Sign In": "Sign In",
+      "Sign Up": "Sign Up",
+      "Google": "Continue With Google",
+      "Facebook": "Continue With Facebook"
+    },
+    "Errors": {
+      "1": "Email and password not fit"
+    }
+  },
+  "Signup": {
+    "Title": "Sign Up",
+    "Text": {
+      "undertitle": "Sign up for free to access to earn LALAbrand points",
+      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols",
+      "have account": "Do have an account?"
+    },
+    "Labels": {
+      "Confirm password": "Confirm Password",
+      "Subscribe": "Subscribe to our monthly newsletter",
+      "Agree1": "Agree to our ",
+      "Agree2": " of use and "
+    },
+    "Errors": {
+      "1": "Passwords don’t match"
+    },
+    "Buttons": {
+      "Terms": "Terms",
+      "Privacy": "Privacy Policy"
+    }
+  },
   "Titles": {
     "My": "My",
     "Our": "Our",

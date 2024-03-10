@@ -88,30 +88,28 @@
   justify-content: space-between;
 
   & button {
-    height: 72px;
+    height: 56px;
     justify-content: space-between;
     font-weight: 600;
-    font-size: 20px;
-    line-height: calc(24 / 20);
+    font-size: 16px;
+    line-height: calc(20 / 16);
     font-family: Inter, sans-serif;
   }
   & > div > button:first-child {
-    padding: 24px;
-    width: 136px;
+    padding: 16px 12px;
+    width: 93px;
     background-color: #e4e4e4;
 
     & svg {
       position: absolute;
-      // right: 31px;
-      right: 24px;
+      right: 18px;
     }
   }
   & > button:last-child {
-    padding: 24px 40px;
+    padding: 16px 28px;
     display: flex;
     align-items: center;
-    // gap: 24px;
-    width: 234px;
+    width: 181px;
     background-color: #aa3939;
     color: #f3f2f2;
     transition: background-color 0.3s ease-in;

@@ -179,8 +179,8 @@ export const Card = ({ item, width, inFav }: CardProps) => {
                       size}
                     <SvgIcon
                       name="chevron"
-                      width={14}
-                      height={14}
+                      width={13}
+                      height={13}
                       className={cn(
                         styles.chevron,
                         open && styles['chevron--open'],
