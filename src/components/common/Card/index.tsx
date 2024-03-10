@@ -60,7 +60,6 @@ export const Card = ({ item, width, inFav }: CardProps) => {
   const t = useTranslations();
 
   const [toDelete, setToDelete] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
 
   const [size, setSize] = useState(t('Wishlist.Size'));
 
@@ -69,25 +68,20 @@ export const Card = ({ item, width, inFav }: CardProps) => {
   function changeFavoriteStatus(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     if (inFav) {
-      setToDelete(false);
-      setShowPopup(false);
+      setToDelete(true);
     }
     if (favorites.includes(id)) {
       delFavorite(id);
       return;
     }
     addFavorite(id);
+    setToDelete(false);
   }
 
-  function remove(e: MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    setToDelete(true);
-  }
-
-  function popupToggle(e: any) {
-    e.preventDefault();
-    setShowPopup((prev) => !prev);
-  }
+  // function remove(e: MouseEvent<HTMLButtonElement>) {
+  //   e.preventDefault();
+  //   setToDelete(true);
+  // }
 
   function chooseSize(e: string) {
     setSize(e);
@@ -113,32 +107,16 @@ export const Card = ({ item, width, inFav }: CardProps) => {
           }}
           alt={name}
         />
-        <button
-          type="button"
-          onClick={inFav && !toDelete ? popupToggle : changeFavoriteStatus}
-        >
+        <button type="button" onClick={(e) => changeFavoriteStatus(e)}>
           <SvgIcon
             name="like"
             width={26}
             height={26}
             fill={favorites.includes(id) ? '#950707' : 'transparent'}
             stroke={favorites.includes(id) ? '#950707' : '#4c4c4c'}
+            className={favorites.includes(id) ? `${css.choosen}` : undefined}
           />
         </button>
-        {inFav && showPopup && !toDelete && (
-          <>
-            <div className={css.popup} onClick={(e) => e.preventDefault()}>
-              <p>{t('Wishlist.Popup.Message')}</p>
-              <button type="button" onClick={remove}>
-                {t('Wishlist.Popup.Yes')}
-              </button>
-              <button type="button" onClick={popupToggle}>
-                {t('Wishlist.Popup.No')}
-              </button>
-            </div>
-            <div className={css.overlay} onClick={popupToggle}></div>
-          </>
-        )}
       </Link>
       <p className={css.bestseller_title}>{name}</p>
       {inFav && (
@@ -179,8 +157,8 @@ export const Card = ({ item, width, inFav }: CardProps) => {
                       size}
                     <SvgIcon
                       name="chevron"
-                      width={14}
-                      height={14}
+                      width={13}
+                      height={13}
                       className={cn(
                         styles.chevron,
                         open && styles['chevron--open'],

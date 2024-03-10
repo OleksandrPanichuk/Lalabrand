@@ -16,8 +16,7 @@
       "Shop": "Shop",
       "About": "About",
       "Help": "Help",
-      "Get more deals": "Get more deals",
-      "Email": "Email"
+      "Get more deals": "Get more deals"
     },
     "Links": {
       "Customer Service": "Customer Service",
@@ -31,11 +30,10 @@
       "My account": "My account",
       "Return and replace": "Return and replace"
     },
-    "Buttons": {
-      "Join": "Join"
-    },
     "Text": {
-      "Subscribe": "Join now and get 10% off your next purchase!"
+      "Subscribe": "Join now and get 10% off your next purchase!",
+      "Rights1": " All materials were taken as part of a case study project from the ",
+      "Rights2": " website"
     }
   },
   "Home": {
@@ -103,6 +101,49 @@
       "Message": "Are you sure you want to remove this item from favorites?",
       "Yes": "Yes",
       "No": "No"
+    }
+  },
+  "Signin": {
+    "Title": "Sign In",
+    "Text": {
+      "undertitle": "Sign In to be the first to see new LALAbrand products",
+      "create account": "Don’t have an account? ",
+      "or": "OR"
+    },
+    "Labels": {
+      "Email": "Email address",
+      "Password": "Password"
+    },
+    "Buttons": {
+      "Forgot password": "Forgot password",
+      "Sign In": "Sign In",
+      "Sign Up": "Sign Up",
+      "Google": "Continue With Google",
+      "Facebook": "Continue With Facebook"
+    },
+    "Errors": {
+      "1": "Email and password not fit"
+    }
+  },
+  "Signup": {
+    "Title": "Sign Up",
+    "Text": {
+      "undertitle": "Sign up for free to access to earn LALAbrand points",
+      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
+      "have account": "Do have an account? "
+    },
+    "Labels": {
+      "Confirm password": "Confirm Password",
+      "Subscribe": "Subscribe to our monthly newsletter",
+      "Agree1": "Agree to our ",
+      "Agree2": " of use and "
+    },
+    "Errors": {
+      "1": "Passwords don’t match"
+    },
+    "Buttons": {
+      "Terms": "Terms",
+      "Privacy": "Privacy Policy"
     }
   },
   "Titles": {
