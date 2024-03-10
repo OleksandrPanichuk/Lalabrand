@@ -61,8 +61,7 @@ export const Footer = () => {
         <div className={css.logo}>
           <Logo />
           <p>
-            © 2024 All materials were taken as part of a case study project
-            from the{' '}
+            {t('Footer.Text.Policy')}{' '}
             <Link href="https://www2.hm.com/en_us/index.html">H&M website</Link>
           </p>
         </div>

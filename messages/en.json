@@ -35,7 +35,8 @@
       "Join": "Join"
     },
     "Text": {
-      "Subscribe": "Join now and get 10% off your next purchase!"
+      "Subscribe": "Join now and get 10% off your next purchase!",
+      "Policy": "© 2024 All materials were taken as part of a case study project from the"
     }
   },
   "Home": {
@@ -109,10 +110,10 @@
     "Shipping fee": {
       "Title": "Shipping fee",
       "Text": {
-        "1":"Add",
-        "2":"more to shopping bag for FREE STANDARD SHIPPING on LALAbrand products!"
+        "1": "Add",
+        "2": "more to shopping bag for FREE STANDARD SHIPPING on LALAbrand products!"
       },
-      "Free shipping":"Enjoy your FREE STANDARD SHIPPING on LALAbrand products!"
+      "Free shipping": "Enjoy your FREE STANDARD SHIPPING on LALAbrand products!"
     },
     "Item": {
       "Color": "Color",
@@ -122,8 +123,8 @@
       "Size": "Size"
     },
     "Empty": {
-      "Title":"Your shopping bag is empty!",
-      "Button":"Continue shopping"
+      "Title": "Your shopping bag is empty!",
+      "Button": "Continue shopping"
     }
   },
   "Titles": {
@@ -156,8 +157,8 @@
     "Points": {
       "Label": "LALAbrand points",
       "Placeholder": "Input points",
-      "Available":"Points available"
+      "Available": "Points available"
     },
-    "Apply":"Apply"
+    "Apply": "Apply"
   }
 }
