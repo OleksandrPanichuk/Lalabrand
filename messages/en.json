@@ -34,9 +34,12 @@
     "Buttons": {
       "Join": "Join"
     },
+    "Policy": {
+      "Text": "© 2024 All materials were taken as part of a case study project from the",
+      "Link": "H&M website"
+    },
     "Text": {
-      "Subscribe": "Join now and get 10% off your next purchase!",
-      "Policy": "© 2024 All materials were taken as part of a case study project from the"
+      "Subscribe": "Join now and get 10% off your next purchase!"
     }
   },
   "Home": {

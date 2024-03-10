@@ -61,8 +61,8 @@ export const Footer = () => {
         <div className={css.logo}>
           <Logo />
           <p>
-            {t('Footer.Text.Policy')}{' '}
-            <Link href="https://www2.hm.com/en_us/index.html">H&M website</Link>
+            {t('Footer.Policy.Text')}{' '}
+            <Link href="https://www2.hm.com/en_us/index.html">{t('Footer.Policy.Link')}</Link>
           </p>
         </div>
         <ul className={css.social}>
