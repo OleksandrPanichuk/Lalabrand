@@ -23,7 +23,7 @@
   grid-template-areas: 'shipping checkout' 'content checkout' 'content checkout';
   grid-template-columns: 820fr 395fr;
   column-gap: 2rem;
-  row-gap: 3.125rem;
+  row-gap: 1.625rem;
   > div:first-child {
     grid-area: shipping;
   }
@@ -67,9 +67,10 @@
   flex-direction: column;
   gap: 2.5rem;
   margin-top: 6.25rem;
-  > button {
-    max-width: 18.75rem;
+  > a {
     width: 100%;
+
+    max-width: 18.75rem;
   }
   > h2 {
     @apply text-2xl font-semibold font-montserrat text-center;

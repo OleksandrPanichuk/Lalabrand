@@ -34,6 +34,10 @@
       flex-direction: column;
       gap: 13px;
     }
+
+    &:last-child {
+      width: 340px;
+    }
   }
 
   & a:hover {
@@ -97,11 +101,16 @@
     opacity: 0;
     fill: #950707;
   }
+
+  & .visible > svg {
+    opacity: 1;
+  }
 }
 
 .subscribeBtn {
   padding: 0 26.5px;
   position: relative;
+  width: 94px;
   height: 48px;
   font-weight: 500;
   border: 0.5px solid #767676;

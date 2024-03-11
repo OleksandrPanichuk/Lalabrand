@@ -18,6 +18,11 @@
   input {
     width: 100%;
   }
+  button {
+    @include screen-lg-min {
+      min-width:5.875rem;
+    }
+  }
 }
 
 .sign-in {
