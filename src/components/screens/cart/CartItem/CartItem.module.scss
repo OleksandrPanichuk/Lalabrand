@@ -1,0 +1,168 @@
+@import '@/styles/mixins.scss';
+
+.wrapper {
+  max-width: 51.3125rem;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  background-color: white;
+  @include screen-md-max {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.image {
+  position: relative;
+  aspect-ratio: 264 / 350;
+
+  > img {
+    object-fit: contain;
+  }
+
+  @include screen-md-min {
+    flex: 264;
+  }
+
+  @include screen-md-max {
+    width: 100%;
+  }
+}
+
+.info {
+  position: relative;
+  @include screen-md-min {
+    flex: 477;
+  }
+}
+
+.details {
+  margin-bottom: 3.75rem;
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @include adaptive-value('gap', 16, 8);
+  }
+
+  > h4 a,
+  > p {
+    @apply font-inter text-lg;
+    color: var(--text-color);
+  }
+  > h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2.25rem;
+  }
+  > p {
+    font-weight: 700;
+    margin-bottom: 1.625rem;
+  }
+}
+
+.amount {
+  > p {
+    @apply font-inter text-md font-semibold;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    min-width: 6.8125rem;
+    width: min-content;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    > button {
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--neutral-500);
+      color: var(--neutral-500);
+      line-height: 100%;
+      transition: all 0.3s ease-in-out;
+
+      svg {
+        transition: stroke 0.3s ease-in-out;
+        stroke: var(--neutral-500);
+      }
+
+      &:hover {
+        color: black;
+        border-color: black;
+        svg {
+          stroke: black;
+        }
+      }
+    }
+
+    > span {
+      @apply font-inter font-medium text-md;
+      color: var(--text-color);
+    }
+  }
+}
+
+.total {
+  @apply text-md font-inter font-semibold flex flex-col gap-3;
+  color: var(--text-color);
+}
+
+.actions {
+  display: flex;
+  @include adaptive-value('gap', 32, 8);
+
+  > button:first-child {
+    border: 1px solid var(--secondary-500);
+    padding: 14px 23.5008px;
+    &:not(.in-favorite) {
+      svg {
+        stroke: #4c4c4c;
+        fill: transparent;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        svg {
+          fill: var(--primary-200);
+        }
+      }
+    }
+    &.in-favorite {
+      svg {
+        transition: all 0.3s ease-in-out;
+        fill: var(--red-color);
+      }
+    }
+  }
+
+  > button:last-child {
+    @apply w-full flex items-center gap-4 justify-center px-5 py-[15px] font-inter text-lg font-medium;
+    border: 1px solid var(--red-color);
+    max-width: 11.3125rem;
+
+    color: var(--text-color);
+
+    svg {
+      transition: all 0.3s ease-in-out;
+      fill: var(--secondary-500);
+    }
+
+    &:hover {
+      svg {
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+.art {
+  @apply absolute top-0 right-0 font-inter font-normal text-sm;
+  color: var(--neutral-500);
+}

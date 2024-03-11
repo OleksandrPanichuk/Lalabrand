@@ -1,0 +1,33 @@
+.trigger {
+  @apply font-semibold font-inter text-md flex items-center;
+  gap: 5px;
+  color: var(--text-color);
+}
+
+.options {
+  @apply shadow-md rounded-md bg-white p-3;
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  width: 100%;
+  margin-top: 0.5rem;
+  max-width: 6.25rem;
+}
+
+.option {
+  @apply px-2 py-1 font-inter text-md font-semibold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+
+  &:hover {
+    @apply bg-zinc-100;
+  }
+}
+
+.chevron {
+  transition: all 0.3s ease-in-out;
+  &--open {
+    rotate: -180deg;
+  }
+}

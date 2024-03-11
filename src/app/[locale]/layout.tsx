@@ -1,13 +1,13 @@
-import getRequestConfig from '@/i18n';
-import { constructRootMetadata } from '@/shared/metadata';
-import type { Metadata } from 'next';
+import getRequestConfig from '@/i18n'
+import { constructRootMetadata } from '@/shared/metadata'
+import type { Metadata } from 'next'
 
-import { Header, Footer } from '@/components/common';
-import { ApolloProvider } from '@/components/providers';
-import { cn } from '@/lib';
-import '@/styles/globals.scss';
-import { NextIntlClientProvider } from 'next-intl';
-import { Inter, Montserrat } from 'next/font/google';
+import { ConfirmModal, Footer, Header } from '@/components/common'
+import { ApolloProvider, AuthProvider } from '@/components/providers'
+import { cn } from '@/lib'
+import '@/styles/globals.scss'
+import { NextIntlClientProvider } from 'next-intl'
+import { Inter, Montserrat } from 'next/font/google'
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 const inter = Inter({
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
   subsets: ['cyrillic', 'latin'],
 });
@@ -34,6 +34,9 @@ export default async function RootLayout({
 }) {
   const translations = await getRequestConfig(params);
 
+  //TODO: fetch current user data
+  const currentUser = null
+
   return (
     <html
       lang={params.locale}
@@ -43,9 +46,12 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <AuthProvider initialUser={currentUser}>
+              <ConfirmModal />
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </AuthProvider>
           </ApolloProvider>
         </NextIntlClientProvider>
       </body>

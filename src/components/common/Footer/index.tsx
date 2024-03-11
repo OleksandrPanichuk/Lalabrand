@@ -43,7 +43,7 @@ export const Footer = () => {
           </p>
           <form onSubmit={onSubmit}>
             <label>
-              Email
+              {t('Footer.Text.Email')}
               <input
                 name="email"
                 type="email"
@@ -75,9 +75,8 @@ export const Footer = () => {
         <div className={css.logo}>
           <Logo />
           <p>
-            © 2024{t('Footer.Text.Rights1')}
-            <Link href="https://www2.hm.com/en_us/index.html">H&M</Link>
-            {t('Footer.Text.Rights2')}
+          {t('Footer.Policy.Text')}{' '}
+            <Link href="https://www2.hm.com/en_us/index.html">{t('Footer.Policy.Link')}</Link>
           </p>
         </div>
         <ul className={css.social}>

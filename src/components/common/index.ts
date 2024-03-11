@@ -7,3 +7,5 @@ export * from './Title';
 export * from './LinkWithCircle';
 export * from './Breadcrumbs';
 export * from './Card';
+export * from './CartInfo'
+export * from './ConfirmModal'

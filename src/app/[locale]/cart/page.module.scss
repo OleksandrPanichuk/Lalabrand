@@ -1,0 +1,79 @@
+@import '@/styles/mixins.scss';
+.container {
+  @include adaptive-value('padding-top', 120, 60);
+  @include adaptive-value('padding-bottom', 340, 128);
+}
+
+.content {
+  @include adaptive-value('margin-top', 80, 40);
+}
+.top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  @include adaptive-value('margin-bottom', 60, 30);
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: 'shipping checkout' 'content checkout' 'content checkout';
+  grid-template-columns: 820fr 395fr;
+  column-gap: 2rem;
+  row-gap: 1.625rem;
+  > div:first-child {
+    grid-area: shipping;
+  }
+  > div:nth-child(2) {
+    grid-area: content;
+  }
+  > div:nth-child(3) {
+    grid-area: checkout;
+    @include screen-lg-max {
+      justify-self: center;
+    }
+  }
+
+  @include screen-xl-max {
+    grid-template-columns: 620fr 395fr;
+  }
+
+  @include screen-lg-max {
+    grid-template-areas: 'shipping' 'checkout' 'content';
+    grid-template-columns: none;
+  }
+}
+
+.count {
+  @apply text-xs;
+  color: #4c4c4c;
+  letter-spacing: 0.1rem;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 6.25rem;
+  > a {
+    width: 100%;
+
+    max-width: 18.75rem;
+  }
+  > h2 {
+    @apply text-2xl font-semibold font-montserrat text-center;
+    color: var(--text-color);
+  }
+}

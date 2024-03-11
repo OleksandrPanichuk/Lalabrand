@@ -19,5 +19,8 @@ export enum Routes {
   CAREER = '/career',
   GIFT_CARDS = '/gift-cards',
   ABOUT_US = '/about-us',
-  CATEGORIES = '/categories'
+  CATEGORIES = '/categories',
+  SIGN_IN= '/sign-in',
+  SIGN_UP = '/sign-up',
+  CHECKOUT = '/checkout'
 }

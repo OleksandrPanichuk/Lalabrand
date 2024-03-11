@@ -30,10 +30,16 @@
       "My account": "My account",
       "Return and replace": "Return and replace"
     },
+    "Buttons": {
+      "Join": "Join"
+    },
+    "Policy": {
+      "Text": "© 2024 All materials were taken as part of a case study project from the",
+      "Link": "H&M website"
+    },
     "Text": {
       "Subscribe": "Join now and get 10% off your next purchase!",
-      "Rights1": " All materials were taken as part of a case study project from the ",
-      "Rights2": " website"
+      "Email": "Email"
     }
   },
   "Home": {
@@ -103,6 +109,40 @@
       "No": "No"
     }
   },
+  "Titles": {
+    "My": "My",
+    "Our": "Our",
+    "Bestsellers": "Bestsellers",
+    "Looks": "Looks",
+    "Categories": "Categories",
+    "Favorites": "Favorites",
+    "Shopping": "Shopping",
+    "Bag": "Bag"
+  },
+  "Confirm Modal": {
+    "Title": "Are you absolutely sure?",
+    "Description": "This action cannot be undone. This will permanently remove it.",
+    "Button": "Remove",
+    "Cancel": "Cancel"
+  },
+  "Cart Info": {
+    "Promocode": "Promocode",
+    "Log In": "Log In",
+    "Log In Message": "Log in to use your member offers!",
+    "Order value": "Order value",
+    "Discounts": "Discounts",
+    "Shipping fee": "Shipping fee",
+    "Taxes": "Taxes",
+    "Total": "Total",
+    "Continue": "Continue shopping",
+    "Checkout": "Checkout",
+    "Points": {
+      "Label": "LALAbrand points",
+      "Placeholder": "Input points",
+      "Available": "Points available"
+    },
+    "Apply": "Apply"
+  },
   "Signin": {
     "Title": "Sign In",
     "Text": {
@@ -146,12 +186,30 @@
       "Privacy": "Privacy Policy"
     }
   },
-  "Titles": {
-    "My": "My",
-    "Our": "Our",
-    "Bestsellers": "Bestsellers",
-    "Looks": "Looks",
-    "Categories": "Categories",
-    "Favorites": "Favorites"
+  "Cart": {
+    "Counter":{
+      "One":"item",
+      "Plural":"items",
+      "Other":"items"
+    },
+    "Shipping fee": {
+      "Title": "Shipping fee",
+      "Text": {
+        "1": "Add",
+        "2": "more to shopping bag for FREE STANDARD SHIPPING on LALAbrand products!"
+      },
+      "Free shipping": "Enjoy your FREE STANDARD SHIPPING on LALAbrand products!"
+    },
+    "Item": {
+      "Color": "Color",
+      "Amount": "Amount",
+      "Delete": "Delete",
+      "Total": "Total",
+      "Size": "Size"
+    },
+    "Empty": {
+      "Title": "Your shopping bag is empty!",
+      "Button": "Continue shopping"
+    }
   }
 }

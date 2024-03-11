@@ -2,11 +2,17 @@
 @import '@/styles/variables.scss';
 
 .header {
-  @apply w-full flex gap-2 items-center  fixed top-0 bg-background z-[100];
-  @include adaptive-value('padding-bottom', 20, 20);
-  @include adaptive-value('padding-top', 60, 20);
-  @include adaptive-value('padding-left', 32, 12);
-  @include adaptive-value('padding-right', 32, 12);
+  @apply w-full fixed top-0 bg-background z-[100];
+}
+
+.container {
+  @apply flex gap-2 items-center;
+  @include adaptive-value('padding-bottom', 40, 20);
+  @include adaptive-value('padding-top', 40, 20);
+  @include adaptive-value('padding-left', 96, 12);
+  @include adaptive-value('padding-right', 96, 12);
+  max-width: #{$maxWidth + px};
+  margin: 0 auto;
 }
 
 .link {
@@ -19,20 +25,21 @@
 }
 
 .logo {
-  @include adaptive-value('margin-right', 60, 0, 1200, 3);
+  margin-right: 3.75rem;
 
   @include screen-md-max {
     display: none;
   }
 
-  @media screen and (min-width: $screen-md-min) and (max-width: $screen-xl-max) {
+  @media screen and ($screen-md-min <= width < $screen-2xl) {
     margin-right: auto;
   }
 }
 
 .navbar {
   flex: 6;
-  @include screen-xl-max {
+
+  @include screen-2xl-max {
     display: none;
   }
 }
@@ -40,13 +47,13 @@
 .right-side {
   @apply flex justify-end gap-2;
   flex: 4;
-  @media screen and (max-width: $screen-xs-max) and (min-width: $screen-xl-min) {
+  @media screen and ($screen-md-min <= width < $screen-2xl) {
     flex: 1;
   }
 
   > div:first-child {
     margin-right: auto;
-    @media screen and (min-width: $screen-md-min) and (max-width: $screen-xl-max) {
+    @media screen and ($screen-md-min <= width < $screen-2xl) {
       margin-right: 0;
     }
   }
@@ -57,7 +64,7 @@
 }
 
 .mobile-navbar {
-  @include screen-xl-min {
+  @include screen-2xl-min {
     display: none;
   }
   @include screen-md-max {

@@ -1,7 +1,7 @@
 @import '@/styles/mixins.scss';
 
 .label {
-  max-width: 14.25rem;
+  max-width: 12.25rem;
   width: 100%;
 
   display: flex;
@@ -14,9 +14,10 @@
 }
 
 .input {
-  font-size: 1rem;
-  padding: 2px 0;
-  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 3.5px 0 4px;
+  font-weight: 400;
+  line-height: 121.428571%; /* 17/14 */
   background-color: var(--background);
   &::placeholder {
     color: #cbcbcb;

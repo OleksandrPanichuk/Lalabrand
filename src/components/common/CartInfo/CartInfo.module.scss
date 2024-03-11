@@ -1,0 +1,101 @@
+@import '@/styles/mixins.scss';
+.wrapper {
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.15);
+  background: white;
+  padding: 2rem 1.5rem;
+  max-width: 24.6875rem;
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.promocode {
+  display: flex;
+  gap: 0.8125rem;
+
+  input {
+    width: 100%;
+  }
+  button {
+    @include screen-lg-min {
+      min-width:5.875rem;
+    }
+  }
+}
+
+.sign-in {
+  margin-bottom: 1.5rem;
+  margin-top: 1.25rem;
+  > p {
+    @apply text-sm font-inter font-medium;
+    margin-bottom: 0.75rem;
+    color: var(--secondary-400);
+  }
+  > button {
+    width: 100%;
+  }
+}
+
+.points {
+  margin: 1.5rem 0;
+  > p:first-child {
+    @apply text-md font-inter  font-semibold;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+  > p:last-child {
+    @apply text-xs font-inter font-medium;
+    color: var(--secondary-200);
+  }
+  > div {
+    display: flex;
+    gap: 0.8125rem;
+    margin-bottom: 2px;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 0.75rem;
+
+  li {
+    @apply flex items-center justify-between gap-2 font-inter font-medium text-md;
+    color: var(--secondary-300);
+    > span {
+      color: var(--secondary-400);
+      font-weight: 600;
+    }
+  }
+}
+
+.divider {
+  background-color: var(--neutral-500);
+  height: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.total {
+  @apply flex justify-between items-center gap-2 text-lg font-inter;
+
+  margin-bottom: 2.375rem;
+
+  font-weight: 700;
+  color: var(--text-color);
+
+  > span {
+    font-weight: 600;
+  }
+}
+
+.continue {
+  margin-bottom: 1rem;
+  text-align: center;
+}
