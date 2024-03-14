@@ -1,19 +1,21 @@
 'use client';
 
-import { Logo, SvgIcon, Visibility } from '@/components/common';
+import { Logo, SvgIcon, Visibility } from '@/components/common'
 
-import { Routes, cssVariables } from '@/shared/constants';
-import { Link } from '@/shared/navigation';
-import styles from './Header.module.scss';
+import { useAuth } from '@/components/providers'
+import { Routes, cssVariables } from '@/shared/constants'
+import { Link } from '@/shared/navigation'
+import styles from './Header.module.scss'
 import {
   LanguageSelect,
   MobileNavbar,
   Navbar,
   SearchBar,
   SearchBarMobile,
-} from './components';
+} from './components'
 
 export const Header = () => {
+  const {user} = useAuth()
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -66,7 +68,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className={styles.link} href={Routes.PROFILE}>
+              <Link className={styles.link} href={user ? Routes.PROFILE : Routes.SIGN_IN}>
                 <SvgIcon name="account" />
               </Link>
             </li>
