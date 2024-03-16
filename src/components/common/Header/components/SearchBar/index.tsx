@@ -30,7 +30,7 @@ export const SearchBar = () => {
 	}
 
 	return (
-		<div className={styles.wrapper}></div>
+		<div className={styles.wrapper}>
 			<form
 				onSubmit={e => e.preventDefault()}
 				ref={searchFieldRef}

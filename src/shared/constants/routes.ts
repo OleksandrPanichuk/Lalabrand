@@ -22,5 +22,5 @@ export enum Routes {
   CATEGORIES = '/categories',
   SIGN_IN= '/sign-in',
   SIGN_UP = '/sign-up',
-  CHECKOUT = '/checkout'
+  CHECKOUT = '/cart/checkout'
 }

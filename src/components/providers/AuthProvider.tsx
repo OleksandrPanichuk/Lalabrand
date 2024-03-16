@@ -1,13 +1,7 @@
 'use client';
 
 import { TypeUser } from '@/shared/types';
-import {
-  PropsWithChildren,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { PropsWithChildren, createContext, useCallback,useContext, useState } from 'react';
 
 type SignInInput = {};
 
@@ -38,9 +32,7 @@ export const AuthProvider = ({ initialUser, children }: IAuthProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, signUp }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, signIn, signUp, signOut }}>{children}</AuthContext.Provider>
   );
 };
 

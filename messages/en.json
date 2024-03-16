@@ -125,7 +125,7 @@
     "Button": "Remove",
     "Cancel": "Cancel"
   },
-  "Cart Info": {
+  "Checkout Info": {
     "Promocode": "Promocode",
     "Log In": "Log In",
     "Log In Message": "Log in to use your member offers!",
@@ -141,7 +141,8 @@
       "Placeholder": "Input points",
       "Available": "Points available"
     },
-    "Apply": "Apply"
+    "Apply": "Apply",
+    "Place order": "Place order"
   },
   "Signin": {
     "Title": "Sign In",
@@ -187,10 +188,10 @@
     }
   },
   "Cart": {
-    "Counter":{
-      "One":"item",
-      "Plural":"items",
-      "Other":"items"
+    "Counter": {
+      "One": "item",
+      "Plural": "items",
+      "Other": "items"
     },
     "Shipping fee": {
       "Title": "Shipping fee",
@@ -210,6 +211,13 @@
     "Empty": {
       "Title": "Your shopping bag is empty!",
       "Button": "Continue shopping"
+    }
+  },
+  "Checkout": {
+    "Order Preview": {
+      "Title": "Your order",
+      "Text": "Press on arrow to see more",
+      "More":"view more"
     }
   }
 }
