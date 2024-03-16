@@ -32,10 +32,9 @@ export const AuthForm = () => {
 
     const formData = new FormData(target);
 
-    const form: Data = {};
+    const form: { [key: string]: any } = {};
     formData.forEach((value, key) => {
-      // console.log(value, key);
-      form[key] = value;
+      form[key as keyof Data] = value;
     });
 
     console.log(form);
