@@ -2,58 +2,39 @@
 
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import css from './AuthAside.module.scss';
-
-const images = {
-  signin: {
-    alt: [
-      'women dressed in a shirt',
-      'guy in a T-shirt and sunglasses',
-      'child in a plain suit with a collar and flesh-colored boots',
-    ],
-  },
-  signup: {
-    alt: [
-      'girl in a hat with a curved brim, trousers and a long sleeves shirt',
-      'guy in a T-shirt with cap in a hand',
-      'girl with a x-crossed shoulder straps',
-    ],
-  },
-};
+import { useResetPasswordStore } from '@/store';
 
 export const AuthAside = () => {
+  const t = useTranslations();
   const pathname = usePathname();
-
-  function getImagePath() {
-    if (pathname.includes('signin')) {
-      return 'signin';
-    }
-    if (pathname.includes('signup')) {
-      return 'signup';
-    }
-  }
+  const { status } = useResetPasswordStore();
+  const page = pathname.includes('signin') ? 'signin' : 'signup';
 
   function getImageAlt(index: number) {
-    if (pathname.includes('signin')) {
-      return images.signin.alt[index];
+    if (page === 'signin' && status) {
+      return t(`Auth.Alt.resetPassword.${index}`);
     }
-    if (pathname.includes('signup')) {
-      return images.signup.alt[index];
-    }
-    return 'example of our products';
+
+    return t(`Auth.Alt.${page}.${index}`);
+  }
+
+  function getImagePath() {
+    return status ? `/images/resetPassword` : `/images/${page}`;
   }
 
   return (
     <div className={css.aside}>
       <Image
-        src={`/images/${getImagePath()}/image 59.jpg`}
+        src={`${getImagePath()}/image 59.jpg`}
         height={288}
         width={345}
         unoptimized
         alt={getImageAlt(0)}
       />
       <Image
-        src={`/images/${getImagePath()}/image 60.jpg`}
+        src={`${getImagePath()}/image 60.jpg`}
         height={288}
         width={565}
         unoptimized
@@ -61,7 +42,7 @@ export const AuthAside = () => {
         alt={getImageAlt(1)}
       />
       <Image
-        src={`/images/${getImagePath()}/image 61.jpg`}
+        src={`${getImagePath()}/image 61.jpg`}
         height={288}
         width={433}
         unoptimized
