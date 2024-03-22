@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type Status = '' | 'forgot' | 'checkEmail' | 'verification' | 'reset';
+export type Status = '' | 'forgot' | 'checkEmail' | 'reset';
 
 type ResetPasswordStore = {
   status: Status;

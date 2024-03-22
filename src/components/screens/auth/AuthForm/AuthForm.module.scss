@@ -25,6 +25,10 @@
     transition: background-color 0.3s ease-out;
   }
 
+  &:has(label) .light_btn[type='submit'] {
+    margin-top: 16px;
+  }
+
   & label {
     font-weight: 500;
     display: flex;

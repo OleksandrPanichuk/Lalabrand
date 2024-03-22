@@ -156,9 +156,8 @@
       "signin": "Sign In to be the first to see new LALAbrand products",
       "signup": "Sign up for free to access to earn LALAbrand points",
       "forgot": "Please enter the email address you used to create your account, and we'll send you a link to reset your password.",
-      "checkEmail": "Please check your email inbox and click on the provided link to reset your password. If you don’t receive email, ",
-      "verification": "Please enter the verification code that we send you on Email",
-      "reset": "Your new password must be different from previous used passwords"
+      "checkEmail": "Please check your email inbox and enter verification code from the email to reset your password . If you don’t receive email, ",
+      "reset": "Please create your new password"
     },
     "Labels": {
       "Email": "Email address",
@@ -178,9 +177,10 @@
       "signin": "Sign In",
       "signup": "Sign Up",
       "forgot": "Send link",
-      "checkEmail": "Back to Sign In",
-      "verification": "Submit",
+      "checkEmail": "Submit",
+      "backToSignin": "Back to Sign In",
       "reset": "Reset password",
+      "resend": "Click here to resend",
       "": ""
     },
     "Text": {
@@ -192,7 +192,7 @@
     },
     "Errors": {
       "1": "Passwords don’t match",
-      "2": "Email and password not fit"
+      "2": "Email or password do not fit"
     },
     "Alt": {
       "signin": {

@@ -37,8 +37,6 @@ export const AuthForm = () => {
       form[key as keyof Data] = value;
     });
 
-    console.log(form);
-
     let subscribe = false;
 
     if (page === 'signup' || status === 'reset') {
@@ -65,10 +63,6 @@ export const AuthForm = () => {
       return;
     }
     if (status === 'checkEmail') {
-      changeStatus('verification');
-      return;
-    }
-    if (status === 'verification') {
       console.log('send to backend verificaion code');
       changeStatus('reset');
       return;
@@ -108,7 +102,7 @@ export const AuthForm = () => {
           />
         </label>
       )}
-      {status === 'verification' && (
+      {status === 'checkEmail' && (
         <label>
           {t('Auth.Labels.Verification')}
           <input
@@ -228,11 +222,22 @@ export const AuthForm = () => {
       <button
         type="submit"
         onClick={() => false}
-        title={t(status ? `Auth.Buttons.${page}` : `Auth.Buttons.${status}`)}
-        className={status !== 'checkEmail' ? css.dark_btn : css.light_btn}
+        title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
+        className={css.dark_btn}
       >
         {t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
       </button>
+      {status === 'checkEmail' && (
+        <button
+          type="submit"
+          onClick={() => changeStatus('')}
+          title={t(`Auth.Buttons.${status}`)}
+          className={css.light_btn}
+          style={{ backgroundColor: '#222' }}
+        >
+          {t(`Auth.Buttons.backToSignin`)}
+        </button>
+      )}
     </form>
   );
 };

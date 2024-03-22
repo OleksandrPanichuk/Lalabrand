@@ -1,5 +1,4 @@
 'use client';
-import { SvgIcon } from '@/components/common';
 import { Link } from '@/shared/navigation';
 import css from '../layout.module.scss';
 import { useTranslations } from 'next-intl';
@@ -21,25 +20,6 @@ const Page = () => {
           {t('Auth.Buttons.signin')}
         </Link>
       </p>
-      <span>{t('Auth.Text.or')}</span>
-      <button
-        type="button"
-        onClick={() => console.log('sign up with google account')}
-        title={t('Auth.Buttons.Google')}
-        className={css.loginViaSocial}
-      >
-        <SvgIcon name="google" width={20} height={20} />
-        {t('Auth.Buttons.Google')}
-      </button>
-      <button
-        type="button"
-        onClick={() => console.log('sign up with facebook account')}
-        title={t('Auth.Buttons.Facebook')}
-        className={css.loginViaSocial}
-      >
-        <SvgIcon name="facebook" width={24} height={24} fill={'#1877F2'} />
-        {t('Auth.Buttons.Facebook')}
-      </button>
     </>
   );
 };
