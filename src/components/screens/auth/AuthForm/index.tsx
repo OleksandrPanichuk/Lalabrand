@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './AuthForm.module.scss';
@@ -22,39 +22,90 @@ export const AuthForm = () => {
   const { status, changeStatus } = useResetPasswordStore();
   const [showpass, setShowpass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true);
   const [error, setError] = useState('');
   const [subscribed, setSubscribed] = useState(true);
+  const [isSubmmitBtnActive, setIsSubmmitBtnActive] = useState(false);
 
-  function submitHandler(e: React.FormEvent) {
+  useEffect(() => {
+    if (isSubmmitBtnActive) {
+      setIsSubmmitBtnActive(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, pathname, setIsSubmmitBtnActive]);
+
+  function isValidPassword(str: string) {
+    return (
+      str.length > 7 &&
+      /[a-zA-Z]/.test(str) &&
+      /\d/.test(str) &&
+      /[@$!%*?&]/.test(str)
+    );
+  }
+
+  function submitHandler(e: React.FormEvent | InputEvent) {
     e.preventDefault();
 
-    const target = e.target as HTMLFormElement;
+    const target = document.getElementById('authForm') as HTMLFormElement;
 
     const formData = new FormData(target);
+
+    const isValueEmpty = !target.checkValidity();
+
+    let isPassValid = true;
+    let isConfirmPassValid = true;
 
     const form: { [key: string]: any } = {};
     formData.forEach((value, key) => {
       form[key as keyof Data] = value;
+      if (
+        (e.type === 'submit' && (page === 'signup' || status)) ||
+        (e.type === 'change' && (!isPasswordValid || !isConfirmPasswordValid))
+      ) {
+        if (key === 'password') {
+          isPassValid = isValidPassword(value.toString());
+          setIsPasswordValid(isPassValid);
+        }
+        if (key === 'confirmPassword') {
+          isPassValid = isValidPassword(value.toString());
+          setIsConfirmPasswordValid(isPassValid);
+        }
+      }
     });
+
+    setIsSubmmitBtnActive(!isValueEmpty);
+
+    if (isValueEmpty) {
+      return;
+    }
 
     let subscribe = false;
 
     if (page === 'signup' || status === 'reset') {
       if (form.confirmPassword !== form.password) {
         setError(t('Auth.Errors.1'));
+        setIsSubmmitBtnActive(false);
         return;
       } else {
         setError('');
       }
+    }
 
-      if (page === 'signup') {
-        // const agreement = target[5] as HTMLInputElement;
-        if (!form.agreeTerms) {
-          return;
-        }
+    if (!isPassValid || !isConfirmPassValid) {
+      return;
+    }
 
-        subscribe = true;
+    if (e.type === 'change') {
+      return;
+    }
+
+    if (page === 'signup') {
+      if (!form.agreeTerms) {
+        return;
       }
+
+      subscribe = true;
     }
 
     if (status === 'forgot') {
@@ -70,6 +121,7 @@ export const AuthForm = () => {
     if (status === 'reset') {
       console.log('send to backend new password');
       changeStatus('');
+      target.reset();
       return;
     }
 
@@ -98,6 +150,7 @@ export const AuthForm = () => {
             name="email"
             type="email"
             placeholder="example@gmail.com"
+            onChange={(e) => submitHandler(e)}
             required
           />
         </label>
@@ -109,6 +162,7 @@ export const AuthForm = () => {
             name="verification"
             type="text"
             placeholder={t('Auth.Text.verificationPlaceholder')}
+            onChange={(e) => submitHandler(e)}
             required
           />
         </label>
@@ -120,11 +174,13 @@ export const AuthForm = () => {
             <input
               name="password"
               type={showpass ? 'text' : 'password'}
-              pattern={
-                page === 'signup'
-                  ? '(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}'
-                  : undefined
-              }
+              onChange={(e) => submitHandler(e)}
+              className={isPasswordValid ? '' : 'errorField'}
+              style={{
+                border: isPasswordValid
+                  ? '1px solid #c8c8c8'
+                  : '1px solid #e10d0d',
+              }}
               required
             />
           </label>
@@ -144,13 +200,26 @@ export const AuthForm = () => {
           </button>
           {(page === 'signup' || status === 'reset') && (
             <>
-              <p className={css.inputTip}> {t('Auth.Text.create password')}</p>
+              <p
+                className={css.inputTip}
+                style={{
+                  color: isPasswordValid ? '#a1a1a1' : '#e10d0d',
+                }}
+              >
+                {' '}
+                {t('Auth.Text.create password')}
+              </p>
               <label>
                 {t('Auth.Labels.Confirm password')}
                 <input
                   name="confirmPassword"
                   type={showConfirmPass ? 'text' : 'password'}
-                  pattern="(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}"
+                  onChange={(e) => submitHandler(e)}
+                  style={{
+                    border: isConfirmPasswordValid
+                      ? '1px solid #c8c8c8'
+                      : '1px solid #e10d0d',
+                  }}
                   required
                 />
               </label>
@@ -175,7 +244,10 @@ export const AuthForm = () => {
           {page === 'signin' && !status && (
             <button
               type="button"
-              onClick={() => changeStatus('forgot')}
+              onClick={() => {
+                changeStatus('forgot');
+                setIsSubmmitBtnActive(false);
+              }}
               title="reset password"
               className={css.refresh}
             >
@@ -224,6 +296,7 @@ export const AuthForm = () => {
         onClick={() => false}
         title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
         className={css.dark_btn}
+        data-active={isSubmmitBtnActive}
       >
         {t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
       </button>
@@ -233,7 +306,6 @@ export const AuthForm = () => {
           onClick={() => changeStatus('')}
           title={t(`Auth.Buttons.${status}`)}
           className={css.light_btn}
-          style={{ backgroundColor: '#222' }}
         >
           {t(`Auth.Buttons.backToSignin`)}
         </button>

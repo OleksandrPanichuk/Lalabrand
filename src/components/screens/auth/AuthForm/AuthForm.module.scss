@@ -49,6 +49,9 @@
     border: 1px solid #c8c8c8;
     background-color: inherit;
   }
+  & .errorField {
+    border: 1px solid #e10d0d;
+  }
 
   & .checkbox {
     display: flex;
@@ -126,6 +129,10 @@
 .dark_btn {
   background: #4c4c4c;
   color: #fafafa;
+
+  &[data-active='true'] {
+    background: #222;
+  }
 }
 .dark_btn:hover {
   background-color: #767676;

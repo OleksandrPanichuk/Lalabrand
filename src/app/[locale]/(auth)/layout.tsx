@@ -56,25 +56,38 @@ export default function AuthLayout({
         <AuthForm />
         {/* the part below can be moved to the CredentialsForm component, but it will be hard to read */}
         {!status && children}
-        <span>{t('Auth.Text.or')}</span>
-        <button
-          type="button"
-          onClick={() => console.log('sign up or login with google account')}
-          title={t('Auth.Buttons.Google')}
-          className={css.loginViaSocial}
-        >
-          <SvgIcon name="google" width={20} height={20} />
-          {t('Auth.Buttons.Google')}
-        </button>
-        <button
-          type="button"
-          onClick={() => console.log('sign up or login with facebook account')}
-          title={t('Auth.Buttons.Facebook')}
-          className={css.loginViaSocial}
-        >
-          <SvgIcon name="facebook" width={24} height={24} fill={'#1877F2'} />
-          {t('Auth.Buttons.Facebook')}
-        </button>
+        {!status && (
+          <>
+            <span>{t('Auth.Text.or')}</span>
+            <button
+              type="button"
+              onClick={() =>
+                console.log('sign up or login with google account')
+              }
+              title={t('Auth.Buttons.Google')}
+              className={css.loginViaSocial}
+            >
+              <SvgIcon name="google" width={20} height={20} />
+              {t('Auth.Buttons.Google')}
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                console.log('sign up or login with facebook account')
+              }
+              title={t('Auth.Buttons.Facebook')}
+              className={css.loginViaSocial}
+            >
+              <SvgIcon
+                name="facebook"
+                width={24}
+                height={24}
+                fill={'#1877F2'}
+              />
+              {t('Auth.Buttons.Facebook')}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
