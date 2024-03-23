@@ -1,11 +1,19 @@
 .input {
-  @apply font-inter text-sm font-medium;
-  border: 0.5px solid rgb(173, 173, 173);
-  padding: 0.75rem;
+  @apply font-inter;
+  border: 0.5px solid var(--neutral-300);
 
   &::placeholder {
-    color: rgb(203, 203, 203);
+    color: var(--secondary-100);
   }
+}
+.base {
+  @apply text-sm font-medium;
+  padding: 0.75rem;
+}
+
+.md {
+  @apply text-lg font-normal;
+  padding: 0.9375rem 1.5rem;
 }
 
 input.invalid {

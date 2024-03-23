@@ -1,7 +1,6 @@
+import { PaymentMethod, ShippingVariant } from '@/shared/types'
 import { create } from 'zustand';
 
-type ShippingVariant = 'standard' | 'urkposhta' | 'novapochta';
-type PaymentMethod = 'card' | 'paypal' | 'receipt';
 
 type StandardShippingData = {
   firstName?: string;
@@ -31,7 +30,7 @@ interface ICheckoutStore {
   setPaymentMethod: (method: PaymentMethod) => void;
 
   //Data for standard shipping
-  shippingData: StandardShippingData;
+  shippingData: StandardShippingData | null;
 
   setShippingData: (data: StandardShippingData) => void;
 
@@ -56,7 +55,7 @@ interface ICheckoutStore {
 }
 
 export const useCheckoutStore = create<ICheckoutStore>((set) => ({
-	shippingData: {},
+	shippingData: null,
   novaposhtaData: null,
   ukrposhtaData: null,
   cardData: {},

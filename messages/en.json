@@ -217,7 +217,35 @@
     "Order Preview": {
       "Title": "Your order",
       "Text": "Press on arrow to see more",
-      "More":"view more"
+      "More": "view more"
+    },
+    "Shipping": {
+      "Title":"Shipping",
+      "Text":"Where would you like to be delivered?",
+      "Info":"Fill the shipping information",
+      "Standard": {
+        "Label": "Standart Shipping for orders over $40",
+        "Fields": {
+          "First name":"First name",
+          "Last name":"Last name",
+          "Address line 1":"Address line 1",
+          "Address line 2":"Address line 2",
+          "City":"City",
+          "Zip code":"Zip code",
+          "Country":"Country",
+          "Phone number":"Phone number"
+        }
+      },
+      "Novaposhta": {
+        "Label": "Post Office NovaPoshta",
+        "FormLabel":"Select preffered post office",
+        "Placeholder":"92128, Kyivska street #123, Kyiv"
+      },
+      "Ukrposhta": {
+        "Label": "Post Office Ukrposhta",
+        "FormLabel":"Select preffered post office",
+        "Placeholder":"92128, Shevchenka street #16, Kyiv"
+      }
     }
   }
 }

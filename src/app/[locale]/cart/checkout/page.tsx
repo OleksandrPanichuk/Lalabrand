@@ -1,6 +1,7 @@
 'use client';
 import { Breadcrumbs, CheckoutInfo, Title } from '@/components/common';
 import {
+  Info,
   OrderPreview,
   PaymentMethodPicker,
   ShippingPicker,
@@ -16,7 +17,7 @@ const Page = () => {
   const t = useTranslations();
   const items = useCartStore((state) => state.items);
 
-  if (!items.length) notFound();
+  // if (!items.length) notFound();
 
   //Items length to string
   const itemsLTS = items.length.toString();
@@ -56,7 +57,7 @@ const Page = () => {
             <ShippingPicker />
             <PaymentMethodPicker />
           </div>
-          <CheckoutInfo variant="checkout" isActive={false} />
+          <Info />
         </div>
       </section>
     </div>
