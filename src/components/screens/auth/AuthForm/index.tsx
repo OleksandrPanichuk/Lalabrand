@@ -1,163 +1,282 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './AuthForm.module.scss';
 import { useTranslations } from 'next-intl';
+import { useResetPasswordStore } from '@/store';
 
 type Data = {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
   subscribe?: boolean;
+  agreeTerms?: string;
+  verification?: number;
 };
 
 export const AuthForm = () => {
   const pathname = usePathname();
+  const page = pathname.includes('signin') ? 'signin' : 'signup';
   const t = useTranslations();
+  const { status, changeStatus } = useResetPasswordStore();
   const [showpass, setShowpass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true);
   const [error, setError] = useState('');
   const [subscribed, setSubscribed] = useState(true);
+  const [isSubmmitBtnActive, setIsSubmmitBtnActive] = useState(false);
 
-  function submitHandler(e: React.FormEvent) {
+  useEffect(() => {
+    if (isSubmmitBtnActive) {
+      setIsSubmmitBtnActive(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, pathname, setIsSubmmitBtnActive]);
+
+  function isValidPassword(str: string) {
+    return (
+      str.length > 7 &&
+      /[a-zA-Z]/.test(str) &&
+      /\d/.test(str) &&
+      /[@$!%*?&]/.test(str)
+    );
+  }
+
+  function submitHandler(e: React.FormEvent | InputEvent) {
     e.preventDefault();
 
-    const target = e.target as HTMLFormElement;
+    const target = document.getElementById('authForm') as HTMLFormElement;
 
-    const email = target[0] as HTMLInputElement;
-    const password = target[1] as HTMLInputElement;
-    let subscribe;
+    const formData = new FormData(target);
 
-    if (pathname.includes('signup')) {
-      const confirmPassword = target[3] as HTMLInputElement;
+    const isValueEmpty = !target.checkValidity();
 
-      if (confirmPassword.value !== password.value) {
-        setError(t('Signup.Errors.1'));
-        return;
+    let isPassValid = true;
+    let isConfirmPassValid = true;
+
+    const form: { [key: string]: any } = {};
+    formData.forEach((value, key) => {
+      form[key as keyof Data] = value;
+      if (
+        (e.type === 'submit' && (page === 'signup' || status)) ||
+        (e.type === 'change' && (!isPasswordValid || !isConfirmPasswordValid))
+      ) {
+        if (key === 'password') {
+          isPassValid = isValidPassword(value.toString());
+          setIsPasswordValid(isPassValid);
+        }
+        if (key === 'confirmPassword') {
+          isPassValid = isValidPassword(value.toString());
+          setIsConfirmPasswordValid(isPassValid);
+        }
       }
+    });
 
-      const agreement = target[5] as HTMLInputElement;
-      if (!agreement.checked) {
-        return;
-      }
+    setIsSubmmitBtnActive(!isValueEmpty);
 
-      subscribe = target[8] as HTMLInputElement;
+    if (isValueEmpty) {
+      return;
     }
 
-    const data: Data = { email: email.value, password: password.value };
+    let subscribe = false;
+
+    if (page === 'signup' || status === 'reset') {
+      if (form.confirmPassword !== form.password) {
+        setError(t('Auth.Errors.1'));
+        setIsSubmmitBtnActive(false);
+        return;
+      } else {
+        setError('');
+      }
+    }
+
+    if (!isPassValid || !isConfirmPassValid) {
+      return;
+    }
+
+    if (e.type === 'change') {
+      return;
+    }
+
+    if (page === 'signup') {
+      if (!form.agreeTerms) {
+        return;
+      }
+
+      subscribe = true;
+    }
+
+    if (status === 'forgot') {
+      console.log('send to backend request to reset password fot that email');
+      changeStatus('checkEmail');
+      return;
+    }
+    if (status === 'checkEmail') {
+      console.log('send to backend verificaion code');
+      changeStatus('reset');
+      return;
+    }
+    if (status === 'reset') {
+      console.log('send to backend new password');
+      changeStatus('');
+      target.reset();
+      return;
+    }
+
+    const { email, password } = form;
+    const data: Data = { email, password };
 
     if (subscribe) {
-      data.subscribe = subscribe.checked;
+      data.subscribe = true;
     }
     console.log('send to backend, wait for answer and redirect than', data);
-    setError('');
+    // setError('');
     target.reset();
   }
 
   return (
-    <form onSubmit={submitHandler} className={css.form} id="authForm">
-      <label>
-        {t('Signin.Labels.Email')}
-
-        <input
-          name="email"
-          type="email"
-          placeholder="example@gmail.com"
-          required
-        />
-      </label>
-
-      <div className={css.passwordDiv}>
+    <form
+      onSubmit={submitHandler}
+      className={css.form}
+      id="authForm"
+      style={{ marginBottom: status && '0' }}
+    >
+      {(!status || status === 'forgot') && (
         <label>
-          {t('Signin.Labels.Password')}
+          {t('Auth.Labels.Email')}
           <input
-            name="password"
-            type={showpass ? 'text' : 'password'}
-            pattern={
-              pathname.includes('signup')
-                ? '(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}'
-                : undefined
-            }
+            name="email"
+            type="email"
+            placeholder="example@gmail.com"
+            onChange={(e) => submitHandler(e)}
             required
           />
         </label>
-
-        <button
-          type="button"
-          title="show password"
-          onClick={() => setShowpass(!showpass)}
-        >
-          <SvgIcon
-            name="showpass"
-            width={24}
-            height={24}
-            fill={showpass ? '#950707' : '#4C4C4C'}
-            stroke={showpass ? '#950707' : '#4C4C4C'}
+      )}
+      {status === 'checkEmail' && (
+        <label>
+          {t('Auth.Labels.Verification')}
+          <input
+            name="verification"
+            type="text"
+            placeholder={t('Auth.Text.verificationPlaceholder')}
+            onChange={(e) => submitHandler(e)}
+            required
           />
-        </button>
-        {pathname.includes('signup') && (
-          <>
-            <p> {t('Signup.Text.create password')}</p>
-            <label>
-              {t('Signup.Labels.Confirm password')}
-              <input
-                name="confirmPassword"
-                type={showConfirmPass ? 'text' : 'password'}
-                pattern="(?=.*d)(?=.*[a-z])(?=.*[@$!%*?&#^_-`])[A-Za-zd@$!%*?&#^_-`].{8,}"
-                required
-              />
-            </label>
-            <button
-              type="button"
-              title="show password"
-              onClick={() => setShowConfirmPass(!showConfirmPass)}
-              className={css.showConfirm}
-            >
-              <SvgIcon
-                name="showpass"
-                width={24}
-                height={24}
-                fill={showConfirmPass ? '#950707' : '#4C4C4C'}
-                stroke={showConfirmPass ? '#950707' : '#4C4C4C'}
-              />
-            </button>
-          </>
-        )}
+        </label>
+      )}
+      {(!status || status === 'reset') && (
+        <div className={css.passwordDiv}>
+          <label>
+            {t('Auth.Labels.Password')}
+            <input
+              name="password"
+              type={showpass ? 'text' : 'password'}
+              onChange={(e) => submitHandler(e)}
+              className={isPasswordValid ? '' : 'errorField'}
+              style={{
+                border: isPasswordValid
+                  ? '1px solid #c8c8c8'
+                  : '1px solid #e10d0d',
+              }}
+              required
+            />
+          </label>
 
-        <div>
+          <button
+            type="button"
+            title="show password"
+            onClick={() => setShowpass(!showpass)}
+          >
+            <SvgIcon
+              name="showpass"
+              width={24}
+              height={24}
+              fill={showpass ? '#950707' : '#4C4C4C'}
+              stroke={showpass ? '#950707' : '#4C4C4C'}
+            />
+          </button>
+          {(page === 'signup' || status === 'reset') && (
+            <>
+              <p
+                className={css.inputTip}
+                style={{
+                  color: isPasswordValid ? '#a1a1a1' : '#e10d0d',
+                }}
+              >
+                {' '}
+                {t('Auth.Text.create password')}
+              </p>
+              <label>
+                {t('Auth.Labels.Confirm password')}
+                <input
+                  name="confirmPassword"
+                  type={showConfirmPass ? 'text' : 'password'}
+                  onChange={(e) => submitHandler(e)}
+                  style={{
+                    border: isConfirmPasswordValid
+                      ? '1px solid #c8c8c8'
+                      : '1px solid #e10d0d',
+                  }}
+                  required
+                />
+              </label>
+              <button
+                type="button"
+                title="show password"
+                onClick={() => setShowConfirmPass(!showConfirmPass)}
+                className={css.showConfirm}
+              >
+                <SvgIcon
+                  name="showpass"
+                  width={24}
+                  height={24}
+                  fill={showConfirmPass ? '#950707' : '#4C4C4C'}
+                  stroke={showConfirmPass ? '#950707' : '#4C4C4C'}
+                />
+              </button>
+            </>
+          )}
+
           <p className={css.error}>{error && error} &nbsp;</p>
-          {pathname.includes('signin') && (
+          {page === 'signin' && !status && (
             <button
               type="button"
-              onClick={() => console.log('call the forgot password protocol')}
-              title="refresh password"
+              onClick={() => {
+                changeStatus('forgot');
+                setIsSubmmitBtnActive(false);
+              }}
+              title="reset password"
               className={css.refresh}
             >
-              {t('Signin.Buttons.Forgot password')}
+              {t('Auth.Buttons.Forgot password')}
             </button>
           )}
         </div>
-      </div>
-      {pathname.includes('signup') && (
+      )}
+
+      {page === 'signup' && (
         <>
           <div className={css.checkbox}>
             <input name="agreeTerms" type="checkbox" required />
             <p>
-              {t('Signup.Labels.Agree1')}
+              {t('Auth.Labels.Agree1')}
               <button
                 type="button"
                 onClick={() => console.log('show modal with Terms')}
                 title="see terms"
               >
-                {t('Signup.Buttons.Terms')}
+                {t('Auth.Buttons.Terms')}
               </button>
-              {t('Signup.Labels.Agree2')}
+              {t('Auth.Labels.Agree2')}
               <button
                 type="button"
                 onClick={() => console.log('show modal with Privacy Policy')}
                 title="see privacy policy"
               >
-                {t('Signup.Buttons.Privacy')}
+                {t('Auth.Buttons.Privacy')}
               </button>
             </p>
           </div>
@@ -168,22 +287,29 @@ export const AuthForm = () => {
               checked={subscribed}
               onChange={() => setSubscribed(!subscribed)}
             />
-            {t('Signup.Labels.Subscribe')}
+            {t('Auth.Labels.Subscribe')}
           </label>
         </>
       )}
       <button
         type="submit"
         onClick={() => false}
-        title={pathname.includes('signin') ? 'sign in' : 'sign up'}
+        title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
         className={css.dark_btn}
+        data-active={isSubmmitBtnActive}
       >
-        {t(
-          pathname.includes('signup')
-            ? 'Signin.Buttons.Sign Up'
-            : 'Signin.Buttons.Sign In',
-        )}
+        {t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
       </button>
+      {status === 'checkEmail' && (
+        <button
+          type="submit"
+          onClick={() => changeStatus('')}
+          title={t(`Auth.Buttons.${status}`)}
+          className={css.light_btn}
+        >
+          {t(`Auth.Buttons.backToSignin`)}
+        </button>
+      )}
     </form>
   );
 };

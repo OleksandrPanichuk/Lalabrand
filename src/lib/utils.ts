@@ -16,3 +16,5 @@ export function formatCurrency(value: number, locale: string = 'en-US') {
     style: 'currency',
   }).format(value);
 }
+
+
