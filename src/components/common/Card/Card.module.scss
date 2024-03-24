@@ -58,7 +58,9 @@
 
 .btns {
   margin-top: 22px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 14px;
   justify-content: space-between;
 
   & button {
@@ -66,12 +68,12 @@
     justify-content: space-between;
 
     font-weight: 600;
-    font-size: 16px;
-    line-height: calc(20 / 16);
+    font-size: 14px;
+    line-height: calc(18 / 14);
     font-family: Inter, sans-serif;
   }
   & > div > button:first-child {
-    padding: 16px 12px;
+    padding: 12px 12px;
     width: 93px;
     background-color: #e4e4e4;
 
@@ -81,10 +83,11 @@
     }
   }
   & > button:last-child {
-    padding: 16px 28px;
+    padding: 12px 12px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 181px;
+    max-width: 181px;
     background-color: #aa3939;
     color: #f3f2f2;
     transition: background-color 0.3s ease-in;
@@ -118,8 +121,8 @@
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 20px;
-    line-height: calc(24 / 20);
+    font-size: 16px;
+    line-height: calc(20 / 16);
     background-color: #e4e4e4;
     border-bottom: 0.5px solid #c8c8c8;
   }

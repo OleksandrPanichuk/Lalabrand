@@ -136,6 +136,6 @@ main {
 }
 
 .page__container {
-  @include adaptive-value('padding-left', 96, 12);
-  @include adaptive-value('padding-right', 96, 12);
+  @include adaptive-value('padding-left', 126, 12);
+  @include adaptive-value('padding-right', 126, 12);
 }

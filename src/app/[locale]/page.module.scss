@@ -1,14 +1,16 @@
 @import '@/styles/mixins.scss';
 
+$gap: 32px;
+
 .wrapper {
-  @include adaptive-value('padding-top',120, 60);
-  @include adaptive-value('padding-bottom',340, 128);
+  @include adaptive-value('padding-top', 120, 60);
+  @include adaptive-value('padding-bottom', 140, 128);
   display: flex;
   flex-direction: column;
-  gap: 16.25rem;
+  gap: 10.25rem;
 
   & h2 {
-    margin-bottom: 6.25rem;
+    margin-bottom: 4.25rem;
   }
 }
 
@@ -25,8 +27,6 @@
 
   & > div {
     position: relative;
-    display: flex;
-    gap: 32px;
 
     & > a,
     & > button {
@@ -78,17 +78,29 @@
       }
     }
   }
+}
 
-  & > div > ul {
-    display: flex;
-    gap: 32px;
-  }
+.gridBestsellers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
 }
 
 // --------------   third section  ------------------
 
-.flexEnd {
+.gridFlexEnd {
+  display: grid;
+  grid-template-columns: calc((100% - 3 * #{$gap}) / 4) calc(
+      (300% - #{$gap}) / 4
+    );
+  grid-gap: 32px;
   align-items: flex-end;
+
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+  }
 }
 
 .lookList {

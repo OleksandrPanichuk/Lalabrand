@@ -20,7 +20,7 @@ const Page = () => {
       <section className={cn(css.bestsellers, 'page__container')}>
         <Title pronoun={t('Titles.Our')} name={t('Titles.Bestsellers')} />
         <div>
-          <ul>
+          <ul className={css.gridBestsellers}>
             {bestsellersFromBackend.map((el) => (
               <li key={el.id} className={css.column}>
                 <Card item={el} width={'288px'} />
@@ -37,7 +37,7 @@ const Page = () => {
       {/* third section */}
       <section className={cn(css.bestsellers, 'page__container')}>
         <Title pronoun={t('Titles.Our')} name={t('Titles.Looks')} />
-        <div className={css.flexEnd}>
+        <div className={css.gridFlexEnd}>
           <Image
             src={looks[0].lookImg}
             width={288}
