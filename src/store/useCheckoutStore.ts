@@ -15,12 +15,10 @@ type StandardShippingData = {
 
 type CardData = {
   name?: string;
-  cvc?: number;
+  cvc?: string;
   date?: string;
   cardNumber?: string;
 };
-type ReceiptData = {};
-type PaypalData = {};
 
 interface ICheckoutStore {
   shippingVariant: ShippingVariant;
@@ -42,25 +40,15 @@ interface ICheckoutStore {
 
   setNovaposhtaData: (data: string) => void;
 
-  cardData: CardData;
+  cardData: CardData | null;
   setCardData: (data: CardData) => void;
-
-  paypalData: PaypalData;
-
-  setPaypalData: (data: PaypalData) => void;
-
-  receiptData: ReceiptData;
-
-  setReceiptData: (data: ReceiptData) => void;
 }
 
 export const useCheckoutStore = create<ICheckoutStore>((set) => ({
 	shippingData: null,
   novaposhtaData: null,
   ukrposhtaData: null,
-  cardData: {},
-  receiptData: {},
-	paypalData:{},
+  cardData: null,
 
   paymentMethod: 'card',
   shippingVariant: 'standard',
@@ -70,8 +58,6 @@ export const useCheckoutStore = create<ICheckoutStore>((set) => ({
 
   setCardData: (data) =>
     set((state) => ({ cardData: { ...state.cardData, ...data } })),
-  setPaypalData: (data) => set({ paypalData: data }),
-  setReceiptData: (data) => set({ receiptData: data }),
 
   setNovaposhtaData: (data) => set({ novaposhtaData: data }),
   setShippingData: (data) =>

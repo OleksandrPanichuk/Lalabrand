@@ -8,6 +8,7 @@ const inputVariants = cva(styles.input, {
     size: {
       base: styles.base,
       md: styles.md,
+      lg:styles.lg
     },
   },
   defaultVariants: {

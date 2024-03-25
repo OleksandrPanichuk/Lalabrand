@@ -12,6 +12,11 @@
 }
 
 .md {
+  @apply text-md font-normal;
+  padding: 17px 16px;
+}
+
+.lg {
   @apply text-lg font-normal;
   padding: 0.9375rem 1.5rem;
 }

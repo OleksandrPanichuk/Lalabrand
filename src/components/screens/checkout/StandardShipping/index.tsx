@@ -52,7 +52,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.firstName ?? ''}
           onChange={(e) => setData({ firstName: e.target.value })}
-          size={'md'}
+          size={'lg'}
           placeholder={t('First name')}
         />
       </Label>
@@ -61,7 +61,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.lastName ?? ''}
           onChange={(e) => setData({ lastName: e.target.value })}
-          size={'md'}
+          size={'lg'}
           placeholder={t('Last name')}
         />
       </Label>
@@ -70,7 +70,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.address1 ?? ''}
           onChange={(e) => setData({ address1: e.target.value })}
-          size={'md'}
+          size={'lg'}
           placeholder={t('Address line 1')}
         />
       </Label>
@@ -79,7 +79,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.address2 ?? ''}
           onChange={(e) => setData({ address2: e.target.value })}
-          size={'md'}
+          size={'lg'}
           placeholder={t('Address line 2')}
         />
       </Label>
@@ -88,7 +88,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.city ?? ''}
           onChange={(e) => setData({ city: e.target.value })}
-          size="md"
+          size="lg"
           placeholder={t('City')}
         />
       </Label>
@@ -101,7 +101,7 @@ StandardShipping.Form = function Form() {
           onChange={(e) => setData({ zipCode: e.target.value })}
         >
           {/* @ts-ignore */}
-          {() => <Input size={'md'} placeholder={t('Zip code')} />}
+          {() => <Input size={'lg'} placeholder={t('Zip code')}  />}
         </InputMask>
       </Label>
       <Label>
@@ -109,7 +109,7 @@ StandardShipping.Form = function Form() {
         <Input
           value={data?.country ?? ''}
           onChange={(e) => setData({ country: e.target.value })}
-          size="md"
+          size="lg"
           placeholder={t('Country')}
         />
       </Label>

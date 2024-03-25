@@ -1,5 +1,5 @@
 'use client';
-import { Breadcrumbs, CheckoutInfo, Title } from '@/components/common';
+import { Breadcrumbs, Title } from '@/components/common';
 import {
   Info,
   OrderPreview,
@@ -10,14 +10,14 @@ import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
-import styles from './page.module.scss';
 import { notFound } from 'next/navigation';
+import styles from './page.module.scss';
 
 const Page = () => {
   const t = useTranslations();
   const items = useCartStore((state) => state.items);
 
-  // if (!items.length) notFound();
+  if (!items.length) notFound();
 
   //Items length to string
   const itemsLTS = items.length.toString();

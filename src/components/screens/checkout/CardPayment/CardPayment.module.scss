@@ -1,0 +1,48 @@
+.form {
+  max-width: 23.5rem;
+  width: 100%;
+
+  > h4 {
+    @apply font-inter  text-sm font-medium;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-areas: 'number number' 'date cvc';
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+
+  margin-bottom: 1.5rem;
+
+  > input:nth-of-type(1) {
+    grid-area: date;
+    max-width: 10.75rem;
+  }
+  > input:nth-of-type(2) {
+    grid-area: cvc;
+    max-width: 10.75rem;
+  }
+}
+
+.number {
+  position: relative;
+
+  grid-area: number;
+
+  > div {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    translate: 0 -50%;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}

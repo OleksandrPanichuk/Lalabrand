@@ -33,7 +33,6 @@ NovaposhtaShipping.Option = function Option({ className }) {
 
       <div>
         <RadioGroup.Label>{t('Novaposhta.Label')}</RadioGroup.Label>
-        {/* TODO: add description */}
         <RadioGroup.Description>
           {!!data ? data : t("Info")}
         </RadioGroup.Description>
