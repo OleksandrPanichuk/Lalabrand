@@ -1,8 +1,33 @@
 .form {
   position: relative;
+  margin-top: 48px;
   margin-bottom: 26px;
   width: 568px;
   font-family: Inter, sans-serif;
+
+  &:has(label) {
+    margin-top: 0;
+  }
+
+  &:has(label) > button[type='submit'] {
+    margin-top: 48px;
+  }
+
+  & > button[type='submit'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: calc(24 / 20);
+    transition: background-color 0.3s ease-out;
+  }
+
+  &:has(label) .light_btn[type='submit'] {
+    margin-top: 16px;
+  }
 
   & label {
     font-weight: 500;
@@ -24,6 +49,9 @@
     border: 1px solid #c8c8c8;
     background-color: inherit;
   }
+  & .errorField {
+    border: 1px solid #e10d0d;
+  }
 
   & .checkbox {
     display: flex;
@@ -44,7 +72,7 @@
   }
 
   & div.checkbox {
-    margin-top: 28px;
+    margin-top: 54px;
     margin-bottom: 16px;
   }
 }
@@ -53,7 +81,7 @@
   position: relative;
   display: block;
 
-  & > p {
+  & > .inputTip {
     margin: 8px 0 26px;
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -83,39 +111,48 @@
   & .showConfirm {
     top: 188px;
   }
-
-  & > div:has(.error) {
-    margin-top: 6px;
-  }
-
-  & > div:has(.refresh) {
-    display: flex;
-    justify-content: space-between;
+  & .refresh {
+    position: static;
   }
 }
 
 .refresh {
+  margin-top: 6px;
+  margin-left: auto;
+  display: flex;
+  text-align: right;
   line-height: 1;
   color: #767676;
   border-bottom: 2px solid #767676;
 }
 
 .dark_btn {
-  margin-top: 48px;
-  width: 100%;
-  height: 56px;
   background: #4c4c4c;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: calc(24 / 20);
   color: #fafafa;
-  transition: background-color 0.3s ease-out;
+
+  &[data-active='true'] {
+    background: #222;
+  }
 }
 .dark_btn:hover {
   background-color: #767676;
 }
 .dark_btn:active {
   background-color: #222;
+}
+
+.light_btn {
+  background: #fafafa;
+  border: 1px solid #222;
+  color: #222;
+}
+.light_btn:hover {
+  background-color: #767676;
+  color: #fafafa;
+}
+.light_btn:active {
+  background-color: #222;
+  color: #fafafa;
 }
 
 .shopass {
@@ -137,7 +174,7 @@
 }
 
 .error {
-  // position: absolute;
-  // transform: translateY(10px);
+  position: absolute;
+  transform: translateY(6px);
   color: #e10d0d;
 }

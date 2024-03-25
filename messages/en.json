@@ -144,47 +144,73 @@
     "Apply": "Apply",
     "Place order": "Place order"
   },
-  "Signin": {
-    "Title": "Sign In",
-    "Text": {
-      "undertitle": "Sign In to be the first to see new LALAbrand products",
-      "create account": "Don’t have an account? ",
-      "or": "OR"
+  "Auth": {
+    "Title": {
+      "signin": "Sign In",
+      "signup": "Sign Up",
+      "forgot": "Forgot password?",
+      "checkEmail": "Check Email",
+      "verification": "Verification",
+      "reset": "Create new password"
+    },
+    "Undertitle": {
+      "signin": "Sign In to be the first to see new LALAbrand products",
+      "signup": "Sign up for free to access to earn LALAbrand points",
+      "forgot": "Please enter the email address you used to create your account, and we'll send you a link to reset your password.",
+      "checkEmail": "Please check your email inbox and enter disposable verification code from the email to reset your password . If you don’t receive email, ",
+      "reset": "Please create your new password"
     },
     "Labels": {
       "Email": "Email address",
-      "Password": "Password"
-    },
-    "Buttons": {
-      "Forgot password": "Forgot password",
-      "Sign In": "Sign In",
-      "Sign Up": "Sign Up",
-      "Google": "Continue With Google",
-      "Facebook": "Continue With Facebook"
-    },
-    "Errors": {
-      "1": "Email and password not fit"
-    }
-  },
-  "Signup": {
-    "Title": "Sign Up",
-    "Text": {
-      "undertitle": "Sign up for free to access to earn LALAbrand points",
-      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
-      "have account": "Do have an account? "
-    },
-    "Labels": {
+      "Password": "Password",
       "Confirm password": "Confirm Password",
+      "Verification": "Enter code",
       "Subscribe": "Subscribe to our monthly newsletter",
       "Agree1": "Agree to our ",
       "Agree2": " of use and "
     },
-    "Errors": {
-      "1": "Passwords don’t match"
-    },
     "Buttons": {
+      "Forgot password": "Forgot password",
+      "Google": "Continue With Google",
+      "Facebook": "Continue With Facebook",
       "Terms": "Terms",
-      "Privacy": "Privacy Policy"
+      "Privacy": "Privacy Policy",
+      "signin": "Sign In",
+      "signup": "Sign Up",
+      "forgot": "Send link",
+      "checkEmail": "Submit",
+      "backToSignin": "Back to Sign In",
+      "reset": "Reset password",
+      "resend": "Click here to resend",
+      "": ""
+    },
+    "Text": {
+      "create password": "Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
+      "have account": "Do have an account? ",
+      "create account": "Don’t have an account? ",
+      "or": "OR",
+      "verificationPlaceholder": "enter code from email we send you"
+    },
+    "Errors": {
+      "1": "Passwords don’t match",
+      "2": "Email or password do not fit"
+    },
+    "Alt": {
+      "signin": {
+        "0": "women dressed in a shirt",
+        "1": "guy in a T-shirt and sunglasses",
+        "2": "child in a plain suit with a collar and flesh-colored boots"
+      },
+      "signup": {
+        "0": "girl in a hat with a curved brim, trousers and a long sleeves shirt",
+        "1": "guy in a T-shirt with cap in a hand",
+        "2": "girl a dress with a x-crossed shoulder straps"
+      },
+      "resetPassword": {
+        "0": "guy in a dark hoodie",
+        "1": "girl in a light shirt and shorts",
+        "2": "child in a bright shirt and dark pants"
+      }
     }
   },
   "Cart": {
