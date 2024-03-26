@@ -7,6 +7,7 @@ import { RadioGroup } from '@headlessui/react';
 import { useTranslations } from 'next-intl';
 import InputMask from 'react-input-mask';
 import styles from './CardPayment.module.scss';
+import Image from 'next/image';
 
 type OptionProps = {
   className?: string;
@@ -64,7 +65,14 @@ CardPayment.Form = function Form() {
             {() => <Input size="md" placeholder="0000 0000 0000 0000" />}
           </InputMask>
           <div>
-            <SvgIcon name="visa" width={32} />
+            <Image
+              src="/images/checkout/visa.png"
+              unoptimized
+              alt="visa"
+              width={32}
+              height={11}
+            />
+
             <SvgIcon name="mastercard" width={18} />
           </div>
         </div>

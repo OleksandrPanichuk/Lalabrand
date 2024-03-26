@@ -17,7 +17,7 @@ const Page = () => {
   const t = useTranslations();
   const items = useCartStore((state) => state.items);
 
-  if (!items.length) notFound();
+  // if (!items.length) notFound();
 
   //Items length to string
   const itemsLTS = items.length.toString();
@@ -45,7 +45,7 @@ const Page = () => {
           </span>
         )}
       </div>
-      <section className={styles.content}>
+      <div className={styles.content}>
         <Title
           name={t('Titles.Bag')}
           pronoun={t('Titles.Shopping')}
@@ -59,7 +59,7 @@ const Page = () => {
           </div>
           <Info />
         </div>
-      </section>
+      </div>
     </div>
   );
 };

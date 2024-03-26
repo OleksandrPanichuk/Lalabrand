@@ -48,7 +48,7 @@ StandardShipping.Form = function Form() {
   return (
     <form className={styles.form}>
       <Label htmlFor="first-name">
-        <span>{t('First name')}</span>
+        {t('First name')}
         <Input
           value={data?.firstName ?? ''}
           onChange={(e) => setData({ firstName: e.target.value })}
@@ -57,7 +57,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('Last name')}</span>
+        {t('Last name')}
         <Input
           value={data?.lastName ?? ''}
           onChange={(e) => setData({ lastName: e.target.value })}
@@ -66,7 +66,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('Address line 1')}</span>
+        {t('Address line 1')}
         <Input
           value={data?.address1 ?? ''}
           onChange={(e) => setData({ address1: e.target.value })}
@@ -75,7 +75,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('Address line 2')}</span>
+        {t('Address line 2')}
         <Input
           value={data?.address2 ?? ''}
           onChange={(e) => setData({ address2: e.target.value })}
@@ -84,7 +84,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('City')}</span>
+        {t('City')}
         <Input
           value={data?.city ?? ''}
           onChange={(e) => setData({ city: e.target.value })}
@@ -93,7 +93,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('Zip code')}</span>
+        {t('Zip code')}
         <InputMask
           mask={'99999'}
           maskChar={null}
@@ -101,11 +101,11 @@ StandardShipping.Form = function Form() {
           onChange={(e) => setData({ zipCode: e.target.value })}
         >
           {/* @ts-ignore */}
-          {() => <Input size={'lg'} placeholder={t('Zip code')}  />}
+          {() => <Input size={'lg'} placeholder={t('Zip code')} />}
         </InputMask>
       </Label>
       <Label>
-        <span>{t('Country')}</span>
+        {t('Country')}
         <Input
           value={data?.country ?? ''}
           onChange={(e) => setData({ country: e.target.value })}
@@ -114,7 +114,7 @@ StandardShipping.Form = function Form() {
         />
       </Label>
       <Label>
-        <span>{t('Phone number')}</span>
+        {t('Phone number')}
         <PhoneInput
           containerClass={styles['phone-field']}
           inputClass={styles['phone-input']}

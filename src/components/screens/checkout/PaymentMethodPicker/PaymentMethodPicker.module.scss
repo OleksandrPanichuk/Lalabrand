@@ -27,6 +27,8 @@
   transition: all 0.3s ease-in-out;
   padding: 1.5rem;
 
+  cursor: pointer;
+
   display: flex;
   align-items: center;
 
@@ -72,7 +74,7 @@
 
   > div:last-child {
     > label {
-      @apply font-inter font-bold text-lg;
+      @apply font-inter font-bold text-lg cursor-pointer;
       margin-bottom: 0.625rem;
       color: var(--text-color);
     }
