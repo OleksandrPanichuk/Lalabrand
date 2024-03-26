@@ -125,7 +125,7 @@
     "Button": "Remove",
     "Cancel": "Cancel"
   },
-  "Cart Info": {
+  "Checkout Info": {
     "Promocode": "Promocode",
     "Log In": "Log In",
     "Log In Message": "Log in to use your member offers!",
@@ -141,7 +141,8 @@
       "Placeholder": "Input points",
       "Available": "Points available"
     },
-    "Apply": "Apply"
+    "Apply": "Apply",
+    "Place order": "Place order"
   },
   "Auth": {
     "Title": {
@@ -236,6 +237,60 @@
     "Empty": {
       "Title": "Your shopping bag is empty!",
       "Button": "Continue shopping"
+    }
+  },
+  "Checkout": {
+    "Order Preview": {
+      "Title": "Your order",
+      "Text": "Press on arrow to see more",
+      "More": "view more"
+    },
+    "Shipping": {
+      "Title": "Shipping",
+      "Text": "Where would you like to be delivered?",
+      "Info": "Fill the shipping information",
+      "Standard": {
+        "Label": "Standart Shipping for orders over $40",
+        "Fields": {
+          "First name": "First name",
+          "Last name": "Last name",
+          "Address line 1": "Address line 1",
+          "Address line 2": "Address line 2",
+          "City": "City",
+          "Zip code": "Zip code",
+          "Country": "Country",
+          "Phone number": "Phone number"
+        }
+      },
+      "Novaposhta": {
+        "Label": "Post Office NovaPoshta",
+        "FormLabel": "Select preffered post office",
+        "Placeholder": "92128, Kyivska street #123, Kyiv"
+      },
+      "Ukrposhta": {
+        "Label": "Post Office Ukrposhta",
+        "FormLabel": "Select preffered post office",
+        "Placeholder": "92128, Shevchenka street #16, Kyiv"
+      }
+    },
+    "Payment": {
+      "Title": "Payment",
+      "Text": "Select your prefered payment type",
+      "Card": {
+        "Title": "Card",
+        "Description": "Fill the card information",
+        "Name":"Name",
+        "Name on card":"Name on card",
+        "Card info":"Card information"
+      },
+      "Receipt": {
+        "Title": "Payment upon receipt",
+        "Description": "Payment at the post office"
+      },
+      "Paypal": {
+        "Title": "Paypal",
+        "Description": "Redirect to PayPal account"
+      }
     }
   }
 }

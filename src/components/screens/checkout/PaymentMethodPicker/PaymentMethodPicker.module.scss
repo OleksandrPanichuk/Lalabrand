@@ -1,0 +1,96 @@
+.wrapper {
+  > h3 {
+    @apply font-montserrat text-xl font-bold;
+    color: var(--secondary-500);
+    margin-bottom: 0.75rem;
+  }
+  > p {
+    @apply font-inter text-md font-semibold;
+    color: var(--secondary-400);
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  > .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.option {
+  transition: all 0.3s ease-in-out;
+  padding: 1.5rem;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid var(--neutral-200);
+  background: white;
+
+  //Radio button
+  > div:first-child {
+    border: 1px solid var(--neutral-200);
+    border-radius: 50%;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    background: var(--neutral-000);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  //Icon
+  > div:nth-child(2) {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 17px;
+    margin-right: 13px;
+  }
+
+  > div:last-child {
+    > label {
+      @apply font-inter font-bold text-lg cursor-pointer;
+      margin-bottom: 0.625rem;
+      color: var(--text-color);
+    }
+    > p {
+      @apply text-lg font-inter font-medium truncate;
+      color: var(--secondary-300);
+    }
+  }
+
+  &--active {
+    border-color: var(--primary-300);
+    > div:first-child {
+      border-color: var(--red-color);
+      &::after {
+        background-color: var(--red-color);
+      }
+    }
+  }
+}

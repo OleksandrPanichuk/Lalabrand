@@ -1,2 +1,3 @@
-export * from './ApolloProvider'
-export * from './AuthProvider'
+'use client';
+export * from './ApolloProvider';
+export * from './AuthProvider';

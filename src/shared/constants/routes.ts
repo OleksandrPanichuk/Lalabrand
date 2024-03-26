@@ -20,7 +20,7 @@ export enum Routes {
   GIFT_CARDS = '/gift-cards',
   ABOUT_US = '/about-us',
   CATEGORIES = '/categories',
-  SIGN_IN= '/sign-in',
-  SIGN_UP = '/sign-up',
-  CHECKOUT = '/checkout'
+  SIGN_IN= '/signin',
+  SIGN_UP = '/signup',
+  CHECKOUT = '/cart/checkout'
 }

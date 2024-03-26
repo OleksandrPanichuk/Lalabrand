@@ -1,5 +1,10 @@
-@import '@/styles/mixins.scss';
+@import "@/styles/mixins.scss";
 
+.wrapper {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
 .label {
   max-width: 12.25rem;
   width: 100%;

@@ -1,0 +1,55 @@
+.form {
+  width: 100%;
+  display: grid;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  grid-template-areas: 'first-name last-name' 'address-1 address-1' 'address-2 address-2' 'city zip-code' 'country phone-number';
+  > label {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    &:first-child {
+      grid-area: first-name;
+    }
+    &:nth-child(2) {
+      grid-area: last-name;
+    }
+    &:nth-child(3) {
+      grid-area: address-1;
+    }
+    &:nth-child(4) {
+      grid-area: address-2;
+    }
+    &:nth-child(5) {
+      grid-area: city;
+    }
+    &:nth-child(6) {
+      grid-area: zip-code;
+    }
+    &:nth-child(7) {
+      grid-area: country;
+    }
+    &:nth-child(8) {
+      grid-area: phone-number;
+    }
+  }
+}
+
+.phone-field {
+  width: 100%;
+  >div:first-child {
+    display: none
+  }
+}
+
+.form .phone-field .phone-input {
+  @apply text-lg font-normal font-inter;
+  width: 100%;
+  padding: 0.9375rem 1.5rem;
+  border: 0.5px solid var(--neutral-300);
+
+  &::placeholder {
+    color: var(--secondary-100);
+  }
+}
+

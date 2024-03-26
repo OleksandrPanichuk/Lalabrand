@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  cursor: pointer;
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
 }
 
 .primary {
@@ -27,7 +32,7 @@
   }
 }
 
-.gray {
+.gray, [type=submit].gray {
   border: 0.5px solid var(--neutral-300);
-  background: var(--neutral-100);
+  background: var(--neutral-100) ;
 }

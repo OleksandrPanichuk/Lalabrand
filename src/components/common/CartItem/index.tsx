@@ -1,5 +1,6 @@
+"use client"
 import { SvgIcon } from '@/components/common';
-import { ColorSelect, SizeSelect } from '@/components/screens/cart';
+import { ColorSelect, SizeSelect } from './components';
 import { cn, formatCurrency } from '@/lib';
 import { TypeCartItem } from '@/shared/types';
 import { useCartStore, useConfirmModal, useFavoriteStore } from '@/store';

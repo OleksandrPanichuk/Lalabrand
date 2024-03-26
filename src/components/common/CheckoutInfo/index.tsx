@@ -7,10 +7,17 @@ import { Link } from '@/shared/navigation';
 import { useCartStore } from '@/store';
 import { useLocale, useTranslations } from 'next-intl';
 import { FormEvent } from 'react';
-import styles from './CartInfo.module.scss';
+import styles from './CheckoutInfo.module.scss';
 
-export const CartInfo = () => {
-  const t = useTranslations('Cart Info');
+interface ICheckoutInfoProps {
+  variant: 'cart' | 'checkout';
+  isActive?: boolean;
+}
+
+export const CheckoutInfo = (
+  { variant, isActive }: ICheckoutInfoProps
+) => {
+  const t = useTranslations('Checkout Info');
   const items = useCartStore((state) => state.items);
   const { user } = useAuth();
   const locale = useLocale();
@@ -28,11 +35,10 @@ export const CartInfo = () => {
     return acc;
   }, 0);
 
-  
   const getShippingFee = () => {
-    if(orderValue >= 40) return 0
+    if (orderValue >= 40) return 0;
     const base = Math.ceil((orderValue * 15) / 100);
-    
+
     return base > 1 ? base - 0.01 : base;
   };
   //TODO: calculate discount
@@ -96,9 +102,19 @@ export const CartInfo = () => {
       >
         <Link href={Routes.SHOP}>{t('Continue')}</Link>
       </Button>
-      <Button asChild size={'lg'}>
-        <Link href={Routes.CHECKOUT}>{t('Checkout')}</Link>
-      </Button>
+      {variant === 'cart' ? (
+        <Button asChild size={'lg'}>
+          <Link
+            href={Routes.CHECKOUT}
+          >
+            {t('Checkout')}
+          </Link>
+        </Button>
+      ) : (
+        <Button disabled={!isActive} size={'lg'}>
+          {t('Place order')}
+        </Button>
+      )}
     </div>
   );
 };
