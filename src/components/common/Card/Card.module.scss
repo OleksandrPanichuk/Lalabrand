@@ -1,5 +1,4 @@
 .thumb {
-  // margin-bottom: 12px;
   position: relative;
 
   & > button {
@@ -58,7 +57,9 @@
 
 .btns {
   margin-top: 22px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 14px;
   justify-content: space-between;
 
   & button {
@@ -84,7 +85,8 @@
     padding: 16px 28px;
     display: flex;
     align-items: center;
-    width: 181px;
+    justify-content: center;
+    max-width: 181px;
     background-color: #aa3939;
     color: #f3f2f2;
     transition: background-color 0.3s ease-in;

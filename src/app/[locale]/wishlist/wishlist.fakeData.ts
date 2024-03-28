@@ -3,7 +3,7 @@ export const favoritesFromBackend = [
     id: 1,
     name: 'Loose Fit Hooded Jacket',
     path: '/imgDelete/fav-1.jpg',
-    colors: ['Green', 'Red','White','Yellow'],
+    colors: ['Green', 'Red', 'White', 'Yellow'],
     price: 32.99,
   },
   {
