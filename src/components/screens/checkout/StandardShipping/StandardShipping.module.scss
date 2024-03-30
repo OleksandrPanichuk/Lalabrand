@@ -4,10 +4,7 @@
   column-gap: 2rem;
   row-gap: 1.5rem;
   grid-template-areas: 'first-name last-name' 'address-1 address-1' 'address-2 address-2' 'city zip-code' 'country phone-number';
-  > label {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  > div {
     &:first-child {
       grid-area: first-name;
     }

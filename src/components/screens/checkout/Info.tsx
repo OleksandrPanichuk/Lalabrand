@@ -1,7 +1,8 @@
 'use client';
-import { CheckoutInfo } from '@/components/common';
-import { useCheckoutStore } from '@/store';
-import { useMemo } from 'react';
+import { CheckoutInfo } from '@/components/common'
+import { cardShippingSchema, standardShippingSchema } from '@/shared/schemas'
+import { useCheckoutStore } from '@/store'
+import { useMemo } from 'react'
 
 export const Info = () => {
   const {
@@ -16,11 +17,7 @@ export const Info = () => {
   const isShippingActive: boolean = useMemo(() => {
     switch (shippingVariant) {
       case 'standard': {
-        return shippingData === null
-          ? false
-          : Object.keys(shippingData).length === 8 &&
-              Object.values(shippingData).every((el) => !!el === true) &&
-              shippingData.zipCode?.length === 5;
+       return standardShippingSchema.safeParse(shippingData).success
       }
       case 'novaposhta': {
         return !!novaposhtaData;
@@ -34,16 +31,7 @@ export const Info = () => {
   const isPaymentActive: boolean = useMemo(() => {
     if (paymentMethod === 'paypal' || paymentMethod === 'receipt') return true;
 
-    return (
-      cardData !== null &&
-      Object.keys(cardData).length === 4 &&
-      Object.values(cardData).every((el) => !!el === true) &&
-      cardData.cvc?.length === 3 &&
-      cardData.date?.length === 5 &&
-      cardData.cardNumber?.length === 19 &&
-      +cardData.date.split('/')[0] > 0 &&
-      +cardData.date.split('/')[0] <= 31
-    );
+    return cardShippingSchema.safeParse(cardData).success
   }, [paymentMethod, cardData]);
 
   const isActive = isShippingActive && isPaymentActive;

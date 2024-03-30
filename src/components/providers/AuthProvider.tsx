@@ -1,14 +1,27 @@
 'use client';
 
-import { TypeUser } from '@/shared/types';
-import { PropsWithChildren, createContext, useCallback,useContext, useState } from 'react';
+import { TypeAddress, TypeDefaultShippingData, TypeUser } from '@/shared/types';
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
 type SignInInput = {};
 
 type SignUpInput = {};
 
+type TypeAuthUser = TypeUser & {
+  address?: TypeAddress;
+};
+
 interface IAuthContext {
-  user: TypeUser | null;
+  user: TypeAuthUser | null;
+  setUser : Dispatch<SetStateAction<TypeAuthUser | null>>
   signIn: (data: SignInInput) => void;
   signUp: (data: SignUpInput) => void;
   signOut: () => void;
@@ -21,7 +34,7 @@ interface IAuthProviderProps extends PropsWithChildren {
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider = ({ initialUser, children }: IAuthProviderProps) => {
-  const [user, setUser] = useState<TypeUser | null>(initialUser);
+  const [user, setUser] = useState<TypeAuthUser | null>(initialUser);
 
   //TODO: add signIn, signUp and signOut functions
   const signIn = useCallback((data: SignInInput) => {}, []);
@@ -32,7 +45,9 @@ export const AuthProvider = ({ initialUser, children }: IAuthProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signUp, signOut }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, signIn, signUp, signOut, setUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

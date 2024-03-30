@@ -20,16 +20,20 @@ interface IInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
   isInValid?: boolean;
+  isDisabled?:boolean
 }
 
 export const Input = ({
   className,
   size,
   isInValid,
+  isDisabled,
+  disabled,
   ...props
 }: IInputProps) => {
   return (
     <input
+      disabled={disabled || isDisabled}
       className={cn(
         inputVariants({ size, className }),
         !!isInValid && styles.invalid,

@@ -279,9 +279,9 @@
       "Card": {
         "Title": "Card",
         "Description": "Fill the card information",
-        "Name":"Name",
-        "Name on card":"Name on card",
-        "Card info":"Card information"
+        "Name": "Name",
+        "Name on card": "Name on card",
+        "Card info": "Card information"
       },
       "Receipt": {
         "Title": "Payment upon receipt",
@@ -291,6 +291,52 @@
         "Title": "Paypal",
         "Description": "Redirect to PayPal account"
       }
+    }
+  },
+  "Profile": {
+    "Sidebar": {
+      "Bonus": {
+        "Points": { "One": "point", "Plural": "points", "Other": "points" },
+        "Text": "Continue shopping, collect points, and use them as an additional discount for your next purchases!"
+      },
+      "Sign Out": "Sign Out",
+      "Headings": {
+        "Account": "Account",
+        "Policy": "Policy",
+        "Help": "Help"
+      },
+      "Links": {
+        "Account": {
+          "Orders": "My orders",
+          "Settings": "Profile settings",
+          "Rewards": "Rewards",
+          "Wishlist": "Wishlist"
+        },
+        "Policy": {
+          "Shipping info": "Shipping info",
+          "Return policy": "Return policy",
+          "Privacy": "Privacy & Cookie Policy"
+        },
+        "Help": {
+          "Contact us": "Contact us"
+        }
+      }
+    }
+  },
+  "Settings": {
+    "Title": "Profile settings",
+    "Fields": {
+      "First name": "First name",
+      "Last name": "Last name",
+      "Address line 1": "Address line 1",
+      "Address line 2": "Address line 2",
+      "City": "City",
+      "Zip code": "Zip code",
+      "Country": "Country",
+      "Phone number": "Phone number"
+    },
+    "Buttons":{
+      "Save":"Save changes"
     }
   }
 }

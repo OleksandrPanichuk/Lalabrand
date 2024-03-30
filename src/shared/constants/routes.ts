@@ -11,7 +11,8 @@ export enum Routes {
   CART = '/cart',
   CUSTOMER_SERVICE = '/customer-service',
   TRACK_ORDER = '/track-order',
-  LEGAL_PRIVACY = '/legal_privacy',
+  LEGAL_PRIVACY = '/legal-privacy',
+  SHIPPING_INFO = '/shipping-info',
   CONTACT = '/contact',
   REFUND = '/refund',
   ACCOUNT = '/account',
@@ -20,7 +21,10 @@ export enum Routes {
   GIFT_CARDS = '/gift-cards',
   ABOUT_US = '/about-us',
   CATEGORIES = '/categories',
-  SIGN_IN= '/signin',
+  SIGN_IN = '/signin',
   SIGN_UP = '/signup',
-  CHECKOUT = '/cart/checkout'
+  CHECKOUT = '/cart/checkout',
+  ORDERS = '/orders',
+  SETTINGS = '/settings',
+  REWARDS = '/rewards',
 }

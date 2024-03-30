@@ -1,24 +1,11 @@
-import { PaymentMethod, ShippingVariant } from '@/shared/types'
+import { cardShippingSchema } from '@/shared/schemas'
+import { PaymentMethod, ShippingVariant, TypeDefaultShippingData } from '@/shared/types';
+import { z } from 'zod'
 import { create } from 'zustand';
 
+type StandardShippingData = TypeDefaultShippingData;
 
-type StandardShippingData = {
-  firstName?: string;
-  lastName?: string;
-  address1?: string;
-  address2?: string;
-  city?: string;
-  zipCode?: string;
-  country?: string;
-  phoneNumber?: string;
-};
-
-type CardData = {
-  name?: string;
-  cvc?: string;
-  date?: string;
-  cardNumber?: string;
-};
+type CardData = Partial<z.infer<typeof cardShippingSchema>>
 
 interface ICheckoutStore {
   shippingVariant: ShippingVariant;
@@ -30,7 +17,7 @@ interface ICheckoutStore {
   //Data for standard shipping
   shippingData: StandardShippingData | null;
 
-  setShippingData: (data: StandardShippingData) => void;
+  setShippingData: (data: StandardShippingData | null) => void;
 
   ukrposhtaData: string | null;
 
@@ -45,7 +32,7 @@ interface ICheckoutStore {
 }
 
 export const useCheckoutStore = create<ICheckoutStore>((set) => ({
-	shippingData: null,
+  shippingData: null,
   novaposhtaData: null,
   ukrposhtaData: null,
   cardData: null,
