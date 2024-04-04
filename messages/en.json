@@ -1,4 +1,25 @@
 {
+  "Errors": {
+    "StandardShipping": {
+      "First name": "First name is too short",
+      "Last name": "Last name is too short",
+      "Address1": "Address 1 is too short",
+      "Address2": "Address 2 is too short",
+      "City": "City name is too short",
+      "Zip code": "Zip code must be 5 characters length",
+      "Country": "Country name is too short",
+      "Phone": "Invalid phone number"
+    },
+    "CardPayment": {
+      "Name": "Name is required",
+      "CVC": "CVC should be 3 characters long",
+      "Date": {
+        "Invalid": "Invalid date",
+        "Length": "Invalid date length"
+      },
+      "Card number": "Invalid card number length"
+    }
+  },
   "Header": {
     "Links": {
       "Women": "Women",
@@ -335,8 +356,8 @@
       "Country": "Country",
       "Phone number": "Phone number"
     },
-    "Buttons":{
-      "Save":"Save changes"
+    "Buttons": {
+      "Save": "Save changes"
     }
   }
 }

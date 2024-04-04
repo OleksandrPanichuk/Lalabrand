@@ -10,14 +10,14 @@ import { cn, getUkrainianTranslation } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
-// import { notFound } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
 
 const Page = () => {
   const t = useTranslations();
   const items = useCartStore((state) => state.items);
 
-  // if (!items.length) notFound();
+  if (!items.length) notFound();
 
   return (
     <div className={cn('page__container', styles.container)}>

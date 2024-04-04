@@ -21,7 +21,7 @@ const ProfileLayout = ({ children }: PropsWithChildren) => {
         <h1>Hi, {user.username}</h1>
         <div className={styles.bonus}>
           <p>
-            {getUkrainianTranslation(user.bonus, {
+            {getUkrainianTranslation(user.bonus ?? 0, {
               one: t('Bonus.Points.One'),
               other: t('Bonus.Points.Other'),
               plural: t('Bonus.Points.Plural'),

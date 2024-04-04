@@ -7,43 +7,43 @@ export const defaultShippingInfoSchema = z.object({
   firstName: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 2, {
-      message: 'First name is too short',
+      message: 'StandardShipping.First name',
     })
     .optional(),
   lastName: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 2, {
-      message: 'Last name is too short',
+      message: 'StandardShipping.Last name',
     })
     .optional(),
   address1: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 3, {
-      message: 'Address 1 is too short',
+      message: 'StandardShipping.Address1',
     })
     .optional(),
   address2: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 3, {
-      message: 'Address 2 is too short',
+      message: 'StandardShipping.Address2',
     })
     .optional(),
   city: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 2, {
-      message: 'City name is too short',
+      message: 'StandardShipping.City',
     })
     .optional(),
   zipCode: z
     .string()
     .refine((val) => val.trim() === '' || val.length === 5, {
-      message: 'Zip code must be 5 characters length',
+      message: 'StandardShipping.Zip code',
     })
     .optional(),
   country: z
     .string()
     .refine((val) => val.trim() === '' || val.length >= 2, {
-      message: 'Country name is too short',
+      message: 'StandardShipping.Country',
     })
     .optional(),
   phone: z
@@ -59,21 +59,21 @@ export const defaultShippingInfoSchema = z.object({
           return false;
         }
       },
-      { message: 'Invalid phone number' },
+      { message: 'StandardShipping.Phone' },
     )
     .optional(),
 });
 
 export const standardShippingSchema = z.object({
-  firstName: z.string().min(2, 'First name is too short'),
-  lastName: z.string().min(2, 'Last name is too short'),
-  address1: z.string().min(3, 'Address 1 is too short'),
-  address2: z.string().min(3, 'Address 2 is too short'),
-  city: z.string().min(2, 'City name is too short'),
+  firstName: z.string().min(2, 'StandardShipping.First name'),
+  lastName: z.string().min(2, 'StandardShipping.Last name'),
+  address1: z.string().min(3, 'StandardShipping.Address1'),
+  address2: z.string().min(3, 'StandardShipping.Address2'),
+  city: z.string().min(2, 'StandardShipping.City'),
   zipCode: z
     .string()
-    .length(5, 'Zip code must be 5 characters length'),
-  country: z.string().min(2,'Country name is too short'),
+    .length(5, 'StandardShipping.Zip code'),
+  country: z.string().min(2,'StandardShipping.Country'),
   phone: z.string().refine(
     (value) => {
       try {
@@ -83,22 +83,22 @@ export const standardShippingSchema = z.object({
         return false;
       }
     },
-    { message: 'Invalid phone number' },
+    { message: 'StandardShipping.Phone' },
   ),
 });
 
 export const cardShippingSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  cvc: z.string().length(3, 'CVC should be 3 characters long'),
+  name: z.string().min(1, 'CardPayment.Name'),
+  cvc: z.string().length(3, 'CardPayment.CVC'),
   date: z
     .string()
-    .length(5, 'Invalid date length')
+    .length(5, 'CardPayment.Date.Length')
     .refine(
       (value) => {
         const dates = value.split('/').map((val) => +val);
         return dates[0] > 0 && dates[0] <= 31;
       },
-      { message: 'Invalid date' },
+      { message: 'CardPayment.Date.Invalid' },
     ),
-  cardNumber: z.string().length(19, 'Invalid card number length'),
+  cardNumber: z.string().length(19, 'CardPayment.Card number'),
 });
