@@ -14,7 +14,8 @@
   }
 
   & > ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     flex-wrap: wrap;
     column-gap: 32px;
     row-gap: 64px;
@@ -37,6 +38,9 @@
 }
 
 .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 288px;
   font-weight: 500;
   font-size: 20px;
@@ -48,8 +52,5 @@
   }
   & p:last-child {
     font-weight: 700;
-  }
-  & a {
-    // margin-bottom: 22px;
   }
 }
