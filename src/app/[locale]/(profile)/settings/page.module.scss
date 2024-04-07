@@ -1,0 +1,85 @@
+.wrapper {
+  h2 {
+    @apply font-montserrat text-2xl font-bold;
+    color: var(--text-color);
+    margin-bottom: 3.75rem;
+    text-align: center;
+  }
+}
+
+.phone-field {
+  width: 100%;
+  > div:first-child {
+    display: none;
+  }
+}
+
+.form .phone-field .phone-input {
+  @apply text-lg font-normal font-inter;
+  width: 100%;
+  padding: 0.9375rem 1.5rem;
+  border: 0.5px solid var(--neutral-300);
+
+  &::placeholder {
+    color: var(--secondary-100);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  > div {
+    margin-bottom: 7.5rem;
+    display: grid;
+    grid-template-areas: 'first-last-name first-last-name' 'address1 address1' 'address2 address2' 'city zipCode' 'country phone';
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    grid-template-columns: 395fr 501fr;
+
+    > div:first-child {
+      grid-area: first-last-name;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      > div:first-child {
+        max-width: 395px;
+        width: 100%;
+      }
+      > div:last-child {
+        max-width: 394px;
+        width: 100%;
+      }
+    }
+    > div {
+      input {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        grid-area: address1;
+      }
+      &:nth-child(3) {
+        grid-area: address2;
+      }
+      &:nth-child(4) {
+        grid-area: city;
+      }
+      &:nth-child(5) {
+        grid-area: zipCode;
+      }
+      &:nth-child(6) {
+        grid-area: country;
+      }
+      &:nth-child(7) {
+        grid-area: phone;
+      }
+    }
+  }
+
+  > button[type='submit'] {
+    max-width: 35.5rem;
+    width: 100%;
+  }
+}

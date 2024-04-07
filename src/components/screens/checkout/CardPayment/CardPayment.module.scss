@@ -20,20 +20,24 @@
 
   margin-bottom: 1.5rem;
 
-  > input:nth-of-type(1) {
-    grid-area: date;
-    max-width: 10.75rem;
+  >div {
+    &:nth-child(1) {
+      grid-area: number;
+    }
+    &:nth-child(2) {
+      grid-area:  date;
+      max-width: 10.75rem;
+    }
+    &:nth-child(3) {
+      grid-area:  cvc;
+      max-width: 10.75rem;
+    }
   }
-  > input:nth-of-type(2) {
-    grid-area: cvc;
-    max-width: 10.75rem;
-  }
+
 }
 
 .number {
   position: relative;
-
-  grid-area: number;
 
   > div {
     position: absolute;

@@ -6,7 +6,7 @@ import {
   PaymentMethodPicker,
   ShippingPicker,
 } from '@/components/screens/checkout';
-import { cn } from '@/lib';
+import { cn, getUkrainianTranslation } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
@@ -17,13 +17,8 @@ const Page = () => {
   const t = useTranslations();
   const items = useCartStore((state) => state.items);
 
-  // if (!items.length) notFound();
+  if (!items.length) notFound();
 
-  //Items length to string
-  const itemsLTS = items.length.toString();
-
-  //Is Less than 10 and greater than 20
-  const isLT10AGT20 = items.length <= 10 || items.length >= 20;
   return (
     <div className={cn('page__container', styles.container)}>
       <div className={styles.top}>
@@ -34,14 +29,11 @@ const Page = () => {
         </Breadcrumbs>
         {items.length > 0 && (
           <span className={styles.count}>
-            {itemsLTS.endsWith('1') && isLT10AGT20
-              ? `${items.length} ` + t('Cart.Counter.One')
-              : (itemsLTS.endsWith('3') ||
-                    itemsLTS.endsWith('2') ||
-                    itemsLTS.endsWith('4')) &&
-                  isLT10AGT20
-                ? `${items.length} ` + t('Cart.Counter.Plural')
-                : `${items.length} ` + t('Cart.Counter.Other')}
+            {getUkrainianTranslation(items.length, {
+              one: t('Cart.Counter.One'),
+              plural: t('Cart.Counter.Plural'),
+              other: t('Cart.Counter.Other'),
+            })}
           </span>
         )}
       </div>
