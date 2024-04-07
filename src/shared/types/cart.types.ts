@@ -1,6 +1,6 @@
 export type TypeCartItem = {
-	id:number
-  itemId:number
+	id:string
+  itemId:string
   imageUrl: string;
   name: string;
   price: number;

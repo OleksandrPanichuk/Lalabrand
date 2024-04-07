@@ -2,7 +2,7 @@ import { z } from "zod"
 import { defaultShippingInfoSchema } from "@/shared/schemas"
 
 export type TypeUser = {
-  id: number;
+  id: string;
 
   bonus?: number;
   firstName?: string;
@@ -15,7 +15,7 @@ export type TypeUser = {
 };
 
 export type TypeAddress = {
-  id: number;
+  id: string;
 	
   address1?: string;
   address2?: string;
@@ -24,7 +24,7 @@ export type TypeAddress = {
   country?: string;
 
 
-	userId:number
+	userId:string
 };
 
 
