@@ -359,5 +359,110 @@
     "Buttons": {
       "Save": "Save changes"
     }
+  },
+  "Refund": {
+    "Title": "Return Policy",
+
+    "Return Policy": {
+      "Title": "Return Policy",
+      "Text": "Thank you for shopping at LALAbrand! We hope you are delighted with your purchase. However, if you are not entirely satisfied with your purchase, we're here to help."
+    },
+    "Returns": {
+      "Title": "Returns",
+      "Text": "You have 14 calendar days to return an item from the date you received it. To be eligible for a return, your item must be unused and in the same condition that you received it. Your item must be in the original packaging."
+    },
+    "Refunds": {
+      "Title": "Returns",
+      "Text": "Once we receive your item, we will inspect it and notify you that we have received your returned item. We will immediately notify you on the status of your refund after inspecting the item. If your return is approved, we will initiate a refund to your credit card (or original method of payment). You will receive the credit within a certain amount of days, depending on your card issuer's policies."
+    },
+    "Shipping": {
+      "Title": "Shipping",
+      "Text": "You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are nonrefundable. If you receive a refund, the cost of return shipping will be deducted from your refund."
+    },
+    "Contact": {
+      "Title": "Contact us",
+      "Text": "If you have any questions on how to return your item to us, contact us at"
+    }
+  },
+  "Legal Privacy": {
+    "Title": "Privacy & Cookie policy",
+    "Text": "LALABRAND PRIVACY COMMITMENT\nWe are the Lalabrand, the company affiliates of Lalabrand LLC; When you shop with us or use one of our services, you trust us with your information. Protecting personal data and your privacy is of the greatest priority for the H&M Group. It is important to us to give you clear and transparent information about the personal data we collect, why it is needed, how it is used and your rights over it.",
+    "List": {
+      "Title": "Lalabrand personal data handling in brief",
+      "Items": {
+        "1": {
+          "Question": "Who is responsible for processing your personal data?",
+          "Answer": "Lalabrand consists of different brands and legal entities and the company responsible for the processing of your personal data is dependent on the purpose for which it is collected. For each processing purpose you will be informed of the responsible company. It will be either the Swedish company Lalabrand LLC, or one of our local affiliates."
+        },
+        "2": {
+          "Question": "Why do we process your personal data?",
+          "Answer": "We use and process your personal data to be able to give you the best customer experience when visiting one of our websites or stores. We also process your personal data upon your request to be able to provide you with requested services, deliver your order or to support you through our customer service."
+        },
+        "3": {
+          "Question": "What type of personal data do we process?",
+          "Answer": "Personal information is any kind of information that can be directly or indirectly attributed to you. Examples of personal data we process are name, address, e-mail address, telephone number, payment information and purchase order. We may also process usage history, IP address, member id and information you provide when contacting our customer service."
+        },
+        "4": {
+          "Question": "Where do we process your data?",
+          "Answer": "Your personal data is generally stored within your country or a country of the EU/EEA but may also be transferred to and processed in a country outside this area."
+        },
+        "5": {
+          "Question": "Who do we share your data with?",
+          "Answer": "If necessary, your personal data may be shared within the Lalabrand companies, with suppliers, sub-contractors and independent third parties carrying out certain tasks on our behalf."
+        },
+        "6": {
+          "Question": "What are your rights?",
+          "Answer": "ou have the right to access, rectify, erase, and consult. In certain cases, you are also entitled to object to us using your data, or to transferring your data. If you have an account or are a member of a loyalty program, you can exercise your right to access, portability and rectification under your account pages, where you also can delete your account."
+        }
+      }
+    }
+  },
+  "Shipping Info": {
+    "Title": "Shipping info",
+    "Processing Time": {
+      "Title": "Processing Time",
+      "Text": "Orders are typically processed within 5-8 business days of receipt. Please note that orders are not processed on weekends or holidays."
+    },
+    "Shipping Rates": {
+      "Title": "Shipping Rates",
+      "Text": "Shipping rates are calculated at checkout based on the weight and destination of your order."
+    },
+    "Shipping Methods": {
+      "Title": "Shipping Methods",
+      "Text": "We offer the following shipping methods:\n\nStandard Shipping: Delivery within 5-8 business days.\nExpress Shipping: Delivery within 1-3 business days."
+    },
+    "International Shipping": {
+      "Title": "International Shipping",
+      "Text": {
+        "1": "We currently only ship to addresses within USA. If you would like to place an order for delivery outside of these regions, please contact us at",
+        "2": "to discuss shipping options."
+      }
+    },
+    "Order Tracking": {
+      "Title": "Order Tracking",
+      "Text": "Once your order has been shipped, you will receive a shipping confirmation email containing tracking information. You can track the status of your order using the tracking number provided."
+    },
+    "Shipping Restrictions": {
+      "Title": "Shipping Restrictions",
+      "Text": "Please note that we are unable to ship to P.O. boxes or APO/FPO addresses."
+    },
+    "Contact Us": {
+      "Title": "Contact Us",
+      "Text": "If you have any questions about shipping or need assistance with your order, please contact us at"
+    }
+  },
+  "Rewards": {
+    "Title": "Rewards",
+    "Points": {
+      "Available": "total available points",
+      "Expires": "points expires soon"
+    },
+    "Details": {
+      "Title": "Points details:",
+      "Order number": "Order number",
+      "Order date": "Order date",
+      "More": "view more",
+      "Points": { "One": "point", "Plural": "points", "Other": "points" }
+    }
   }
 }

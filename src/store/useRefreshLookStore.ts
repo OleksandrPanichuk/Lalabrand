@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { looksFromBackend } from '@/components/screens/home/home.fakeData';
 
 type LookItem = {
-  id: number;
+  id: string;
   name: string;
   path: string;
   colors: string[];

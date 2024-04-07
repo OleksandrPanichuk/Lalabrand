@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
 type FavoriteStore = {
-  favorites: number[];
-  addFavorite: (id: number) => void;
-  delFavorite: (id: number) => void;
-  toggleFavorite:(id:number) => void
+  favorites: string[];
+  addFavorite: (id: string) => void;
+  delFavorite: (id: string) => void;
+  toggleFavorite:(id:string) => void
 };
 
 

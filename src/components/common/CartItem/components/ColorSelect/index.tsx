@@ -9,7 +9,7 @@ import { useTranslations } from 'next-intl'
 
 interface IColorSelectProps {
   active: string;
-  id: number;
+  id: string;
   colors: string[];
 }
 

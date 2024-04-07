@@ -4,13 +4,13 @@ import { create } from 'zustand';
 interface ICartStore {
   items: TypeCartItem[];
   incrementCount: (
-    input: { id: number; size: string; color: string } | number,
+    input: { id: string; size: string; color: string } | string,
   ) => void;
-  decrementCount: (id: number) => void;
+  decrementCount: (id: string) => void;
 
-  updateColor: (id: number, color: string) => void;
-  updateSize: (id: number, size: string) => void;
-  remove: (id: number) => void;
+  updateColor: (id: string, color: string) => void;
+  updateSize: (id: string, size: string) => void;
+  remove: (id: string) => void;
   add: (item: TypeCartItem) => void;
 }
 
@@ -19,7 +19,7 @@ export const useCartStore = create<ICartStore>((set) => ({
   incrementCount: (input) => {
     set(({ items }) => {
       const condition = (item: TypeCartItem) => {
-        if (typeof input === 'number') {
+        if (typeof input === 'string') {
           return item.id === input;
         }
 
