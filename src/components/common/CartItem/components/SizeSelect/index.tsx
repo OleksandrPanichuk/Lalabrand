@@ -8,7 +8,7 @@ import styles from './SizeSelect.module.scss';
 import { useTranslations } from 'next-intl';
 
 interface ISizeSelectProps {
-  id: number;
+  id: string;
   sizes: string[];
   active: string;
 }

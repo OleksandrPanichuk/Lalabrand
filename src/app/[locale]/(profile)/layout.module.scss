@@ -37,8 +37,7 @@
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          font-weight: 600;
-          color: var(--secondary-300);
+          color: var(--secondary-500);
         }
       }
       li.active {

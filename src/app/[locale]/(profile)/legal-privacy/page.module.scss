@@ -1,0 +1,26 @@
+.wrapper {
+  > h2 {
+    @apply font-montserrat text-2xl font-bold;
+    color: var(--text-color);
+    margin-bottom: 3.75rem;
+    text-align: center;
+  }
+	>pre {
+		white-space: pre-wrap;
+	}
+
+  p,
+	pre,
+	h5,
+  h6{
+    @apply text-md font-inter font-medium;
+    color: var(--text-color);
+  }
+	h5, >pre, > div >ul > li:not(:last-child) {
+		margin-bottom: 1.25rem;
+	}
+	ul {
+		list-style: disc;
+		margin-left: 1.125rem; 
+	}
+}

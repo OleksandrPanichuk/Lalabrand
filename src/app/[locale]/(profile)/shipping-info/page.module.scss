@@ -1,0 +1,27 @@
+.wrapper {
+  > h2 {
+    @apply font-montserrat text-2xl font-bold;
+    color: var(--text-color);
+    margin-bottom: 3.75rem;
+    text-align: center;
+  }
+  > div {
+    p, pre {
+      @apply font-inter text-md font-medium;
+      > span {
+        cursor: pointer;
+        color: var(--info-500);
+      }
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    > p:not(:last-child),
+    h5, pre {
+      margin-bottom: 1.25rem;
+    }
+    h5 {
+      @apply font-inter text-md font-semibold;
+    }
+  }
+}

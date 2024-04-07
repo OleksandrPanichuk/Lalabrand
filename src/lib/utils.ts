@@ -48,3 +48,8 @@ export function getUkrainianTranslation(
       ? returnFn(plural)
       : returnFn(other);
 }
+
+// function which copy value to operation memory
+export function copy(value: string) {
+  navigator.clipboard.writeText(value);
+}

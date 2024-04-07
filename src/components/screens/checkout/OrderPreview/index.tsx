@@ -1,13 +1,12 @@
 'use client';
-import { CartItem, SvgIcon } from '@/components/common';
-import { useDisclosure } from '@/hooks';
-import { cn } from '@/lib';
-import { useCartStore } from '@/store';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import { useRef } from 'react';
-import styles from './OrderPreview.module.scss';
+import { CartItem, SvgIcon } from '@/components/common'
+import { useDisclosure } from '@/hooks'
+import { cn } from '@/lib'
+import { useCartStore } from '@/store'
+import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import styles from './OrderPreview.module.scss'
 
 export const OrderPreview = () => {
   const { isOpen, toggle } = useDisclosure();

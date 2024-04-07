@@ -38,7 +38,7 @@ export default async function RootLayout({
 
   //TODO: fetch current user data
   const currentUser: TypeUser = {
-    id: 1,
+    id: '1',
     bonus: 60,
     createdAt: new Date(),
     email: 'example@gmail.com',

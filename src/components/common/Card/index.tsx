@@ -17,7 +17,7 @@ interface CardProps {
 }
 
 type Card = {
-  id: number;
+  id: string;
   name: string;
   path: string;
   colors: string[];
@@ -103,7 +103,7 @@ export const Card = ({ item, width, inFav }: CardProps) => {
       price,
       size,
       itemId: id,
-      id:Math.random(),
+      id:Math.random().toString(),
       colors: colors,
       color: colors[0],
       sizes: sizeOptions.map(opt => opt.value)

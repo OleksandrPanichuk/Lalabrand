@@ -81,7 +81,7 @@ const SettingsPage = () => {
     if(isAddressNotEmpty && !user.address) {
       // Make a request to backend to add user address and provide address object with id
 
-      address.id = 123
+      address.id = '123'
     }
 
     // Make a request to update user
