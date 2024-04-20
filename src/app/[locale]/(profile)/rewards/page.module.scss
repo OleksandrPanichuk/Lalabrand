@@ -110,6 +110,7 @@
     > a {
       @apply font-inter text-md font-medium;
       display: flex;
+      align-items:center;
       gap: 0.6875rem;
       color: var(--secondary-300);
       min-width: 8.5rem;
@@ -119,10 +120,18 @@
         transition: all 0.3s ease-in-out;
         fill: var(--secondary-300);
       }
-      &:hover {
-        color: var(--text-color);
+      &:focus {
+        color: var(--primary-300);
         > svg {
-          fill: var(--text-color);
+          fill: var(--primary-300);
+          margin-left: 0.25rem;
+        }
+      }
+      &:hover {
+        color: var(--primary-500);
+        > svg {
+          fill: var(--primary-500);
+          margin-left: 0.25rem;
         }
       }
     }
@@ -144,10 +153,10 @@
         display: none;
       }
     }
-		@media screen and (max-width: 1140px) {
-			> li:nth-last-child(2) {
-				display: none;
-			}
-		}
+    @media screen and (max-width: 1140px) {
+      > li:nth-last-child(2) {
+        display: none;
+      }
+    }
   }
 }

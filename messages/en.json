@@ -20,6 +20,20 @@
       "Card number": "Invalid card number length"
     }
   },
+  "Colors":{
+    "Black":"Black",
+    "Blue":"Blue",
+    "Light Green":"Light Green",
+    "White":"White",
+    "Light Blue":"Light Blue",
+    "Dark Green":"Dark Green",
+    "Brown":"Brown",
+    "Dark Blue":"Dark Blue",
+    "Grey":"Grey",
+    "Red":"Red",
+    "Beige":"Beige",
+    "Pink":"Pink"
+  },
   "Header": {
     "Links": {
       "Women": "Women",
@@ -87,6 +101,26 @@
       "refresh look": "refresh look"
     }
   },
+  "Shop":{
+    "Title":"Shop",
+    "Filters":"Filters",
+    "Filters & Sort":"Filters & Sort",
+    "SortBy":{
+      "Label":"Sort by",
+      "Newest":"Newest",
+      "Recommended":"Recommended",
+      "Lowest price":"Lowest price",
+      "Highest price":"Highest price"
+    },
+    "Size":"Size",
+    "Color":"Color",
+
+    "Buttons":{
+      "Apply":"Apply",
+      "Clear All":"Clear All"
+    },
+    "view more":"view more"
+  },
   "Categories": {
     "Offers_Deals": "Offers & Deals",
     "Big Sale": "Big Sale",
@@ -97,7 +131,7 @@
     "Accessories": "Accessories",
     "view more": "view more",
     "View all": "View all",
-    "Links": {
+    "Types": {
       "Accessories": "Accessories",
       "Blazers_Vests": "Blazers & Vests",
       "Cardigans_Sweaters": "Cardigans & Sweaters",

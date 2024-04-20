@@ -1,12 +1,11 @@
 'use client';
 import {
-  Breadcrumbs,
   CartItem,
   CheckoutInfo,
   Title,
 } from '@/components/common';
 import { ShippingFee } from '@/components/screens/cart';
-import { Button } from '@/components/ui';
+import { Button , Breadcrumbs} from '@/components/ui';
 import { cn, getUkrainianTranslation } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { Link } from '@/shared/navigation';

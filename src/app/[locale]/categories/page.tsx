@@ -1,16 +1,12 @@
-'use client';
-import { Breadcrumbs } from '@/components/common';
-import {
-  CategoriesDisclosure,
-  CategoriesPicker,
-} from '@/components/screens/categories';
+
+import { CategoriesDisclosure } from '@/components/common';
+import { CategoriesPicker } from '@/components/screens/categories';
+import { Breadcrumbs } from '@/components/ui';
 import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import styles from './page.module.scss';
-import { useTranslations } from 'next-intl'
 
 const Page = () => {
-  const t = useTranslations('Categories')
   return (
     <div className={cn('page__container', styles.container)}>
       <Breadcrumbs>
@@ -18,13 +14,7 @@ const Page = () => {
         <Breadcrumbs.Item href={Routes.CATEGORIES}>categories</Breadcrumbs.Item>
       </Breadcrumbs>
       <div className={styles.content}>
-        <aside className={styles.sidebar}>
-          <div>
-            <h4>{t("Offers_Deals")}</h4>
-            <p>{t("Big Sale")}</p>
-          </div>
-          <CategoriesDisclosure />
-        </aside>
+        <CategoriesDisclosure />
         <CategoriesPicker />
       </div>
     </div>

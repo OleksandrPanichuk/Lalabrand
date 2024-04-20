@@ -1,6 +1,6 @@
 .chevron {
 	transition: rotate 0.3s ease-in-out;
-
+	stroke: var(--text-color);
 	&--open {
 		rotate: -180deg;
 	}

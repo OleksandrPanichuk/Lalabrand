@@ -1,0 +1,70 @@
+.wrapper {
+  position: relative;
+  max-width: 30rem;
+  width: 100%;
+
+  > button {
+    @apply font-inter text-base font-semibold;
+    color: var(--text-color);
+    max-width: 30rem;
+    width: 100%;
+    padding: 0.75rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 0.5px solid var(--neutral-300);
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      transition: rotate 0.3s ease-in-out;
+      stroke: var(--text-color);
+    }
+
+    &:not(:is(.trigger--open)):hover {
+      background-color: rgb(243, 229, 229);
+    }
+
+    &.trigger--open {
+      color: var(--primary-500);
+      svg {
+        rotate: -180deg;
+        stroke: var(--primary-500);
+      }
+    }
+  }
+}
+
+.inner {
+  padding: 1.5rem;
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  background-color: var(--white-color);
+  width: 100%;
+  display: grid;
+	grid-template-columns: 92px 119px 132px;
+	align-items:center;
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  
+  > label {
+    @apply font-inter text-base font-semibold;
+    display: flex;
+    align-items: center;
+    
+    color: var(--text-color);
+		min-width: 5.625rem;
+
+		> span {
+			margin-left: 6px;
+			margin-right: 5px;
+			width: 0.625rem;
+			height: 0.625rem;
+			border-radius: 50%;
+
+			border: 1px solid;
+		}
+  }
+}

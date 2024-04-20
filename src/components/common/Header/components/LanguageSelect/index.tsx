@@ -2,12 +2,12 @@
 import { usePathname, useRouter } from '@/shared/navigation'
 import { useLocale } from 'next-intl'
 
+import { SvgIcon } from '@/components/common/SvgIcon'
 import { cn } from '@/lib'
 import { Listbox, Transition } from '@headlessui/react'
-import { ChevronDown } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
 import { Fragment } from 'react'
 import styles from './LanguageSelect.module.scss'
-import { useSearchParams } from 'next/navigation'
 
 const options = [
 	{
@@ -38,9 +38,7 @@ export const LanguageSelect = () => {
 					{({ open, value }) => (
 						<>
 							{options.find(opt => opt.value === value)?.label}
-							<ChevronDown
-								className={cn(styles.chevron, open && styles['chevron--open'])}
-							/>
+							<SvgIcon name='chevron' width={10}  className={cn(styles.chevron, open && styles['chevron--open'])} />
 						</>
 					)}
 				</Listbox.Button>

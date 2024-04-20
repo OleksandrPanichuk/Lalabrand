@@ -1,0 +1,118 @@
+.wrapper {
+  position: relative;
+  &--default {
+    max-width: 15rem;
+    width: 100%;
+    > button {
+      @apply font-montserrat text-md font-semibold uppercase;
+      display: flex;
+      align-items: center;
+      padding: 1rem 0.75rem;
+      background-color: var(--white-color);
+      gap: 0.5rem;
+      color: var(--text-color);
+
+      transition: all 0.3s ease-in-out;
+
+      svg {
+        stroke: var(--text-color);
+        transition: stroke 0.3s ease-in-out;
+      }
+
+      &:not(:is(.trigger--open)):hover {
+        background-color: rgb(243, 229, 229);
+      }
+
+      &.trigger--open {
+        color: var(--primary-500);
+
+        svg {
+          stroke: var(--primary-500);
+        }
+      }
+    }
+  }
+
+  &--drawer {
+    max-width: 30rem;
+    width: 100%;
+
+    > button {
+      @apply font-inter text-base font-semibold ;
+      color: var(--text-color);
+      max-width: 30rem;
+      width: 100%;
+      padding: 0.75rem 2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 0.5px solid var(--neutral-300);
+      transition: all 0.3s ease-in-out;
+
+
+
+
+      svg {
+        transition: rotate 0.3s ease-in-out;
+        stroke: var(--text-color);
+      }
+
+      &:not(:is(.trigger--open)):hover {
+        background-color: rgb(243, 229, 229);
+      }
+
+      &.trigger--open {
+        color: var(--primary-500);
+        svg {
+          rotate: -180deg;
+          stroke: var(--primary-500);
+        }
+      }
+    }
+  }
+}
+
+.list {
+  position: absolute;
+  z-index: 20;
+  background-color: var(--white-color);
+  top: 100%;
+  &--default {
+    margin-top: 2px;
+    max-width: 15rem;
+    width: 100%;
+    > li {
+      border-bottom: 0.5px solid var(--neutral-300);
+      &:first-child {
+        border-top: 0.5px solid var(--neutral-300);
+      }
+
+      label {
+        @apply font-montserrat text-md font-semibold;
+        padding: 1rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        color: var(--text-color);
+      }
+    }
+  }
+  &--drawer {
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    > li > label {
+      @apply font-inter text-base font-semibold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-color);
+    }
+  }
+}

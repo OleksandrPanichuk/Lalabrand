@@ -1,3 +1,2 @@
-import { Images } from "@/shared/constants"
 
-export const images = [Images.SLIDE_1, Images.SLIDE_2, Images.SLIDE_3, Images.SLIDE_4]
+export const images = ['/images/slide-1.png', '/images/slide-2.png','/images/slide-3.png', '/images/slide-4.png']

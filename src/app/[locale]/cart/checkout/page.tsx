@@ -1,5 +1,5 @@
 'use client';
-import { Breadcrumbs, Title } from '@/components/common';
+import {  Title } from '@/components/common';
 import {
   Info,
   OrderPreview,
@@ -12,6 +12,7 @@ import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
+import { Breadcrumbs } from '@/components/ui'
 
 const Page = () => {
   const t = useTranslations();

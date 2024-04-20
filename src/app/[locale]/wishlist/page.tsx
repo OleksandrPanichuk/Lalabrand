@@ -1,10 +1,11 @@
 'use client';
-import { Breadcrumbs, Title, Card } from '@/components/common';
+import {  Title, Card } from '@/components/common';
 import { cn } from '@/lib';
 import css from './page.module.scss';
 import { Routes } from '@/shared/constants';
 import { useTranslations } from 'next-intl';
 import { favoritesFromBackend } from './wishlist.fakeData';
+import { Breadcrumbs } from '@/components/ui'
 
 const Page = () => {
   const t = useTranslations();

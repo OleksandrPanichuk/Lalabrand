@@ -1,8 +1,8 @@
 @import '@/styles/mixins.scss';
 
 .container {
-  @include adaptive-value('padding-top', 120, 60);
-  @include adaptive-value('padding-bottom', 340, 128);
+  @include adaptive-value('padding-top', 100, 50);
+  @include adaptive-value('padding-bottom', 300, 100);
 }
 
 .content {

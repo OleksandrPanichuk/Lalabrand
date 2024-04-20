@@ -72,7 +72,7 @@ const RewardsPage = () => {
                 </ul>
                 <Link href={`${Routes.ORDERS}/${order.id}`}>
                   {t('Details.More')}
-                  <SvgIcon name="arrow-right" width={46} />
+                  <SvgIcon name="arrow-right" width={42} />
                 </Link>
                 <p>
                   +
