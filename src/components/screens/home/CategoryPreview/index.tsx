@@ -60,10 +60,11 @@ export const CategoryPreview = () => {
               >
                 {t(value.key)}
                 <SvgIcon
-                  name="arrow-top-right"
+                  name="arrow-short"
                   width={21}
                   height={23}
-                  fill="black"
+                  fill="#222"
+                  stroke="#222"
                 />
               </Link>
             </li>
