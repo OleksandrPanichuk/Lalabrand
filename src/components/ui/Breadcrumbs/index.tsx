@@ -15,19 +15,18 @@ import styles from './Breadcrumbs.module.scss';
 
 interface IBreadcrumbsProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-    back?:boolean
+   
   }
 
 export const Breadcrumbs = ({
   children,
   className,
-  back = true,
   ...props
 }: PropsWithChildren<IBreadcrumbsProps>) => {
   const items = Children.toArray(children);
   return (
     <nav className={cn(styles.wrapper, className)} {...props}>
-      {back && <BreadcrumbsBack />}
+     <BreadcrumbsBack />
       <ol>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
@@ -62,7 +61,6 @@ function BreadcrumbsBack(props: IBreadcrumbsBackProps) {
   return (
     <button
       {...props}
-
       className={cn(props.className, styles.back)}
       onClick={(e) => {
         props?.onClick?.(e);

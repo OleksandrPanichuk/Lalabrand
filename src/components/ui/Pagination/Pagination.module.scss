@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+	> button,
+  > span {
+    @apply text-xl font-montserrat font-medium;
+    color: var(--secondary-300);
+  }
+
+  > button {
+    &:first-of-type {
+      margin-right: 2.8125rem;
+    }
+    &:last-of-type {
+      margin-left: 2.8125rem;
+    }
+
+    &:hover {
+      color: var(--secondary-400);
+    }
+
+		&.active {
+			color: var(--text-color)
+		}
+  }
+}

@@ -1,5 +1,5 @@
-import { TypeSize, TypeSortBy } from '@/shared/types'
-import { create } from 'zustand'
+import { TypeSize, TypeSortBy } from '@/shared/types';
+import { create } from 'zustand';
 
 type TypeQueryData = {
   sortBy: TypeSortBy;
@@ -18,20 +18,17 @@ interface IShopStore {
   sizes: TypeSize[];
   toggleSize: (val: TypeSize) => void;
 
-
   // Data after we apply filters
   query: TypeQueryData;
   applyFilters: () => void;
   resetFilters: () => void;
 
-  
-  page:number
-  setPage:(page:number) => void
-  nextPage:() => void
-  prevPage:() => void
+  page: number;
+  setPage: (page: number) => void;
+  nextPage: () => void;
 
-  totalProducts: number | null
-  setTotalProducts:(val:number) =>void
+  totalPages: number | null;
+  setTotalPages: (val: number) => void;
 }
 
 const defaultQuery: TypeQueryData = {
@@ -54,7 +51,6 @@ export const useShopStore = create<IShopStore>((set) => ({
     set((state) => ({ sortBy, query: { ...state.query, sortBy } })),
   setSortByDrawer: (sortBy) => set({ sortBy }),
 
-
   sizes: [...defaultQuery.sizes],
   toggleSize: (size) =>
     set(({ sizes }) => {
@@ -62,17 +58,14 @@ export const useShopStore = create<IShopStore>((set) => ({
       else sizes.push(size);
       return { sizes };
     }),
-  
-  
+
   page: 1,
-  setPage:(page) => set({page}),
-  nextPage:() => set(state =>({page: state.page + 1})),
-  prevPage:() => set(state =>({page: state.page - 1})),
-  
-  
-  totalProducts: null,
-  setTotalProducts:(totalProducts) => set({totalProducts}),
-  
+  setPage: (page) => set({ page }),
+  nextPage: () => set((state) => ({ page: state.page + 1 })),
+
+  totalPages: null,
+  setTotalPages: (totalPages) => set({ totalPages }),
+
   query: { ...defaultQuery },
   applyFilters: () =>
     set((state) => ({
@@ -82,11 +75,11 @@ export const useShopStore = create<IShopStore>((set) => ({
         colors: [...state.colors],
       },
     })),
-    resetFilters: () => 
-      set({
-        sortBy: defaultQuery.sortBy,
-        colors: [...defaultQuery.colors],
-        sizes: [...defaultQuery.sizes],
-        query: { ...defaultQuery },
-      })  ,
+  resetFilters: () =>
+    set({
+      sortBy: defaultQuery.sortBy,
+      colors: [...defaultQuery.colors],
+      sizes: [...defaultQuery.sizes],
+      query: { ...defaultQuery },
+    }),
 }));
