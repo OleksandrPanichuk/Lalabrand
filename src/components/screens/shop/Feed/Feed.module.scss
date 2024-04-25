@@ -33,19 +33,21 @@
     }
 
 		
-		&:focus {
-			color: var(--primary-300);
-			>svg {
-				fill: var(--primary-300);
-				margin-left: 0.25rem;
-			}
-		}
-		&:hover {
-			color: var(--primary-500);
-			>svg {
-				fill: var(--primary-500);
-				margin-left: 0.25rem;
-			}
-		}
+		&:not(:disabled) {
+      :focus {
+        color: var(--primary-300);
+        >svg {
+          fill: var(--primary-300);
+          margin-left: 0.25rem;
+        }
+      }
+      &:hover {
+        color: var(--primary-500);
+        >svg {
+          fill: var(--primary-500);
+          margin-left: 0.25rem;
+        }
+      }
+    }
   }
 }

@@ -14,13 +14,10 @@ button.item {
   align-items: center;
   justify-content: center;
 
-  &:hover {
-    color: var(--secondary-400);
-  }
   &.active {
     color: var(--white-color);
-    border-color: var(--info-500);
-    background-color: var(--info-500);
+    border-color: var(--primary-500);
+    background-color: var(--primary-500);
   }
 }
 

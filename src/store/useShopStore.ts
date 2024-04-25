@@ -22,6 +22,7 @@ interface IShopStore {
   query: TypeQueryData;
   applyFilters: () => void;
   resetFilters: () => void;
+  setFilters: (data: Partial<TypeQueryData & { page?: number }>) => void;
 
   page: number;
   setPage: (page: number) => void;
@@ -61,7 +62,11 @@ export const useShopStore = create<IShopStore>((set) => ({
 
   page: 1,
   setPage: (page) => set({ page }),
-  nextPage: () => set((state) => ({ page: state.page + 1 })),
+  nextPage: () =>
+    set((state) => {
+      if (state.totalPages && state.totalPages < state.page + 1) return {};
+      return { page: state.page + 1 };
+    }),
 
   totalPages: null,
   setTotalPages: (totalPages) => set({ totalPages }),
@@ -82,4 +87,15 @@ export const useShopStore = create<IShopStore>((set) => ({
       sizes: [...defaultQuery.sizes],
       query: { ...defaultQuery },
     }),
+  setFilters: (data) => {
+    if (!data) return;
+    const { page, ...query } = data;
+    set((state) => ({
+      query: { ...state.query, ...query },
+      sortBy: query.sortBy ?? state.sortBy,
+      colors: query.colors ? [...query.colors] : state.colors,
+      sizes: query.sizes ? [...query.sizes] : state.sizes,
+      page,
+    }));
+  },
 }));

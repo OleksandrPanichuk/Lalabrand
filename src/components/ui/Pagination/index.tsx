@@ -3,6 +3,7 @@
 import { usePagination } from '@/hooks';
 import { cn } from '@/lib';
 import styles from './Pagination.module.scss'
+import { useEffect } from 'react'
 
 interface IPaginationProps {
   page?: number;
@@ -35,6 +36,10 @@ export const Pagination = ({
     goToPage(page);
     onPageChange?.(page);
   };
+
+  useEffect(() => {
+    if(page !== currentPage && page) goToPage(page)
+  },[page, currentPage,goToPage])
 
   return (
     <div className={cn(styles.pagination,classNames?.wrapper)}>

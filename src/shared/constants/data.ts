@@ -1,6 +1,7 @@
-import { TypeProductColor, TypeSize } from '@/shared/types'
+import { TypeProductColor, TypeSize, TypeSortBy } from '@/shared/types'
 
 export const sizes: TypeSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const;
+export const sortByMap: TypeSortBy[] = ['newest', 'price-highest','price-lowest','recommended'] as const
 
 export const Colors = {
   BLACK: 'rgb(34, 34, 34)',

@@ -49,14 +49,10 @@ export function usePagination(totalPages: number, defaultPage:number = 1) {
 		return pages as ('dots' | number)[]
 	}
 
-	function goToPage(page: number) {
-		setCurrentPage(page)
-	}
-
 	return {
 		currentPage,
 		getPageNumbers,
-		goToPage,
+		goToPage: setCurrentPage,
 	}
 }
 

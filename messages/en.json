@@ -177,8 +177,8 @@
   "Confirm Modal": {
     "Title": "Are you absolutely sure?",
     "Description": "This action cannot be undone. This will permanently remove it.",
-    "Button": "Remove",
-    "Cancel": "Cancel"
+    "Yes": "Yes",
+    "No": "No"
   },
   "Checkout Info": {
     "Promocode": "Promocode",

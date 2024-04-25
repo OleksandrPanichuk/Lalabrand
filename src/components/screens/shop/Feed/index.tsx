@@ -4,7 +4,7 @@ import { SvgIcon } from '@/components/common';
 import { Card } from '@/components/screens/shop';
 import { useShopStore } from '@/store';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { mockData } from './Feed.mock-data';
 import styles from './Feed.module.scss';
 
@@ -17,6 +17,8 @@ export const Feed = () => {
   const setTotalPages = useShopStore((state) => state.setTotalPages);
   const nextPage = useShopStore((state) => state.nextPage);
   const t = useTranslations('Shop');
+
+  const totalPages = useMemo(() => Math.ceil(mockData.length / PER_PAGE), [])
 
   const [data, setData] = useState([...mockData]);
 
@@ -40,8 +42,8 @@ export const Feed = () => {
   }, [page]);
 
   useEffect(() => {
-    setTotalPages(Math.ceil(mockData.length / PER_PAGE));
-  }, [setTotalPages]);
+    setTotalPages(totalPages);
+  }, [setTotalPages, totalPages]);
 
   return (
     <div className={styles.feed}>
@@ -49,7 +51,7 @@ export const Feed = () => {
         <Card data={item} key={item.id} />
       ))}
       <div className={styles.more}>
-        <button onClick={nextPage}>
+        <button onClick={nextPage} disabled={totalPages <= page}>
           {t('view more')}
           <SvgIcon name="arrow-right" width={42} />
         </button>

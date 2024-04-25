@@ -17,8 +17,15 @@
       margin-left: 2.8125rem;
     }
 
-    &:hover {
+    &:not(:disabled):not(:is(.active)):hover {
       color: var(--secondary-400);
+    }
+
+    &:first-of-type, &:last-of-type {
+      transition: all .3s ease-in-out;
+      :hover {
+        color: var(--text-color);
+      }
     }
 
 		&.active {
