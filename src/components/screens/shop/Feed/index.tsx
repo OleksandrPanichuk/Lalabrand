@@ -9,7 +9,7 @@ import { mockData } from './Feed.mock-data';
 import styles from './Feed.module.scss';
 
 //Maximum number of products that will be displayed on each page
-const PER_PAGE = 1;
+const PER_PAGE = 5;
 
 export const Feed = () => {
   const query = useShopStore((state) => state.query);
