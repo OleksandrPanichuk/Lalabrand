@@ -8,8 +8,8 @@ import { cn, formatCurrency } from '@/lib';
 import { Routes, colors } from '@/shared/constants';
 import { Link, useRouter } from '@/shared/navigation';
 import { Variants, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import styles from './Card.module.scss';
-import { useTranslations } from 'next-intl'
 
 interface ICardProps {
   data: TypeShopItem;
@@ -31,7 +31,7 @@ const variants: Variants = {
 };
 
 export const Card = ({ data }: ICardProps) => {
-  const t = useTranslations()
+  const t = useTranslations();
   const [inFavorite, setInFavorite] = useState<boolean>(isInFavorite(data.id));
   const [selectedColor, setSelectedColor] = useState<
     TypeShopItem['info'][0] | null
@@ -89,41 +89,48 @@ export const Card = ({ data }: ICardProps) => {
       </h3>
       <ul className={styles.colors}>
         {data.info.map((el) => {
-          const colorInfo =
-            colors.find((item) => item.value === el.color)!
-            
+          const colorInfo = colors.find((item) => item.value === el.color)!;
+
           const active = el.id === selectedColor?.id;
 
           return (
-            <Hint key={el.id} description={t(colorInfo.label)} side='top' >
-              <li
-                
-                className={cn(
-                  styles.color,
-                  data.info.length > 1 && styles['color--possible-change'],
-                  active && styles['color--active'],
-                )}
-                style={{
-                  backgroundColor: colorInfo.color,
-                  borderColor:
-                    el.color === 'WHITE' ? 'var(--secondary-200)' : colorInfo.color,
-                }}
+            <li key={el.id}>
+              <Hint
+                asChild
+                delay={0}
+                description={t(colorInfo.label)}
+                side="top"
               >
-                {data.info.length > 1 && (
-                  <input
-                    type="checkbox"
-                    name={`color-${data.id}`}
-                    checked={active}
-                    onChange={(e) => {
-                      if (!e.target.checked) {
-                        return setSelectedColor(null);
-                      }
-                      setSelectedColor(el);
-                    }}
-                  />
-                )}
-              </li>
-            </Hint>
+                <div
+                  className={cn(
+                    styles.color,
+                    data.info.length > 1 && styles['color--possible-change'],
+                    active && styles['color--active'],
+                  )}
+                  style={{
+                    backgroundColor: colorInfo.color,
+                    borderColor:
+                      el.color === 'WHITE'
+                        ? 'var(--secondary-200)'
+                        : colorInfo.color,
+                  }}
+                >
+                  {data.info.length > 1 && (
+                    <input
+                      type="checkbox"
+                      name={`color-${data.id}`}
+                      checked={active}
+                      onChange={(e) => {
+                        if (!e.target.checked) {
+                          return setSelectedColor(null);
+                        }
+                        setSelectedColor(el);
+                      }}
+                    />
+                  )}
+                </div>
+              </Hint>
+            </li>
           );
         })}
       </ul>

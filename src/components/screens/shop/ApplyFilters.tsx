@@ -59,9 +59,14 @@ export const ApplyFilters = () => {
   useEffect(() => {
     if (isFirstRender) return setIsFirstRender(false);
 
+    const type = searchParams.get('type') ?? undefined;
+    const category = searchParams.get('category') ?? undefined
+
     const url = queryString.stringifyUrl({
       url: pathname,
       query: {
+        type, 
+        category,
         page,
         sizes: filters.sizes.length ? JSON.stringify(filters.sizes) : undefined,
         colors: filters.colors.length
@@ -70,8 +75,8 @@ export const ApplyFilters = () => {
         sortBy: filters.sortBy !== 'newest' ? filters.sortBy : undefined,
       },
     });
-    window.history.replaceState(null, '', url);
-  }, [filters, page, pathname, isFirstRender]);
+    window.history.pushState(null, '', url);
+  }, [filters, page, pathname, isFirstRender,  searchParams]);
 
   return null;
 };
