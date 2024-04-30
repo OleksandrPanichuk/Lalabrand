@@ -114,6 +114,7 @@
     },
     "Size":"Size",
     "Color":"Color",
+    "Price":"Price",
 
     "Buttons":{
       "Apply":"Apply",

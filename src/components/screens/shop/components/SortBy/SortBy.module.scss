@@ -33,45 +33,6 @@
     }
   }
 
-  &--drawer {
-    max-width: 30rem;
-    width: 100%;
-
-    > button {
-      @apply font-inter text-base font-semibold ;
-      color: var(--text-color);
-      max-width: 30rem;
-      width: 100%;
-      padding: 0.75rem 2rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      border-bottom: 0.5px solid var(--neutral-300);
-      transition: all 0.3s ease-in-out;
-
-
-
-
-      svg {
-        transition: rotate 0.3s ease-in-out;
-        stroke: var(--text-color);
-      }
-
-      &:not(:is(.trigger--open)):hover {
-        background-color: rgb(243, 229, 229);
-      }
-
-      &.trigger--open {
-        color: var(--primary-500);
-        svg {
-          rotate: -180deg;
-          stroke: var(--primary-500);
-        }
-      }
-    }
-  }
 }
 
 .list {
@@ -83,6 +44,7 @@
     margin-top: 2px;
     max-width: 15rem;
     width: 100%;
+    padding: 0 !important;
     > li {
       border-bottom: 0.5px solid var(--neutral-300);
       &:first-child {
@@ -101,8 +63,6 @@
     }
   }
   &--drawer {
-    padding: 1.5rem;
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

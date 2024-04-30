@@ -1,13 +1,23 @@
 import { TypeSize, TypeSortBy } from '@/shared/types';
+import isEqual from 'lodash.isequal';
 import { create } from 'zustand';
 
-type TypeQueryData = {
+export type TypePrice = {
+  min?: number;
+  max?: number;
+};
+
+export type TypeQueryData = {
   sortBy: TypeSortBy;
   sizes: TypeSize[];
   colors: string[];
+  price: TypePrice;
 };
 
 interface IShopStore {
+  price: TypePrice;
+  setPrice: (data: TypePrice) => void;
+
   sortBy: TypeSortBy;
   setSortBy: (val: TypeSortBy) => void;
   setSortByDrawer: (val: TypeSortBy) => void;
@@ -22,7 +32,7 @@ interface IShopStore {
   query: TypeQueryData;
   applyFilters: () => void;
   resetFilters: () => void;
-  setFilters: (data: Partial<TypeQueryData & { page?: number }>) => void;
+  setFilters: (data: { query: Partial<TypeQueryData>; page?: number }) => void;
 
   page: number;
   setPage: (page: number) => void;
@@ -36,6 +46,7 @@ const defaultQuery: TypeQueryData = {
   sortBy: 'newest',
   sizes: [],
   colors: [],
+  price: {},
 } as const;
 
 export const useShopStore = create<IShopStore>((set) => ({
@@ -47,9 +58,14 @@ export const useShopStore = create<IShopStore>((set) => ({
       return { colors };
     }),
 
+  price: {},
+  setPrice: (price) => set({ price }),
+
   sortBy: defaultQuery.sortBy,
-  setSortBy: (sortBy) =>
-    set((state) => ({ sortBy, query: { ...state.query, sortBy } })),
+  setSortBy: (sortBy) => {
+    console.log('Sort by');
+    set((state) => ({ sortBy, query: { ...state.query, sortBy } }));
+  },
   setSortByDrawer: (sortBy) => set({ sortBy }),
 
   sizes: [...defaultQuery.sizes],
@@ -78,6 +94,7 @@ export const useShopStore = create<IShopStore>((set) => ({
         sortBy: state.sortBy,
         sizes: [...state.sizes],
         colors: [...state.colors],
+        price: { ...state.price },
       },
     })),
   resetFilters: () =>
@@ -89,13 +106,46 @@ export const useShopStore = create<IShopStore>((set) => ({
     }),
   setFilters: (data) => {
     if (!data) return;
-    const { page, ...query } = data;
-    set((state) => ({
-      query: { ...state.query, ...query },
-      sortBy: query.sortBy ?? state.sortBy,
-      colors: query.colors ? [...query.colors] : state.colors,
-      sizes: query.sizes ? [...query.sizes] : state.sizes,
-      page,
-    }));
+    const { page, query } = data;
+
+    set((state) => {
+      const isCurrentFilterEqualToQuery = () => {
+        const currentFilter: TypeQueryData = {
+          sizes: [...state.query.sizes].sort(),
+          colors: [...state.query.colors].sort(),
+          sortBy: state.query.sortBy,
+          price: {
+            min: state.query.price?.min,
+            max: state.query.price?.max,
+          },
+        };
+
+        const queryToCompare = {
+          sizes: query.sizes?.length ? query.sizes : defaultQuery.sizes,
+          colors: query.colors?.length ? query.colors : defaultQuery.sizes,
+          sortBy: query.sortBy ?? defaultQuery.sortBy,
+          price: {
+            min: query.price?.min ?? defaultQuery.price.min,
+            max: query.price?.max ?? defaultQuery.price.max,
+          },
+        };
+
+        return isEqual(currentFilter, queryToCompare)
+      };
+
+      return {
+        ...(Object.keys(query).length > 0 && !isCurrentFilterEqualToQuery() && {
+          query: { ...state.query, ...query },
+        }),
+        ...((!!query.price?.min || !!query.price?.max) && {
+          price: query.price,
+        }),
+        ...(!!query.sizes?.length && { sizes: [...query.sizes] }),
+        ...(!!query.colors?.length && { colors: [...query.colors] }),
+        ...(!!page && !isEqual(page, state.page) && { page }),
+        ...(!!query.sortBy &&
+          !isEqual(query.sortBy, state.sortBy) && { sortBy: query.sortBy }),
+      };
+    });
   },
 }));

@@ -1,6 +1,6 @@
 'use client';
 import { SvgIcon } from '@/components/common';
-import { ApplyFilters, ColorPicker, DrawerButtons, SizePicker, SortBy } from '@/components/screens/shop';
+import { ApplyFilters, ColorPicker, DrawerButtons, PricePicker, SizePicker, SortBy } from '@/components/screens/shop';
 import { Button } from '@/components/ui';
 import { useDisclosure } from '@/hooks';
 import { useShopStore } from '@/store';
@@ -58,6 +58,7 @@ export const Filters = () => {
 
                   <div>
                     <SortBy variant="drawer" />
+                    <PricePicker />
                     <SizePicker />
                     <ColorPicker />
                   </div>

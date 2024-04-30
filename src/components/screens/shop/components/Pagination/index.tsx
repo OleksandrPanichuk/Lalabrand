@@ -9,6 +9,7 @@ export const Pagination = () => {
   const page = useShopStore((state) => state.page);
   const setPage = useShopStore((state) => state.setPage);
 
+
   if (!totalPages) return null;
 
   return (

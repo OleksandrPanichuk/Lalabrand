@@ -74,7 +74,6 @@ export const ConfirmModal = () => {
                     {t('Confirm Modal.No')}
                   </Button>
                   <Button
-                    type="button"
                     className="w-full"
                     size="lg"
                     onClick={async () => {

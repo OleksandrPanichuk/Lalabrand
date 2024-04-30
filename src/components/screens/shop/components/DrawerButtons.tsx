@@ -14,13 +14,26 @@ export const DrawerButtons = () => {
 	const {data, query} = useShopStore((state => ({
 		data: {
 			sortBy:state.sortBy,
-			colors: state.colors,
-			sizes: state.sizes,
+			colors: [...state.colors].sort(),
+			sizes: [...state.sizes].sort(),
+      price: {
+        min: state.price.min,
+        max: state.price.max
+      }
 		},
-		query: state.query
+		query: {
+      sortBy: state.query.sortBy,
+      colors: [...state.query.colors].sort(),
+      sizes: [...state.query.sizes].sort(),
+      price: {
+        min: state.query.price.min,
+        max: state.query.price.max
+      }
+    }
 	})))
 
 
+  
   return (
     <div>
       <Button size="lg" variant="outline" onClick={reset}>
