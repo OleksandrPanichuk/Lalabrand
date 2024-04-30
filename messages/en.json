@@ -317,7 +317,11 @@
   "Profile": {
     "Sidebar": {
       "Bonus": {
-        "Points": { "One": "point", "Plural": "points", "Other": "points" },
+        "Points": {
+          "One": "point",
+          "Plural": "points",
+          "Other": "points"
+        },
         "Text": "Continue shopping, collect points, and use them as an additional discount for your next purchases!"
       },
       "Sign Out": "Sign Out",
@@ -362,7 +366,6 @@
   },
   "Refund": {
     "Title": "Return Policy",
-
     "Return Policy": {
       "Title": "Return Policy",
       "Text": "Thank you for shopping at LALAbrand! We hope you are delighted with your purchase. However, if you are not entirely satisfied with your purchase, we're here to help."
@@ -462,7 +465,45 @@
       "Order number": "Order number",
       "Order date": "Order date",
       "More": "view more",
-      "Points": { "One": "point", "Plural": "points", "Other": "points" }
+      "Points": {
+        "One": "point",
+        "Plural": "points",
+        "Other": "points"
+      }
+    }
+  },
+  "My orders": {
+    "Title": "My orders",
+    "Button": {
+      "View": "View",
+      "Hide": "Hide",
+      "past orders": "past orders"
+    },
+    "Confirm Modal": {
+      "Title": "",
+      "Description": "Are you sure you want to cancel this order?",
+      "Button": "Yes",
+      "Cancel": "No"
+    },
+    "Order": {
+      "Order number": "Order number",
+      "Order date": "Order date",
+      "Tracker": {
+        "Order received": "Order received",
+        "Processed": "Processed",
+        "Shipped": "Shipped",
+        "Delivered/Returned": "Delivered/Returned"
+      },
+      "View more": "view more",
+      "My Details": "My Details",
+      "Delivery method": "Delivery method",
+      "Order value": "Order value",
+      "Discounts": "Discounts",
+      "Shipping fee": "Shipping fee",
+      "Taxes": "Taxes",
+      "Total": "Total",
+      "Return purchase": "Return purchase",
+      "Cancel order": "Cancel order"
     }
   }
 }

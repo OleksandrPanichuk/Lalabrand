@@ -1,0 +1,49 @@
+.progress {
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+
+  & > li {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child)::before {
+      content: '';
+      margin: 0 18px;
+      width: 100px;
+      height: 4px;
+    }
+  }
+  & span {
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+  }
+}
+
+.done {
+  color: #3eb489;
+
+  &:not(:first-child)::before {
+    background: #3eb489;
+  }
+
+  & > span {
+    background-color: #3eb489;
+  }
+}
+
+.wait {
+  &:not(:first-child)::before {
+    background: #e4e4e4;
+  }
+
+  & > span {
+    background-color: #767676;
+  }
+}

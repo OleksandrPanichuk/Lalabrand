@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+
+  h2 {
+    @apply font-montserrat text-2xl font-bold;
+    color: var(--text-color);
+    margin-bottom: 3.75rem;
+    text-align: center;
+  }
+
+  & > button {
+    margin-top: 42px;
+    align-self: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(24 / 20);
+    color: #222;
+    border-bottom: 1.5px solid #222;
+  }
+
+  & > ul:not(:first-of-type) {
+    margin-top: 100px;
+  }
+}
+
+.orderGrid {
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 6fr;
+  align-items: center;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  color: #222;
+
+  & > ul:first-of-type {
+    margin: 36px 0 42px;
+    height: 24px;
+    grid-column: 1 / span 3;
+    grid-row: 3;
+  }
+
+  & > button:last-child {
+    margin: 80px auto 0;
+    grid-column: 1 / span 3;
+    grid-row: 6;
+    width: 568px;
+    height: 56px;
+    align-self: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: calc(24 / 20);
+  }
+}
