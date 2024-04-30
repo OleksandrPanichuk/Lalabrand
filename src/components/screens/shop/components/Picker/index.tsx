@@ -16,8 +16,8 @@ import { SvgIcon } from '@/components/common';
 import { cn } from '@/lib';
 import { Transition } from '@headlessui/react';
 import { Slot } from '@radix-ui/react-slot';
+import { motion } from 'framer-motion';
 import styles from './Picker.module.scss';
-
 interface IPickerContext {
   isOpen: boolean;
   toggle: () => void;
@@ -26,6 +26,7 @@ interface IPickerContext {
 interface IPickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   withDefaultClassName?: boolean;
+  closeOnClickOutside?: boolean
   children:
     | ((data: { isOpen: boolean; close: () => void }) => ReactNode)
     | ReactNode;
@@ -36,6 +37,7 @@ const PickerContext = createContext<IPickerContext>({} as IPickerContext);
 export const Picker = ({
   children,
   className,
+  closeOnClickOutside = false,
   withDefaultClassName = true,
   ...props
 }: IPickerProps) => {
@@ -43,7 +45,7 @@ export const Picker = ({
 
   const contentRef = useRef<ElementRef<'div'>>(null);
 
-  useClickOutside([contentRef], close);
+  useClickOutside([contentRef], () => closeOnClickOutside && close());
 
   return (
     <PickerContext.Provider value={{ toggle, isOpen }}>
@@ -87,16 +89,58 @@ Picker.Content = function PickerContent({
   asChild,
   className,
   children,
+  animation = 'motion',
   ...props
 }: PropsWithChildren<
   HTMLAttributes<HTMLElement> & {
     asChild?: boolean;
+    animation?: 'motion' | 'transition';
   }
 >) {
   const Comp = asChild ? Slot : 'div';
   const { isOpen } = useContext(PickerContext);
 
-  return (
+  return animation === 'motion' ? (
+    <motion.div
+      initial={false}
+      animate={
+        isOpen
+          ? {
+              height: 'auto',
+              opacity: 1,
+              display: 'flex',
+              transition: {
+                height: {
+                  duration: 0.4,
+                },
+                opacity: {
+                  duration: 0.25,
+                  delay: 0.15,
+                },
+              },
+            }
+          : {
+              height: 0,
+              opacity: 0,
+              transition: {
+                height: {
+                  duration: 0.4,
+                },
+                opacity: {
+                  duration: 0.1,
+                },
+              },
+              transitionEnd: {
+                display: 'none',
+              },
+            }
+      }
+    >
+      <Comp {...props} className={cn(styles.inner, className)}>
+        {children}
+      </Comp>
+    </motion.div>
+  ) : (
     <Transition
       as={Fragment}
       show={isOpen}
@@ -107,10 +151,7 @@ Picker.Content = function PickerContent({
       leaveFrom="transform opacity-100 scale-100"
       leaveTo="transform opacity-0 scale-95"
     >
-      <Comp
-        {...props}
-        className={cn(styles.inner, className)}
-      >
+      <Comp {...props} className={cn(styles.inner, className)}>
         {children}
       </Comp>
     </Transition>

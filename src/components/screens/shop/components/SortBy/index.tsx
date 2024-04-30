@@ -28,6 +28,7 @@ export const SortBy = ({ variant }: ISortByProps) => {
         styles.wrapper,
       )}
       withDefaultClassName={variant === 'drawer'}
+      closeOnClickOutside={variant === 'default'}
     >
       {({ isOpen, close }) => (
         <>
@@ -45,7 +46,10 @@ export const SortBy = ({ variant }: ISortByProps) => {
             )}
           </Picker.Trigger>
 
-          <Picker.Content asChild>
+          <Picker.Content
+            asChild
+            animation={variant === 'default' ? 'transition' : 'motion'}
+          >
             <ul
               role="listbox"
               className={cn(

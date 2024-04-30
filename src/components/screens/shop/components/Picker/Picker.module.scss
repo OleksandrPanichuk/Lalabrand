@@ -38,9 +38,9 @@
 
 .inner {
   padding: 1.5rem;
-  position: absolute;
+  position: relative;
   z-index: 20;
-  top: 100%;
   background-color: var(--white-color);
   width: 100%;
+  border-bottom: 0.5px solid var(--neutral-300);
 }

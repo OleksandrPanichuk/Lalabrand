@@ -1,15 +1,15 @@
 'use client';
-import { Hint, SvgIcon } from '@/components/common';
-import { TypeShopItem } from '@/shared/types';
-import { useFavoriteStore } from '@/store';
-import { useState } from 'react';
+import { Hint, SvgIcon } from '@/components/common'
+import { TypeShopItem } from '@/shared/types'
+import { useFavoriteStore } from '@/store'
+import { memo, useState } from 'react'
 
-import { cn, formatCurrency } from '@/lib';
-import { Routes, colors } from '@/shared/constants';
-import { Link, useRouter } from '@/shared/navigation';
-import { Variants, motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import styles from './Card.module.scss';
+import { cn, formatCurrency } from '@/lib'
+import { Routes, colors } from '@/shared/constants'
+import { Link, useRouter } from '@/shared/navigation'
+import { Variants, motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import styles from './Card.module.scss'
 
 interface ICardProps {
   data: TypeShopItem;
@@ -30,7 +30,7 @@ const variants: Variants = {
   },
 };
 
-export const Card = ({ data }: ICardProps) => {
+export const Card = memo(({ data }: ICardProps) => {
   const t = useTranslations();
   const [inFavorite, setInFavorite] = useState<boolean>(isInFavorite(data.id));
   const [selectedColor, setSelectedColor] = useState<
@@ -137,4 +137,6 @@ export const Card = ({ data }: ICardProps) => {
       <p className={styles.price}>{formatCurrency(data.price)}</p>
     </article>
   );
-};
+})
+
+Card.displayName = 'Card'

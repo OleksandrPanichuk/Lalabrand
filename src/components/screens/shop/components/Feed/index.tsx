@@ -10,19 +10,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { mockData } from './Feed.mock-data';
 import styles from './Feed.module.scss';
 
-const QUERY = gql`
-  query Query($title: String!) {
-    itemsByTitle(title: $title) {
-      id
-      title
-      shortDisc
-      longDisc
-      rating
-      image
-    }
-  }
-`;
-
 //Maximum number of products that will be displayed on each page
 const PER_PAGE = 5;
 

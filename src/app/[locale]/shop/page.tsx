@@ -1,12 +1,12 @@
-import { CategoriesDisclosure } from '@/components/common';
-import { Feed, Filters, Pagination } from '@/components/screens/shop';
-import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui';
-import { cn } from '@/lib';
-import { Routes } from '@/shared/constants';
-import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { categories, clothTypes } from './page.data';
-import styles from './page.module.scss';
+import { CategoriesDisclosure } from '@/components/common'
+import { Feed, Filters, Pagination } from '@/components/screens/shop'
+import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui'
+import { cn } from '@/lib'
+import { Routes } from '@/shared/constants'
+import { getTranslations } from 'next-intl/server'
+import { notFound } from 'next/navigation'
+import { categories, clothTypes } from './page.data'
+import styles from './page.module.scss'
 
 interface IShopPageProps {
   searchParams: {
@@ -21,10 +21,11 @@ const ShopPage = async ({ searchParams }: IShopPageProps) => {
     return notFound();
 
   if (
-    (clothType && !clothTypes.some((el) => el === clothType)) ||
+    (clothType && !Object.keys(clothTypes).includes(clothType)) ||
     (clothType && !category)
-  )
+  ) {
     return notFound();
+  }
 
   const t = await getTranslations('');
   const activeCategory =
@@ -35,9 +36,16 @@ const ShopPage = async ({ searchParams }: IShopPageProps) => {
       <Breadcrumbs>
         <BreadcrumbsItem href={Routes.ROOT}>lalabrand</BreadcrumbsItem>
         <BreadcrumbsItem href={Routes.SHOP}>shop</BreadcrumbsItem>
-        {activeCategory && (
+        {!!activeCategory && (
           <BreadcrumbsItem href={activeCategory.breadcrumb}>
             {activeCategory.value}
+          </BreadcrumbsItem>
+        )}
+        {!!activeCategory && !!clothType && (
+          <BreadcrumbsItem
+            href={activeCategory.breadcrumb + `&type=${clothType}`}
+          >
+            {clothTypes[clothType]}
           </BreadcrumbsItem>
         )}
       </Breadcrumbs>

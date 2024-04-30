@@ -36,11 +36,11 @@
 }
 
 .list {
-  position: absolute;
-  z-index: 20;
   background-color: var(--white-color);
-  top: 100%;
   &--default {
+    z-index: 20;
+    top: 100%;
+    position: absolute;
     margin-top: 2px;
     max-width: 15rem;
     width: 100%;

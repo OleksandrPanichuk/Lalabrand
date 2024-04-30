@@ -1,0 +1,44 @@
+.content {
+  @apply py-4 px-8;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  > label {
+    @apply font-inter text-md  font-medium;
+    color: var(--text-color);
+  }
+  > div {
+    @apply font-inter text-md font-medium;
+    color: var(--text-color);
+
+    border: 1px solid var(--neutral-300);
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 6.25rem;
+    > input {
+      // @apply font-inter text-md font-medium;
+      // color: var(--text-color);
+      width: 100%;
+      background-color: transparent;
+      &::placeholder {
+        color: var(--secondary-200);
+      }
+    }
+  }
+}
+
+.dash {
+  width: 14px;
+  height: 2px;
+  background-color: black;
+}

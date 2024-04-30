@@ -101,27 +101,6 @@
       "refresh look": "refresh look"
     }
   },
-  "Shop":{
-    "Title":"Shop",
-    "Filters":"Filters",
-    "Filters & Sort":"Filters & Sort",
-    "SortBy":{
-      "Label":"Sort by",
-      "Newest":"Newest",
-      "Recommended":"Recommended",
-      "Lowest price":"Lowest price",
-      "Highest price":"Highest price"
-    },
-    "Size":"Size",
-    "Color":"Color",
-    "Price":"Price",
-
-    "Buttons":{
-      "Apply":"Apply",
-      "Clear All":"Clear All"
-    },
-    "view more":"view more"
-  },
   "Categories": {
     "Offers_Deals": "Offers & Deals",
     "Big Sale": "Big Sale",
@@ -499,5 +478,26 @@
       "More": "view more",
       "Points": { "One": "point", "Plural": "points", "Other": "points" }
     }
+  },
+  "Shop":{
+    "Title":"Shop",
+    "Filters":"Filters",
+    "Filters & Sort":"Filters & Sort",
+    "SortBy":{
+      "Label":"Sort by",
+      "Newest":"Newest",
+      "Recommended":"Recommended",
+      "Lowest price":"Lowest price",
+      "Highest price":"Highest price"
+    },
+    "Size":"Size",
+    "Color":"Color",
+    "Price":"Price",
+
+    "Buttons":{
+      "Apply":"Apply",
+      "Clear All":"Clear All"
+    },
+    "view more":"view more"
   }
 }

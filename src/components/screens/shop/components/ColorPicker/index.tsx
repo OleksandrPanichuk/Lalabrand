@@ -4,8 +4,9 @@ import { Picker } from '@/components/screens/shop';
 import { Checkbox } from '@/components/ui';
 import { colors as data } from '@/shared/constants';
 import { useShopStore } from '@/store';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import styles from './ColorPicker.module.scss';
+import { cn } from '@/lib'
 
 export const ColorPicker = () => {
   const t = useTranslations();
@@ -15,11 +16,12 @@ export const ColorPicker = () => {
     toggleColor: state.toggleColor,
   }));
 
+  const locale = useLocale()
+
   return (
     <Picker>
       <Picker.Trigger>{t('Shop.Color')}</Picker.Trigger>
-
-      <Picker.Content className={styles.inner}>
+      <Picker.Content className={cn(styles.inner, locale === 'ua' ? styles['inner--ua'] : styles['inner-en'] )}>
         {data.map((el) => (
           <label key={el.value}>
             <Checkbox

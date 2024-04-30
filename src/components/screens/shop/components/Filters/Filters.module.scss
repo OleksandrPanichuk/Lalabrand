@@ -36,7 +36,8 @@
 }
 
 .panel {
-  @apply z-50 fixed top-0 h-full ;
+  @apply z-50 fixed top-0 h-full;
+  overflow: auto;
   background-color: var(--white-color);
   padding: 3.75rem 0;
   max-width: 30rem;
@@ -51,18 +52,16 @@
     color: var(--text-color);
   }
 
-  > div:first-of-type  {
-    flex:1
+  > div:first-of-type {
+    flex: 1;
   }
-
 
   > div:last-of-type {
     display: flex;
     gap: 1.5rem;
     width: 100%;
 
-    @include adaptive-value('padding-inline',46, 16);
-  
+    @include adaptive-value('padding-inline', 46, 16);
 
     > button {
       width: 100%;
@@ -74,6 +73,6 @@
 .close {
   @apply absolute top-6 right-6 rounded-sm bg-transparent hover:bg-neutral-100 transition-all p-2;
   svg {
-    fill: var(--text-color)
+    fill: var(--text-color);
   }
 }

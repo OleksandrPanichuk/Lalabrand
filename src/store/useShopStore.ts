@@ -14,7 +14,7 @@ export type TypeQueryData = {
   price: TypePrice;
 };
 
-interface IShopStore {
+export interface IShopStore {
   price: TypePrice;
   setPrice: (data: TypePrice) => void;
 
@@ -102,6 +102,7 @@ export const useShopStore = create<IShopStore>((set) => ({
       sortBy: defaultQuery.sortBy,
       colors: [...defaultQuery.colors],
       sizes: [...defaultQuery.sizes],
+      price: { ...defaultQuery.price },
       query: { ...defaultQuery },
     }),
   setFilters: (data) => {
@@ -121,8 +122,12 @@ export const useShopStore = create<IShopStore>((set) => ({
         };
 
         const queryToCompare = {
-          sizes: query.sizes?.length ? query.sizes : defaultQuery.sizes,
-          colors: query.colors?.length ? query.colors : defaultQuery.sizes,
+          sizes: query.sizes?.length
+            ? query.sizes.sort()
+            : defaultQuery.sizes.sort(),
+          colors: query.colors?.length
+            ? query.colors.sort()
+            : defaultQuery.sizes.sort(),
           sortBy: query.sortBy ?? defaultQuery.sortBy,
           price: {
             min: query.price?.min ?? defaultQuery.price.min,
@@ -130,13 +135,14 @@ export const useShopStore = create<IShopStore>((set) => ({
           },
         };
 
-        return isEqual(currentFilter, queryToCompare)
+        return isEqual(currentFilter, queryToCompare);
       };
 
       return {
-        ...(Object.keys(query).length > 0 && !isCurrentFilterEqualToQuery() && {
-          query: { ...state.query, ...query },
-        }),
+        ...(Object.keys(query).length > 0 &&
+          !isCurrentFilterEqualToQuery() && {
+            query: { ...state.query, ...query },
+          }),
         ...((!!query.price?.min || !!query.price?.max) && {
           price: query.price,
         }),
