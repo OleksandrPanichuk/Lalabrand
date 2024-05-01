@@ -1,7 +1,7 @@
 'use client';
 
-import { Picker } from '@/components/screens/shop';
 import { Checkbox } from '@/components/ui';
+import { Picker } from '@/screens/shop';
 import { sizes as data } from '@/shared/constants';
 import { useShopStore } from '@/store';
 import { useTranslations } from 'next-intl';

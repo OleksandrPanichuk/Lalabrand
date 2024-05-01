@@ -1,6 +1,6 @@
 'use client';
-import { Picker } from '@/components/screens/shop';
 import { NumberInput } from '@/components/ui';
+import { Picker } from '@/screens/shop';
 import { useShopStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import styles from './PricePicker.module.scss';
@@ -46,7 +46,7 @@ export const PricePicker = () => {
               min={price.min || MIN}
               max={MAX}
               precision={PRECISION}
-              placeholder='500'
+              placeholder="500"
               id="price-max"
             />
           </div>

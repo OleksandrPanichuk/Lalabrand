@@ -1,9 +1,14 @@
 'use client';
 import { SvgIcon } from '@/components/common';
-import { ApplyFilters, ColorPicker, DrawerButtons, PricePicker, SizePicker, SortBy } from '@/components/screens/shop';
-import { Button } from '@/components/ui';
 import { useDisclosure } from '@/hooks';
-import { useShopStore } from '@/store';
+import {
+  ApplyFilters,
+  ColorPicker,
+  DrawerButtons,
+  PricePicker,
+  SizePicker,
+  SortBy,
+} from '@/screens/shop';
 import { Dialog, Transition } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -13,8 +18,6 @@ import styles from './Filters.module.scss';
 export const Filters = () => {
   const { open, close, isOpen } = useDisclosure();
   const t = useTranslations('Shop');
-
-  
 
   return (
     <div className={styles.wrapper}>

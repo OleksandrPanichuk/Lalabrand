@@ -1,13 +1,13 @@
 'use client';
-import { CategoryPreview, Hero } from '@/components/screens/home';
-import Image from 'next/image';
-import { SvgIcon, Title, Card } from '@/components/common';
-import { Link } from '@/shared/navigation';
-import { useTranslations } from 'next-intl';
-import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
-import { useRefreshLookStore } from '@/store';
-import css from './page.module.scss';
+import { Card, SvgIcon, Title } from '@/components/common';
 import { cn } from '@/lib';
+import { CategoryPreview, Hero } from '@/screens/home';
+import { bestsellersFromBackend } from '@/screens/home/home.fakeData';
+import { Link } from '@/shared/navigation';
+import { useRefreshLookStore } from '@/store';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import css from './page.module.scss';
 
 const Page = () => {
   const { looks, changeLook } = useRefreshLookStore();

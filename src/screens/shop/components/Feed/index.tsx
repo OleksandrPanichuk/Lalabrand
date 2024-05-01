@@ -1,9 +1,8 @@
 'use client';
 
 import { SvgIcon } from '@/components/common';
-import { Card, getQueryVariables } from '@/components/screens/shop';
+import { Card } from '@/screens/shop';
 import { useShopStore } from '@/store';
-import { gql, useQuery } from '@apollo/client';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';

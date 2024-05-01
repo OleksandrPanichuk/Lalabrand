@@ -2,12 +2,12 @@ import {
   NovaposhtaShipping,
   StandardShipping,
   UkrposhtaShipping,
-} from '@/components/screens/checkout';
+} from '@/screens/checkout';
 import { ShippingVariant } from '@/shared/types';
 
 type OptionProps = {
-  className?:string
-}
+  className?: string;
+};
 
 type TypeVariant = {
   value: ShippingVariant;
@@ -18,17 +18,17 @@ type TypeVariant = {
 export const variants: TypeVariant[] = [
   {
     value: 'standard',
-    Option: (props:OptionProps) => <StandardShipping.Option {...props} />,
+    Option: (props: OptionProps) => <StandardShipping.Option {...props} />,
     Form: () => <StandardShipping.Form />,
   },
   {
     value: 'ukrposhta',
-    Option: (props:OptionProps) => <UkrposhtaShipping.Option {...props} />,
+    Option: (props: OptionProps) => <UkrposhtaShipping.Option {...props} />,
     Form: () => <UkrposhtaShipping.Form />,
   },
   {
     value: 'novaposhta',
     Form: () => <NovaposhtaShipping.Form />,
-    Option: (props:OptionProps) => <NovaposhtaShipping.Option {...props} />,
+    Option: (props: OptionProps) => <NovaposhtaShipping.Option {...props} />,
   },
 ];

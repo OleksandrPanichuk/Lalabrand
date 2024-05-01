@@ -1,10 +1,10 @@
 'use client';
 import { LinkWithCircle, SvgIcon } from '@/components/common';
-import { ImageSlider } from '@/components/screens/home';
+import { cn } from '@/lib';
+import { ImageSlider } from '@/screens/home';
 import { Routes } from '@/shared/constants';
 import { useTranslations } from 'next-intl';
 import styles from './Hero.module.scss';
-import { cn } from '@/lib'
 
 export const Hero = () => {
   const t = useTranslations('Home.Hero');

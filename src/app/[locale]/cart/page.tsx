@@ -1,12 +1,8 @@
 'use client';
-import {
-  CartItem,
-  CheckoutInfo,
-  Title,
-} from '@/components/common';
-import { ShippingFee } from '@/components/screens/cart';
-import { Button , Breadcrumbs} from '@/components/ui';
+import { CartItem, CheckoutInfo, Title } from '@/components/common';
+import { Breadcrumbs, Button } from '@/components/ui';
 import { cn, getUkrainianTranslation } from '@/lib';
+import { ShippingFee } from '@/screens/cart';
 import { Routes } from '@/shared/constants';
 import { Link } from '@/shared/navigation';
 import { useCartStore } from '@/store';

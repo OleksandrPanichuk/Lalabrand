@@ -1,5 +1,5 @@
+import { looksFromBackend } from '@/screens/home/home.fakeData';
 import { create } from 'zustand';
-import { looksFromBackend } from '@/components/screens/home/home.fakeData';
 
 type LookItem = {
   id: string;

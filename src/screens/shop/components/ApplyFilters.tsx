@@ -1,6 +1,6 @@
 'use client';
 
-import { parseFiltersFromSearchParams } from '@/components/screens/shop';
+import { parseFiltersFromSearchParams } from '@/screens/shop';
 import { useShopStore } from '@/store';
 import { usePathname, useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
@@ -14,10 +14,9 @@ export const ApplyFilters = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-
   useEffect(() => {
-    console.log('FILTERS',filters)
-  },[filters])
+    console.log('FILTERS', filters);
+  }, [filters]);
 
   useEffect(() => {
     const filtersFromParams = parseFiltersFromSearchParams(searchParams);
@@ -28,8 +27,6 @@ export const ApplyFilters = () => {
   useEffect(() => {
     const type = searchParams.get('type') ?? undefined;
     const category = searchParams.get('category') ?? undefined;
-
-
 
     const url = queryString.stringifyUrl({
       url: pathname,
