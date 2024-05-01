@@ -1,12 +1,13 @@
 'use client';
-import { Breadcrumbs, Title } from '@/components/common';
+import { Title } from '@/components/common';
+import { Breadcrumbs } from '@/components/ui';
+import { cn, getUkrainianTranslation } from '@/lib';
 import {
   Info,
   OrderPreview,
   PaymentMethodPicker,
   ShippingPicker,
-} from '@/components/screens/checkout';
-import { cn, getUkrainianTranslation } from '@/lib';
+} from '@/screens/checkout';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';
 import { useTranslations } from 'next-intl';

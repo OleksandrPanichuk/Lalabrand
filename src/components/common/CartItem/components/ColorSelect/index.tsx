@@ -46,6 +46,7 @@ export const ColorSelect = ({ active, colors, id }: IColorSelectProps) => {
               {!!otherColors.length && (
                 <SvgIcon
                   name={'chevron'}
+                  height={10}
                   width={10}
                   className={cn(
                     styles.chevron,

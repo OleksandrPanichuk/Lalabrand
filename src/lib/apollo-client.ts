@@ -10,9 +10,13 @@ import {
 export function makeClient() {
 	const httpLink = new HttpLink({
 		uri: API_URL,
-		headers: {
-			'apollo-require-preflight': 'true',
-		},
+		// headers: {
+		// 	'apollo-require-preflight': 'true',
+			
+		// },
+		fetchOptions: {
+			mode: 'no-cors'
+	},
 		credentials: 'include',
 	})
 	return new NextSSRApolloClient({

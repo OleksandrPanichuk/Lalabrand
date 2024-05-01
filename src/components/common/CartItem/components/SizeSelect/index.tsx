@@ -33,6 +33,7 @@ export const SizeSelect = ({ active, id, sizes }: ISizeSelectProps) => {
               <SvgIcon
                 name={'chevron'}
                 width={10}
+                height={10}
                 className={cn(styles.chevron, open && styles['chevron--open'])}
               />
             </>

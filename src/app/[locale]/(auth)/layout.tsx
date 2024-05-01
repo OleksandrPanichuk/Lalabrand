@@ -1,11 +1,11 @@
 'use client';
 import { SvgIcon } from '@/components/common';
-import { usePathname } from 'next/navigation';
-import { AuthAside, AuthForm } from '@/components/screens/auth';
 import { cn } from '@/lib';
-import css from './layout.module.scss';
-import { useTranslations } from 'next-intl';
+import { AuthAside, AuthForm } from '@/screens/auth';
 import { useResetPasswordStore } from '@/store';
+import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import css from './layout.module.scss';
 // import { Button } from '@/components/ui';
 
 // interface TextObject {

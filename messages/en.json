@@ -20,6 +20,20 @@
       "Card number": "Invalid card number length"
     }
   },
+  "Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Light Green": "Light Green",
+    "White": "White",
+    "Light Blue": "Light Blue",
+    "Dark Green": "Dark Green",
+    "Brown": "Brown",
+    "Dark Blue": "Dark Blue",
+    "Grey": "Grey",
+    "Red": "Red",
+    "Beige": "Beige",
+    "Pink": "Pink"
+  },
   "Header": {
     "Links": {
       "Women": "Women",
@@ -143,8 +157,8 @@
   "Confirm Modal": {
     "Title": "Are you absolutely sure?",
     "Description": "This action cannot be undone. This will permanently remove it.",
-    "Button": "Remove",
-    "Cancel": "Cancel"
+    "Yes": "Yes",
+    "No": "No"
   },
   "Checkout Info": {
     "Promocode": "Promocode",
@@ -464,5 +478,26 @@
       "More": "view more",
       "Points": { "One": "point", "Plural": "points", "Other": "points" }
     }
+  },
+  "Shop": {
+    "Title": "Shop",
+    "Filters": "Filters",
+    "Filters & Sort": "Filters & Sort",
+    "SortBy": {
+      "Label": "Sort by",
+      "Newest": "Newest",
+      "Recommended": "Recommended",
+      "Lowest price": "Lowest price",
+      "Highest price": "Highest price"
+    },
+    "Size": "Size",
+    "Color": "Color",
+    "Price": "Price",
+
+    "Buttons": {
+      "Apply": "Apply",
+      "Clear All": "Clear All"
+    },
+    "view more": "view more"
   }
 }

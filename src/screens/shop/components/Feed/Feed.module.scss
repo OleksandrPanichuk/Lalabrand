@@ -1,0 +1,53 @@
+@import '@/styles/mixins.scss';
+
+.feed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2.375rem;
+  row-gap: 3.75rem;
+
+  @include screen-lg-max {
+  grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include screen-md-max {
+    grid-template-columns: 1fr;
+  }
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > button {
+    @apply font-montserrat text-xl font-medium;
+    display: flex;
+    align-items:center;
+    gap: 0.25rem;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    > svg {
+      transition: all 0.3s ease-in-out;
+      fill: var(--text-color);
+    }
+
+		
+		&:not(:disabled) {
+      :focus {
+        color: var(--primary-300);
+        >svg {
+          fill: var(--primary-300);
+          margin-left: 0.25rem;
+        }
+      }
+      &:hover {
+        color: var(--primary-500);
+        >svg {
+          fill: var(--primary-500);
+          margin-left: 0.25rem;
+        }
+      }
+    }
+  }
+}

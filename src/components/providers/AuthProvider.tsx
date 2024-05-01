@@ -1,6 +1,6 @@
 'use client';
 
-import { TypeAddress, TypeDefaultShippingData, TypeUser } from '@/shared/types';
+import { TypeAddress, TypeUser } from '@/shared/types';
 import {
   Dispatch,
   PropsWithChildren,
@@ -21,7 +21,7 @@ type TypeAuthUser = TypeUser & {
 
 interface IAuthContext {
   user: TypeAuthUser | null;
-  setUser : Dispatch<SetStateAction<TypeAuthUser | null>>
+  setUser: Dispatch<SetStateAction<TypeAuthUser | null>>;
   signIn: (data: SignInInput) => void;
   signUp: (data: SignUpInput) => void;
   signOut: () => void;

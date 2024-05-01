@@ -4,7 +4,7 @@
   gap: 2rem;
 
   @include adaptive-value('padding-top', 100, 50);
-  @include adaptive-value('margin-bottom', 300, 150);
+  @include adaptive-value('margin-bottom', 300, 100);
 
   > div {
     padding-top: 4.375rem;
