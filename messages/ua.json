@@ -494,7 +494,9 @@
         "Shipped": "Відправлено",
         "Delivered/Returned": "Доставлено/Повернено"
       },
-      "View more": "дивитися більше",
+      "View": "дивитися ",
+      "more": "більше",
+      "less": "менше",
       "My Details": "Мої дані",
       "Delivery method": "Спосіб доставки",
       "Order value": "Ціна",

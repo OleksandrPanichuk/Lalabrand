@@ -479,13 +479,13 @@
       "Hide": "Hide",
       "past orders": "past orders"
     },
-    "Confirm Modal": {
-      "Title": "",
-      "Description": "Are you sure you want to cancel this order?",
-      "Button": "Yes",
-      "Cancel": "No"
-    },
     "Order": {
+      "Confirm Modal": {
+        "Title": "",
+        "Description": "Are you sure you want to cancel this order?",
+        "Button": "Yes",
+        "Cancel": "No"
+      },
       "Order number": "Order number",
       "Order date": "Order date",
       "Tracker": {
@@ -494,7 +494,9 @@
         "Shipped": "Shipped",
         "Delivered/Returned": "Delivered/Returned"
       },
-      "View more": "view more",
+      "View": "view ",
+      "more": "more",
+      "less": "less",
       "My Details": "My Details",
       "Delivery method": "Delivery method",
       "Order value": "Order value",

@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
+import { gql } from '@apollo/client';
 import { usePathname } from 'next/navigation';
 import { SvgIcon } from '@/components/common';
 import css from './AuthForm.module.scss';
@@ -28,6 +30,16 @@ export const AuthForm = () => {
   const [subscribed, setSubscribed] = useState(true);
   const [isSubmmitBtnActive, setIsSubmmitBtnActive] = useState(false);
 
+  const REGISTER = gql(`
+      mutation User($userRequest: UserRequest!) {
+        user(userRequest: $userRequest) {
+          userId
+          email
+        }
+      }
+    `);
+  const [user, { error: err, data: credential }] = useMutation(REGISTER);
+
   useEffect(() => {
     if (isSubmmitBtnActive) {
       setIsSubmmitBtnActive(false);
@@ -44,7 +56,7 @@ export const AuthForm = () => {
     );
   }
 
-  function submitHandler(e: React.FormEvent | InputEvent) {
+  async function submitHandler(e: React.FormEvent | InputEvent) {
     e.preventDefault();
 
     const target = document.getElementById('authForm') as HTMLFormElement;
@@ -131,7 +143,15 @@ export const AuthForm = () => {
     if (subscribe) {
       data.subscribe = true;
     }
-    console.log('send to backend, wait for answer and redirect than', data);
+    // console.log('send to backend, wait for answer and redirect than', data);
+
+    user({
+      variables: {
+        userRequest: { email: 'test4@i.ua', password: 'Testpass8!' },
+      },
+    });
+    const res = credential ? credential : null;
+    console.log(res, err);
     // setError('');
     target.reset();
   }

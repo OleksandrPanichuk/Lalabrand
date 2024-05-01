@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { SvgIcon } from '@/components/common';
 import { ColorSelect, SizeSelect } from './components';
 import { cn, formatCurrency } from '@/lib';
@@ -7,8 +7,8 @@ import { useCartStore, useConfirmModal, useFavoriteStore } from '@/store';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
-import { Link } from '@/shared/navigation'
-import { Routes } from '@/shared/constants'
+import { Link } from '@/shared/navigation';
+import { Routes } from '@/shared/constants';
 
 interface ICartItemProps {
   data: TypeCartItem;
@@ -46,7 +46,7 @@ export const CartItem = ({ data }: ICartItemProps) => {
             <div className={styles.amount}>
               <p>{t('Amount')}:</p>
               <div>
-                <button onClick={() => decrement(data.id)}>
+                <button onClick={() => decrement(data.id)} disabled>
                   <SvgIcon name="minus" width={12} />
                 </button>
                 <span>{data.count}</span>

@@ -1,3 +1,5 @@
+import { TypeOrderItem } from './order.types';
+
 export type TypeOrderStatus =
   | string
   | 'received'
@@ -8,7 +10,7 @@ export type TypeOrderStatus =
 export type TypeOrder = {
   number: number;
   date: string;
-  items: { img: string; alt: string }[];
+  items: TypeOrderItem[];
   name: string;
   email: string;
   deliveryMethod: string;

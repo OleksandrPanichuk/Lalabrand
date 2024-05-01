@@ -1,0 +1,6 @@
+mutation Register({$email:string!, $password:string!}) {
+  user(userRequest: { email: $email, password: $password }) {
+    userId
+    email
+  }
+}

@@ -28,7 +28,7 @@
 .orderGrid {
   display: grid;
   grid-template-columns: 2fr;
-  grid-template-rows: 6fr;
+  grid-template-rows: 7fr;
   align-items: center;
   font-size: 16px;
   line-height: calc(20 / 16);
@@ -44,7 +44,7 @@
   & > button:last-child {
     margin: 80px auto 0;
     grid-column: 1 / span 3;
-    grid-row: 6;
+    grid-row: 7;
     width: 568px;
     height: 56px;
     align-self: center;

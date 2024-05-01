@@ -9,6 +9,7 @@ import { Tracker } from '../Tracker';
 import { copy } from '@/lib';
 import { TypeOrder } from '@/shared/types';
 import css from './Order.module.scss';
+import { useState } from 'react';
 
 interface OrderProps {
   order: TypeOrder;
@@ -31,6 +32,7 @@ export const Order = ({ order }: OrderProps) => {
   const t = useTranslations('My orders.Order');
 
   const onOpen = useConfirmModal((state) => state.onOpen);
+  const [isShowMoreDetail, setIsShowMoreDetail] = useState(false);
 
   const no = number.toString();
 
@@ -50,6 +52,10 @@ export const Order = ({ order }: OrderProps) => {
       description: t('Confirm Modal.Description'),
       onConfirm: () => console.log('send request for the order cancelation'),
     });
+  }
+
+  function showMore() {
+    setIsShowMoreDetail(!isShowMoreDetail);
   }
 
   return (
@@ -74,7 +80,7 @@ export const Order = ({ order }: OrderProps) => {
       >
         <ul>
           {items.slice(0, 3).map((el) => (
-            <li key={el.img}>
+            <li key={el.id}>
               <Image
                 src={el.img}
                 height={140}
@@ -85,11 +91,23 @@ export const Order = ({ order }: OrderProps) => {
             </li>
           ))}
         </ul>
-        <Link href={'/checkout'} className={css.viewMore}>
-          {t('View more')}{' '}
+        <button
+          type="button"
+          className={`${css.viewMore} ${isShowMoreDetail && css.more}`}
+          onClick={() => showMore()}
+        >
+          {t('View')}
+          {isShowMoreDetail ? t('less') : t('more')}{' '}
           <SvgIcon name="arrow-right" fill="#767676" width={46} height={16} />
-        </Link>
+        </button>
       </div>
+      {isShowMoreDetail && (
+        <ul className={css.itemList}>
+          {items.map((el) => (
+            <li key={el.img}></li>
+          ))}
+        </ul>
+      )}
       {status === 'delivered' ? null : (
         <>
           <div className={css.details}>
