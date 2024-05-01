@@ -19,8 +19,12 @@
 }
 
 .title {
-  @apply font-montserrat text-5xl font-semibold uppercase text-center;
+  @apply font-montserrat font-semibold uppercase text-center;
   color: var(--text-color);
+  line-height: 122.916667%; /* 59/48 */
+  ;
+  font-size: 3rem;
   letter-spacing: 2px;
   margin-bottom: 2.3125rem;
+  margin-top: -1rem;
 }
