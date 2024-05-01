@@ -1,1 +1,1 @@
-export * from '../../components/screens/cart/ShippingFee';
+export * from './ShippingFee';

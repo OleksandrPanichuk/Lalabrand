@@ -1,6 +1,6 @@
 
 import { CategoriesDisclosure } from '@/components/common';
-import { CategoriesPicker } from '@/components/screens/categories';
+import { CategoriesPicker } from '@/screens/categories';
 import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui';
 import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';

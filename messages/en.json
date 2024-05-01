@@ -20,19 +20,19 @@
       "Card number": "Invalid card number length"
     }
   },
-  "Colors":{
-    "Black":"Black",
-    "Blue":"Blue",
-    "Light Green":"Light Green",
-    "White":"White",
-    "Light Blue":"Light Blue",
-    "Dark Green":"Dark Green",
-    "Brown":"Brown",
-    "Dark Blue":"Dark Blue",
-    "Grey":"Grey",
-    "Red":"Red",
-    "Beige":"Beige",
-    "Pink":"Pink"
+  "Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Light Green": "Light Green",
+    "White": "White",
+    "Light Blue": "Light Blue",
+    "Dark Green": "Dark Green",
+    "Brown": "Brown",
+    "Dark Blue": "Dark Blue",
+    "Grey": "Grey",
+    "Red": "Red",
+    "Beige": "Beige",
+    "Pink": "Pink"
   },
   "Header": {
     "Links": {
@@ -111,7 +111,7 @@
     "Accessories": "Accessories",
     "view more": "view more",
     "View all": "View all",
-    "Types": {
+    "Links": {
       "Accessories": "Accessories",
       "Blazers_Vests": "Blazers & Vests",
       "Cardigans_Sweaters": "Cardigans & Sweaters",
@@ -479,25 +479,25 @@
       "Points": { "One": "point", "Plural": "points", "Other": "points" }
     }
   },
-  "Shop":{
-    "Title":"Shop",
-    "Filters":"Filters",
-    "Filters & Sort":"Filters & Sort",
-    "SortBy":{
-      "Label":"Sort by",
-      "Newest":"Newest",
-      "Recommended":"Recommended",
-      "Lowest price":"Lowest price",
-      "Highest price":"Highest price"
+  "Shop": {
+    "Title": "Shop",
+    "Filters": "Filters",
+    "Filters & Sort": "Filters & Sort",
+    "SortBy": {
+      "Label": "Sort by",
+      "Newest": "Newest",
+      "Recommended": "Recommended",
+      "Lowest price": "Lowest price",
+      "Highest price": "Highest price"
     },
-    "Size":"Size",
-    "Color":"Color",
-    "Price":"Price",
+    "Size": "Size",
+    "Color": "Color",
+    "Price": "Price",
 
-    "Buttons":{
-      "Apply":"Apply",
-      "Clear All":"Clear All"
+    "Buttons": {
+      "Apply": "Apply",
+      "Clear All": "Clear All"
     },
-    "view more":"view more"
+    "view more": "view more"
   }
 }

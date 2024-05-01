@@ -1,10 +1,10 @@
-"use client"
+'use client';
 import { SvgIcon } from '@/components/common';
 import { cn } from '@/lib';
-import { Link, useRouter } from '@/shared/navigation';
+import { Link } from '@/shared/navigation';
+import { useRouter } from 'next/navigation';
 import {
   AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
   Children,
   DetailedHTMLProps,
   HTMLAttributes,
@@ -14,9 +14,7 @@ import { UrlObject } from 'url';
 import styles from './Breadcrumbs.module.scss';
 
 interface IBreadcrumbsProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-   
-  }
+  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
 
 export const Breadcrumbs = ({
   children,
@@ -24,9 +22,12 @@ export const Breadcrumbs = ({
   ...props
 }: PropsWithChildren<IBreadcrumbsProps>) => {
   const items = Children.toArray(children);
+  const router = useRouter();
   return (
     <nav className={cn(styles.wrapper, className)} {...props}>
-     <BreadcrumbsBack />
+      <button onClick={() => router.back()}>
+        <SvgIcon name="arrow-short" width={16} height={16} fill="#222" />
+      </button>
       <ol>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
@@ -48,27 +49,8 @@ interface IBreadcrumbsItemProps
   href: UrlObject | string;
 }
 
-export  function BreadcrumbsItem(props: IBreadcrumbsItemProps) {
+export function BreadcrumbsItem(props: IBreadcrumbsItemProps) {
   return <Link {...props} />;
-};
+}
 
-Breadcrumbs.Item = BreadcrumbsItem
-
-interface IBreadcrumbsBackProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {}
-function BreadcrumbsBack(props: IBreadcrumbsBackProps) {
-  const router = useRouter();
-  return (
-    <button
-      {...props}
-      className={cn(props.className, styles.back)}
-      onClick={(e) => {
-        props?.onClick?.(e);
-        router.back();
-      }}
-    >
-      <SvgIcon width={16}  name="arrow-back" />
-    </button>
-  );
-};
-
+Breadcrumbs.Item = BreadcrumbsItem;

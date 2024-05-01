@@ -57,6 +57,7 @@
 
   > li {
     padding-bottom: 1.25rem;
+    padding-right: 10px;
     border-bottom: 1px solid var(--text-color);
     > a {
       color: var(--text-color);
@@ -77,6 +78,11 @@
       }
       &.sale {
         color: rgb(149, 7, 7);
+      }
+
+      & > svg {
+        transform: rotate(135deg);
+        stroke-width: 1px;
       }
     }
   }

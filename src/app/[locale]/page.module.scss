@@ -1,5 +1,7 @@
 @import '@/styles/mixins.scss';
 
+$gap: 32px;
+
 .wrapper {
   @include adaptive-value('padding-top',100, 50);
   @include adaptive-value('padding-bottom',300, 100);
@@ -18,77 +20,71 @@
 // --------------   second section  ------------------
 
 .bestsellers {
+  display: flex;
+  flex-direction: column;
   font-size: 20px;
   line-height: calc(24 / 20);
   letter-spacing: 0px;
   color: #222;
 
-  & > div {
-    position: relative;
+  & > a,
+  & .refreshBtn {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(28 / 24);
+    color: #222;
+    transition: gap 0.3s ease-in;
 
-    & > a,
-    & > button {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      position: absolute;
+    &:hover,
+    &:focus {
+      gap: 8px;
+      color: #950707;
 
-      font-weight: 500;
-      font-size: 24px;
-      line-height: calc(28 / 24);
-      color: #222;
-      transition: gap 0.3s ease-in;
-
-      &:hover,
-      &:focus {
-        gap: 8px;
-        color: #950707;
-
-        svg {
-          fill: #950707;
-        }
-      }
-      &:active {
-        color: #aa3939;
-
-        svg {
-          fill: #aa3939;
-        }
+      svg {
+        fill: #950707;
       }
     }
+    &:active {
+      color: #aa3939;
 
-    & > a {
-      bottom: 23px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    & > button {
-      top: 6.5px;
-      right: 14px;
-
-      &:hover,
-      &:focus {
-        gap: 4px;
-        svg {
-          transform: rotate(90deg);
-        }
+      svg {
+        fill: #aa3939;
       }
     }
   }
 
-  & > div > ul {
-    display: flex;
-    gap: 32px;
+  & > a {
+    position: static;
+    align-self: center;
   }
+}
+
+.gridBestsellers {
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $gap;
 }
 
 // --------------   third section  ------------------
 
-.flexEnd {
+.gridFlexEnd {
+  position: relative;
+  display: grid;
+  grid-template-columns: calc((100% - 3 * #{$gap}) / 4) calc(
+      (300% - #{$gap}) / 4
+    );
+  gap: $gap;
   align-items: flex-end;
+
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: $gap;
+  }
 }
 
 .lookList {
@@ -99,14 +95,25 @@
   object-fit: cover;
 }
 
-.refreshBtn svg {
-  transition: transform 0.3s ease-in;
-}
+.refreshBtn {
+  position: absolute;
+  top: 6.5px;
+  right: 14px;
 
-.refreshBtn:active svg {
-  transition: transform 0.3s ease-in;
-  transform-origin: center;
-  animation: rotate 0.1s linear infinite;
+  &:hover,
+  &:focus {
+    gap: 4px;
+    svg {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease-in;
+    }
+  }
+
+  &:active svg {
+    transition: transform 0.3s ease-in;
+    transform-origin: center;
+    animation: rotate 0.1s linear infinite;
+  }
 }
 
 @keyframes rotate {
