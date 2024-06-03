@@ -1,16 +1,14 @@
-import getRequestConfig from '@/i18n'
-import { constructRootMetadata } from '@/shared/metadata'
-import type { Metadata } from 'next'
+import getRequestConfig from '@/i18n';
+import { constructRootMetadata } from '@/shared/metadata';
+import type { Metadata } from 'next';
 
-import { ConfirmModal, Footer, Header } from '@/components/common'
-import { ApolloProvider, AuthProvider } from '@/components/providers'
-import { cn, getXSRFToken } from '@/lib'
-import { TypeUser } from '@/shared/types'
-import '@/styles/globals.scss'
-import { NextIntlClientProvider } from 'next-intl'
-import { Inter, Montserrat } from 'next/font/google'
-
-import { APP_URL } from '@/shared/constants'
+import { ConfirmModal, Footer, Header } from '@/components/common';
+import { ApolloProvider, AuthProvider } from '@/components/providers';
+import { cn } from '@/lib';
+import { TypeUser } from '@/shared/types';
+import '@/styles/globals.scss';
+import { NextIntlClientProvider } from 'next-intl';
+import { Inter, Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
