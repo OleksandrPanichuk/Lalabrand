@@ -1,12 +1,11 @@
-
 import { CategoriesDisclosure } from '@/components/common';
-import { CategoriesPicker } from '@/screens/categories';
 import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui';
 import { cn } from '@/lib';
+import { CategoriesPicker } from '@/screens/categories';
 import { Routes } from '@/shared/constants';
 import styles from './page.module.scss';
 
-const Page = () => {
+const Page =  () => {
   return (
     <div className={cn('page__container', styles.container)}>
       <Breadcrumbs>

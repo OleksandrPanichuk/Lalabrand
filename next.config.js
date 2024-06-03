@@ -9,8 +9,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/graphql',
-        destination: `${API_URL}/graphql`,
+        source: '/api/:path*',
+        destination: `${API_URL}/:path*`,
       },
     ];
   },
