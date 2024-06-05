@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import { SvgIcon } from '@/components/common';
-import css from './AuthForm.module.scss';
-import { useTranslations } from 'next-intl';
 import { useResetPasswordStore } from '@/store';
+import { gql, useMutation } from '@apollo/client';
+import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import css from './AuthForm.module.scss';
 
 type Data = {
   email?: string;
@@ -14,6 +15,15 @@ type Data = {
   agreeTerms?: string;
   verification?: number;
 };
+
+const REGISTER = gql`
+  mutation User($userInput: UserInput!) {
+    user(userInput: $userInput) {
+      id
+      email
+    }
+  }
+`;
 
 export const AuthForm = () => {
   const pathname = usePathname();
@@ -27,6 +37,8 @@ export const AuthForm = () => {
   const [error, setError] = useState('');
   const [subscribed, setSubscribed] = useState(true);
   const [isSubmmitBtnActive, setIsSubmmitBtnActive] = useState(false);
+
+  const [user, { error: err, data: credential }] = useMutation(REGISTER);
 
   useEffect(() => {
     if (isSubmmitBtnActive) {
@@ -131,7 +143,17 @@ export const AuthForm = () => {
     if (subscribe) {
       data.subscribe = true;
     }
+
     console.log('send to backend, wait for answer and redirect than', data);
+
+    user({
+      variables: {
+        userInput: {
+          password: 'Testpass8!',
+          email: 'test4@i.ua',
+        },
+      },
+    });
     // setError('');
     target.reset();
   }
@@ -293,7 +315,16 @@ export const AuthForm = () => {
       )}
       <button
         type="submit"
-        onClick={() => false}
+        onClick={() => {
+          user({
+            variables: {
+              userInput: {
+                password: 'Testpass8!',
+                email: 'test4@i.ua',
+              },
+            },
+          });
+        }}
         title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
         className={css.dark_btn}
         data-active={isSubmmitBtnActive}

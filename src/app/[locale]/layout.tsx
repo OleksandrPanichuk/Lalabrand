@@ -10,7 +10,6 @@ import '@/styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { Inter, Montserrat } from 'next/font/google';
 
-
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
   subsets: ['cyrillic', 'latin'],
@@ -35,7 +34,6 @@ export default async function RootLayout({
   };
 }) {
   const translations = await getRequestConfig(params);
-
   //TODO: fetch current user data
   const currentUser: TypeUser = {
     id: '1',
@@ -47,7 +45,6 @@ export default async function RootLayout({
     username: 'Oleksandr',
     phone: '380994223232',
   };
-
 
   return (
     <html
