@@ -4,7 +4,8 @@ import { Routes } from '@/shared/constants';
 import { TypeProductItem } from '@/shared/types';
 import { categories, clothTypes } from '../page.data';
 import { fakeProductData } from './page.data';
-
+import styles from './page.module.scss'
+import { cn } from '@/lib'
 
 interface IProductPageProps {
   params: {
@@ -24,7 +25,7 @@ export default async function ProductPage({ params }: IProductPageProps) {
   const activeCategory = categories.find((el) => el.value === data.category)!;
 
   return (
-    <div>
+    <div className={cn('page__container', styles.container)}>
       {/*  Breadcrumbs */}
       <Breadcrumbs>
         <BreadcrumbsItem href={Routes.ROOT}>lalabrand</BreadcrumbsItem>

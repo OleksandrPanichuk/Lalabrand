@@ -3,19 +3,8 @@
 .wrapper {
   @apply flex;
 
-  
-  & > div {
-    &:first-of-type {
-      display: flex;
-      flex-direction: column ;
-      gap: 0.5rem;
-      > div {
-        min-width: 11.3125rem;
-      }
-    }
-    &:last-of-type {
-      margin-left: 2rem;
-    }
+  & > div:last-of-type {
+    margin-left: 2rem;
   }
 }
 
@@ -39,15 +28,29 @@
   }
 }
 
-
 .arrows {
   margin-top: 2.5rem;
   height: 2.5rem;
-  display:flex;
+  display: flex;
   align-items: center;
   gap: 1.25rem;
   justify-content: center;
   svg {
     width: 82px;
   }
+}
+
+.slider {
+  overflow: hidden;
+  min-width: 181px;
+  >div {
+    max-height: 829px;
+  }
+}
+
+.slide {
+  width: 100%;
+  aspect-ratio: 181 / 271;
+  position: relative;
+  margin-bottom: 8px;
 }
