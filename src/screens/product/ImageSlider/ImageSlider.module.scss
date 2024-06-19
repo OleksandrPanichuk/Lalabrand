@@ -1,0 +1,53 @@
+@import '@/styles/mixins.scss';
+
+.wrapper {
+  @apply flex;
+
+  
+  & > div {
+    &:first-of-type {
+      display: flex;
+      flex-direction: column ;
+      gap: 0.5rem;
+      > div {
+        min-width: 11.3125rem;
+      }
+    }
+    &:last-of-type {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.big-image {
+  position: relative;
+  width: 24.6875rem;
+  height: 36.9375rem;
+
+  &_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include screen-md-max {
+      max-width: 21rem;
+      max-height: 29.4375rem;
+      aspect-ratio: 336 / 471;
+      width: 100%;
+    }
+  }
+}
+
+
+.arrows {
+  margin-top: 2.5rem;
+  height: 2.5rem;
+  display:flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+  svg {
+    width: 82px;
+  }
+}

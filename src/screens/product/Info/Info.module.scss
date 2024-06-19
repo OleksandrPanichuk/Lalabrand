@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex gap-8;
+  margin-top: 64.5px;
+  > div {
+    flex: 1;
+  }
+}

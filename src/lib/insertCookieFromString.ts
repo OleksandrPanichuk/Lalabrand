@@ -1,4 +1,7 @@
-export function insertCookieFromString(key: string, cookieString: string | undefined) {
+export function insertCookieFromString(
+  key: string,
+  cookieString: string | undefined,
+) {
   if (!cookieString) {
     return;
   }
@@ -12,13 +15,9 @@ export function insertCookieFromString(key: string, cookieString: string | undef
     const value = rest.join('=').trim();
     if (
       name.trim() &&
-      !name.trim().includes('Path') &&
-      !name.trim().includes('Domain') &&
-      !name.trim().includes('Expires') &&
-      !name.trim().includes('Max-Age') &&
-      !name.trim().includes('SameSite') &&
-      !name.trim().includes('Secure') &&
-      !name.trim().includes('HttpOnly')
+      !['Path', 'Domain', 'Expires', 'Max-Age', 'SameSite', 'Secure', 'HttpOnly'].some(
+        (attr) => name.trim().includes(attr),
+      )
     ) {
       cookies[name.trim()] = value;
     }

@@ -1,6 +1,6 @@
 import { insertCookieFromString } from '@/lib';
 import { APP_URL, XSRF_TOKEN_COOKIE_NAME } from '@/shared/constants';
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosHeaders } from 'axios';
 import createMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 import { localePrefix, locales } from './i18n';
