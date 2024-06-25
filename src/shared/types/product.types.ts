@@ -21,6 +21,6 @@ export type TypeProductItem = {
   name: string;
   price: number;
   rating: number;
-  sizes: { id: string; value: string }[];
+  sizes: { id: string; value: TypeSize }[];
   info: { id: string; color: TypeProductColor; images: string[] }[];
 };

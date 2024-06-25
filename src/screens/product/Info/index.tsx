@@ -2,7 +2,7 @@
 import { Rating } from '@/components/ui';
 import { cn, formatCurrency } from '@/lib';
 import { ImageSlider } from '@/screens/product';
-import { TypeProductColor, TypeProductItem } from '@/shared/types';
+import { TypeProductColor, TypeProductItem, TypeSize } from '@/shared/types';
 import styles from './Info.module.scss';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
@@ -17,6 +17,8 @@ export const Info = ({ data }: IInfoProps) => {
   const t = useTranslations();
 
   const [color, setColor] = useState<TypeProductColor>(data.info[0].color);
+  const [size, setSize] = useState<TypeSize>(data.sizes[0].value);
+
   const images = data.info.find((el) => el.color === color)!.images;
 
   const productColors = data.info.map((el) => {
@@ -27,6 +29,13 @@ export const Info = ({ data }: IInfoProps) => {
     const doesProductHasColor = data.info.some((el) => el.color === newColor);
     if (doesProductHasColor) {
       setColor(newColor);
+    }
+  };
+
+  const onSizeChange = (newSize: TypeSize) => {
+    const doesProductHasSize = data.sizes.some((el) => el.value === newSize);
+    if (doesProductHasSize) {
+      setSize(newSize);
     }
   };
 
@@ -84,6 +93,37 @@ export const Info = ({ data }: IInfoProps) => {
           </ul>
         </div>
         {/*  Size Picker*/}
+        <div className={styles.sizes}>
+          <div>
+            <p className={styles.sizes__current}>
+              {t('Product.Size')}: {size}
+            </p>
+
+            {/* TODO:Size guide modal*/}
+          </div>
+
+          <ul className={styles.sizes__list}>
+            {data.sizes.map((el) => (
+              <li
+                key={el.id}
+                className={cn(
+                  styles.size,
+                  size === el.value && styles['size--active'],
+                )}
+              >
+                <span>{el.value.toUpperCase()}</span>
+                {data.sizes.length > 1 && (
+                  <input
+                    name={'product-size'}
+                    type={'radio'}
+                    checked={el.value === size}
+                    onChange={() => onSizeChange(el.value)}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

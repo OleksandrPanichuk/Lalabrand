@@ -501,6 +501,7 @@
     "view more": "view more"
   },
   "Product": {
-    "Color": "Color"
+    "Color": "Color",
+    "Size": "Size"
   }
 }
