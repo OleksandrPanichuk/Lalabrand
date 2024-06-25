@@ -9,3 +9,4 @@ export * from './NumberInput';
 export * from './Pagination';
 export * from './Radio';
 export * from './Tooltip';
+export * from './Rating'

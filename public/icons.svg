@@ -153,6 +153,10 @@
 </symbol>
 
 
+<symbol viewBox="0 0 13.3333 12.6665" id="star">
+	<defs/>
+	<path  d="M2.55 12.66L3.63 7.98L0 4.83L4.8 4.41L6.66 0L8.53 4.41L13.33 4.83L9.69 7.98L10.78 12.66L6.66 10.18L2.55 12.66Z"  fill-opacity="1.000000" fill-rule="nonzero"/>
+</symbol>
 
 
 </defs>

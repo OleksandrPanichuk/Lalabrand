@@ -10,6 +10,7 @@ import 'swiper/css';
 import styles from './ImageSlider.module.scss';
 
 import { Swiper, SwiperClass, SwiperProps, SwiperSlide } from 'swiper/react';
+import { useIsMounted } from '@/hooks';
 
 const SLIDES_PER_VIEW = 3;
 
@@ -24,6 +25,8 @@ export const ImageSlider = ({ images }: IImageSliderProps) => {
 
   const [swiper, setSwiper] = useState<SwiperClass>();
 
+  const isMounted = useIsMounted();
+
   const newIndex = (prev: number, payload: number = 1) => {
     return (prev + payload) % images.length;
   };
@@ -31,13 +34,17 @@ export const ImageSlider = ({ images }: IImageSliderProps) => {
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => newIndex(prevIndex, -1 + images.length));
     setDirection('top');
-    swiper?.slidePrev();
+    if (images.length > 3) {
+      swiper?.slidePrev();
+    }
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => newIndex(prevIndex));
     setDirection('down');
-    swiper?.slideNext();
+    if (images.length > 3) {
+      swiper?.slideNext();
+    }
   };
 
   const settings: SwiperProps = {
@@ -50,7 +57,7 @@ export const ImageSlider = ({ images }: IImageSliderProps) => {
     loop: true,
     initialSlide: 1,
     noSwiping: true,
-    noSwipingClass: 'swiper-slide'
+    noSwipingClass: 'swiper-slide',
   };
 
   return (
@@ -75,9 +82,7 @@ export const ImageSlider = ({ images }: IImageSliderProps) => {
           <motion.img
             className={cn(styles['big-image_img'], 'z-20')}
             transition={{ duration: 1 }}
-            initial={{
-              opacity: 0,
-            }}
+            initial={isMounted ? { opacity: 0 } : false}
             animate={{
               opacity: 1,
             }}
