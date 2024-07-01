@@ -1,0 +1,52 @@
+.wrapper {
+  flex: 1;
+}
+
+.title {
+  @apply font-montserrat font-semibold;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  line-height: 156%; /* 31.2/20 */
+}
+
+.rating {
+  @apply flex items-center gap-2 mt-4;
+  > div {
+    gap: 6px;
+  }
+  > p {
+    @apply font-inter font-semibold  underline;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 112.5%; /* 18/16 */
+  }
+}
+
+.info {
+  @apply mt-6;
+  > h5 {
+    @apply font-montserrat font-semibold;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 130%; /* 20.8/16 */
+  }
+
+  > p {
+    @apply mt-3 font-inter font-medium;
+    color: var(--secondary-400);
+    font-size: 0.875rem;
+    line-height: 130%; /* 18.2/14 */
+  }
+}
+
+.tags {
+  @apply flex gap-3 overflow-auto mt-4;
+
+  > li {
+    @apply rounded-full py-[7px] px-3 font-inter font-medium;
+    border: 1px solid var(--secondary-500);
+    color: var(--text-color);
+    font-size: 0.75rem;
+    line-height: 130%; /* 15.6/12 */
+  }
+}

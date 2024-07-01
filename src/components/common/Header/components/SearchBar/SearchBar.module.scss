@@ -1,4 +1,4 @@
-@import "@/styles/mixins.scss";
+@import '@/styles/mixins.scss';
 
 .wrapper {
   position: relative;
@@ -23,7 +23,7 @@
   padding: 3.5px 0 4px;
   font-weight: 400;
   line-height: 121.428571%; /* 17/14 */
-  background-color: var(--background);
+  background-color: var(--neutral-000);
   &::placeholder {
     color: #cbcbcb;
   }

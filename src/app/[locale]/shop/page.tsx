@@ -1,12 +1,13 @@
-import { CategoriesDisclosure } from '@/components/common';
+
 import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui';
 import { cn } from '@/lib';
-import { Feed, Filters, Pagination } from '@/screens/shop';
+import { Feed, Filters, Pagination } from '@/features/shop';
 import { Routes } from '@/shared/constants';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { categories, clothTypes } from './page.data';
 import styles from './page.module.scss';
+import { CategoriesDisclosure } from '@/features/categories'
 
 interface IShopPageProps {
   searchParams: {

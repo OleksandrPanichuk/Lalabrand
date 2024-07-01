@@ -30,14 +30,14 @@ const config = {
         xl: ['1.5rem', ' 116.666667%'],
         '2xl': ['1.75rem', '114.285714%'],
         '3xl': ['2rem', '112.5%'],
-        "5xl":['3rem','155.263158%']
+        '5xl': ['3rem', '155.263158%'],
       },
       colors: {
         'custom-red': 'var(--red-color)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'var(--background)',
+        background: 'var(--neutral-000)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',

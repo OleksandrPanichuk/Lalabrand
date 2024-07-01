@@ -502,6 +502,42 @@
   },
   "Product": {
     "Color": "Color",
-    "Size": "Size"
+    "Size": "Size",
+    "Size Guide": "Size Guide",
+    "Add to cart": "Add to cart",
+    "Description & fit": {
+      "Title": "Description & fit",
+      "Model size": "Model size",
+      "Length": "Length",
+      "Sleeve length": "Sleeve length",
+      "Fit": "Fit",
+      "Neckline": "Neckline"
+    },
+    "Materials": {
+      "Title": "Materials",
+      "Composition": "Composition",
+      "Material": "Material"
+    },
+    "Care Guide": {
+      "Title": "Care Guide",
+      "Instructions": "Care instructions"
+    },
+    "Customer's opinions": {
+      "Title": "Customer's opinions",
+      "out of":"out of",
+      "What customers say":"What customers say"
+    },
+    "Reviews": {
+      "Title":"Reviews",
+      "Show more":"Show more"
+    },
+    "Style with":{
+      "1":"Style",
+      "2":"with"
+    },
+    "You may also like": {
+      "1":"You may also",
+      "2":"like"
+    }
   }
 }

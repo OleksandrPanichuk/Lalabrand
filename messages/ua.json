@@ -502,6 +502,38 @@
   },
   "Product": {
     "Color": "Колір",
-    "Size": "Розмір"
+    "Size": "Розмір",
+    "Size Guide": "Посібник з розмірів",
+    "Add to cart": "Додати до кошика",
+    "Description & fit": {
+      "Title":"Опис та розмір",
+      "Model size": "Розмір моделі",
+      "Length":"Довжина",
+      "Sleeve length":"Довжина рукавів",
+      "Fit":"Фасон",
+      "Neckline":"Виріз на шиї"
+    },
+    "Materials":{
+      "Title":"Матеріали",
+      "Composition":"Склад",
+      "Material":"Матеріал"
+    },
+    "Care Guide": {
+      "Title":"Посібник з догляду",
+      "Instructions":"Інструкції з догляду"
+    },
+    "Customer's opinions": {
+      "Title": "Думки клієнтів",
+      "out of":"з",
+      "What customers say":"Що кажуть клієнти"
+    },
+    "Style with":{
+      "1":"У стилі",
+      "2":"з"
+    },
+    "You may also like": {
+      "1":"Можливо, вам також",
+      "2":"сподобається"
+    }
   }
 }

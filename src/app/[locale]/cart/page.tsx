@@ -1,13 +1,14 @@
 'use client';
-import { CartItem, CheckoutInfo, Title } from '@/components/common';
+import { Title } from '@/components/common';
 import { Breadcrumbs, Button } from '@/components/ui';
 import { cn, getUkrainianTranslation } from '@/lib';
-import { ShippingFee } from '@/screens/cart';
+import { CartItem, ShippingFee } from '@/features/cart';
 import { Routes } from '@/shared/constants';
 import { Link } from '@/shared/navigation';
-import { useCartStore } from '@/store';
+import { useCartStore } from '@/features/cart';
 import { useTranslations } from 'next-intl';
 import styles from './page.module.scss';
+import { CheckoutInfo } from '@/features/checkout'
 
 const Page = () => {
   const t = useTranslations();

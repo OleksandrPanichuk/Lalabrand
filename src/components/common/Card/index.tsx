@@ -2,13 +2,14 @@
 import { SvgIcon } from '@/components/common'
 import { cn } from '@/lib'
 import { Link } from '@/shared/navigation'
-import { useCartStore, useFavoriteStore } from '@/store'
+import { useFavoriteStore } from '@/store'
 import { Listbox, Transition } from '@headlessui/react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Fragment, MouseEvent, useState } from 'react'
 import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss'
 import css from './Card.module.scss'
+import { useCartStore } from '@/features/cart'
 
 interface CardProps {
   item: Card;

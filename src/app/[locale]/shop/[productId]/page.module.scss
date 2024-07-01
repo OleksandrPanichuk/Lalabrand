@@ -4,3 +4,34 @@
   @include adaptive-value('padding-top', 100, 50);
   @include adaptive-value('padding-bottom', 300, 100);
 }
+
+.opinions-reviews {
+  @apply flex gap-4;
+  margin-top: 1.875rem;
+
+  > hr {
+    @apply h-auto  w-[1px];
+    background: var(--primary-500);
+  }
+}
+
+.looks,
+.similar-products {
+  margin-top: 7.5rem;
+
+  > h2 {
+    @apply font-montserrat font-semibold text-2xl;
+    /* headings/h2/semibold */
+    color: var(--text-color);
+    > span {
+      color: var(--primary-500);
+    }
+  }
+
+  > ul {
+    @apply flex gap-8 mt-8;
+    > li {
+      max-width: 288px;
+    }
+  }
+}

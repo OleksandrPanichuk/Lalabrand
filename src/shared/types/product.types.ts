@@ -23,4 +23,45 @@ export type TypeProductItem = {
   rating: number;
   sizes: { id: string; value: TypeSize }[];
   info: { id: string; color: TypeProductColor; images: string[] }[];
+
+
+  description?: {
+    longDescription?: string
+    modelSize?:string 
+    length?: string
+    sleeveLength?:string 
+    fit?:string
+    neckline?:string
+  }
+
+  materials?:{
+    description?:string
+    material?:string
+    composition?:string
+  }
+
+  careGuide?: {
+    instructions?: string[]
+    description?:string
+  }
+
+
+
+
+
+  customerOpinions?: {
+    description:string
+    tags: string[]
+  }
+
+
+  reviews: {
+    user: {
+      firstName:string
+      lastName:string
+    }
+    text:string
+    rating:number
+    id: string
+  }[]
 };

@@ -1,0 +1,37 @@
+.wrapper {
+	@apply mt-20;
+}
+
+.description__trigger {
+  border-top: 0.5px solid var(--neutral-300);
+}
+
+.description__content,
+.materials__content,
+.care-instructions__content {
+  @apply flex flex-col gap-3;
+
+  > p {
+    @apply font-inter text-sm font-medium;
+    color: var(--text-color);
+
+    span {
+      @apply font-semibold;
+    }
+  }
+}
+
+.care-instructions__content {
+  > div {
+    @apply flex flex-col gap-3.5;
+    ul {
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+    p,
+    li {
+      @apply font-inter font-semibold text-sm;
+      color: var(--text-color);
+    }
+  }
+}

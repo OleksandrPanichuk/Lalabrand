@@ -1,37 +1,48 @@
-import { SvgIcon } from '@/components/common';
-import { cn } from '@/lib';
-import styles from './Rating.module.scss';
+import { cn } from '@/lib'
+import { Star } from './Star'
 
-interface IRatingProps {
+interface RatingProps {
   value: number;
+
+  starWidth?: number;
+  starHeight?: number;
+
+
+  fillColor?: string;
+
   className?: string;
-  color: string;
 }
 
-export const Rating = ({ className, value, color }: IRatingProps) => {
-  const percentage = Math.round((value / 5) * 100);
+export const Rating: React.FC<RatingProps> = ({
+  value,
+  fillColor = 'black',
+  starWidth = 16,
+  starHeight = 16,
+ className,
+}) => {
+  const totalStars = 5;
+  const stars = [];
 
-  const arrayLength = Math.ceil(percentage / 20);
+  for (let i = 0; i < totalStars; i++) {
+    const starValue = i + 1;
+    let filled = 0;
 
-  return (
-    <div className={cn(styles.container, className)}>
-      {Array.from(Array(arrayLength).keys()).map((_, i) => (
-        <SvgIcon
-          name="star"
-          key={i}
-          className={styles.star}
-          width={13.3}
-          height={16}
+    if (value >= starValue) {
+      filled = 100;
+    } else if (value + 1 > starValue) {
+      filled = (value % 1) * 100;
+    }
 
-          fill={color}
-          stroke={color}
-        />
-      ))}
+    stars.push(
+      <Star
+        key={i}
+        filled={filled}
+        fillColor={fillColor}
+        width={starWidth}
+        height={starHeight}
+      />,
+    );
+  }
 
-      <div
-        className={styles.overlay}
-        style={{ width: `${100 - percentage}%` }}
-      />
-    </div>
-  );
+  return <div className={cn('flex gap-[4.67px]', className)}>{stars}</div>;
 };

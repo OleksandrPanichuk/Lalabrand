@@ -3,8 +3,8 @@
   position: relative;
   border-radius: 4px;
   border: 1px solid var(--neutral-300);
-  background: var(--white-color);
-	transition: all .3s ease-in-out;
+  background: var(--neutral-000);
+  transition: all 0.3s ease-in-out;
 
   width: 1.25rem;
   height: 1.25rem;
@@ -16,7 +16,7 @@
     background: var(--neutral-100);
     -webkit-mask-image: url('/checked.svg');
     mask-image: url('/checked.svg');
-		transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     scale: 0;
 
@@ -28,20 +28,20 @@
 
   &:not(:disabled):hover {
     border-color: var(--primary-500);
-		background: var(--neutral-100)
+    background: var(--neutral-100);
   }
 
   &:not(:disabled):focus {
     border-color: var(--primary-500);
     box-shadow: 0px 0px 0px 2px rgba(233, 66, 104, 0.25);
-		background: var(--neutral-100)
+    background: var(--neutral-100);
   }
 
   &.checkbox:checked {
     border-color: var(--primary-300);
-		background: var(--primary-500);
+    background: var(--primary-500);
     &::before {
-			background: var(--neutral-100);
+      background: var(--neutral-100);
       scale: 1;
     }
   }
@@ -50,8 +50,8 @@
     background: var(--neutral-100);
     border-color: var(--secondary-300);
 
-		&::before {
-			background: var(--secondary-300) ;
-		}
+    &::before {
+      background: var(--secondary-300);
+    }
   }
 }

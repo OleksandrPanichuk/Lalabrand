@@ -6,8 +6,4 @@ export * from './Footer';
 export * from './Title';
 export * from './LinkWithCircle';
 export * from './Card';
-export * from './CheckoutInfo'
-export * from './ConfirmModal'
-export * from './CartItem'
-export * from './CategoriesDisclosure'
 export * from './Hint'
