@@ -5,7 +5,7 @@ import {
   CheckoutInfo,
   Title,
 } from '@/components/common';
-import { ShippingFee } from '@/components/screens/cart';
+import { ShippingFee } from '@/screens/cart';
 import { Button } from '@/components/ui';
 import { cn, getUkrainianTranslation } from '@/lib';
 import { Routes } from '@/shared/constants';

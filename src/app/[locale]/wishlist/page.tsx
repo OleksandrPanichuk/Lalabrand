@@ -19,7 +19,7 @@ const Page = () => {
         <Title pronoun={t('Titles.My')} name={t('Titles.Favorites')} />
         <ul>
           {favoritesFromBackend.map((el) => (
-            <li key={el.id} className={css.column}>
+            <li key={el.order_id} className={css.column}>
               <Card item={el} width={'394px'} inFav={true} />
             </li>
           ))}

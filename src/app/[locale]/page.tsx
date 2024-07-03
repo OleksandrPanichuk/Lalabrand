@@ -1,10 +1,10 @@
 'use client';
-import { CategoryPreview, Hero } from '@/components/screens/home';
+import { CategoryPreview, Hero } from '@/screens/home';
 import Image from 'next/image';
 import { SvgIcon, Title, Card } from '@/components/common';
 import { Link } from '@/shared/navigation';
 import { useTranslations } from 'next-intl';
-import { bestsellersFromBackend } from '@/components/screens/home/home.fakeData';
+import { bestsellersFromBackend } from '@/screens/home/home.fakeData';
 import { useRefreshLookStore } from '@/store';
 import css from './page.module.scss';
 import { cn } from '@/lib';
@@ -22,7 +22,7 @@ const Page = () => {
 
         <ul className={css.gridBestsellers}>
           {bestsellersFromBackend.map((el) => (
-            <li key={el.id} className={css.column}>
+            <li key={el.order_id} className={css.column}>
               <Card item={el} width={'288px'} />
             </li>
           ))}
@@ -46,7 +46,7 @@ const Page = () => {
           />
           <ul className={css.lookList}>
             {looks[0].items.map((el) => (
-              <li key={el.id} className={css.column}>
+              <li key={el.order_id} className={css.column}>
                 <Card item={el} width={'288px'} />
               </li>
             ))}

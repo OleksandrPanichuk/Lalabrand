@@ -1,6 +1,6 @@
 'use client';
 import { LinkWithCircle, SvgIcon } from '@/components/common';
-import { CategoryCard } from '@/components/screens/categories';
+import { CategoryCard } from '@/screens/categories';
 import { Routes } from '@/shared/constants';
 import { useTranslations } from 'next-intl';
 import styles from './CategoriesPicker.module.scss';

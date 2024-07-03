@@ -1,7 +1,7 @@
 'use client';
 import { SvgIcon } from '@/components/common';
 import { usePathname } from 'next/navigation';
-import { AuthAside, AuthForm } from '@/components/screens/auth';
+import { AuthAside, AuthForm } from '@/screens/auth';
 import { cn } from '@/lib';
 import css from './layout.module.scss';
 import { useTranslations } from 'next-intl';

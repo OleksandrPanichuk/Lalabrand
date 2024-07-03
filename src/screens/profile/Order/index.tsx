@@ -18,27 +18,24 @@ interface OrderProps {
 export const Order = ({ order }: OrderProps) => {
   const {
     number,
-    date,
+    created_at,
     items,
-    email,
-    name,
     deliveryMethod,
-    value,
-    discounts,
-    shippingFee,
-    taxes,
-    status,
+    total_price,
+    discount = 0,
+    shipping_fee = 0,
+    tax = 0,
+    status = 'received',
   } = order;
   const t = useTranslations('My orders.Order');
+
+  const email = 'dummy@test.com';
+  const name = 'dummy name';
 
   const onOpen = useConfirmModal((state) => state.onOpen);
   const [isShowMoreDetail, setIsShowMoreDetail] = useState(false);
 
-  const no = number.toString();
-
-  function getSum(): number {
-    return value + discounts + taxes + shippingFee;
-  }
+  const no = number?.toString() as string;
 
   function cancelHandler() {
     if (status === 'delivered') {
@@ -58,6 +55,10 @@ export const Order = ({ order }: OrderProps) => {
     setIsShowMoreDetail(!isShowMoreDetail);
   }
 
+  function getPriceValue(): number {
+    return total_price - shipping_fee + discount - tax;
+  }
+
   return (
     <>
       <p className={css.orderNo} onClick={() => copy(no)}>
@@ -70,7 +71,7 @@ export const Order = ({ order }: OrderProps) => {
       <p className={css.no} onClick={() => copy(no)}>
         {no}
       </p>{' '}
-      <p className={css.date}>{date}</p>
+      <p className={css.date}>{created_at.toString()}</p>
       <Tracker status={status} />
       <div
         className={css.imgContent}
@@ -82,11 +83,11 @@ export const Order = ({ order }: OrderProps) => {
           {items.slice(0, 3).map((el) => (
             <li key={el.id}>
               <Image
-                src={el.img}
+                src={el.image}
                 height={140}
                 width={106}
                 unoptimized
-                alt={el.alt}
+                alt={el.title}
               />
             </li>
           ))}
@@ -104,7 +105,7 @@ export const Order = ({ order }: OrderProps) => {
       {isShowMoreDetail && (
         <ul className={css.itemList}>
           {items.map((el) => (
-            <li key={el.img}></li>
+            <li key={el.image}></li>
           ))}
         </ul>
       )}
@@ -119,16 +120,16 @@ export const Order = ({ order }: OrderProps) => {
           </div>
           <div className={css.values}>
             <p>{t('Order value')}:</p>
-            <p className={css.value}>${value}</p>
+            <p className={css.value}>${getPriceValue()}</p>
             <p>{t('Discounts')}:</p>
-            <p className={css.value}>${discounts.toFixed(2)}</p>
+            <p className={css.value}>${discount.toFixed(2)}</p>
             <p>{t('Shipping fee')}:</p>{' '}
-            <p className={css.value}>${shippingFee}</p>
+            <p className={css.value}>${shipping_fee}</p>
             <p>{t('Taxes')}:</p>
-            <p className={css.value}>{taxes ? `$${taxes}` : '---'}</p>
+            <p className={css.value}>{tax ? `$${tax}` : '---'}</p>
             <div className={css.total}>
               <p>{t('Total')}:</p>
-              <p>${getSum().toFixed(2)}</p>
+              <p>{total_price.toFixed(2)}</p>
             </div>
           </div>
         </>

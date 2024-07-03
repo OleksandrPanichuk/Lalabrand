@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { looksFromBackend } from '@/components/screens/home/home.fakeData';
+import { looksFromBackend } from '@/screens/home/home.fakeData';
 
 type LookItem = {
-  id: string;
-  name: string;
-  path: string;
+  order_id: string;
+  title: string;
+  image: string;
   colors: string[];
   price: number;
 };

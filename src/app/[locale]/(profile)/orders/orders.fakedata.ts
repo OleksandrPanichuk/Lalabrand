@@ -1,33 +1,33 @@
 import { favoritesFromBackend } from '../../wishlist/wishlist.fakeData';
 
+const items = [...favoritesFromBackend];
+items.forEach((el, i) => (el.color = favoritesFromBackend[i].colors[0]));
+
 export const currentOrders = [
   {
+    id: 'string',
+    user_id: 'string',
+    total_price: 37.98,
+    shipping_fee: 4.99,
+    created_at: new Date('27/04/2024'),
+    // currency: "UAH" | "USD" | "EUR"
     number: 44774030953,
-    date: '27/03/2024',
-    items: favoritesFromBackend,
-    name: 'Yuliia Oscar',
-    email: 'yuliiaoscar@gmail.com',
+    items,
     deliveryMethod: 'Nova Poshta post office #23, Kyiv, 92809',
-    value: 32.99,
-    discounts: 0,
-    shippingFee: 4.99,
-    taxes: 0,
     status: 'received',
   },
 ];
 
 export const pastOrders = [
   {
+    id: 'string2',
+    user_id: 'string',
+    total_price: 37.98,
+    shipping_fee: 4.99,
+    created_at: new Date('12/02/2024'),
     number: 43274035437,
-    date: '12/02/2024',
-    items: favoritesFromBackend.slice(0, 2),
-    name: 'Yuliia Oscar',
-    email: 'yuliiaoscar@gmail.com',
+    items: items.slice(0, 2),
     deliveryMethod: 'Nova Poshta post office #23, Kyiv, 92809',
-    value: 32.99,
-    discounts: 0,
-    shippingFee: 4.99,
-    taxes: 0,
     status: 'delivered',
   },
 ];

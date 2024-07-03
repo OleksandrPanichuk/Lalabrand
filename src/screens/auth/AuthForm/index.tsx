@@ -30,14 +30,14 @@ export const AuthForm = () => {
   const [subscribed, setSubscribed] = useState(true);
   const [isSubmmitBtnActive, setIsSubmmitBtnActive] = useState(false);
 
-  const REGISTER = gql(`
-      mutation User($userRequest: UserRequest!) {
-        user(userRequest: $userRequest) {
-          userId
-          email
-        }
+  const REGISTER = gql`
+    mutation User($userInput: UserInput!) {
+      user(userInput: $userInput) {
+        id
+        email
       }
-    `);
+    }
+  `;
   const [user, { error: err, data: credential }] = useMutation(REGISTER);
 
   useEffect(() => {
@@ -313,7 +313,16 @@ export const AuthForm = () => {
       )}
       <button
         type="submit"
-        onClick={() => false}
+        onClick={() => {
+          user({
+            variables: {
+              userInput: {
+                password: 'Testpass8!',
+                email: 'test4@i.ua',
+              },
+            },
+          });
+        }}
         title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
         className={css.dark_btn}
         data-active={isSubmmitBtnActive}

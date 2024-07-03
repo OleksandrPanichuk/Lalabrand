@@ -5,7 +5,7 @@ import {
   OrderPreview,
   PaymentMethodPicker,
   ShippingPicker,
-} from '@/components/screens/checkout';
+} from '@/screens/checkout';
 import { cn, getUkrainianTranslation } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { useCartStore } from '@/store';

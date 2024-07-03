@@ -1,14 +1,14 @@
 'use client';
-import { SvgIcon } from '@/components/common'
-import { cn } from '@/lib'
-import { Link } from '@/shared/navigation'
-import { useCartStore, useFavoriteStore } from '@/store'
-import { Listbox, Transition } from '@headlessui/react'
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { Fragment, MouseEvent, useState } from 'react'
-import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss'
-import css from './Card.module.scss'
+import { SvgIcon } from '@/components/common';
+import { cn } from '@/lib';
+import { Link } from '@/shared/navigation';
+import { useCartStore, useFavoriteStore } from '@/store';
+import { Listbox, Transition } from '@headlessui/react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { Fragment, MouseEvent, useState } from 'react';
+import styles from '../Header/components/LanguageSelect/LanguageSelect.module.scss';
+import css from './Card.module.scss';
 
 interface CardProps {
   item: Card;
@@ -17,9 +17,9 @@ interface CardProps {
 }
 
 type Card = {
-  id: string;
-  name: string;
-  path: string;
+  order_id: string;
+  title: string;
+  image: string;
   colors: string[];
   price: number;
 };
@@ -54,7 +54,7 @@ const sizeOptions = [
 // -----------
 
 export const Card = ({ item, width, inFav }: CardProps) => {
-  const { id, name, path, colors, price } = item;
+  const { order_id: id, title: name, image: path, colors, price } = item;
 
   const t = useTranslations();
 
@@ -98,15 +98,15 @@ export const Card = ({ item, width, inFav }: CardProps) => {
 
     return addToBag({
       count: 1,
-      imageUrl: item.path,
+      imageUrl: item.image,
       name,
       price,
       size,
       itemId: id,
-      id:Math.random().toString(),
+      id: Math.random().toString(),
       colors: colors,
       color: colors[0],
-      sizes: sizeOptions.map(opt => opt.value)
+      sizes: sizeOptions.map((opt) => opt.value),
     });
   }
 

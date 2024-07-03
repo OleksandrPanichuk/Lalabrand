@@ -4,8 +4,9 @@ import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { currentOrders, pastOrders } from './orders.fakedata';
-import { Order } from '@/components/screens/profile';
+import { Order } from '@/screens/profile';
 import css from './page.module.scss';
+import { TypeOrder } from '@/shared/types';
 
 const OrdersPage = () => {
   const pathname = usePathname();
