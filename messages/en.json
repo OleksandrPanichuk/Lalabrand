@@ -1,5 +1,6 @@
 {
   "Errors": {
+    "Required":"This field is required",
     "StandardShipping": {
       "First name": "First name is too short",
       "Last name": "Last name is too short",
