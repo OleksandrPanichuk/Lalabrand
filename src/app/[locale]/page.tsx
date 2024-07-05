@@ -1,8 +1,8 @@
 'use client';
 import { Card, SvgIcon, Title } from '@/components/common';
 import { cn } from '@/lib';
-import { CategoryPreview, Hero } from '@/screens/home';
-import { bestsellersFromBackend } from '@/screens/home/home.fakeData';
+import { CategoryPreview, Hero } from '@/features/home';
+import { bestsellersFromBackend } from '@/features/home/home.fakeData';
 import { Link } from '@/shared/navigation';
 import { useRefreshLookStore } from '@/store';
 import { useTranslations } from 'next-intl';

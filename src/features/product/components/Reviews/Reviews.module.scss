@@ -1,0 +1,46 @@
+.wrapper {
+  @apply flex flex-col;
+  flex: 1;
+}
+
+.title {
+  @apply font-montserrat font-semibold;
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 156%; /* 31.2/20 */
+}
+
+.list {
+  @apply mt-4 flex flex-col gap-3;
+}
+
+.review {
+  > div {
+    @apply flex justify-between w-full gap-2 text-sm;
+    > h5 {
+      @apply font-inter font-semibold;
+      color: var(--text-color);
+    }
+  }
+  &__rating {
+    @apply flex items-center gap-1;
+
+    > p {
+      @apply font-inter font-normal underline text-xs mt-[1px];
+      color: var(--text-color);
+    }
+  }
+  &__text {
+    @apply mt-3 font-inter font-normal line-clamp-4;
+    color: var(--secondary-400);
+    font-size: 0.875rem;
+    line-height: 130%; /* 18.2/14 */
+  }
+}
+
+.more {
+  @apply mx-auto mt-6 font-inter font-semibold underline;
+  color: var(--info-500);
+  font-size: 0.875rem;
+  line-height: 130%; /* 18.2/14 */
+}

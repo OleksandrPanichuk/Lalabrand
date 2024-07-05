@@ -1,9 +1,10 @@
-import { CategoriesDisclosure } from '@/components/common';
+
 import { Breadcrumbs, BreadcrumbsItem } from '@/components/ui';
 import { cn } from '@/lib';
-import { CategoriesPicker } from '@/screens/categories';
+import { CategoriesPicker } from '@/features/categories';
 import { Routes } from '@/shared/constants';
 import styles from './page.module.scss';
+import { CategoriesDisclosure } from '@/features/categories'
 
 const Page =  () => {
   return (

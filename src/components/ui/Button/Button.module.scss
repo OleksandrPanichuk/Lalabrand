@@ -14,7 +14,7 @@
 .primary {
   border: 1px solid var(--text-color);
   background: var(--text-color);
-  color: var(--white-color);
+  color: var(--neutral-000);
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -32,7 +32,8 @@
   }
 }
 
-.gray, [type=submit].gray {
+.gray,
+[type='submit'].gray {
   border: 0.5px solid var(--neutral-300);
-  background: var(--neutral-100) ;
+  background: var(--neutral-100);
 }

@@ -1,4 +1,4 @@
-import { looksFromBackend } from '@/screens/home/home.fakeData';
+import { looksFromBackend } from '@/features/home/home.fakeData';
 import { create } from 'zustand';
 
 type LookItem = {

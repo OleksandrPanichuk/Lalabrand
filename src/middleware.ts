@@ -12,7 +12,7 @@ const nextIntlMiddleware = createMiddleware({
 });
 
 export default async function middleware(request: NextRequest) {
-  let response = NextResponse.next();
+  const intlResponse = nextIntlMiddleware(request);
 
   try {
     await axios.post(
@@ -29,17 +29,11 @@ export default async function middleware(request: NextRequest) {
       (err as AxiosError).response?.headers['set-cookie'] as unknown as string,
     );
     if (token) {
-      response.cookies.set(XSRF_TOKEN_COOKIE_NAME, token);
+      intlResponse.cookies.set(XSRF_TOKEN_COOKIE_NAME, token);
     }
   }
 
-  const intlResponse = nextIntlMiddleware(request);
-
-  intlResponse.headers.forEach((value, key) => {
-    response.headers.set(key, value);
-  });
-
-  return response;
+  return intlResponse;
 }
 
 export const config = {

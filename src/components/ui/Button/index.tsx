@@ -1,8 +1,8 @@
 import { cn } from '@/lib';
+import { Slot } from '@radix-ui/react-slot';
 import { VariantProps, cva } from 'class-variance-authority';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
 import styles from './Button.module.scss';
-import { Slot } from '@radix-ui/react-slot';
 
 const buttonVariants = cva(styles.button, {
   variants: {
@@ -13,7 +13,7 @@ const buttonVariants = cva(styles.button, {
     },
     size: {
       sm: 'text-sm font-medium p-3',
-      lg: 'text-lg font-semibold px-5 py-[15px]',
+      lg: 'text-lg font-semibold px-5 py-4',
       md: 'text-md font-semibold p-5',
       xs: 'text-xs',
     },

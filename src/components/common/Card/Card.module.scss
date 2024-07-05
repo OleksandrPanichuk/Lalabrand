@@ -7,14 +7,13 @@
     right: 16px;
     z-index: 5;
 
-   scale: 1.1;
-    } &:hover svg {
-      fill: #d59c9c;
-      // s
+    scale: 1.1;
 
+    &:hover svg {
+      fill: var(--primary-200);
+    }
     &:hover svg.choosen {
-      fill: #950707;
-      // scale: 1.1;
+      fill: var(--primary-500);
     }
 
     &:focus svg {
@@ -22,8 +21,8 @@
     }
 
     &:active svg {
-      stroke: #950707;
-      fill: #950707;
+      stroke: var(--primary-500);
+      fill: var(--primary-500);
       scale: 0.9;
     }
   }

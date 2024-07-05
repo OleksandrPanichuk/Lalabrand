@@ -7,9 +7,9 @@ import {
   OrderPreview,
   PaymentMethodPicker,
   ShippingPicker,
-} from '@/screens/checkout';
+} from '@/features/checkout';
 import { Routes } from '@/shared/constants';
-import { useCartStore } from '@/store';
+import { useCartStore } from '@/features/cart';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';

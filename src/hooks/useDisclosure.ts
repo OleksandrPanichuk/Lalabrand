@@ -32,5 +32,5 @@ export function useDisclosure(
 		isOpen ? close() : open()
 	}, [close, open, isOpen])
 
-	return { open, close, toggle, isOpen } as const
+	return { open, close, toggle, isOpen, setIsOpen } as const
 }

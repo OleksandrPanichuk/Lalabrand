@@ -2,7 +2,7 @@ import getRequestConfig from '@/i18n';
 import { constructRootMetadata } from '@/shared/metadata';
 import type { Metadata } from 'next';
 
-import { ConfirmModal, Footer, Header } from '@/components/common';
+import { Footer, Header } from '@/components/common';
 import { ApolloProvider, AuthProvider } from '@/components/providers';
 import { cn } from '@/lib';
 import { TypeUser } from '@/shared/types';
@@ -56,7 +56,6 @@ export default async function RootLayout({
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
             <AuthProvider initialUser={currentUser}>
-              <ConfirmModal />
               <Header />
               <main>{children}</main>
               <Footer />

@@ -9,7 +9,7 @@
 html,
 body {
   height: 100%;
-  background-color: var(--background);
+  background-color: var(--neutral-000);
 }
 
 main {
@@ -23,21 +23,21 @@ main {
   :root {
     --red-color: #950707; // rgb(149, 7, 7)
     --text-color: #222222; // rgb(34,34,34)
-    --white-color: rgb(250, 250, 250);
-    
+    --neutral-000: rgb(250, 250, 250);
 
     --secondary-500: rgb(34, 34, 34);
     --secondary-400: rgb(76, 76, 76);
     --secondary-300: rgb(118, 118, 118);
     --secondary-200: rgb(161, 161, 161);
     --secondary-100: rgb(203, 203, 203);
+    --secondary-000: rgb(243, 242, 242);
 
     --info-100: rgb(209, 232, 251);
     --info-200: rgb(162, 210, 248);
     --info-300: rgb(116, 187, 244);
     --info-400: rgb(69, 165, 241);
     --info-500: rgb(23, 142, 237);
-    
+
     --primary-200: rgb(213, 156, 156);
     --primary-300: rgb(170, 57, 57);
     --primary-500: rgb(149, 7, 7);
@@ -46,9 +46,9 @@ main {
     --neutral-100: rgb(228, 228, 228);
     --neutral-200: rgb(200, 200, 200);
     --neutral-300: rgb(173, 173, 173);
+    --neutral-400: rgb(145, 145, 145);
     --neutral-500: rgb(118, 118, 118);
 
-    --background: rgb(250, 250, 250);
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -92,30 +92,6 @@ main {
   }
 }
 
-@layer components {
-  .heading-1 {
-    font-weight: 700;
-    @include adaptive-value('font-size', 32, 28);
-    line-height: 112.5%; /* 36/32 */
-  }
-
-  .heading-2 {
-    @include adaptive-value('font-size', 28, 24);
-    line-height: 114.285714%; /* 32/28 */
-    font-weight: 600;
-  }
-  .heading-3 {
-    @include adaptive-value('font-size', 24, 20);
-    line-height: 116.666667%; /* 28/24 */
-    font-weight: 500;
-  }
-
-  .heading-4 {
-    @include adaptive-value('font-size', 20, 18);
-    line-height: 120%; /* 24/20 */
-    font-weight: 600;
-  }
-}
 
 .page__container {
   @include adaptive-value('padding-left', 96, 12);
