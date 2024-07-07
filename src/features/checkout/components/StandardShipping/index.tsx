@@ -1,6 +1,6 @@
 'use client';
-import { SvgIcon } from '@/components/common';
-import { useAuth } from '@/components/providers';
+import { SvgIcon } from '@/components/common'
+import { useAuth } from '@/components/providers'
 import {
   Form,
   FormControl,
@@ -9,18 +9,17 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from '@/components/ui';
-import { standardShippingSchema } from '@/shared/schemas';
-import { TypeDefaultShippingData } from '@/shared/types';
-import { useCheckoutStore } from '@/features/checkout';
-import { RadioGroup } from '@headlessui/react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import InputMask from 'react-input-mask';
-import PhoneInput from 'react-phone-input-2';
-import styles from './StandardShipping.module.scss';
+} from '@/components/ui'
+import { standardShippingSchema, useCheckoutStore } from '@/features/checkout'
+import { TypeDefaultShippingData } from '@/shared/types'
+import { RadioGroup } from '@headlessui/react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import InputMask from 'react-input-mask'
+import PhoneInput from 'react-phone-input-2'
+import styles from './StandardShipping.module.scss'
 
 type OptionProps = {
   className?: string;
@@ -241,4 +240,5 @@ StandardShipping.Form = function StandardShippingForm() {
     </Form>
   );
 };
-export { StandardShipping };
+export { StandardShipping }
+

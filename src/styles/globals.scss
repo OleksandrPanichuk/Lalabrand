@@ -6,6 +6,8 @@
 @import './variables';
 @import './mixins';
 
+@import  './common';
+
 html,
 body {
   height: 100%;
@@ -25,7 +27,10 @@ main {
     --text-color: #222222; // rgb(34,34,34)
     --neutral-000: rgb(250, 250, 250);
 
+    --alert-500: rgb(225, 13, 13);
+
     --secondary-500: rgb(34, 34, 34);
+    --secondary-450: rgb(51, 51, 51);  // #333333
     --secondary-400: rgb(76, 76, 76);
     --secondary-300: rgb(118, 118, 118);
     --secondary-200: rgb(161, 161, 161);
@@ -97,3 +102,6 @@ main {
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
 }
+
+
+

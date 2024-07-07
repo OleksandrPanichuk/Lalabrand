@@ -1,3 +1,15 @@
+.red {
+  --main: var(--primary-500);
+  --secondary: var(--primary-300);
+  --shadow: rgba(233, 66, 104, 0.25);
+}
+
+.black {
+  --main: var(--secondary-500);
+  --secondary: var(--secondary-300);
+  --shadow: rgba(203, 203, 203, 0.25);
+}
+
 .checkbox {
   appearance: none;
   position: relative;
@@ -6,8 +18,8 @@
   background: var(--neutral-000);
   transition: all 0.3s ease-in-out;
 
-  width: 1.25rem;
-  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
 
   &::before {
     content: '';
@@ -27,19 +39,19 @@
   }
 
   &:not(:disabled):hover {
-    border-color: var(--primary-500);
+    border-color: var(--main);
     background: var(--neutral-100);
   }
 
   &:not(:disabled):focus {
-    border-color: var(--primary-500);
-    box-shadow: 0px 0px 0px 2px rgba(233, 66, 104, 0.25);
+    border-color: var(--main);
+    box-shadow: 0px 0px 0px 2px var(--shadow);
     background: var(--neutral-100);
   }
 
   &.checkbox:checked {
-    border-color: var(--primary-300);
-    background: var(--primary-500);
+    border-color: var(--secondary);
+    background: var(--main);
     &::before {
       background: var(--neutral-100);
       scale: 1;

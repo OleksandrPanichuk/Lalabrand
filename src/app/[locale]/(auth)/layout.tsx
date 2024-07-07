@@ -6,12 +6,6 @@ import { useResetPasswordStore } from '@/store';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import css from './layout.module.scss';
-// import { Button } from '@/components/ui';
-
-// interface TextObject {
-//   title: string | { [key in Status]?: string };
-//   undertitle?: string | { [key in Status]?: string };
-// }
 
 export default function AuthLayout({
   children,

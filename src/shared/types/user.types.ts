@@ -1,17 +1,14 @@
 import { z } from "zod"
-import { defaultShippingInfoSchema } from "@/shared/schemas"
+import { defaultShippingInfoSchema } from "@/features/checkout"
 
 export type TypeUser = {
   id: string;
+  email: string;
 
   bonus?: number;
   firstName?: string;
   lastName?: string;
-  username: string;
-  email: string;
   phone?: string;
-  // language: 'ua' | 'en';
-  createdAt: Date;
 };
 
 export type TypeAddress = {

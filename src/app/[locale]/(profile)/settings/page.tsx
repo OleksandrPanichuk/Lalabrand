@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '@/components/providers'
+import { useAuth } from '@/components/providers';
 import {
   Button,
   Form,
@@ -10,17 +10,17 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from '@/components/ui'
-import { useClickOutside } from '@/hooks'
-import { defaultShippingInfoSchema } from '@/shared/schemas'
-import { TypeAddress, TypeDefaultShippingData } from '@/shared/types'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import ReactInputMask from 'react-input-mask'
-import PhoneInput from 'react-phone-input-2'
-import styles from './page.module.scss'
+} from '@/components/ui';
+import { defaultShippingInfoSchema } from '@/features/checkout';
+import { useClickOutside } from '@/hooks';
+import { TypeAddress, TypeDefaultShippingData } from '@/shared/types';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import ReactInputMask from 'react-input-mask';
+import PhoneInput from 'react-phone-input-2';
+import styles from './page.module.scss';
 
 const SettingsPage = () => {
   const t = useTranslations('Settings');
@@ -53,7 +53,7 @@ const SettingsPage = () => {
       address2: user.address?.address2 ?? '',
       city: user.address?.city ?? '',
       country: user.address?.country ?? '',
-      zipCode: user.address?.zipCode ?? ''
+      zipCode: user.address?.zipCode ?? '',
     });
   }, [reset, user]);
 
@@ -67,39 +67,48 @@ const SettingsPage = () => {
   }, [user, onFormReset]);
 
   const onSubmit = (values: TypeDefaultShippingData) => {
-    if(!user) return 
-    
-    const address: Partial<TypeAddress> =  {
+    if (!user) return;
+
+    const address: Partial<TypeAddress> = {
       address1: values.address1,
       address2: values.address2,
       city: values.city,
       country: values.country,
-      zipCode: values.zipCode
-    }
-    const isAddressNotEmpty = Object.values(address).some(val => !!val === true)
+      zipCode: values.zipCode,
+    };
+    const isAddressNotEmpty = Object.values(address).some(
+      (val) => !!val === true,
+    );
 
-    if(isAddressNotEmpty && !user.address) {
+    if (isAddressNotEmpty && !user.address) {
       // Make a request to backend to add user address and provide address object with id
 
-      address.id = '123'
+      address.id = '123';
     }
 
     // Make a request to update user
 
-    setUser(prev => prev ? ({
-      ...prev, 
-      firstName: values.firstName,
-      lastName: values.lastName,
-      phone: values.phone,
-      address: user.address  ? {
-        ...user.address,
-        ...address,
-      } : isAddressNotEmpty ?  {
-        ...address as Omit<TypeAddress, 'userId'>,
-        userId: prev.id,
-      } : undefined
-    }) : null)
-    
+    setUser((prev) =>
+      prev
+        ? {
+            ...prev,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            phone: values.phone,
+            address: user.address
+              ? {
+                  ...user.address,
+                  ...address,
+                }
+              : isAddressNotEmpty
+                ? {
+                    ...(address as Omit<TypeAddress, 'userId'>),
+                    userId: prev.id,
+                  }
+                : undefined,
+          }
+        : null,
+    );
   };
 
   return (

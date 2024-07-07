@@ -5,10 +5,10 @@ import type { Metadata } from 'next';
 import { Footer, Header } from '@/components/common';
 import { ApolloProvider, AuthProvider } from '@/components/providers';
 import { cn } from '@/lib';
-import { TypeUser } from '@/shared/types';
 import '@/styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { Inter, Montserrat } from 'next/font/google';
+import { Toaster } from 'sonner';
 
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
@@ -35,16 +35,16 @@ export default async function RootLayout({
 }) {
   const translations = await getRequestConfig(params);
   //TODO: fetch current user data
-  const currentUser: TypeUser = {
-    id: '1',
-    bonus: 60,
-    createdAt: new Date(),
-    email: 'example@gmail.com',
-    firstName: 'Firstname',
-    lastName: 'Lastname',
-    username: 'Oleksandr',
-    phone: '380994223232',
-  };
+  // const currentUser: TypeUser = {
+  //   id: '1',
+  //   bonus: 60,
+  //   createdAt: new Date(),
+  //   email: 'example@gmail.com',
+  //   firstName: 'Firstname',
+  //   lastName: 'Lastname',
+  //   username: 'Oleksandr',
+  //   phone: '380994223232',
+  // };
 
   return (
     <html
@@ -55,7 +55,9 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
-            <AuthProvider initialUser={currentUser}>
+            <AuthProvider initialUser={null}>
+              <Toaster />
+
               <Header />
               <main>{children}</main>
               <Footer />

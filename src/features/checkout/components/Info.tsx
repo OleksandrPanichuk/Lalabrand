@@ -1,7 +1,6 @@
 'use client';
-import { CheckoutInfo, useCheckoutStore } from '@/features/checkout';
-import { cardShippingSchema, standardShippingSchema } from '@/shared/schemas';
-import { useMemo } from 'react';
+import { CheckoutInfo, cardShippingSchema, standardShippingSchema, useCheckoutStore } from '@/features/checkout'
+import { useMemo } from 'react'
 
 export const Info = () => {
   const {

@@ -1,0 +1,21 @@
+.form {
+  @apply w-full;
+  > p:first-of-type {
+    @apply mb-8 mt-3;
+  }
+}
+
+.checkboxes {
+  @apply mt-7 flex flex-col gap-4;
+
+  > div {
+    @apply flex  items-start gap-2.5;
+  }
+}
+
+.email {
+}
+.password {
+}
+.confirm-password {
+}

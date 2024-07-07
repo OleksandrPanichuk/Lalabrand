@@ -56,7 +56,7 @@ export const AuthForm = () => {
     );
   }
 
-  function submitHandler(e: React.FormEvent | InputEvent) {
+  async function submitHandler(e: React.FormEvent | InputEvent) {
     e.preventDefault();
 
     const target = document.getElementById('authForm') as HTMLFormElement;
@@ -150,7 +150,7 @@ export const AuthForm = () => {
       variables: {
         userInput: {
           password: 'Testpass8!',
-          email: 'test4@i.ua',
+          email: 'test4@i.ua_1S',
         },
       },
     });
@@ -315,16 +315,6 @@ export const AuthForm = () => {
       )}
       <button
         type="submit"
-        onClick={() => {
-          user({
-            variables: {
-              userInput: {
-                password: 'Testpass8!',
-                email: 'test4@i.ua',
-              },
-            },
-          });
-        }}
         title={t(status ? `Auth.Buttons.${status}` : `Auth.Buttons.${page}`)}
         className={css.dark_btn}
         data-active={isSubmmitBtnActive}

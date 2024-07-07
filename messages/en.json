@@ -18,6 +18,18 @@
         "Length": "Invalid date length"
       },
       "Card number": "Invalid card number length"
+    },
+    "Auth": {
+      "Email": {
+        "Required":"Email is required",
+        "Invalid":"Invalid email address"
+      },
+      "Password":{
+        "Required":"Password is required",
+        "Confirm required":"Please, confirm your password",
+        "Invalid format":"Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
+        "No match":"Passwords don’t match"
+      }
     }
   },
   "Colors": {

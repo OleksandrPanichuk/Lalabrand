@@ -1,5 +1,14 @@
-.label {
-	@apply font-inter text-lg font-semibold;
-	color: var(--text-color);
-	
+
+
+.default {
+	@apply font-inter ;
+	color:var(--text-color)
+}
+
+.base {
+	@apply text-md font-medium;
+}
+
+.lg {
+	@apply text-lg font-semibold;
 }
