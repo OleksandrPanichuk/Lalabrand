@@ -11,9 +11,6 @@ import {
   useState,
 } from 'react';
 
-type SignInInput = {};
-
-type SignUpInput = {};
 
 type TypeAuthUser = TypeUser & {
   address?: TypeAddress;

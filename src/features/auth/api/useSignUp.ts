@@ -1,37 +1,42 @@
 import { useAuth } from '@/components/providers'
-import { SignUpInput } from '@/features/auth'
+import { SignUpInput, SignUpResponse } from '@/features/auth'
 import { SIGN_UP_MUTATION } from '@/graphql'
-import { TypeUser } from '@/shared/types'
-import { useMutation } from '@apollo/client'
+import { MutationHookOptions, useMutation } from '@apollo/client'
 import { useCallback } from 'react'
 import { toast } from 'sonner'
 
-export const useSignUp = () => {
+export const useSignUp = (options?:MutationHookOptions<SignUpResponse>) => {
   const { setUser } = useAuth();
-  const [mutate, state] = useMutation<TypeUser>(SIGN_UP_MUTATION, {
-    onCompleted: (data) => {
-      setUser(data)
 
+  const [mutate, state] = useMutation<SignUpResponse>(SIGN_UP_MUTATION, {
+    ...options,
+    onCompleted: ({user}) => {
+      setUser(user);
+
+      options?.onCompleted?.({user})
     },
     onError: (error) => {
-			if(error.message && !!error.graphQLErrors[0]) {
-				return toast.error(error.message);
-			}
+      options?.onError?.(error)
+      if (error.message && !!error.graphQLErrors[0]) {
+        return toast.error(error.message);
+      }
       toast.error('Failed to sign up');
     },
   });
 
-  const signUp = useCallback((input: SignUpInput) => {
-    return mutate({
-      variables: {
-        input: {
-          email: input.email,
-          password: input.password,
+  const signUp = useCallback(
+    (input: SignUpInput) => {
+      return mutate({
+        variables: {
+          input: {
+            email: input.email,
+            password: input.password,
+          },
         },
-      },
-    });
-  }, [mutate]);
+      });
+    },
+    [mutate],
+  );
 
-
-	return [signUp, state] as const
+  return [signUp, state] as const;
 };

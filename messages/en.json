@@ -28,7 +28,8 @@
         "Required":"Password is required",
         "Confirm required":"Please, confirm your password",
         "Invalid format":"Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
-        "No match":"Passwords don’t match"
+        "No match":"Passwords don’t match",
+        "Short":"Password is too short"
       }
     }
   },

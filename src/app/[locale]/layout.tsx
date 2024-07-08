@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import { Footer, Header } from '@/components/common';
 import { ApolloProvider, AuthProvider } from '@/components/providers';
+import { currentUser } from '@/features/profile';
 import { cn } from '@/lib';
 import '@/styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
@@ -34,17 +35,7 @@ export default async function RootLayout({
   };
 }) {
   const translations = await getRequestConfig(params);
-  //TODO: fetch current user data
-  // const currentUser: TypeUser = {
-  //   id: '1',
-  //   bonus: 60,
-  //   createdAt: new Date(),
-  //   email: 'example@gmail.com',
-  //   firstName: 'Firstname',
-  //   lastName: 'Lastname',
-  //   username: 'Oleksandr',
-  //   phone: '380994223232',
-  // };
+  const user = await currentUser();
 
   return (
     <html
@@ -55,7 +46,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider {...translations}>
           <ApolloProvider>
-            <AuthProvider initialUser={null}>
+            <AuthProvider initialUser={user}>
               <Toaster />
 
               <Header />
