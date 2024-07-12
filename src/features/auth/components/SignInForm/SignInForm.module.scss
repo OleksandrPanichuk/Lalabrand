@@ -6,7 +6,7 @@
 }
 
 .password__forgot {
-  @apply font-inter text-md font-normal text-end flex-1;
+  @apply font-inter text-md font-normal ;
   color: var(--secondary-300);
   transition: all 0.3s ease-in-out;
 

@@ -20,6 +20,7 @@ export const useSignUp = (options?:MutationHookOptions<SignUpResponse>) => {
       if (error.message && !!error.graphQLErrors[0]) {
         return toast.error(error.message);
       }
+      // TODO: Add error translation
       toast.error('Failed to sign up');
     },
   });

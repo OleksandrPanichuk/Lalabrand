@@ -37,6 +37,8 @@ export default async function RootLayout({
   const translations = await getRequestConfig(params);
   const user = await currentUser();
 
+  console.log('USER', { userId: user?.id });
+
   return (
     <html
       lang={params.locale}

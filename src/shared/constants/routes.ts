@@ -5,6 +5,7 @@ export enum Routes {
   SHOP_MEN = '/shop?category=men',
   SHOP_KIDS = '/shop?category=kids',
   SHOP_ACCESSORIES = '/shop?category=accessories',
+  
   SALE = '/sale',
   WISHLIST = '/wishlist',
   CUSTOMER_SERVICE = '/customer-service',
@@ -25,11 +26,11 @@ export enum Routes {
   ORDERS = '/orders',
   SETTINGS = '/settings',
   REWARDS = '/rewards',
-  TERMS_OF_USE = "/terms",
+  TERMS_OF_USE = '/terms',
   PRIVACY_POLICY = '/privacy-policy',
   // Auth Links
   SIGN_UP = '/sign-up',
   SIGN_IN = '/sign-in',
-  FORGOT_PASSWORD = '/forgot-password'
-
+  FORGOT_PASSWORD = '/password/forgot',
+  RESET_PASSWORD = '/password/reset',
 }

@@ -2,7 +2,7 @@ import {
   ACCESS_TOKEN_COOKIE_NAME,
   XSRF_TOKEN_COOKIE_NAME,
 } from '@/shared/constants';
-import { ApolloLink, HttpLink } from '@apollo/client';
+import { ApolloLink, concat, HttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import {
   NextSSRApolloClient,
@@ -11,26 +11,29 @@ import {
 } from '@apollo/experimental-nextjs-app-support/ssr';
 import { getCookie } from 'cookies-next';
 
-const authLink = setContext(() => {
+const tokenLink = setContext((_, { headers: prevHeaders }) => {
   // TODO: validate Access Token before setting it in httpLink headers(check if it has expired or not)
-  const token = getCookie(ACCESS_TOKEN_COOKIE_NAME);
+  const accessToken = getCookie(ACCESS_TOKEN_COOKIE_NAME);
 
-  if (!token) return {};
+  const XSRFToken = getCookie(XSRF_TOKEN_COOKIE_NAME) ?? '';
+
+  const headers: Record<string, string> = {
+    ...prevHeaders,
+    'X-XSRF-TOKEN': XSRFToken,
+  };
+
+  if (accessToken) {
+    headers['authorization'] = 'Bearer ' + accessToken;
+  }
 
   return {
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
+    headers: headers,
   };
 });
 
 export function makeClient() {
   const httpLink = new HttpLink({
     uri: '/api/graphql',
-    headers: {
-      'apollo-require-preflight': 'true',
-      'X-XSRF-TOKEN': getCookie(XSRF_TOKEN_COOKIE_NAME) ?? '',
-    },
     credentials: 'include',
   });
 
@@ -45,8 +48,8 @@ export function makeClient() {
             new SSRMultipartLink({
               stripDefer: true,
             }),
-            authLink.concat(httpLink),
+            concat(tokenLink, httpLink),
           ])
-        : authLink.concat(httpLink),
+        : concat(tokenLink, httpLink),
   });
 }

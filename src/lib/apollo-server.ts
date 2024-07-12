@@ -4,8 +4,7 @@ import {
   ACCESS_TOKEN_COOKIE_NAME,
   XSRF_TOKEN_COOKIE_NAME,
 } from '@/shared/constants';
-import { HttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { ApolloLink, HttpLink } from '@apollo/client';
 import { registerApolloClient } from '@apollo/experimental-nextjs-app-support/rsc';
 import {
   NextSSRApolloClient,
@@ -13,38 +12,47 @@ import {
 } from '@apollo/experimental-nextjs-app-support/ssr';
 import { cookies } from 'next/headers';
 
-const authLink = setContext(async () => {
-  const token = cookies().get(ACCESS_TOKEN_COOKIE_NAME);
+const responseLink = new ApolloLink((operation, forward) => {
+  return forward(operation).map((response) => {
+    const context = operation.getContext();
+    const {
+      response: { headers },
+    } = context;
+    // TODO: check whether backend sets new XSRF token and set add it to cookies
 
-  if (!token?.value) return {};
-
-  return {
-    headers: {
-      Authorization: `Bearer ${token.value}`,
-    },
-  };
+    return response;
+  });
 });
 
 export const { getClient } = registerApolloClient(() => {
+  const XSRFtoken = cookies().get(XSRF_TOKEN_COOKIE_NAME)?.value ?? '';
+  const accessToken = cookies().get(ACCESS_TOKEN_COOKIE_NAME);
+
+  const headers: Record<string, string> = {
+    'X-XSRF-TOKEN': XSRFtoken,
+  };
+
+  if (accessToken?.value) {
+    headers['Authorization'] = 'Bearer ' + accessToken.value;
+  }
+
   const httpLink = new HttpLink({
     uri: 'http://localhost:3000/api/graphql',
-    headers: {
-      'apollo-require-preflight': 'true',
-      Cookie: cookies().toString(),
-      'X-XSRF-TOKEN': cookies().get(XSRF_TOKEN_COOKIE_NAME)?.value ?? '',
-    },
-    
     credentials: 'include',
+    headers: {
+      ...headers,
+      Cookie: cookies().toString(),
+      'apollo-require-preflight': 'true',
+    },
   });
 
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
-    link: authLink.concat(httpLink),
+    link: responseLink.concat(httpLink),
     defaultOptions: {
       query: {
-        fetchPolicy:"no-cache",
+        fetchPolicy: 'no-cache',
       },
-    }
+    },
   });
 });
-

@@ -81,7 +81,13 @@ export const SignUpForm = () => {
             <FormItem>
               <FormLabel size="base">{t('Labels.Email')}</FormLabel>
               <FormControl>
-                <Input {...field} type="email" size="lg" disabled={loading} />
+                <Input
+                  {...field}
+                  type="email"
+                  size="lg"
+                  placeholder="example@gmail.com"
+                  disabled={loading}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

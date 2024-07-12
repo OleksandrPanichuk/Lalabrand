@@ -15,9 +15,15 @@ export function insertCookieFromString(
     const value = rest.join('=').trim();
     if (
       name.trim() &&
-      !['Path', 'Domain', 'Expires', 'Max-Age', 'SameSite', 'Secure', 'HttpOnly'].some(
-        (attr) => name.trim().includes(attr),
-      )
+      ![
+        'Path',
+        'Domain',
+        'Expires',
+        'Max-Age',
+        'SameSite',
+        'Secure',
+        'HttpOnly',
+      ].some((attr) => name.trim().includes(attr))
     ) {
       cookies[name.trim()] = value;
     }

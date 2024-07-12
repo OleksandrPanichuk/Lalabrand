@@ -28,9 +28,9 @@ export const SignInForm = () => {
     mode: 'onBlur',
   });
 
-  const router  =useRouter()
+  const router = useRouter();
   const [signIn, { loading }] = useSignIn({
-    onCompleted:() => router.push(Routes.ROOT)
+    // onCompleted: () => router.push(Routes.ROOT),
   });
 
   const {
@@ -39,9 +39,7 @@ export const SignInForm = () => {
     formState: { isValid },
   } = form;
 
-  const onSubmit =  (values: SignInFormValues) => signIn(values)
-
-  
+  const onSubmit = (values: SignInFormValues) => signIn(values);
 
   return (
     <Form {...form}>
@@ -56,7 +54,13 @@ export const SignInForm = () => {
             <FormItem className={styles.email}>
               <FormLabel size="base">{t('Labels.Email')}</FormLabel>
               <FormControl>
-                <Input {...field} type="email" size="lg" disabled={loading} />
+                <Input
+                  {...field}
+                  type="email"
+                  size="lg"
+                  placeholder="example@gmail.com"
+                  disabled={loading}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,6 +78,7 @@ export const SignInForm = () => {
               </FormControl>
               <div className={'flex justify-between items-center w-full gap-2'}>
                 <FormMessage />
+                <div className="flex-1" />
                 <Link
                   href={Routes.FORGOT_PASSWORD}
                   className={styles.password__forgot}
