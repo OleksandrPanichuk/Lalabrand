@@ -1,3 +1,4 @@
-export * from './useSignUp';
+export * from './useResetPassword';
+export * from './useSendResetPassCode';
 export * from './useSignIn';
-export * from './useSendResetPassCode'
+export * from './useSignUp';

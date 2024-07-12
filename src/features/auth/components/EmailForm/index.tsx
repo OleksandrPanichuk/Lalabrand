@@ -24,11 +24,13 @@ export const EmailForm = () => {
   const t = useTranslations('Auth');
   const form = useForm<EmailFormValues>({
     resolver: zodResolver(emailFormSchema),
+    mode: 'onBlur',
   });
 
   const router = useRouter();
   const [sendResetPassToken, { loading }] = useSendResetPassCode({
     onCompleted: () => {
+      localStorage.setItem('lalabrand:email', form.getValues().email);
       router.push(Routes.RESET_PASSWORD);
     },
   });
@@ -75,13 +77,7 @@ export const EmailForm = () => {
         >
           {t('Buttons.forgot')}
         </Button>
-        <Button
-          asChild
-          variant="outline"
-          size="lg"
-          type="button"
-          disabled={loading}
-        >
+        <Button asChild variant="outline" size="lg" disabled={loading}>
           <Link href={Routes.SIGN_IN}>{t('Buttons.backToSignin')}</Link>
         </Button>
       </form>

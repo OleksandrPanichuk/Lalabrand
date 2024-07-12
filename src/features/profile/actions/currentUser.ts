@@ -12,7 +12,6 @@ export async function currentUser(): Promise<TypeUser | null> {
 
     return data.user;
   } catch (err) {
-    console.log('ERROR', (err as any)?.networkError?.response);
     return null;
   }
 }

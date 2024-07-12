@@ -20,6 +20,10 @@
       "Card number": "Invalid card number length"
     },
     "Auth": {
+      "Code": {
+        "Invalid":"Invalid code",
+        "Required":"Code is required"
+      },
       "Email": {
         "Required":"Email is required",
         "Invalid":"Invalid email address"

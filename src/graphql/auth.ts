@@ -26,3 +26,12 @@ export const SEND_RESET_PASSWORD_TOKEN_MUTATION = gql`
     }
   }
 `;
+
+export const RESET_PASSWORD_MUTATION = gql`
+  mutation ResetPassword($input: PasswordResetInput!) {
+    resetPasswordByToken(passwordResetInput: $input) {
+      success
+      message
+    }
+  }
+`;

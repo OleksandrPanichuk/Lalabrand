@@ -15,6 +15,12 @@ export type ResetPasswordFormValues = z.infer<typeof resetPasswordFormSchema>;
 export type SignUpInput = Pick<SignUpFormValues, 'email' | 'password'>;
 export type SignInInput = SignInFormValues;
 export type SendResetPassTokenInput = EmailFormValues;
+export type ResetPasswordInput = Omit<
+  ResetPasswordFormValues,
+  'confirmPassword'
+> &
+  EmailFormValues;
+
 
 export type SignUpResponse = {
   user: Pick<TypeUser, 'email' | 'id'>;
