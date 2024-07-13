@@ -20,6 +20,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
+import styles from './EmailForm.module.scss';
+
 export const EmailForm = () => {
   const t = useTranslations('Auth');
   const form = useForm<EmailFormValues>({
@@ -45,9 +47,9 @@ export const EmailForm = () => {
 
   return (
     <Form {...form}>
-      <form onClick={handleSubmit(onSubmit)} className="w-full">
-        <h1 className={'auth__title'}>{t('Title.forgot')}</h1>
-        <p className={'auth__undertitle mb-8 mt-3'}>{t('Undertitle.forgot')}</p>
+      <form onClick={handleSubmit(onSubmit)} className={styles.form}>
+        <h1 className={styles.title}>{t('Title.forgot')}</h1>
+        <p className={styles.undertitle}>{t('Undertitle.forgot')}</p>
 
         <FormField
           control={control}
@@ -70,7 +72,7 @@ export const EmailForm = () => {
         />
 
         <Button
-          className="w-full mt-[3rem] mb-4 py-[15px]"
+          className={styles.submitBtn}
           size={'lg'}
           type="submit"
           disabled={!isValid || loading}

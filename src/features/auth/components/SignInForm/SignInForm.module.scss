@@ -1,16 +1,45 @@
 .form {
   @apply w-full;
-  > p:first-of-type {
-    @apply mb-8 mt-3;
+}
+
+.title {
+  @apply font-montserrat text-3xl font-bold;
+  color: var(--secondary-450);
+}
+
+.undertitle {
+  @apply font-inter text-md font-normal  mb-8 mt-3;
+  color: var(--secondary-200);
+}
+
+.password {
+  @apply mt-6 flex flex-col;
+  & > label {
+    @apply mb-3;
+  }
+  & > div:last-of-type {
+    @apply flex justify-between items-center w-full gap-2 mt-1.5;
   }
 }
 
-.password__forgot {
-  @apply font-inter text-md font-normal ;
+.passwordForgot {
+  @apply font-inter text-sm font-normal;
   color: var(--secondary-300);
   transition: all 0.3s ease-in-out;
-
   &:hover {
     color: var(--secondary-500);
+  }
+}
+
+.submitBtn {
+  @apply w-full mt-12 py-[15px];
+}
+
+.noAccount {
+  @apply text-center  mt-6.5 text-base font-inter font-medium;
+  color: rgb(60, 66, 66);
+  > a {
+    @apply underline;
+    color: var(--info-500);
   }
 }

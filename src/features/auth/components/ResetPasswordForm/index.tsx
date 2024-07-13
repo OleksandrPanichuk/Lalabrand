@@ -9,21 +9,24 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from '@/components/ui'
+} from '@/components/ui';
 import {
   isValidPassword,
   resetPasswordFormSchema,
   ResetPasswordFormValues,
   useResetPassword,
   useSendResetPassCode,
-} from '@/features/auth'
-import { cn } from '@/lib'
-import { Routes } from '@/shared/constants'
-import { Link, useRouter } from '@/shared/navigation'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+} from '@/features/auth';
+import { cn } from '@/lib';
+import { Routes } from '@/shared/constants';
+import { Link, useRouter } from '@/shared/navigation';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { toast } from 'sonner';
+import styles from './ResetPasswordForm.module.scss';
 
 export const ResetPasswordForm = () => {
   const t = useTranslations('Auth');
@@ -33,7 +36,6 @@ export const ResetPasswordForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // TODO: rewrite using session storage
     const emailFromStorage = sessionStorage.getItem('lalabrand:email');
     if (!emailFromStorage) {
       router.push(Routes.FORGOT_PASSWORD);
@@ -42,7 +44,9 @@ export const ResetPasswordForm = () => {
     }
   }, [router]);
 
-  const [resendToken] = useSendResetPassCode();
+  const [resendToken] = useSendResetPassCode({
+    onCompleted: () => toast.success(t('Toasts.Check email')),
+  });
   const [resetPassword, { loading }] = useResetPassword({
     onCompleted: () => router.push(Routes.SIGN_IN),
   });
@@ -79,7 +83,7 @@ export const ResetPasswordForm = () => {
     }
   };
 
-  const onSubmit = ({token, password}: ResetPasswordFormValues) => {
+  const onSubmit = ({ token, password }: ResetPasswordFormValues) => {
     if (!email) {
       return;
     }
@@ -101,14 +105,15 @@ export const ResetPasswordForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={cn(status !== 'verification' && 'hidden')}>
-          <h1 className={'auth__title'}>{t('Title.checkEmail')}</h1>
-          <p className={'auth__undertitle mb-8 mt-3'}>
+          <h1 className={styles.title}>{t('Title.checkEmail')}</h1>
+          <p className={styles.undertitle}>
             {t('Undertitle.checkEmail')}
             <button
               onClick={onResend}
-              className="font-semibold text-[var(--primary-500)]"
+              type="button"
+              className={styles.resendBtn}
             >
               {t('Buttons.resend')}
             </button>
@@ -127,7 +132,7 @@ export const ResetPasswordForm = () => {
             )}
           />
           <Button
-            className="w-full mt-[3rem] mb-4 py-[15px]"
+            className={styles.submitBtn}
             size={'lg'}
             type="button"
             disabled={!!errors.token}
@@ -141,20 +146,18 @@ export const ResetPasswordForm = () => {
         </div>
 
         <div className={cn(status !== 'creation' && 'hidden')}>
-          <h1 className={'auth__title'}>{t('Title.reset')}</h1>
-          <p className={'auth__undertitle mb-8 mt-3'}>
-            {t('Undertitle.reset')}
-          </p>
+          <h1 className={styles.title}>{t('Title.reset')}</h1>
+          <p className={styles.undertitle}>{t('Undertitle.reset')}</p>
           <FormField
             control={control}
             name="password"
             render={({ field }) => (
-              <FormItem className={'mt-6'}>
+              <FormItem headless className={styles.password}>
                 <FormLabel size="base">{t('Labels.Password')}</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
-                    type="text"
+                    type="password"
                     size="lg"
                     disabled={loading}
                     onBlur={() => {
@@ -166,12 +169,13 @@ export const ResetPasswordForm = () => {
 
                 <FormDescription
                   className={cn(
+                    'mt-2',
                     !!field.value && !isValidPassword(field.value) && 'hidden',
                   )}
                 >
                   {t('Text.create password')}
                 </FormDescription>
-                <FormMessage className="my-2" />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
@@ -180,7 +184,7 @@ export const ResetPasswordForm = () => {
             control={control}
             name="confirmPassword"
             render={({ field }) => (
-              <FormItem className={'min-h-[114px] mt-6'}>
+              <FormItem className={styles.confirmPassword}>
                 <FormLabel size="base">
                   {t('Labels.Confirm password')}
                 </FormLabel>
@@ -202,7 +206,7 @@ export const ResetPasswordForm = () => {
           />
 
           <Button
-            className="w-full mt-[3rem] mb-4 py-[15px]"
+            className={styles.submitBtn}
             size={'lg'}
             type="submit"
             disabled={!isValid || loading}

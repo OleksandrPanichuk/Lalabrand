@@ -1,0 +1,19 @@
+.form {
+  @apply w-full;
+}
+
+.title {
+  @apply font-montserrat text-3xl font-bold;
+  color: var(--secondary-450);
+}
+
+.undertitle {
+  @apply font-inter text-md font-normal  mb-8 mt-3;
+  color: var(--secondary-200);
+}
+
+
+
+.submitBtn {
+	@apply w-full mt-12 mb-4 py-[15px];
+}

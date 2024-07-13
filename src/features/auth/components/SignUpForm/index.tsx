@@ -71,8 +71,8 @@ export const SignUpForm = () => {
   return (
     <Form {...form}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <h1 className={'auth__title'}>{t('Title.signup')}</h1>
-        <p className={'auth__undertitle'}>{t('Undertitle.signup')}</p>
+        <h1 className={styles.title}>{t('Title.signup')}</h1>
+        <p className={styles.undertitle}>{t('Undertitle.signup')}</p>
 
         <FormField
           control={control}
@@ -98,7 +98,7 @@ export const SignUpForm = () => {
           control={control}
           name="password"
           render={({ field }) => (
-            <FormItem className={'mt-6'}>
+            <FormItem headless className={styles.password}>
               <FormLabel size="base">{t('Labels.Password')}</FormLabel>
               <FormControl>
                 <Input
@@ -115,12 +115,13 @@ export const SignUpForm = () => {
 
               <FormDescription
                 className={cn(
+                  'mt-2',
                   !!field.value && !isValidPassword(field.value) && 'hidden',
                 )}
               >
                 {t('Text.create password')}
               </FormDescription>
-              <FormMessage className="my-2" />
+              <FormMessage className="mt-2" />
             </FormItem>
           )}
         />
@@ -129,7 +130,7 @@ export const SignUpForm = () => {
           control={control}
           name="confirmPassword"
           render={({ field }) => (
-            <FormItem className={'min-h-[114px] mt-6'}>
+            <FormItem className={styles.confirmPassword}>
               <FormLabel size="base">{t('Labels.Confirm password')}</FormLabel>
               <FormControl>
                 <Input
@@ -196,20 +197,16 @@ export const SignUpForm = () => {
         </div>
 
         <Button
-          className="w-full mt-[3rem] py-[15px]"
+          className={styles.submitBtn}
           size={'lg'}
           type="submit"
           disabled={!isValid || loading}
         >
           {t('Buttons.signup')}
         </Button>
-        <p className="text-center  mt-6 text-base font-inter font-medium text-[rgb(60, 66, 66)]">
+        <p className={styles.alreadyHave}>
           {t('Text.have account')}
-          <Link
-            className="text-[var(--info-500)] underline"
-            href={Routes.SIGN_IN}
-            prefetch
-          >
+          <Link href={Routes.SIGN_IN} prefetch>
             {t('Buttons.signin')}
           </Link>
         </p>

@@ -197,6 +197,9 @@
     "Place order": "Place order"
   },
   "Auth": {
+    "Toasts":{
+      "Check email": "Check your email"
+    },
     "Title": {
       "signin": "Sign In",
       "signup": "Sign Up",

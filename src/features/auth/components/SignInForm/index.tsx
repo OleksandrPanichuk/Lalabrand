@@ -11,13 +11,13 @@ import {
   PasswordInput,
 } from '@/components/ui';
 import { SignInFormValues, signInSchema, useSignIn } from '@/features/auth';
+import { cn } from '@/lib';
+import { Routes } from '@/shared/constants';
+import { Link, useRouter } from '@/shared/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
-import { cn } from '@/lib';
-import { Routes } from '@/shared/constants';
-import { Link, useRouter } from '@/shared/navigation';
 import styles from './SignInForm.module.scss';
 
 export const SignInForm = () => {
@@ -30,7 +30,7 @@ export const SignInForm = () => {
 
   const router = useRouter();
   const [signIn, { loading }] = useSignIn({
-    // onCompleted: () => router.push(Routes.ROOT),
+    onCompleted: () => router.push(Routes.ROOT),
   });
 
   const {
@@ -44,8 +44,8 @@ export const SignInForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <h1 className={'auth__title'}>{t('Title.signin')}</h1>
-        <p className={'auth__undertitle'}>{t('Undertitle.signin')}</p>
+        <h1 className={styles.title}>{t('Title.signin')}</h1>
+        <p className={styles.undertitle}>{t('Undertitle.signin')}</p>
 
         <FormField
           control={control}
@@ -71,17 +71,17 @@ export const SignInForm = () => {
           control={control}
           name="password"
           render={({ field }) => (
-            <FormItem className={cn(styles.password, 'mt-6')}>
+            <FormItem headless className={styles.password}>
               <FormLabel size="base">{t('Labels.Password')}</FormLabel>
               <FormControl>
                 <PasswordInput {...field} size="lg" disabled={loading} />
               </FormControl>
-              <div className={'flex justify-between items-center w-full gap-2'}>
+              <div>
                 <FormMessage />
                 <div className="flex-1" />
                 <Link
                   href={Routes.FORGOT_PASSWORD}
-                  className={styles.password__forgot}
+                  className={styles.passwordForgot}
                 >
                   {t('Buttons.Forgot password')}
                 </Link>
@@ -91,20 +91,16 @@ export const SignInForm = () => {
         />
 
         <Button
-          className="w-full mt-[3rem] py-[15px]"
+          className={styles.submitBtn}
           size={'lg'}
           type="submit"
           disabled={!isValid || loading}
         >
           {t('Buttons.signin')}
         </Button>
-        <p className="text-center  mt-6 text-base font-inter font-medium text-[rgb(60, 66, 66)]">
+        <p className={styles.noAccount}>
           {t('Text.create account')}
-          <Link
-            href={Routes.SIGN_UP}
-            className="text-[var(--info-500)] underline"
-            prefetch
-          >
+          <Link href={Routes.SIGN_UP} prefetch>
             {t('Buttons.signup')}
           </Link>
         </p>
