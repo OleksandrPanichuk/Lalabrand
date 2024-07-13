@@ -6,8 +6,6 @@
 @import './variables';
 @import './mixins';
 
-@import  './common';
-
 html,
 body {
   height: 100%;
@@ -102,6 +100,4 @@ main {
   @include adaptive-value('padding-left', 96, 12);
   @include adaptive-value('padding-right', 96, 12);
 }
-
-
 

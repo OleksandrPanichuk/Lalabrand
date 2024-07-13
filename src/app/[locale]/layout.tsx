@@ -11,6 +11,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { Inter, Montserrat } from 'next/font/google';
 import { Toaster } from 'sonner';
 
+// TODO: global: update all components which use @headlessui/react
+
 const montserrat = Montserrat({
   weight: ['600', '400', '500'],
   subsets: ['cyrillic', 'latin'],
