@@ -30,7 +30,7 @@ export const EmailForm = () => {
   const router = useRouter();
   const [sendResetPassToken, { loading }] = useSendResetPassCode({
     onCompleted: () => {
-      localStorage.setItem('lalabrand:email', form.getValues().email);
+      sessionStorage.setItem('lalabrand:email', form.getValues().email);
       router.push(Routes.RESET_PASSWORD);
     },
   });

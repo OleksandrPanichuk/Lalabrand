@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { isValidPassword } from '../utils'
+import { isValidPassword } from '@/features/auth'
 
 const emailSchema = z
   .string({ required_error: 'Auth.Email.Required' })

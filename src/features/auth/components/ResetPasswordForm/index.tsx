@@ -33,7 +33,8 @@ export const ResetPasswordForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const emailFromStorage = localStorage.getItem('lalabrand:email');
+    // TODO: rewrite using session storage
+    const emailFromStorage = sessionStorage.getItem('lalabrand:email');
     if (!emailFromStorage) {
       router.push(Routes.FORGOT_PASSWORD);
     } else {
