@@ -6,7 +6,7 @@
 }
 
 .link, .signOut {
-	@apply group flex w-full items-center gap-2 rounded-lg py-1.5 px-3  transition-all font-medium;
+	@apply flex w-full items-center gap-2 rounded-lg py-1.5 px-3  transition-all font-medium;
 }
 
 .link {
