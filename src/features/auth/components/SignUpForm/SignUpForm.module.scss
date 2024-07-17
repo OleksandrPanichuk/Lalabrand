@@ -1,0 +1,46 @@
+.form {
+  @apply w-full;
+}
+
+.title {
+  @apply font-montserrat text-3xl font-bold;
+  color: var(--secondary-450);
+}
+
+.undertitle {
+  @apply font-inter text-md font-normal mb-8 mt-3;
+  color: var(--secondary-200);
+}
+
+.checkboxes {
+  @apply mt-7 flex flex-col gap-4;
+
+  > div {
+    @apply flex  items-start gap-2.5;
+  }
+}
+
+.password {
+  @apply mt-6 flex flex-col;
+  > label {
+    @apply mb-3;
+  }
+}
+
+.confirmPassword {
+  @apply min-h-[114px] mt-6.5;
+}
+
+.submitBtn {
+  @apply w-full mt-12 py-[15px];
+}
+
+.alreadyHave {
+  @apply text-center  mt-6.5 text-base font-inter font-medium;
+  color: rgb(60, 66, 66);
+
+  > a {
+    @apply underline;
+    color: var(--info-500);
+  }
+}

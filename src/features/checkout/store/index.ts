@@ -1,11 +1,15 @@
-import { cardShippingSchema } from '@/shared/schemas'
-import { PaymentMethod, ShippingVariant, TypeDefaultShippingData } from '@/shared/types';
-import { z } from 'zod'
+import { cardShippingSchema } from '@/features/checkout';
+import {
+  PaymentMethod,
+  ShippingVariant,
+  TypeDefaultShippingData,
+} from '@/shared/types';
+import { z } from 'zod';
 import { create } from 'zustand';
 
 type StandardShippingData = TypeDefaultShippingData;
 
-type CardData = Partial<z.infer<typeof cardShippingSchema>>
+type CardData = Partial<z.infer<typeof cardShippingSchema>>;
 
 interface ICheckoutStore {
   shippingVariant: ShippingVariant;

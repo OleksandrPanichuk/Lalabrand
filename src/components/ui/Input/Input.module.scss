@@ -1,5 +1,5 @@
 .input {
-  @apply font-inter;
+  @apply font-inter  bg-white;
   border: 0.5px solid var(--neutral-300);
 
   &::placeholder {
@@ -13,14 +13,43 @@
 
 .md {
   @apply text-md font-normal;
-  padding: 17px 16px;
+  padding: 1.0625rem 1rem;
 }
 
 .lg {
-  @apply text-lg font-normal;
+  @apply text-md font-normal;
   padding: 0.9375rem 1.5rem;
 }
 
-input.invalid {
-  border: 0.5px solid var(--red-color);
+input.invalid, .input[data-invalid=true], .password-input[data-invalid=true] {
+  border: 0.5px solid var(--alert-500) !important;
+}
+
+.password-input {
+  @apply relative;
+
+  > button {
+    @apply absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover {
+      > svg {
+        fill: var(--primary-300) !important;
+        stroke: var(--primary-300) !important ;
+      }
+    }
+  }
+  > input {
+    @apply w-full;
+  }
+
+  &__base button {
+    right: 0.75rem;
+  }
+  &__md button {
+    right: 1rem;
+  }
+  &__lg button {
+    right: 1.5rem;
+  }
 }

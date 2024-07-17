@@ -9,16 +9,21 @@ import { links } from './layout.data';
 import styles from './layout.module.scss';
 
 const ProfileLayout = ({ children }: PropsWithChildren) => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const pathname = usePathname();
   const t = useTranslations('Profile.Sidebar');
+
+  // TODO: Sign Out functionality
+  const signOut = () => {};
 
   if (!user) return redirect(Routes.SIGN_IN);
 
   return (
     <div className={cn(styles.wrapper, 'page__container')}>
       <aside>
-        <h1>Hi, {user.username}</h1>
+        <h1>
+          Hi {!!user.firstName && `, ${user.firstName} ${user.lastName ?? ''}`}
+        </h1>
         <div className={styles.bonus}>
           <p>
             {getUkrainianTranslation(user.bonus ?? 0, {

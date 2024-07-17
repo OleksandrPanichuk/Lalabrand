@@ -19,6 +19,23 @@
         "Length": "Invalid date length"
       },
       "Card number": "Invalid card number length"
+    },
+    "Auth": {
+      "Code": {
+        "Invalid":"Invalid code",
+        "Required":"Code is required"
+      },
+      "Email": {
+        "Required":"Email is required",
+        "Invalid":"Invalid email address"
+      },
+      "Password":{
+        "Required":"Password is required",
+        "Confirm required":"Please, confirm your password",
+        "Invalid format":"Use 8 or more characters with a mix of letters, numbers & symbols such @$!%*?&",
+        "No match":"Passwords don’t match",
+        "Short":"Password is too short"
+      }
     }
   },
   "Colors": {
@@ -181,6 +198,9 @@
     "Place order": "Place order"
   },
   "Auth": {
+    "Toasts":{
+      "Check email": "Check your email"
+    },
     "Title": {
       "signin": "Sign In",
       "signup": "Sign Up",
@@ -213,7 +233,7 @@
       "Privacy": "Privacy Policy",
       "signin": "Sign In",
       "signup": "Sign Up",
-      "forgot": "Send link",
+      "forgot": "Send code",
       "checkEmail": "Submit",
       "backToSignin": "Back to Sign In",
       "reset": "Reset password",

@@ -9,7 +9,7 @@ import {
   FormMessage,
   Input,
 } from '@/components/ui';
-import { cardShippingSchema } from '@/shared/schemas';
+import { cardShippingSchema } from '@/features/checkout';
 import { useCheckoutStore } from '@/features/checkout';
 import { RadioGroup } from '@headlessui/react';
 import { zodResolver } from '@hookform/resolvers/zod';

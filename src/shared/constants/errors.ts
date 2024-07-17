@@ -1,0 +1,7 @@
+export enum GQLErrorsClassifications {
+  NOT_FOUND = 'NOT_FOUND',
+  VALIDATION_ERROR = 'ValidationError',
+  BAD_REQUEST = 'BAD_REQUEST',
+  INTERNAL_ERROR = 'INTERNAL_ERROR',
+  UNAUTHORIZED = 'UNAUTHORIZED',
+}
