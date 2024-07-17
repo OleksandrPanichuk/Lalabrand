@@ -1,15 +1,15 @@
-import getRequestConfig from '@/i18n';
-import { constructRootMetadata } from '@/shared/metadata';
-import type { Metadata } from 'next';
+import getRequestConfig from '@/i18n'
+import { constructRootMetadata } from '@/shared/metadata'
+import type { Metadata } from 'next'
 
-import { Footer, Header } from '@/components/common';
-import { ApolloProvider, AuthProvider } from '@/components/providers';
-import { currentUser } from '@/features/profile';
-import { cn } from '@/lib';
-import '@/styles/globals.scss';
-import { NextIntlClientProvider } from 'next-intl';
-import { Inter, Montserrat } from 'next/font/google';
-import { Toaster } from 'sonner';
+import { Footer, Header } from '@/components/common'
+import { ApolloProvider, AuthProvider } from '@/components/providers'
+import { currentUser } from '@/features/profile'
+import { cn } from '@/lib'
+import '@/styles/globals.scss'
+import { NextIntlClientProvider } from 'next-intl'
+import { Inter, Montserrat } from 'next/font/google'
+import { Toaster } from 'sonner'
 
 // TODO: global: update all components which use @headlessui/react
 

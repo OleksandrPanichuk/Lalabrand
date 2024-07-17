@@ -102,8 +102,8 @@ Disclosure.Content = function Content({
           animate="open"
           exit="collapsed"
           variants={{
-            open: { opacity: 1, height: 'auto' },
-            collapsed: { opacity: 0, height: 0 },
+            open: { opacity: 1, height: 'auto', y: 0 },
+            collapsed: { opacity: 0, height: 0, y: -24 },
           }}
           transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
         >
