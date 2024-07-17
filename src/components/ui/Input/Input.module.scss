@@ -6,6 +6,16 @@
     color: var(--secondary-100);
   }
 }
+
+.input,
+.password-input {
+  &:disabled {
+    background-color: light-dark(
+      rgba(239, 239, 239, 0.3),
+      rgba(59, 59, 59, 0.3)
+    );
+  }
+}
 .base {
   @apply text-sm font-medium;
   padding: 0.75rem;
@@ -21,7 +31,9 @@
   padding: 0.9375rem 1.5rem;
 }
 
-input.invalid, .input[data-invalid=true], .password-input[data-invalid=true] {
+input.invalid,
+.input[data-invalid='true'],
+.password-input[data-invalid='true'] {
   border: 0.5px solid var(--alert-500) !important;
 }
 
