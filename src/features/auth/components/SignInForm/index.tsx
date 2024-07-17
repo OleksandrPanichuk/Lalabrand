@@ -11,7 +11,6 @@ import {
   PasswordInput,
 } from '@/components/ui';
 import { SignInFormValues, signInSchema, useSignIn } from '@/features/auth';
-import { cn } from '@/lib';
 import { Routes } from '@/shared/constants';
 import { Link, useRouter } from '@/shared/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';

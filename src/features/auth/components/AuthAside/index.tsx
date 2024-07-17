@@ -1,19 +1,36 @@
 'use client';
 
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
-import css from './AuthAside.module.scss';
-import { useResetPasswordStore } from '@/store';
+
+import { Routes } from '@/shared/constants'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import { useMemo } from 'react'
+import css from './AuthAside.module.scss'
+
+
+type Status = '' | 'checkEmail' | 'resetPassword'
 
 export const AuthAside = () => {
   const t = useTranslations();
   const pathname = usePathname();
-  const { status } = useResetPasswordStore();
-  const page = pathname.includes('signin') ? 'signin' : 'signup';
+  const page = pathname.includes('sign-in') ? 'sign-in' : 'sign-up';
+
+
+  const status: Status  = useMemo(() => {
+    if(pathname.includes(Routes.FORGOT_PASSWORD)) {
+      return 'checkEmail'
+    }
+
+    if(pathname.includes(Routes.RESET_PASSWORD)) {
+      return 'resetPassword';
+    }
+
+    return ''
+  }, [pathname])
 
   function getImageAlt(index: number) {
-    if (page === 'signin' && status) {
+    if (status) {
       return t(`Auth.Alt.resetPassword.${index}`);
     }
 

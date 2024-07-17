@@ -8,6 +8,7 @@ export enum Routes {
   
   SALE = '/sale',
   WISHLIST = '/wishlist',
+
   CUSTOMER_SERVICE = '/customer-service',
   TRACK_ORDER = '/track-order',
   LEGAL_PRIVACY = '/legal-privacy',
@@ -19,6 +20,8 @@ export enum Routes {
   CAREER = '/career',
   GIFT_CARDS = '/gift-cards',
   ABOUT_US = '/about-us',
+  
+
   CATEGORIES = '/categories',
   CART = '/cart',
   CHECKOUT = '/cart/checkout',

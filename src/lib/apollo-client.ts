@@ -2,7 +2,7 @@ import {
   ACCESS_TOKEN_COOKIE_NAME,
   XSRF_TOKEN_COOKIE_NAME,
 } from '@/shared/constants';
-import { ApolloLink, concat, HttpLink } from '@apollo/client';
+import { ApolloLink, from, HttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import {
   NextSSRApolloClient,
@@ -11,7 +11,7 @@ import {
 } from '@apollo/experimental-nextjs-app-support/ssr';
 import { getCookie } from 'cookies-next';
 
-const tokenLink = setContext((_, { headers: prevHeaders }) => {
+const tokenLink = setContext(async (_, { headers: prevHeaders }) => {
   // TODO: validate Access Token before setting it in httpLink headers(check if it has expired or not)
   const accessToken = getCookie(ACCESS_TOKEN_COOKIE_NAME);
 
@@ -48,8 +48,8 @@ export function makeClient() {
             new SSRMultipartLink({
               stripDefer: true,
             }),
-            concat(tokenLink, httpLink),
+            from([tokenLink, httpLink]),
           ])
-        : concat(tokenLink, httpLink),
+        : from([tokenLink, httpLink]),
   });
 }

@@ -2,7 +2,6 @@
 
 import { Logo, SvgIcon, Visibility } from '@/components/common';
 
-import { useAuth } from '@/components/providers';
 import { Routes, cssVariables } from '@/shared/constants';
 import { Link } from '@/shared/navigation';
 import styles from './Header.module.scss';
@@ -12,10 +11,10 @@ import {
   Navbar,
   SearchBar,
   SearchBarMobile,
+  UserMenu,
 } from './components';
 
 export const Header = () => {
-  const { user } = useAuth();
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -61,27 +60,15 @@ export const Header = () => {
           >
             <SearchBarMobile />
           </Visibility>
-          <ul className={styles['right-side__links']}>
-            <li>
-              <Link className={styles.link} href={Routes.WISHLIST}>
-                <SvgIcon name="like" stroke="var(--text-color)" />
-              </Link>
-            </li>
-            {/* TODO: User menu dropdown */}
-            <li>
-              <Link
-                className={styles.link}
-                href={user ? Routes.SETTINGS : Routes.SIGN_IN}
-              >
-                <SvgIcon name="account" />
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} href={Routes.CART}>
-                <SvgIcon name="cart" fill="#222" />
-              </Link>
-            </li>
-          </ul>
+          <div className={styles['right-side__links']}>
+            <Link className={styles.link} href={Routes.WISHLIST}>
+              <SvgIcon name="like" stroke="var(--text-color)" />
+            </Link>
+            <UserMenu />
+            <Link className={styles.link} href={Routes.CART}>
+              <SvgIcon name="cart" fill="#222" />
+            </Link>
+          </div>
         </div>
       </div>
     </header>
