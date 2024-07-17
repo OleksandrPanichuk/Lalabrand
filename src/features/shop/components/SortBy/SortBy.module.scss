@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  &--default {
+
     max-width: 15rem;
     width: 100%;
     > button {
@@ -31,19 +31,22 @@
         }
       }
     }
-  }
+  
 }
 
 .list {
   background-color: var(--neutral-000);
   &--default {
+    background-color: var(--neutral-000);
+    width: 100%;
+
     z-index: 20;
     top: 100%;
     position: absolute;
     margin-top: 2px;
     max-width: 15rem;
     width: 100%;
-    padding: 0 !important;
+    padding: 0 ;
     > li {
       border-bottom: 0.5px solid var(--neutral-300);
       &:first-child {

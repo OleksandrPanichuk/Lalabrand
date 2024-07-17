@@ -2,17 +2,18 @@
 
 
 .items {
-	@apply w-52 origin-top-right rounded-xl border border-white/5 shadow-lg bg-white p-1 text-sm/6 text-black transition duration-100 ease-out [--anchor-gap:8px] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 z-[1000];
+	@apply w-52 origin-top-right rounded-xl border border-white/5 shadow-lg bg-white p-1 text-sm/6 text-black transition duration-100 ease-out focus:outline-none  absolute right-0  z-[1000] top-[100%] mt-2;
 }
 
 .link, .signOut {
 	@apply flex w-full items-center gap-2 rounded-lg py-1.5 px-3  transition-all font-medium;
 }
 
-.link {
-	@apply data-[focus]:bg-zinc-100;
+.link--active {
+	@apply bg-zinc-100;
+	
 }
 
-.signOut {
-	@apply data-[focus]:bg-rose-200
+.signOut--active {
+	@apply bg-rose-200
 }

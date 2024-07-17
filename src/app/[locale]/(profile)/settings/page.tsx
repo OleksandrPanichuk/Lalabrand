@@ -253,6 +253,7 @@ const SettingsPage = () => {
                 </FormItem>
               )}
             />
+            {/* TODO:PhoneInput size fix */}
             <FormField
               control={control}
               name="phone"

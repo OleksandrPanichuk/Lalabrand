@@ -48,7 +48,7 @@ export const Disclosure = memo(
     return (
       <DisclosureContext.Provider value={{ isOpen, open, close, toggle }}>
         <div className={cn(styles.wrapper, className)} ref={ref} {...props}>
-          {typeof children === 'function' ? children(isOpen, close) : children}
+          {typeof children === 'function' ? children({isOpen, close}) : children}
         </div>
       </DisclosureContext.Provider>
     );
@@ -78,7 +78,7 @@ Disclosure.Trigger = function Trigger({
       }}
       {...props}
     >
-      {typeof children === 'function' ? children(isOpen) : children}
+      {typeof children === 'function' ? children({isOpen}) : children}
       <SvgIcon name="chevron" width={10} />
     </button>
   );
@@ -102,14 +102,42 @@ Disclosure.Content = function Content({
           animate="open"
           exit="collapsed"
           variants={{
-            open: { opacity: 1, height: 'auto' },
-            collapsed: { opacity: 0, height: 0 },
+            open: {
+              height: 'auto',
+              opacity: 1,
+              display: 'flex',
+              y: 0,
+              transition: {
+                height: {
+                  duration: 0.4,
+                },
+                opacity: {
+                  duration: 0.25,
+                  delay: 0.15,
+                },
+              },
+            },
+            collapsed: {
+              height: 0,
+              opacity: 0,
+              y: -24,
+              transition: {
+                height: {
+                  duration: 0.4,
+                },
+                opacity: {
+                  duration: 0.1,
+                },
+              },
+              transitionEnd: {
+                display: 'none',
+              },
+            },
           }}
           transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
         >
           <motion.div
-            variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
-            transition={{ duration: 0.4 }}
+            className="w-full"
           >
             <Component className={cn(styles.content, className)} {...props}>
               {children}
