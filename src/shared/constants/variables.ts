@@ -6,3 +6,6 @@ export const ACCESS_TOKEN_COOKIE_NAME = 'lalabrand:access-token';
 export const REFRESH_TOKEN_COOKIE_NAME = 'lalabrand:refresh-token';
 
 export const REFRESH_TOKEN_EXPIRATION = 1_036_800_000;
+
+
+export const CLOUDINARY_STORAGE_FOLDER_NAME = 'lalabrand'
