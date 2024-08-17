@@ -6,6 +6,8 @@ import { cn } from '@/lib';
 import { colors as data } from '@/shared/constants';
 import { useLocale, useTranslations } from 'next-intl';
 import styles from './ColorPicker.module.scss';
+
+
 // TODO: Rewrite this component using Disclosure instead of Picker
 export const ColorPicker = () => {
   const t = useTranslations();

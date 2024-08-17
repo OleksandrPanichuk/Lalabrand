@@ -5,14 +5,7 @@ import axios, { AxiosError } from 'axios';
 export async function getXSRFToken(): Promise<string> {
   let token: string = '';
   try {
-    await axios.post(
-      APP_URL + '/api/graphiql',
-      {},
-      {
-        withCredentials: true,
-        withXSRFToken: true,
-      },
-    );
+    await axios.post(APP_URL + '/api/graphiql');
   } catch (err) {
     const setCookieHeaderValue = (err as AxiosError).response?.headers[
       'set-cookie'
@@ -21,7 +14,6 @@ export async function getXSRFToken(): Promise<string> {
     const setCookieString = Array.isArray(setCookieHeaderValue)
       ? setCookieHeaderValue[0]
       : setCookieHeaderValue;
-
     token =
       insertCookieFromString(XSRF_TOKEN_COOKIE_NAME, setCookieString) ?? '';
   }
