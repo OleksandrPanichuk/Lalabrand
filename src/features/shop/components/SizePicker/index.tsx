@@ -1,11 +1,11 @@
 'use client';
 
-import { Checkbox } from '@/components/ui';
-import { Picker, useShopStore } from '@/features/shop';
+import { Checkbox, Disclosure } from '@/components/ui';
+import { useShopStore } from '@/features/shop';
 import { sizes as data } from '@/shared/constants';
 import { useTranslations } from 'next-intl';
 import styles from './SizePicker.module.scss';
-// TODO: Rewrite this component using Disclosure instead of Picker
+
 export const SizePicker = () => {
   const t = useTranslations('Shop');
 
@@ -15,9 +15,9 @@ export const SizePicker = () => {
   }));
 
   return (
-    <Picker className={styles.wrapper}>
-      <Picker.Trigger>{t('Size')}</Picker.Trigger>
-      <Picker.Content className={styles.inner}>
+    <Disclosure className={styles.wrapper}>
+      <Disclosure.Trigger>{t('Size')}</Disclosure.Trigger>
+      <Disclosure.Content className={styles.inner}>
         {data.map((size) => (
           <label key={size}>
             <Checkbox
@@ -27,7 +27,7 @@ export const SizePicker = () => {
             {size}
           </label>
         ))}
-      </Picker.Content>
-    </Picker>
+      </Disclosure.Content>
+    </Disclosure>
   );
 };

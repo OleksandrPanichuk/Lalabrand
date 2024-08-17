@@ -1,13 +1,13 @@
 'use client';
-import { NumberInput } from '@/components/ui';
-import { Picker, useShopStore } from '@/features/shop';
+import { Disclosure, NumberInput } from '@/components/ui';
+import { useShopStore } from '@/features/shop';
 import { useTranslations } from 'next-intl';
 import styles from './PricePicker.module.scss';
 
 const MIN = 0;
 const MAX = 1_000_000;
 const PRECISION = 2;
-// TODO: Rewrite this component using Disclosure instead of Picker
+
 export const PricePicker = () => {
   const t = useTranslations('Shop');
 
@@ -15,9 +15,9 @@ export const PricePicker = () => {
   const setPrice = useShopStore((state) => state.setPrice);
 
   return (
-    <Picker>
-      <Picker.Trigger>{t('Price')}</Picker.Trigger>
-      <Picker.Content className={styles.content}>
+    <Disclosure>
+      <Disclosure.Trigger>{t('Price')}</Disclosure.Trigger>
+      <Disclosure.Content className={styles.content}>
         <div className={styles.field}>
           <div>
             $
@@ -51,7 +51,7 @@ export const PricePicker = () => {
           </div>
           <label htmlFor="price-max">Max</label>
         </div>
-      </Picker.Content>
-    </Picker>
+      </Disclosure.Content>
+    </Disclosure>
   );
 };

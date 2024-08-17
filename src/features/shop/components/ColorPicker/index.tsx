@@ -1,14 +1,13 @@
 'use client';
 
-import { Checkbox } from '@/components/ui';
-import { Picker, useShopStore } from '@/features/shop';
+import { Checkbox, Disclosure } from '@/components/ui';
+import { useShopStore } from '@/features/shop';
 import { cn } from '@/lib';
 import { colors as data } from '@/shared/constants';
 import { useLocale, useTranslations } from 'next-intl';
 import styles from './ColorPicker.module.scss';
 
 
-// TODO: Rewrite this component using Disclosure instead of Picker
 export const ColorPicker = () => {
   const t = useTranslations();
 
@@ -20,9 +19,9 @@ export const ColorPicker = () => {
   const locale = useLocale();
 
   return (
-    <Picker>
-      <Picker.Trigger>{t('Shop.Color')}</Picker.Trigger>
-      <Picker.Content
+    <Disclosure>
+      <Disclosure.Trigger>{t('Shop.Color')}</Disclosure.Trigger>
+      <Disclosure.Content
         className={cn(
           styles.inner,
           locale === 'ua' ? styles['inner--ua'] : styles['inner-en'],
@@ -44,7 +43,7 @@ export const ColorPicker = () => {
             {t(el.label)}
           </label>
         ))}
-      </Picker.Content>
-    </Picker>
+      </Disclosure.Content>
+    </Disclosure>
   );
 };
