@@ -7,6 +7,7 @@ import { colors as data } from '@/shared/constants';
 import { useLocale, useTranslations } from 'next-intl';
 import styles from './ColorPicker.module.scss';
 
+
 export const ColorPicker = () => {
   const t = useTranslations();
 

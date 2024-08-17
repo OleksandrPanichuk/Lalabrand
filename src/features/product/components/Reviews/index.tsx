@@ -17,7 +17,7 @@ export const Reviews = ({ data }: IReviewsProps) => {
     <div className={styles.wrapper}>
       <h4 className={styles.title}>{t('Title')}</h4>
       <ul className={styles.list}>
-        {data.splice(0, 2).map((review) => (
+        {[...data].splice(0, 2).map((review) => (
           <li key={review.id} className={styles.review}>
             <div>
               <h5>{formatUsername(review.user)}</h5>
